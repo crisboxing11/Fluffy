@@ -1,40 +1,80 @@
+import { AppBar, Toolbar, Typography, Box, Avatar } from '@mui/material';
 import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <header className="bg-teal text-white py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        {/* Logo/Brand Name */}
-        <Link
-          href="/"
-          className="text-2xl font-bold hover:text-lightGray transition-colors"
-        >
-          Fluffy Pet Wash
-        </Link>
+    <AppBar position="static" sx={{ bgcolor: '#004d61', paddingY: 1 }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        {/* Logo */}
+        <Box display="flex" alignItems="center">
+          <Avatar
+            src="/fluffy.PNG" // Ensure the logo is in the public directory
+            alt="Fluffy Pet Wash Logo"
+            sx={{
+              width: 56,
+              height: 56,
+              border: '3px solid #02a7cf',
+              bgcolor: '#ffffff',
+              marginRight: 2,
+            }}
+          />
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 'bold', color: '#ffffff' }}
+          >
+            <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              Fluffy Pet Wash
+            </Link>
+          </Typography>
+        </Box>
 
         {/* Navigation Links */}
-        <nav className="space-x-6 text-sm sm:text-base">
-          <Link
-            href="/"
-            className="hover:text-pastelTeal transition-colors"
-          >
-            Home
+        <Box>
+          <Link href="/" passHref>
+            <Typography
+              variant="button"
+              sx={{
+                marginX: 2,
+                color: '#ffffff',
+                '&:hover': { color: '#a1e0e3' },
+                textDecoration: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              Home
+            </Typography>
           </Link>
-          <Link
-            href="/about"
-            className="hover:text-pastelTeal transition-colors"
-          >
-            About
+          <Link href="/about" passHref>
+            <Typography
+              variant="button"
+              sx={{
+                marginX: 2,
+                color: '#ffffff',
+                '&:hover': { color: '#a1e0e3' },
+                textDecoration: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              About
+            </Typography>
           </Link>
-          <Link
-            href="/franchise"
-            className="hover:text-pastelTeal transition-colors"
-          >
-            Franchise
+          <Link href="/franchise" passHref>
+            <Typography
+              variant="button"
+              sx={{
+                marginX: 2,
+                color: '#ffffff',
+                '&:hover': { color: '#a1e0e3' },
+                textDecoration: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              Franchise
+            </Typography>
           </Link>
-        </nav>
-      </div>
-    </header>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

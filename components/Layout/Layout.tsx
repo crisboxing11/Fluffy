@@ -1,14 +1,26 @@
-import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Box } from '@mui/material';
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <Box
+      display="flex"
+      flexDirection="column"
+      minHeight="100vh"
+      sx={{ bgcolor: '#ffffff' }}
+    >
+      {/* Navbar */}
       <Navbar />
-      <main className="min-h-screen">{children}</main>
+
+      {/* Main Content */}
+      <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
+        {children}
+      </Box>
+
+      {/* Footer */}
       <Footer />
-    </>
+    </Box>
   );
 };
 

@@ -1,35 +1,45 @@
+import { Box, Typography, Button } from '@mui/material';
 import BookingEmbed from '../components/BookingEmbed';
-
 
 const HomePage = () => {
   return (
-    <div>
-     
-
+    <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-aqua to-pastelTeal text-white text-center py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Fluffy Pet Wash!</h1>
-          <p className="mt-4 text-lg">Professional Mobile Pet Grooming, Now Franchising Nationwide!</p>
-          <div className="mt-8">
-            <a
-              href="/book"
-              className="bg-coral text-white px-6 py-3 rounded-lg hover:bg-lightGray transition-colors"
-            >
-              Book an Appointment
-            </a>
-          </div>
-        </div>
-      </section>
+      <Box
+        sx={{
+          py: 8,
+          textAlign: 'center',
+          color: '#ffffff',
+          background: 'linear-gradient(90deg, #02a7cf, #a1e0e3)',
+        }}
+      >
+        <Typography variant="h2" fontWeight="bold" gutterBottom>
+          Welcome to Fluffy Pet Wash!
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 4 }}>
+          Premium Mobile Pet Grooming, Now Franchising Nationwide!
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: '#ff6f61',
+            color: '#ffffff',
+            '&:hover': { bgcolor: '#d9e1e8', color: '#004d61' },
+          }}
+          href="/book"
+        >
+          Book Now
+        </Button>
+      </Box>
 
       {/* Booking Section */}
-      <section className="py-10 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-6">Book an Appointment</h2>
-          <BookingEmbed />
-        </div>
-      </section>
-    </div>
+      <Box sx={{ py: 4, bgcolor: '#ffffff' }}>
+        <Typography variant="h4" textAlign="center" gutterBottom>
+          Book an Appointment
+        </Typography>
+        <BookingEmbed />
+      </Box>
+    </>
   );
 };
 
