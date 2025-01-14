@@ -2,19 +2,34 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <header className="bg-gray-800 text-white py-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-2xl font-bold">Fluffy Pet Wash</h1>
+    <header className="bg-teal text-white py-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        {/* Logo/Brand Name */}
+        <Link
+          href="/"
+          className="text-2xl font-bold hover:text-lightGray transition-colors"
+        >
+          Fluffy Pet Wash
         </Link>
-        <nav className="space-x-4">
-          <Link href="/" className="hover:underline">
+
+        {/* Navigation Links */}
+        <nav className="space-x-6 text-sm sm:text-base">
+          <Link
+            href="/"
+            className="hover:text-pastelTeal transition-colors"
+          >
             Home
           </Link>
-          <Link href="/about" className="hover:underline">
+          <Link
+            href="/about"
+            className="hover:text-pastelTeal transition-colors"
+          >
             About
           </Link>
-          <Link href="/franchise" className="hover:underline">
+          <Link
+            href="/franchise"
+            className="hover:text-pastelTeal transition-colors"
+          >
             Franchise
           </Link>
         </nav>
