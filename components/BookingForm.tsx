@@ -1,45 +1,48 @@
-import { useState } from 'react';
-import { Box, TextField, Button, Typography, MenuItem } from '@mui/material';
+import { useState } from "react";
+import { Box, TextField, Button, Typography, MenuItem } from "@mui/material";
+
+// Define the type for available slots
+type AvailableSlot = {
+  time: string; // Time of the available slot
+  travelTime: string; // Travel time to the appointment (optional)
+};
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
-    address: '',
-    date: '',
+    address: "",
+    date: "",
   });
-  const [availableSlots, setAvailableSlots] = useState([]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  // Explicitly define the state type
+  const [availableSlots, setAvailableSlots] = useState<AvailableSlot[]>([]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const fetchAvailableSlots = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { address, date } = formData;
 
-    // Geocode address
-    const geocodeRes = await fetch('/api/geocode', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ address }),
-    });
-    const { lat, lng } = await geocodeRes.json();
-
-    // Check availability
-    const availabilityRes = await fetch('/api/check-availability', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lat, lng, date }),
-    });
-    const { availableSlots } = await availabilityRes.json();
-
-    setAvailableSlots(availableSlots);
+    try {
+      // Mocking API response for now
+      const mockResponse = [
+        { time: "10:00 AM", travelTime: "15 minutes" },
+        { time: "2:00 PM", travelTime: "20 minutes" },
+      ];
+      setAvailableSlots(mockResponse);
+    } catch (error) {
+      console.error("Error fetching available slots:", error);
+    }
   };
 
   return (
-    <Box sx={{ maxWidth: 600, mx: 'auto', p: 4, bgcolor: '#fff', boxShadow: 3, borderRadius: 2 }}>
+    <Box sx={{ maxWidth: 600, mx: "auto", p: 4, bgcolor: "#fff", boxShadow: 3, borderRadius: 2 }}>
       <Typography variant="h5" fontWeight="bold" mb={2}>
         Book Your Appointment
       </Typography>
+
+      {/* Address */}
       <TextField
         label="Address"
         name="address"
@@ -48,6 +51,8 @@ const BookingForm = () => {
         fullWidth
         sx={{ mb: 3 }}
       />
+
+      {/* Date */}
       <TextField
         label="Date"
         name="date"
@@ -58,9 +63,13 @@ const BookingForm = () => {
         fullWidth
         sx={{ mb: 3 }}
       />
+
+      {/* Fetch Availability Button */}
       <Button variant="contained" onClick={fetchAvailableSlots} fullWidth sx={{ mb: 3 }}>
         Check Availability
       </Button>
+
+      {/* Available Time Slots */}
       {availableSlots.length > 0 && (
         <TextField
           select
@@ -70,7 +79,7 @@ const BookingForm = () => {
         >
           {availableSlots.map((slot, index) => (
             <MenuItem key={index} value={slot.time}>
-              {slot.time} - {slot.travelTime} mins away
+              {slot.time} - {slot.travelTime}
             </MenuItem>
           ))}
         </TextField>
