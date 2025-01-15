@@ -1,78 +1,81 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+import { Box, TextField, Button, Typography, MenuItem } from '@mui/material';
 
-const BookingForm: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [message, setMessage] = useState('');
+const BookingForm = () => {
+  const [formData, setFormData] = useState({
+    address: '',
+    date: '',
+  });
+  const [availableSlots, setAvailableSlots] = useState([]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    try {
-      const response = await axios.post('/api/book', {
-        name,
-        email,
-        date,
-        time,
-      });
+  const fetchAvailableSlots = async () => {
+    const { address, date } = formData;
 
-      if (response.status === 200) {
-        setMessage('Booking confirmed! Check your email for details.');
-      } else {
-        setMessage('Failed to book. Please try again later.');
-      }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      setMessage('Error occurred while booking. Please try again.');
-    }
+    // Geocode address
+    const geocodeRes = await fetch('/api/geocode', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ address }),
+    });
+    const { lat, lng } = await geocodeRes.json();
+
+    // Check availability
+    const availabilityRes = await fetch('/api/check-availability', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lat, lng, date }),
+    });
+    const { availableSlots } = await availabilityRes.json();
+
+    setAvailableSlots(availableSlots);
   };
 
   return (
-    <div className="p-4 bg-gray-100 shadow-md rounded-md">
-      <h2 className="text-2xl font-bold mb-4">Book an Appointment</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+    <Box sx={{ maxWidth: 600, mx: 'auto', p: 4, bgcolor: '#fff', boxShadow: 3, borderRadius: 2 }}>
+      <Typography variant="h5" fontWeight="bold" mb={2}>
+        Book Your Appointment
+      </Typography>
+      <TextField
+        label="Address"
+        name="address"
+        value={formData.address}
+        onChange={handleChange}
+        fullWidth
+        sx={{ mb: 3 }}
+      />
+      <TextField
+        label="Date"
+        name="date"
+        type="date"
+        value={formData.date}
+        onChange={handleChange}
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+        sx={{ mb: 3 }}
+      />
+      <Button variant="contained" onClick={fetchAvailableSlots} fullWidth sx={{ mb: 3 }}>
+        Check Availability
+      </Button>
+      {availableSlots.length > 0 && (
+        <TextField
+          select
+          label="Available Time Slots"
+          fullWidth
+          sx={{ mb: 3 }}
         >
-          Book Now
-        </button>
-      </form>
-      {message && <p className="mt-4 text-center">{message}</p>}
-    </div>
+          {availableSlots.map((slot, index) => (
+            <MenuItem key={index} value={slot.time}>
+              {slot.time} - {slot.travelTime} mins away
+            </MenuItem>
+          ))}
+        </TextField>
+      )}
+    </Box>
   );
 };
 
