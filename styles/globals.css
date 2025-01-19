@@ -3,7 +3,79 @@
 @tailwind utilities;
 
 /* Custom global styles */
+/* General */
 body {
   font-family: 'Arial', sans-serif;
-  line-height: 1.6;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #002f4b; /* Dark Blue */
+}
+
+a {
+  text-decoration: none;
+  color: #02a7cf; /* Light Teal */
+}
+
+a:hover {
+  color: #a1e0e3; /* Pastel Teal */
+}
+
+/* Buttons */
+button {
+  font-family: 'Arial', sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+button.primary {
+  background-color: #02a7cf; /* Light Teal */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button.primary:hover {
+  background-color: #004d61; /* Teal Blue */
+}
+
+button.secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+button.secondary:hover {
+  background-color: #a1e0e3; /* Pastel Teal */
+  border-color: #a1e0e3;
+}
+
+/* Alerts */
+.alert {
+  background-color: #fcca46; /* Yellow */
+  color: #333333; /* Dark Gray */
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Form Fields */
+input, select {
+  border: 1px solid #d9e1e8; /* Light Gray-Blue */
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input:focus, select:focus {
+  border-color: #02a7cf; /* Light Teal */
+  outline: none;
+  box-shadow: 0 0 5px #02a7cf;
 }

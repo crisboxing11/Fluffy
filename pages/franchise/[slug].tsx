@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import BookingEmbed from '../../components/BookingEmbed';
 import franchises from '../../data/franchises.json'; // Import franchise data
 import Head from 'next/head';
 
@@ -64,11 +63,6 @@ const FranchisePage = () => {
           </div>
         )}
 
-        {/* Embedded Booking System */}
-        <div className="mt-10">
-          <h2 className="text-2xl font-bold text-center mb-4">Book an Appointment</h2>
-          <BookingEmbed />
-        </div>
 
         {/* Back to Home Link */}
         <div className="mt-8 text-center">

@@ -3,10 +3,15 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import Layout from '../components/Layout/Layout'; // Import the Layout component
-import '../styles/globals.css'; // Ensure global styles are imported
+import theme from '../styles/themes';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
+ <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Component {...pageProps} />
+  </ThemeProvider>
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
