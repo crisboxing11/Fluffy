@@ -1,36 +1,53 @@
 import { useState } from 'react';
 import { Box, Typography, TextField, Button, MenuItem } from '@mui/material';
+import territories from '../data/territories';
+import supportedBreeds from '../data/supportedBreeds';
 
 const PreBookingForm = () => {
+  const [location, setLocation] = useState('');
   const [breed, setBreed] = useState('');
   const [error, setError] = useState('');
 
-  const supportedBreeds = [
-    'Golden Retriever',
-    'Labrador Retriever',
-    'German Shepherd',
-    'Bulldog',
-    'Beagle',
-    'Chihuahua',
-    'Shih Tzu',
-    'Yorkshire Terrier',
-  ];
-
   const handleSubmit = () => {
+    if (!location || !breed) {
+      setError('Please select both a location and a dog breed.');
+      return;
+    }
+
     if (!supportedBreeds.includes(breed)) {
       setError(
         `We only service the following breeds: ${supportedBreeds.join(', ')}. We do not groom poodles or doodle mixes.`
       );
-    } else {
-      setError('');
-      window.location.href = 'https://booking.moego.pet/ol/FLUFFYPETWASH/book?utm_medium=embed';
+      return;
+    }
+
+    setError('');
+    const selectedTerritory = territories.find((territory) => territory.name === location);
+
+    if (selectedTerritory) {
+      // Redirect to the booking page for the selected territory
+      window.location.href = selectedTerritory.bookingUrl;
     }
   };
 
   return (
-    <Box sx={{ maxWidth: 600, mx: 'auto', py: 6, px: 3, textAlign: 'center', bgcolor: 'background.paper', boxShadow: 2 }}>
+    <Box
+      sx={{
+        py: 6,
+        px: 3,
+        textAlign: 'center',
+        bgcolor: '#ffffff',
+        boxShadow: 2,
+        borderRadius: 2,
+        maxWidth: 600,
+        mx: 'auto',
+      }}
+    >
       <Typography variant="h4" fontWeight="bold" mb={3}>
         Pre-Booking Form
+      </Typography>
+      <Typography variant="body1" color="textSecondary" mb={2}>
+        Please confirm your dog&apos;s breed and your location to proceed with booking.
       </Typography>
       <Typography
         variant="body1"
@@ -53,6 +70,21 @@ const PreBookingForm = () => {
       )}
       <TextField
         select
+        label="Select Location"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        fullWidth
+        required
+        sx={{ mb: 3 }}
+      >
+        {territories.map((territory, index) => (
+          <MenuItem key={index} value={territory.name}>
+            {territory.name}
+          </MenuItem>
+        ))}
+      </TextField>
+      <TextField
+        select
         label="Dog Breed"
         value={breed}
         onChange={(e) => setBreed(e.target.value)}
@@ -66,7 +98,13 @@ const PreBookingForm = () => {
           </MenuItem>
         ))}
       </TextField>
-      <Button variant="contained" color="primary" size="large" onClick={handleSubmit}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleSubmit}
+        size="large"
+        sx={{ textTransform: 'none' }}
+      >
         Proceed to Booking
       </Button>
     </Box>
