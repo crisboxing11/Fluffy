@@ -32,7 +32,7 @@ const ScrollingText = () => {
           textTransform: 'uppercase',
         }}
       >
-        We Focus and Specialize in The Mobile Dog Wash & Spa Experience the Furry Member of Your Family &nbsp; | &nbsp;
+        We Focus and Specialize in The Mobile Dog Wash & Spa Experience For The Furry Members of Your Family 
       </Typography>
     </Box>
   );

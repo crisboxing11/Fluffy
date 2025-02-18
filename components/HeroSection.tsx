@@ -16,7 +16,7 @@ const HeroSection = () => {
         overflow: 'hidden',
         bgcolor: '#FAFAFA',
         zIndex: 2, // ✅ Ensures it's above the next section
-        transform: 'translateY(-30px)', // ✅ Moves hero up slightly to prevent blending
+        
       }}
     >
       {/* Grid Layout for Image (Left) & Text (Right) */}

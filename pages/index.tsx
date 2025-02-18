@@ -1,7 +1,9 @@
-import { Box, Typography, Button, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Typography,  Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PreBookingForm from '../components/PreBookingForm';
 import HeroSection from '../components/HeroSection';
+import ScrollingText from '../components/ScrollingText';
+import WhyChooseSection from '../components/WhyChooseSection';
 
 const HomePage = () => {
   const services = [
@@ -20,47 +22,13 @@ const HomePage = () => {
   return (
     <Box>
       {/* Hero Section */}
-     <HeroSection />
+      <HeroSection />
 
+      {/* Scrolling Text Banner */}
+      <ScrollingText />
 
-      {/* Introduction Section (Refined for better spacing & UX) */}
-      <Box
-        sx={{
-          background: 'linear-gradient(to right, #0AC3E6, #00ADCD)',
-          color: '#fff',
-          textAlign: 'center',
-          py: 8,
-          px: 2,
-          mt: { xs: '-64px', md: '-80px' }, // Adjusts for fixed Navbar height
-        }}
-      >
-        <Typography variant="h4" fontWeight="bold" mb={3}>
-          Why Choose Fluffy Pet Wash?
-        </Typography>
-        <Typography variant="body1" maxWidth="700px" mx="auto" mb={4}>
-          Our stress-free mobile pet grooming brings top-tier services right to your doorstep. We use 
-          high-quality, pet-safe products and a gentle approach to keep your furry friends looking and 
-          feeling their best.
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          sx={{ mx: 1, textTransform: 'none' }}
-          href="#services"
-        >
-          Explore Services
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{ mx: 1, textTransform: 'none' }}
-          href="#booking"
-        >
-          Book an Appointment
-        </Button>
-      </Box>
+      {/* Why Choose Section (Updated for MobisPaw Aesthetic) */}
+      <WhyChooseSection />
 
       {/* About Section */}
       <Box sx={{ textAlign: 'center', py: 6, px: 3, bgcolor: '#f9f9f9' }}>
@@ -69,8 +37,7 @@ const HomePage = () => {
         </Typography>
         <Typography variant="body1" color="textSecondary" maxWidth="700px" mx="auto" mb={4}>
           At Fluffy Pet Wash, we bring professional grooming services right to your door. Our mission
-          is to make your pets look and feel their best while providing unparalleled convenience and
-          care.
+          is to make your pets look and feel their best while providing unparalleled convenience and care.
         </Typography>
         <img
           src="/about-image.jpg"
