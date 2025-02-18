@@ -103,7 +103,16 @@ const PreBookingForm = () => {
         color="primary"
         onClick={handleSubmit}
         size="large"
-        sx={{ textTransform: 'none' }}
+        sx={{ textTransform: 'none', background: 'linear-gradient(90deg, #00ADCD, #038B95)', 
+              px: 4,
+              py: 1.5,
+              fontWeight: 'bold',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+                transform: 'scale(1.05)',
+                transition: 'all 0.3s ease-in-out',
+              },
+        }}
       >
         Proceed to Booking
       </Button>
