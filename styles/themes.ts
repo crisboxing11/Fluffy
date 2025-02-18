@@ -3,47 +3,55 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#02a7cf', // Light Teal
-      contrastText: '#ffffff', // White
+      main: '#00ADCD', // Main brand color
+      contrastText: '#FFFFFF', // White text
     },
     secondary: {
-      main: '#004d61', // Teal Blue
-      contrastText: '#ffffff', // White
-    },
-    error: {
-      main: '#ff6f61', // Coral
-    },
-    warning: {
-      main: '#fcca46', // Yellow
+      main: '#067C92', // Darker teal for contrast
+      contrastText: '#FFFFFF',
     },
     background: {
-      default: '#f9f9f9', // Off-White
-      paper: '#ffffff', // White
+      default: '#DCDCDC', // Light gray background for sections
+      paper: '#FFFFFF', // White for cards and containers
     },
     text: {
-      primary: '#333333', // Dark Gray
-      secondary: '#002f4b', // Dark Blue
+      primary: '#038B95', // Teal text
+      secondary: '#067C92', // Darker teal for headings
+    },
+    error: {
+      main: '#E53935',
+    },
+    warning: {
+      main: '#FBC02D',
+    },
+    success: {
+      main: '#4CAF50',
     },
   },
   typography: {
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: `'Poppins', sans-serif`,
     h1: {
-      fontSize: '2.5rem',
+      fontSize: '2.8rem',
       fontWeight: 700,
-      color: '#002f4b', // Dark Blue
+      color: '#067C92',
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: '2.2rem',
       fontWeight: 600,
-      color: '#002f4b', // Dark Blue
+      color: '#067C92',
+    },
+    h3: {
+      fontSize: '1.8rem',
+      fontWeight: 600,
+      color: '#038B95',
     },
     body1: {
       fontSize: '1rem',
-      color: '#333333', // Dark Gray
+      color: '#067C92',
     },
     body2: {
-      fontSize: '0.875rem',
-      color: '#333333', // Dark Gray
+      fontSize: '0.9rem',
+      color: '#038B95',
     },
   },
   components: {
@@ -53,19 +61,21 @@ const theme = createTheme({
           borderRadius: 8,
           textTransform: 'none',
           fontWeight: 600,
+          transition: 'all 0.3s ease-in-out',
         },
         containedPrimary: {
-          backgroundColor: '#02a7cf',
-          color: '#ffffff',
+          backgroundColor: '#00ADCD',
+          color: '#FFFFFF',
           '&:hover': {
-            backgroundColor: '#004d61',
+            backgroundColor: '#038B95',
+            transform: 'scale(1.05)',
           },
         },
         outlinedPrimary: {
-          borderColor: '#02a7cf',
-          color: '#02a7cf',
+          borderColor: '#00ADCD',
+          color: '#00ADCD',
           '&:hover': {
-            backgroundColor: '#a1e0e3',
+            backgroundColor: '#93EDF0',
           },
         },
       },
@@ -76,13 +86,13 @@ const theme = createTheme({
           borderRadius: 8,
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
-              borderColor: '#d9e1e8', // Light Gray-Blue
+              borderColor: '#038B95',
             },
             '&:hover fieldset': {
-              borderColor: '#02a7cf', // Light Teal
+              borderColor: '#00ADCD',
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#02a7cf', // Light Teal
+              borderColor: '#0AC3E6',
             },
           },
         },
