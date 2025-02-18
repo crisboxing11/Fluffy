@@ -1,48 +1,57 @@
 import { Box, Typography, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { motion } from 'framer-motion';
+import PetsIcon from '@mui/icons-material/Pets';
+import SpaIcon from '@mui/icons-material/Spa';
+import ContentCutIcon from '@mui/icons-material/ContentCut';
+import BrushIcon from '@mui/icons-material/Brush';
+import HealingIcon from '@mui/icons-material/Healing';
+import WavesIcon from '@mui/icons-material/Waves';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import StarIcon from '@mui/icons-material/Star';
+import CleanHandsIcon from '@mui/icons-material/CleanHands';
 
 const services = [
-  'Professional Hypoallergenic Wash / Brush Out / Towel & Blow Out Dryer',
-  'Nails trimming & Filing',
-  'Ears cleaning',
-  'Professional organic conditioner and moisturizer',
-  'Mouth Wash and teeth brushing',
-  'Expressed Glands',
-  'Professional DeShedding',
-  'Paws cleaning & Paws Trimming',
-  'Sanitary/backside trimming',
-  'Blueberry Facial',
+  { text: 'Professional Hypoallergenic Wash / Brush Out / Towel & Blow Out Dryer', icon: WavesIcon },
+  { text: 'Nails trimming & Filing', icon: ContentCutIcon },
+  { text: 'Ears cleaning', icon: HealingIcon },
+  { text: 'Professional organic conditioner and moisturizer', icon: SpaIcon },
+  { text: 'Mouth Wash and teeth brushing', icon: CleanHandsIcon },
+  { text: 'Expressed Glands', icon: PetsIcon },
+  { text: 'Professional DeShedding', icon: BrushIcon },
+  { text: 'Paws cleaning & Paws Trimming', icon: FavoriteIcon },
+  { text: 'Sanitary/backside trimming', icon: StarIcon },
+  { text: 'Blueberry Facial', icon: CheckCircleIcon },
 ];
 
 const ServicesSection = () => {
   return (
-    <Box id="services" sx={{ py: 6, px: 3, bgcolor: 'background.default' }}>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <Typography variant="h3" fontWeight="bold" textAlign="center" mb={4}>
-          Our All-Inclusive Grooming Package
-        </Typography>
-      </motion.div>
-
-      <Grid container spacing={3} justifyContent="center">
-        {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <motion.div whileHover={{ scale: 1.05 }}>
-              <Card sx={{ boxShadow: 3, borderRadius: 2 }}>
-                <CardContent>
-                  <List>
-                    <ListItem>
-                      <ListItemIcon>
-                        <CheckCircleIcon color="primary" />
-                      </ListItemIcon>
-                      <ListItemText primary={service} />
-                    </ListItem>
-                  </List>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </Grid>
-        ))}
+    <Box id="services" sx={{ py: 8, px: 3, bgcolor: '#DCDCDC' }}>
+      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
+        Our All-Inclusive Grooming Package
+      </Typography>
+      <Typography variant="body1" color="textSecondary" textAlign="center" mb={6}>
+        At Fluffy Pet Wash, we provide **everything** your furry friend needs to look and feel their best.
+      </Typography>
+      <Grid container justifyContent="center">
+        <Grid item xs={12} md={8}>
+          <Card sx={{ boxShadow: 4, padding: 3, borderRadius: '15px', bgcolor: 'white' }}>
+            <CardContent>
+              <Typography variant="h5" fontWeight="bold" color="primary" textAlign="center" mb={3}>
+                What&apos;s Included:
+              </Typography>
+              <List>
+                {services.map((service, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <service.icon sx={{ color: '#038B95', fontSize: 30 }} /> {/* Custom color for icons */}
+                    </ListItemIcon>
+                    <ListItemText primary={service.text} primaryTypographyProps={{ fontWeight: 'bold', color: 'text.primary' }} />
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
     </Box>
   );
