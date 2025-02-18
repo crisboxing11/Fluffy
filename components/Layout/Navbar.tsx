@@ -14,17 +14,26 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <Box>
-          <Button color="inherit" sx={{ mx: 1, '&:hover': { color: '#93EDF0', transform: 'scale(1.1)' } }} href="/">
+          <Button color="inherit" href="/" sx={{ mx: 1 }}>
             Home
           </Button>
-          <Button color="inherit" sx={{ mx: 1, '&:hover': { color: '#93EDF0', transform: 'scale(1.1)' } }} href="/about">
+          <Button color="inherit" href="/about" sx={{ mx: 1 }}>
             About
           </Button>
-          <Button color="inherit" sx={{ mx: 1, '&:hover': { color: '#93EDF0', transform: 'scale(1.1)' } }} href="/services">
+          <Button color="inherit" href="/services" sx={{ mx: 1 }}>
             Services
           </Button>
-          <Button variant="contained" color="secondary" sx={{ ml: 2 }} href="#booking">
-            Book Now
+          <Button color="inherit" href="/prices" sx={{ mx: 1 }}>
+            Prices
+          </Button>
+          <Button color="inherit" href="/faq" sx={{ mx: 1 }}>
+            FAQ
+          </Button>
+          <Button color="inherit" href="/contact" sx={{ mx: 1 }}>
+            Contact
+          </Button>
+          <Button variant="contained" color="secondary" sx={{ ml: 2 }} href="/apply">
+            Apply as a Groomer
           </Button>
         </Box>
       </Toolbar>

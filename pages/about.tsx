@@ -1,12 +1,17 @@
+import { Typography, Container } from '@mui/material';
+
 const AboutPage = () => {
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold">About Fluffy Pet Wash</h1>
-      <p className="mt-4">
-        Fluffy Pet Wash is a mobile pet grooming service that brings convenience and care to your
-        doorstep. Now expanding nationwide as a franchise!
-      </p>
-    </div>
+    <Container sx={{ py: 6 }}>
+      <Typography variant="h2" fontWeight="bold" textAlign="center" mb={4}>
+        About Fluffy Pet Wash
+      </Typography>
+      <Typography variant="body1" textAlign="center" maxWidth="800px" mx="auto">
+        At Fluffy Pet Wash, we provide premium mobile pet grooming services with a focus on comfort, 
+        care, and convenience. Our highly trained groomers are passionate about keeping your pets 
+        happy and healthy. We believe in transparency, reliability, and top-tier service.
+      </Typography>
+    </Container>
   );
 };
 
