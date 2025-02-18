@@ -3,20 +3,20 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#00ADCD', // Main brand color
-      contrastText: '#FFFFFF', // White text
+      main: '#00ADCD', // Brand Primary
+      contrastText: '#FFFFFF', // White Text
     },
     secondary: {
-      main: '#067C92', // Darker teal for contrast
+      main: '#0AC3E6', // Accent Color
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#DCDCDC', // Light gray background for sections
-      paper: '#FFFFFF', // White for cards and containers
+      default: '#DCDCDC', // Light Gray Background
+      paper: '#FFFFFF', // White for Cards/Containers
     },
     text: {
-      primary: '#038B95', // Teal text
-      secondary: '#067C92', // Darker teal for headings
+      primary: '#067C92', // Dark Teal for Headings
+      secondary: '#038B95', // Medium Teal for Secondary Text
     },
     error: {
       main: '#E53935',
@@ -67,7 +67,7 @@ const theme = createTheme({
           backgroundColor: '#00ADCD',
           color: '#FFFFFF',
           '&:hover': {
-            backgroundColor: '#038B95',
+            backgroundColor: '#04ACB8',
             transform: 'scale(1.05)',
           },
         },

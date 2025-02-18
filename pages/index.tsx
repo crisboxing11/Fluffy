@@ -1,6 +1,7 @@
 import { Box, Typography, Button, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PreBookingForm from '../components/PreBookingForm';
+import HeroSection from '../components/HeroSection';
 
 const HomePage = () => {
   const services = [
@@ -19,20 +20,25 @@ const HomePage = () => {
   return (
     <Box>
       {/* Hero Section */}
+      <HeroSection />
+
+      {/* Introduction Section (Refined for better flow) */}
       <Box
         sx={{
-          background: 'linear-gradient(to right, #4facfe, #00f2fe)',
+          background: 'linear-gradient(to right, #0AC3E6, #00ADCD)',
           color: '#fff',
           textAlign: 'center',
-          py: 10,
+          py: 8,
           px: 2,
         }}
       >
-        <Typography variant="h3" fontWeight="bold" mb={2}>
-          Welcome to Fluffy Pet Wash!
+        <Typography variant="h4" fontWeight="bold" mb={3}>
+          Why Choose Fluffy Pet Wash?
         </Typography>
-        <Typography variant="h5" mb={4}>
-          Mobile Pet Grooming at Your Doorstep
+        <Typography variant="body1" maxWidth="700px" mx="auto" mb={4}>
+          We provide stress-free mobile pet grooming services right at your doorstep! Our professional
+          groomers use high-quality, pet-safe products and a gentle approach to keep your furry friends
+          looking and feeling their best.
         </Typography>
         <Button
           variant="contained"

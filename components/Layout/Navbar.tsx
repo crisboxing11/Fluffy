@@ -3,16 +3,14 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <AppBar position="sticky" color="primary" elevation={4}>
+    <AppBar position="sticky" sx={{ bgcolor: 'primary.main' }} elevation={4}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
-        {/* Logo */}
         <Typography variant="h5" fontWeight="bold">
           <Link href="/" style={{ textDecoration: 'none', color: 'white' }}>
             Fluffy Pet Wash
           </Link>
         </Typography>
 
-        {/* Navigation Links */}
         <Box>
           <Button color="inherit" href="/" sx={{ mx: 1 }}>
             Home

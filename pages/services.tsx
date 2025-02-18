@@ -1,4 +1,4 @@
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, Container } from '@mui/material';
+import { Typography, List, ListItem, ListItemIcon, ListItemText, Container } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const services = [
