@@ -4,6 +4,7 @@ import PreBookingForm from '../components/PreBookingForm';
 import HeroSection from '../components/HeroSection';
 import ScrollingText from '../components/ScrollingText';
 import WhyChooseSection from '../components/WhyChooseSection';
+import AboutUsSection from '../components/AboutUsSection'
 
 const HomePage = () => {
   const services = [
@@ -29,27 +30,8 @@ const HomePage = () => {
 
       {/* Why Choose Section (Updated for MobisPaw Aesthetic) */}
       <WhyChooseSection />
-
-      {/* About Section */}
-      <Box sx={{ textAlign: 'center', py: 6, px: 3, bgcolor: '#f9f9f9' }}>
-        <Typography variant="h4" fontWeight="bold" mb={3}>
-          About Us
-        </Typography>
-        <Typography variant="body1" color="textSecondary" maxWidth="700px" mx="auto" mb={4}>
-          At Fluffy Pet Wash, we bring professional grooming services right to your door. Our mission
-          is to make your pets look and feel their best while providing unparalleled convenience and care.
-        </Typography>
-        <img
-          src="/about-image.jpg"
-          alt="About Fluffy Pet Wash"
-          style={{
-            maxWidth: '100%',
-            borderRadius: '8px',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-          }}
-        />
-      </Box>
-
+      {/* About Us Section */}
+      <AboutUsSection />
       {/* Services Section */}
       <Box id="services" sx={{ py: 6, px: 3 }}>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
