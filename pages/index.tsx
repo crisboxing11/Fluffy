@@ -20,9 +20,10 @@ const HomePage = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <HeroSection />
+     <HeroSection />
 
-      {/* Introduction Section (Refined for better flow) */}
+
+      {/* Introduction Section (Refined for better spacing & UX) */}
       <Box
         sx={{
           background: 'linear-gradient(to right, #0AC3E6, #00ADCD)',
@@ -30,15 +31,16 @@ const HomePage = () => {
           textAlign: 'center',
           py: 8,
           px: 2,
+          mt: { xs: '-64px', md: '-80px' }, // Adjusts for fixed Navbar height
         }}
       >
         <Typography variant="h4" fontWeight="bold" mb={3}>
           Why Choose Fluffy Pet Wash?
         </Typography>
         <Typography variant="body1" maxWidth="700px" mx="auto" mb={4}>
-          We provide stress-free mobile pet grooming services right at your doorstep! Our professional
-          groomers use high-quality, pet-safe products and a gentle approach to keep your furry friends
-          looking and feeling their best.
+          Our stress-free mobile pet grooming brings top-tier services right to your doorstep. We use 
+          high-quality, pet-safe products and a gentle approach to keep your furry friends looking and 
+          feeling their best.
         </Typography>
         <Button
           variant="contained"
