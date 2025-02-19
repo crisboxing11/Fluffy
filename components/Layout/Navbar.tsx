@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Button, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, IconButton, Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -76,26 +76,27 @@ const Navbar = () => {
               }
             }}
           >
-            <List>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+            <List sx={{ textAlign: 'center', py: 2 }}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/">Home</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/about">About</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/services">Services</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/prices">Prices</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/faq">FAQ</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle}>
+              <ListItem button onClick={handleDrawerToggle}>
                 <ListItemText primary={<Link href="/contact">Contact</Link>} />
               </ListItem>
-              <ListItem component="div" button onClick={handleDrawerToggle} sx={{ bgcolor: '#038B95', borderRadius: '5px', mt: 1 }}>
+              <Divider sx={{ my: 2 }} />
+              <ListItem button onClick={handleDrawerToggle} sx={{ bgcolor: '#038B95', borderRadius: '5px', mt: 1 }}>
                 <ListItemText primary={<Link href="/apply" style={{ color: '#FFFFFF' }}>Apply as a Groomer</Link>} />
               </ListItem>
             </List>
