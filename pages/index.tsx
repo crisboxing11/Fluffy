@@ -1,24 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import PreBookingForm from '../components/PreBookingForm';
-import HeroSection from '../components/HeroSection';
-import ScrollingText from '../components/ScrollingText';
-import WhyChooseSection from '../components/WhyChooseSection';
-import AboutUsSection from '../components/AboutUsSection'
-import ServiceSection from '../components/ServicesSection';
+
+import Home from './HomePage';
 const HomePage = () => {
 
   return (
     <Box>
-      {/* Hero Section */}
-      <HeroSection />
-      {/* Scrolling Text Banner */}
-      <ScrollingText />
-      {/* Why Choose Section (Updated for MobisPaw Aesthetic) */}
-      <WhyChooseSection />
-      {/* About Us Section */}
-      <AboutUsSection />
-      {/* Services Section */}
-      <ServiceSection />
+      <Home />
 
       {/* Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }}>

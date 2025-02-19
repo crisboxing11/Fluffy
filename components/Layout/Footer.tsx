@@ -8,8 +8,16 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: '#038B95', color: 'white', py: 6, px: { xs: 3, md: 6 } }}>
-      <Grid container spacing={4} justifyContent="space-between" alignItems="center">
+    <Box
+      sx={{
+        bgcolor: '#038B95',
+        color: 'white',
+        py: 6,
+        px: { xs: 3, md: 6 },
+        textAlign: 'center',
+      }}
+    >
+      <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
         
         {/* Column 1: Brand & Description */}
         <Grid item xs={12} md={4} textAlign={{ xs: 'center', md: 'left' }}>
@@ -17,7 +25,7 @@ const Footer = () => {
             Fluffy Pet Wash
           </Typography>
           <Typography variant="body2" color="white" maxWidth={300}>
-            Convenient & stress-free mobile pet grooming that ensures **top-tier care** for your furry friend.
+            Convenient & stress-free mobile pet grooming that ensures top-tier care for your furry friend.
           </Typography>
         </Grid>
 
@@ -27,16 +35,16 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Box display="flex" flexDirection="column" alignItems="center">
-            <Link href="/" color="inherit" underline="none" sx={{ my: 0.5 }}>
+            <Link href="/" color="inherit" underline="none" sx={{ my: 0.5, fontWeight: 'bold' }}>
               Home
             </Link>
-            <Link href="/about" color="inherit" underline="none" sx={{ my: 0.5 }}>
+            <Link href="/about" color="inherit" underline="none" sx={{ my: 0.5, fontWeight: 'bold' }}>
               About
             </Link>
-            <Link href="/services" color="inherit" underline="none" sx={{ my: 0.5 }}>
+            <Link href="/services" color="inherit" underline="none" sx={{ my: 0.5, fontWeight: 'bold' }}>
               Services
             </Link>
-            <Link href="#booking" color="inherit" underline="none" sx={{ my: 0.5 }}>
+            <Link href="#booking" color="inherit" underline="none" sx={{ my: 0.5, fontWeight: 'bold' }}>
               Book Now
             </Link>
           </Box>
@@ -61,7 +69,7 @@ const Footer = () => {
         </Grid>
       </Grid>
 
-      {/* Divider */}
+      {/* Divider for separation */}
       <Divider sx={{ my: 4, bgcolor: 'white', opacity: 0.3 }} />
 
       {/* Social Media & Copyright */}
