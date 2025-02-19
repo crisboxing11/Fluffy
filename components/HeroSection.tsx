@@ -1,7 +1,7 @@
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import DogImage from '../public/Dog2.png'; // ✅ Ensure it's inside `public/`
+import DogImage from '../public/Dog2.png'; // ✅ Ensure it's inside public/
 
 const HeroSection = () => {
   return (
