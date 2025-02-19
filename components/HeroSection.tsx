@@ -9,28 +9,46 @@ const HeroSection = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        height: { xs: '72vh', md: '77vh' }, // ✅ Slightly reduced height
+        height: { xs: '90vh', md: '77vh' }, // ✅ Adjusts mobile height while keeping desktop intact
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
         bgcolor: '#FAFAFA',
         zIndex: 2, // ✅ Ensures it's above the next section
-        
       }}
     >
-      {/* Grid Layout for Image (Left) & Text (Right) */}
       <Grid container sx={{ height: '100%' }}>
         {/* Left Side: Hero Image */}
-        <Grid item xs={12} md={6} sx={{ position: 'relative', height: '100%' }}>
-          <Image
-            src={DogImage}
-            alt="Happy groomed dog"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="left center"
-            priority
-          />
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            position: 'relative',
+            height: { xs: '50vh', md: '100%' }, // ✅ Full height for desktop, adjusts for mobile
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: { xs: 'center', md: 'flex-start' }, // ✅ Centered for mobile, left-aligned for desktop
+            overflow: 'hidden',
+          }}
+        >
+          <Box
+            sx={{
+              position: 'relative',
+              width: { xs: '100%', md: '100%' }, // ✅ Ensures full width on all devices
+              height: { xs: '100%', md: '100%' }, // ✅ Responsive height
+            }}
+          >
+            <Image
+              src={DogImage}
+              alt="Happy groomed dog"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="left center" // ✅ Keeps image centered across all screens
+              priority
+            />
+          </Box>
         </Grid>
 
         {/* Right Side: Hero Text */}
@@ -41,10 +59,12 @@ const HeroSection = () => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            alignItems: { xs: 'center', md: 'flex-start' }, // ✅ Center text on mobile, left-align on desktop
             justifyContent: 'center',
-            textAlign: 'left',
-            padding: { xs: '40px', md: '60px' },
+            textAlign: { xs: 'center', md: 'left' },
+            px: { xs: 3, md: 6 }, // ✅ Adjusted for better mobile spacing
+            py: { xs: 6, md: 0 },
+            zIndex: 3, // ✅ Ensures text is always visible
           }}
         >
           <motion.div
@@ -56,7 +76,7 @@ const HeroSection = () => {
               variant="h2"
               fontWeight="bold"
               sx={{
-                fontSize: { xs: '2.2rem', md: '3.8rem' },
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3.8rem' }, // ✅ Adjusted dynamically for best readability
                 textTransform: 'uppercase',
                 letterSpacing: '2px',
                 textShadow: '3px 3px 8px rgba(0, 0, 0, 0.4)',
@@ -70,10 +90,10 @@ const HeroSection = () => {
             <Typography
               variant="h5"
               sx={{
-                fontSize: { xs: '1.1rem', md: '1.6rem' },
+                fontSize: { xs: '1.1rem', sm: '1.4rem', md: '1.6rem' }, // ✅ Ensures readability on mobile
                 fontWeight: 400,
                 letterSpacing: '1px',
-                maxWidth: '500px',
+                maxWidth: { xs: '90%', md: '500px' }, // ✅ Prevents text from overflowing
                 color: '#333',
                 mb: 4,
               }}
@@ -86,9 +106,9 @@ const HeroSection = () => {
               color="secondary"
               size="large"
               sx={{
-                px: 4,
-                py: 1.5,
-                fontSize: '1.2rem',
+                px: { xs: 3, md: 4 },
+                py: { xs: 1, md: 1.5 },
+                fontSize: { xs: '1rem', md: '1.2rem' }, // ✅ Adjusts button size dynamically
                 fontWeight: 'bold',
                 textTransform: 'none',
                 background: 'linear-gradient(90deg, #00ADCD, #038B95)',
