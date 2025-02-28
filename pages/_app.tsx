@@ -8,10 +8,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
- <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <Component {...pageProps} />
-  </ThemeProvider>
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -29,26 +25,29 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [router.events]);
 
   return (
-    <Layout>
-      {/* Google Analytics Script */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-YTSZ6NZWP3"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YTSZ6NZWP3');
-          `,
-        }}
-      />
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Layout>
+        {/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YTSZ6NZWP3"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-YTSZ6NZWP3');
+            `,
+          }}
+        />
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 };
 

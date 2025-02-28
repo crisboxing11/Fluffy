@@ -52,9 +52,9 @@ const Navbar = () => {
             variant="contained" 
             color="secondary" 
             sx={{ ml: 2, backgroundColor: '#038B95', '&:hover': { backgroundColor: '#00ADCD' } }} 
-            href="/apply"
+            href="/#booking"
           >
-            Apply as a Groomer
+           Book Now
           </Button>
         </Box>
         
@@ -97,7 +97,7 @@ const Navbar = () => {
               </ListItem>
               <Divider sx={{ my: 2 }} />
               <ListItem button onClick={handleDrawerToggle} sx={{ bgcolor: '#038B95', borderRadius: '5px', mt: 1 }}>
-                <ListItemText primary={<Link href="/apply" style={{ color: '#FFFFFF' }}>Apply as a Groomer</Link>} />
+                <ListItemText primary={<Link href="#booking" style={{ color: '#FFFFFF' }}>Book Now</Link>} />
               </ListItem>
             </List>
           </Drawer>

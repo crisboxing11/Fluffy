@@ -127,8 +127,8 @@ const ServicesPage = () => {
             Why Choose Fluffy Pet Wash?
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: 700, mx: 'auto', mb: 3 }}>
-            🏡 **Convenience at Your Doorstep** <br />
-            No more stressful salon visits—our fully equipped mobile van brings luxury grooming **to you**.
+            🏡 <b>Convenience at Your Doorstep</b> <br />
+            No more stressful salon visits—our fully equipped mobile van brings luxury grooming <b>to you</b>.
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
              <Button variant="contained" size="large" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">

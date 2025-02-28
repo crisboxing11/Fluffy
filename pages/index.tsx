@@ -7,7 +7,6 @@ const HomePage = () => {
   return (
     <Box>
       <Home />
-
       {/* Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }}>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>

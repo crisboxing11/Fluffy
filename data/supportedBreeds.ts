@@ -67,6 +67,8 @@ const supportedBreeds = [
   'Weimaraner',
   'Whippet',
   'Wirehaired Vizsla',
+  'Great Pyrenees',
+  'Malamute',
 ];
 
 export default supportedBreeds;

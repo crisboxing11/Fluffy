@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Grid, Card, CardContent, Avatar } from '@mui/material';
+import { Box, Typography, Button, Grid, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import PetsIcon from '@mui/icons-material/Pets';
 import StarIcon from '@mui/icons-material/Star';
@@ -6,9 +6,15 @@ import SpaIcon from '@mui/icons-material/Spa';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animations
+import { motion } from 'framer-motion';
 import DogImage from '../public/Dog2.png';
-import TestimonialImage from '../public/Dog3.png';
+import { useEffect, useState } from 'react';
+import ReviewDog1 from '../public/ReviewDog1.jpg';
+import ReviewDog2 from '../public/ReviewDog2.jpg';
+import ReviewDog5 from '../public/ReviewDog5.jpg';
+import ReviewDog6 from '../public/ReviewDog6.jpg';
+import ReviewDog4 from '../public/ReviewDog4.jpg';
+
 
 // Testimonial Carousel Settings
 const testimonialSettings = {
@@ -22,16 +28,37 @@ const testimonialSettings = {
   adaptiveHeight: true,
 };
 
-// Fade-In & Slide-Up Animation
+const testimonials = [
+  { name: "Katie Jones, Las Vegas", text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It’s the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶"
+, image: ReviewDog1 },
+  { name: "Toni Robinson, Las Vegas", text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I’m so grateful and will definitely use them again!", image: ReviewDog2 },
+  { name: "David P., North Las Vegas", text: "Highly recommended! Fantastic service, and my dog looked perfect!", image: ReviewDog4 },
+   { name: "Linda Creelman, North Las Vegas", text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊", image: ReviewDog5 },
+    { name: "Christie Gribben, Las Vegas", text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.", image: ReviewDog6 }
+];
+
+// Animations
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 };
 
 const Home = () => {
+  const [opacity, setOpacity] = useState(0.9); // Default for desktop
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpacity(window.innerWidth < 900 ? 0.3 : 0.9); // ✅ Adjust opacity based on screen width
+    };
+
+    handleResize(); // ✅ Set initial state
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize); // ✅ Cleanup on unmount
+  }, []);
   return (
     <Box>
-      {/* Hero Section with Fade & Slide Effect */}
+      {/* Hero Section with Mobile Image Adjustment */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
           sx={{
@@ -52,13 +79,20 @@ const Home = () => {
             layout="fill"
             objectFit="cover"
             priority
-            style={{ opacity: 0.5 }}
+            style={{
+              opacity: opacity, // ✅ Adjusted opacity based on screen width
+              objectPosition: 'center left', // Default Centered
+            }}
           />
-          <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
+          <Box sx={{ position: 'relative', zIndex: 2, px: { xs: 3, md: 10 },textAlign: { xs: 'center', md: 'center' },ml: { xs: 0, md: 'auto' }, }}>
             <Typography
               variant="h2"
               fontWeight="bold"
-              sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, color: '#067C92' }}
+              sx={{
+                fontSize: { xs: '2rem', md: '3.5rem' },
+                color: '#067C92',
+                textAlign: 'center',
+              }}
             >
               Luxury Mobile Pet Grooming
             </Typography>
@@ -124,12 +158,8 @@ const Home = () => {
             What Pet Owners Are Saying
           </Typography>
           
-          <Slider {...testimonialSettings}>
-            {[
-              { name: "Sarah J., Las Vegas", text: "Fluffy Pet Wash was amazing! My pup has never been this clean and happy." },
-              { name: "Michael R., Henderson", text: "Such an easy experience! Booking was simple, and my dog smelled incredible!" },
-              { name: "Jessica W., Summerlin", text: "The groomers were so gentle, and my dog absolutely loved it!" },
-            ].map((review, index) => (
+         <Slider {...testimonialSettings}>
+            {testimonials.map((review, index) => (
               <Card 
                 key={index} 
                 sx={{ 
@@ -138,11 +168,33 @@ const Home = () => {
                   borderRadius: '15px', 
                   bgcolor: 'white', 
                   maxWidth: 600, 
-                  mx: 'auto' 
+                  mx: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
                 }}
               >
-                <CardContent>
-                  <Avatar src={TestimonialImage.src} sx={{ width: 60, height: 60, mx: 'auto', mb: 2 }} />
+                  <CardContent sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  {/* ✅ Dynamic Testimonial Image */}
+                   <Box  sx={{
+                      width: 200,
+                      height: 200,
+                      borderRadius: '15px', // Slightly rounded edges
+                      overflow: 'hidden',
+                      boxShadow: '0px 4px 10px rgba(0,0,0,0.2)', // Soft shadow effect
+                      mb: 2, // Space below image
+                    }}>
+                    <Image 
+                      src={review.image} 
+                      alt={review.name} 
+                      layout="intrinsic" 
+                      width={200} 
+                      height={200} 
+                      objectFit="cover" // Ensures the image fills the frame properly
+                    />
+                  </Box>
+
+                  
                   <Typography variant="body1" textAlign="center" color="textSecondary">
                     &quot;{review.text}&quot;
                   </Typography>

@@ -8,6 +8,13 @@ const PreBookingForm = () => {
   const [breed, setBreed] = useState('');
   const [error, setError] = useState('');
 
+  // ✅ Future-Proofed Moego URL Mapping for Multiple Locations
+  const moegoBookingLinks = {
+    "Las Vegas": "https://app.moego.pet/lasvegasbooking",
+    "Miami": "https://app.moego.pet/miamibooking", // 🔥 Add new locations easily
+    "New York": "https://app.moego.pet/newyorkbooking", // Example for expansion
+  };
+
   const handleSubmit = () => {
     if (!location || !breed) {
       setError('Please select both a location and a dog breed.');
@@ -25,8 +32,9 @@ const PreBookingForm = () => {
     const selectedTerritory = territories.find((territory) => territory.name === location);
 
     if (selectedTerritory) {
-      // Redirect to the booking page for the selected territory
-      window.location.href = selectedTerritory.bookingUrl;
+      // ✅ Dynamically set the Moego URL based on the selected location
+      const bookingUrl = moegoBookingLinks[location] || "https://app.moego.pet/lasvegasbooking"; // Default fallback
+      window.location.href = bookingUrl;
     }
   };
 
@@ -103,15 +111,17 @@ const PreBookingForm = () => {
         color="primary"
         onClick={handleSubmit}
         size="large"
-        sx={{ textTransform: 'none', background: 'linear-gradient(90deg, #00ADCD, #038B95)', 
-              px: 4,
-              py: 1.5,
-              fontWeight: 'bold',
-              '&:hover': {
-                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
-                transform: 'scale(1.05)',
-                transition: 'all 0.3s ease-in-out',
-              },
+        sx={{
+          textTransform: 'none',
+          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+          px: 4,
+          py: 1.5,
+          fontWeight: 'bold',
+          '&:hover': {
+            background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+            transform: 'scale(1.05)',
+            transition: 'all 0.3s ease-in-out',
+          },
         }}
       >
         Proceed to Booking

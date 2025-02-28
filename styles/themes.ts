@@ -29,7 +29,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `'Poppins', sans-serif`,
+ fontFamily: `"Inter", "Arial", sans-serif`,
     h1: {
       fontSize: '2.8rem',
       fontWeight: 700,
