@@ -42,16 +42,20 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/">Home</Button>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/about">About</Button>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/services">Services</Button>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/prices">Prices</Button>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/faq">FAQ</Button>
-          <Button sx={{ color: '#067C92', mx: 1 }} href="/contact">Contact</Button>
+          {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
+            <Button key={index} sx={{ color: '#067C92', mx: 1 }} href={`/${item.toLowerCase()}`}>
+              {item}
+            </Button>
+          ))}
           <Button 
             variant="contained" 
             color="secondary" 
-            sx={{ ml: 2, backgroundColor: '#038B95', '&:hover': { backgroundColor: '#00ADCD' } }} 
+            sx={{ 
+              ml: 2, 
+              background: 'linear-gradient(90deg, #038B95, #00ADCD)', 
+              '&:hover': { background: 'linear-gradient(90deg, #00ADCD, #038B95)', transform: 'scale(1.05)' }, 
+              transition: 'all 0.3s ease-in-out',
+            }} 
             href="/#booking"
           >
            Book Now
@@ -70,34 +74,59 @@ const Navbar = () => {
             sx={{
               '& .MuiDrawer-paper': {
                 width: '75vw',
-                bgcolor: '#FFFFFF',
+                bgcolor: '#F8F9FA',
                 color: '#067C92',
-                padding: 2,
+                padding: 3,
+                borderRadius: '10px 0 0 10px',
               }
             }}
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/">Home</Link>} />
-              </ListItem>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/about">About</Link>} />
-              </ListItem>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/services">Services</Link>} />
-              </ListItem>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/prices">Prices</Link>} />
-              </ListItem>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/faq">FAQ</Link>} />
-              </ListItem>
-              <ListItem button onClick={handleDrawerToggle}>
-                <ListItemText primary={<Link href="/contact">Contact</Link>} />
-              </ListItem>
+              {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
+                <ListItem 
+                  key={index} 
+                  component="button" 
+                  onClick={handleDrawerToggle} 
+                  sx={{ 
+                    py: 2, 
+                    px: 3, 
+                    borderRadius: '10px',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': { bgcolor: '#E0F7FA', transform: 'scale(1.05)' }
+                  }}
+                >
+                  <ListItemText 
+                    primary={
+                      <Link href={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: '#067C92', fontWeight: 'bold' }}>
+                        {item}
+                      </Link>
+                    } 
+                  />
+                </ListItem>
+              ))}
               <Divider sx={{ my: 2 }} />
-              <ListItem button onClick={handleDrawerToggle} sx={{ bgcolor: '#038B95', borderRadius: '5px', mt: 1 }}>
-                <ListItemText primary={<Link href="#booking" style={{ color: '#FFFFFF' }}>Book Now</Link>} />
+              <ListItem 
+                component="button" 
+                onClick={handleDrawerToggle} 
+                sx={{ 
+                  bgcolor: '#038B95', 
+                  borderRadius: '8px', 
+                  mt: 1, 
+                  py: 2, 
+                  transition: 'all 0.3s ease-in-out', 
+                  '&:hover': { 
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)', 
+                    transform: 'scale(1.05)' 
+                  }
+                }}
+              >
+                <ListItemText 
+                  primary={
+                    <Link href="#booking" style={{ color: '#FFFFFF', fontWeight: 'bold' }}>
+                      Book Now
+                    </Link>
+                  } 
+                />
               </ListItem>
             </List>
           </Drawer>

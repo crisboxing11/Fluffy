@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import PreBookingForm from '../components/PreBookingForm';
 
-import Home from './HomePage';
+import Home from './home';
 const HomePage = () => {
 
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Typography, TextField, Button, MenuItem } from '@mui/material';
+import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
 import territories from '../data/territories';
 import supportedBreeds from '../data/supportedBreeds';
 
@@ -7,13 +7,6 @@ const PreBookingForm = () => {
   const [location, setLocation] = useState('');
   const [breed, setBreed] = useState('');
   const [error, setError] = useState('');
-
-  // ✅ Future-Proofed Moego URL Mapping for Multiple Locations
-  const moegoBookingLinks = {
-    "Las Vegas": "https://app.moego.pet/lasvegasbooking",
-    "Miami": "https://app.moego.pet/miamibooking", // 🔥 Add new locations easily
-    "New York": "https://app.moego.pet/newyorkbooking", // Example for expansion
-  };
 
   const handleSubmit = () => {
     if (!location || !breed) {
@@ -32,9 +25,8 @@ const PreBookingForm = () => {
     const selectedTerritory = territories.find((territory) => territory.name === location);
 
     if (selectedTerritory) {
-      // ✅ Dynamically set the Moego URL based on the selected location
-      const bookingUrl = moegoBookingLinks[location] || "https://app.moego.pet/lasvegasbooking"; // Default fallback
-      window.location.href = bookingUrl;
+      // Redirect to the booking page for the selected territory
+      window.location.href = selectedTerritory.bookingUrl;
     }
   };
 
@@ -76,6 +68,8 @@ const PreBookingForm = () => {
           {error}
         </Typography>
       )}
+
+      {/* Location Dropdown */}
       <TextField
         select
         label="Select Location"
@@ -91,29 +85,33 @@ const PreBookingForm = () => {
           </MenuItem>
         ))}
       </TextField>
-      <TextField
-        select
-        label="Dog Breed"
+
+      {/* Breed Selection with Autocomplete (Allows Typing) */}
+      <Autocomplete
+        freeSolo
+        options={supportedBreeds}
         value={breed}
-        onChange={(e) => setBreed(e.target.value)}
-        fullWidth
-        required
-        sx={{ mb: 3 }}
-      >
-        {supportedBreeds.map((breed, index) => (
-          <MenuItem key={index} value={breed}>
-            {breed}
-          </MenuItem>
-        ))}
-      </TextField>
+        onChange={(_, newValue) => setBreed(newValue || '')}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Dog Breed"
+            fullWidth
+            required
+            sx={{ mb: 3 }}
+          />
+        )}
+      />
+
+      {/* Submit Button */}
       <Button
         variant="contained"
         color="primary"
         onClick={handleSubmit}
         size="large"
-        sx={{
-          textTransform: 'none',
-          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+        sx={{ 
+          textTransform: 'none', 
+          background: 'linear-gradient(90deg, #00ADCD, #038B95)', 
           px: 4,
           py: 1.5,
           fontWeight: 'bold',
