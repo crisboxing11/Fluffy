@@ -71,7 +71,7 @@ const ServicesPage = () => {
               Luxury Mobile Grooming Services
             </Typography>
             <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mt: 2 }}>
-              Stress-free, premium pet grooming delivered **right to your doorstep**.
+              Stress-free, premium pet grooming delivered <b>right to your doorstep</b>.
             </Typography>
             <Button
               variant="contained"
