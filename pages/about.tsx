@@ -162,7 +162,7 @@ const AboutUs = () => {
               </Typography>
               <Typography variant="body1" color="textSecondary" mb={3} ml={3}>
                 We are <b>passionate</b> about making grooming a positive experience for every pet.
-                Our team is trained to handle **all breeds with care, patience, and expertise**.
+                Our team is trained to handle <b>all breeds with care, patience, and expertise</b>.
               </Typography>
               <Typography variant="h6" fontWeight="bold" color="#038B95" mb={1} ml={3}>
                 ⭐ Top-Notch Grooming Services
