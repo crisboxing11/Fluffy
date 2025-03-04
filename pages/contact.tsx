@@ -60,7 +60,7 @@ const ContactPage = () => {
                 "contactPoint": [
                   {
                     "@type": "ContactPoint",
-                    "telephone": "+1-123-456-7890",
+                    "telephone": "+702-508-6248",
                     "contactType": "customer service",
                     "areaServed": "US",
                     "availableLanguage": ["English", "Spanish"]
@@ -93,7 +93,7 @@ const ContactPage = () => {
               <PhoneIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Call Us</Typography>
-            <Typography variant="body1" color="textSecondary">(123) 456-7890</Typography>
+            <Typography variant="body1" color="textSecondary">(702) 508-6248</Typography>
           </Grid>
 
           <Grid item xs={12} sm={6} textAlign="center">
