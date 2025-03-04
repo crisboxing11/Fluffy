@@ -14,6 +14,7 @@ import ReviewDog2 from '../public/ReviewDog2.jpg';
 import ReviewDog5 from '../public/ReviewDog5.jpg';
 import ReviewDog6 from '../public/ReviewDog6.jpg';
 import ReviewDog4 from '../public/ReviewDog4.jpg';
+import ReviewDog7 from '../public/ReviewDog7.jpg';
 
 
 // Testimonial Carousel Settings
@@ -34,7 +35,9 @@ const testimonials = [
   { name: "Toni Robinson, Las Vegas", text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I’m so grateful and will definitely use them again!", image: ReviewDog2 },
   { name: "David P., North Las Vegas", text: "Highly recommended! Fantastic service, and my dog looked perfect!", image: ReviewDog4 },
    { name: "Linda Creelman, North Las Vegas", text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊", image: ReviewDog5 },
-    { name: "Christie Gribben, Las Vegas", text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.", image: ReviewDog6 }
+    { name: "Christie Gribben, Las Vegas", text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.", image: ReviewDog6 },
+       { name: "Chelsea Ortiz, Las Vegas", text: "Always does an amazing job for my husky. Highly recommend!", image: ReviewDog7 },
+       
 ];
 
 // Animations
@@ -75,10 +78,10 @@ const Home = () => {
         >
           <Image
             src={DogImage}
-            alt="Happy Groomed Dog"
+           alt="Happy dog after Fluffy Pet Wash grooming"
             layout="fill"
             objectFit="cover"
-            priority
+            loading="lazy" // ✅ Lazy load for performance
             style={{
               opacity: opacity, // ✅ Adjusted opacity based on screen width
               objectPosition: 'center left', // Default Centered
