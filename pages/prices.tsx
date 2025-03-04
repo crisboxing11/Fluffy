@@ -18,6 +18,13 @@ const pricing = [
   { size: "Large Dog", price: "$140 - $185", desc: "Depending on Weight & Coat Condition" },
   { size: "Extra Large Dog", price: "$200 & Up", desc: "Depending on Weight & Coat Condition" },
 ];
+// **Fluffy Preferred Membership Pricing (Fixed Discounted Prices)**
+const preferredPricing = [
+  { size: "Small Dog", price: "$75", desc: "Exclusive rate for Fluffy Preferred Members" },
+  { size: "Medium Dog", price: "$85 - $115", desc: "Exclusive rate for Fluffy Preferred Members" },
+  { size: "Large Dog", price: "$125 - $165", desc: "Exclusive rate for Fluffy Preferred Members" },
+  { size: "Extra Large Dog", price: "$185 & Up", desc: "Exclusive rate for Fluffy Preferred Members" },
+];
 
 // **All-Inclusive Services List**
 const services = [
@@ -182,6 +189,38 @@ const PricesPage = () => {
           </Grid>
         </Box>
       </motion.div>
+       {/* Fluffy Preferred Membership Pricing */}
+      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
+        <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
+          <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#026D7C">
+            Fluffy Preferred Membership Pricing ✨
+          </Typography>
+          <Grid container spacing={4} justifyContent="center">
+            {preferredPricing.map((tier, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card sx={{ boxShadow: 4, borderRadius: '15px', textAlign: 'center', border: '2px solid #026D7C',transition: 'transform 0.3s ease-in-out',
+                      '&:hover': { transform: 'scale(1.05)' } }}>
+                  <CardContent>
+                    <Typography variant="h5" fontWeight="bold" color="#026D7C" mb={2}>
+                      {tier.size}
+                    </Typography>
+                    <Typography variant="h4" fontWeight="bold" color="#FFD700">
+                      {tier.price}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" mt={1}>
+                      {tier.desc}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
+            * Membership is only available for recurring clients who groom their dogs every 4-8 weeks. Ask your groomer for more details and sign up for recurring appointments!
+          </Typography>
+        </Box>
+      </motion.div>
+
 
       {/* Included Services Section */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
@@ -241,3 +280,8 @@ const PricesPage = () => {
 };
 
 export default PricesPage;
+
+
+
+
+
