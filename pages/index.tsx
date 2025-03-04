@@ -66,7 +66,7 @@ const HomePage = () => {
       {/* 🏆 Improved Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }} key={key}>
         <Typography variant="h1" fontWeight="bold" textAlign="center" mb={4}>
-          Fluffy Pet Wash - Mobile Pet Grooming & Spa
+          Fluffy Pet Wash Mobile Pet Grooming & Spa
         </Typography>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
           Book Your Appointment
