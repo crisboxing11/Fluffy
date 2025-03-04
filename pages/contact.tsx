@@ -6,6 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import { useState } from 'react';
+import Head from 'next/head';
 
 // **Animations**
 const fadeInUp = {
@@ -36,6 +37,44 @@ const ContactPage = () => {
 
   return (
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 1000, mx: 'auto', textAlign: 'center' }}>
+       {/* 🔥 SEO & Metadata */}
+      <Head>
+        <title>Contact Us | Fluffy Pet Wash</title>
+        <meta name="description" content="Get in touch with Fluffy Pet Wash for inquiries, bookings, or franchising opportunities. Call, email, or use our contact form." />
+        <meta name="keywords" content="contact Fluffy Pet Wash, mobile pet grooming contact, dog grooming phone number, franchise pet grooming" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🚀 Structured Data for Contact Page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "mainEntity": {
+                "@type": "Organization",
+                "name": "Fluffy Pet Wash",
+                "url": "https://fluffypetwash.com",
+                "logo": "https://fluffypetwash.com/FPW-Logo.jpg",
+                "contactPoint": [
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+1-123-456-7890",
+                    "contactType": "customer service",
+                    "areaServed": "US",
+                    "availableLanguage": ["English", "Spanish"]
+                  }
+                ],
+                "sameAs": [
+                  "https://facebook.com/fluffypetwash",
+                  "https://instagram.com/fluffypetwash"
+                ]
+              }
+            })
+          }}
+        />
+      </Head>
       {/* Page Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Typography variant="h3" fontWeight="bold" color="#067C92" mb={3}>

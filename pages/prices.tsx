@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import PriceHeroImage from '../public/Dog8.jpg'; // Ensure this is inside public/
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
-
+import Head from 'next/head';
 // **Animations**
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -36,6 +36,52 @@ const services = [
 const PricesPage = () => {
   return (
     <Box>
+       {/* 🔥 SEO & Metadata */}
+      <Head>
+        <title>Pet Grooming Prices | Fluffy Pet Wash</title>
+        <meta name="description" content="Affordable and transparent pricing for luxury mobile pet grooming services. Check our pricing tiers and all-inclusive package." />
+        <meta name="keywords" content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🚀 Structured Data for Pricing and Services */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Luxury Mobile Pet Grooming Prices",
+              "provider": {
+                "@type": "Organization",
+                "name": "Fluffy Pet Wash",
+                "url": "https://fluffypetwash.com",
+                "logo": "https://fluffypetwash.com/FPW-Logo.jpg"
+              },
+              "serviceType": "Luxury Mobile Grooming",
+              "offers": pricing.map(tier => ({
+                "@type": "Offer",
+                "name": `${tier.size} Grooming`,
+                "price": tier.price.replace("$", ""),
+                "priceCurrency": "USD",
+                "description": tier.desc
+              })),
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Fluffy Pet Wash Services",
+                "itemListElement": services.map(service => ({
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": service
+                  }
+                }))
+              }
+            })
+          }}
+        />
+      </Head>
+
       {/* Hero Section with Full-Container Image */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
     <Box

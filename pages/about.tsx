@@ -1,6 +1,9 @@
 import { Box, Typography, Grid } from '@mui/material';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
+
+// Import Images
 import AboutHeroImage from '../public/Dog4.jpeg';
 import MissionImage from '../public/Dog6.jpeg';
 import GroomingVanImage from '../public/Dog5.jpeg';
@@ -20,6 +23,40 @@ const zoomIn = {
 const AboutUs = () => {
   return (
     <Box>
+      {/* 🔥 SEO & Metadata */}
+      <Head>
+        <title>About Fluffy Pet Wash | Mobile Pet Grooming</title>
+        <meta name="description" content="Learn about Fluffy Pet Wash, a stress-free mobile pet grooming service that provides top-quality care for your furry friends." />
+        <meta name="keywords" content="about fluffy pet wash, mobile dog grooming, stress-free pet grooming, pet grooming at home" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🚀 Structured Data for About Page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Fluffy Pet Wash",
+              "url": "https://fluffypetwash.com",
+              "description": "A premium mobile pet grooming service focused on making pets look and feel their best with stress-free grooming.",
+           "logo": "https://fluffypetwash.com/FPW-Logo.jpg",
+              "sameAs": [
+                "https://www.facebook.com/fluffypetwash",
+                "https://www.instagram.com/fluffypetwash",
+                "https://twitter.com/fluffypetwash"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-555-5555",
+                "contactType": "customer service"
+              }
+            })
+          }}
+        />
+      </Head>
+
       {/* Hero Section */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
@@ -61,29 +98,18 @@ const AboutUs = () => {
         </Box>
       </motion.div>
 
-      {/* 🚀 Our Mission (Now Loads Immediately) */}
+      {/* 🚀 Our Mission */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box sx={{ py: { xs: 6, md: 10 }, px: 3, maxWidth: '1200px', mx: 'auto' }}>
           <Grid container spacing={4} alignItems="center">
-            {/* Image */}
             <Grid item xs={12} md={6}>
               <motion.div initial="hidden" animate="visible" variants={zoomIn}>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: { xs: 250, md: 400 },
-                    position: 'relative',
-                    overflow: 'hidden',
-                    borderRadius: '20px',
-                    boxShadow: 3,
-                  }}
-                >
+                <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
                   <Image src={MissionImage} alt="Dog being groomed" layout="fill" objectFit="cover" priority />
                 </Box>
               </motion.div>
             </Grid>
 
-            {/* Text */}
             <Grid item xs={12} md={6}>
               <Typography variant="h4" fontWeight="bold" color="#067C92" mb={3} ml={3}>
                 Our Mission
@@ -101,31 +127,20 @@ const AboutUs = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: false, amount: 0.3 }}>
         <Box sx={{ py: { xs: 6, md: 10 }, px: 3, bgcolor: '#f9f9f9' }}>
           <Grid container spacing={4} alignItems="center">
-            {/* Text */}
             <Grid item xs={12} md={6}>
               <Typography variant="h4" fontWeight="bold" color="#067C92" mb={3} ml={2}>
                 Why Mobile Grooming?
               </Typography>
-              <Typography variant="body1" color="textSecondary" mb={3}  ml={2}>
-                Unlike traditional grooming salons, <b>Fluffy Pet Wash</b> brings the salon experience <b>right to your home</b>.  
+              <Typography variant="body1" color="textSecondary" mb={3} ml={2}>
+                Unlike traditional grooming salons, <b>Fluffy Pet Wash</b> brings the salon experience <b>right to your home</b>.
                 Our mobile grooming service reduces <b>stress and anxiety</b> for pets while offering unmatched convenience for owners.
               </Typography>
             </Grid>
 
-            {/* Image */}
             <Grid item xs={12} md={6}>
               <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: false, amount: 0.3 }}>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: { xs: 250, md: 400 },
-                    position: 'relative',
-                    overflow: 'hidden',
-                    borderRadius: '20px',
-                    boxShadow: 3,
-                  }}
-                >
-                  <Image src={GroomingVanImage} alt="Fluffy Dog Spa" layout="fill" objectFit="cover" objectPosition='50% 70%' priority />
+                <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
+                  <Image src={GroomingVanImage} alt="Fluffy Dog Spa" layout="fill" objectFit="cover" objectPosition="50% 70%" priority />
                 </Box>
               </motion.div>
             </Grid>
@@ -137,27 +152,16 @@ const AboutUs = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: false, amount: 0.3 }}>
         <Box sx={{ py: { xs: 6, md: 10 }, px: 3, maxWidth: '1200px', mx: 'auto' }}>
           <Grid container spacing={4} alignItems="center">
-            {/* Image */}
             <Grid item xs={12} md={6}>
               <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: false, amount: 0.3 }}>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: { xs: 250, md: 400 },
-                    position: 'relative',
-                    overflow: 'hidden',
-                    borderRadius: '20px',
-                    boxShadow: 3,
-                  }}
-                >
+                <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
                   <Image src={HappyDogImage} alt="Happy Dog After Grooming" layout="fill" objectFit="cover" priority />
                 </Box>
               </motion.div>
             </Grid>
 
-            {/* Text */}
             <Grid item xs={12} md={6}>
-              <Typography variant="h4" fontWeight="bold" color="#067C92" mb={3} ml={3}>
+            <Typography variant="h4" fontWeight="bold" color="#067C92" mb={3} ml={3}>
                 Our Commitment to Your Pet
               </Typography>
               <Typography variant="body1" color="textSecondary" mb={3} ml={3}>

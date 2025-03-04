@@ -12,6 +12,7 @@ import CleanHandsIcon from '@mui/icons-material/CleanHands';
 import Image from 'next/image';
 import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animations
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
+import Head from 'next/head';
 
 // Fade & Slide-Up Animation
 const fadeInUp = {
@@ -42,6 +43,71 @@ const services = [
 const ServicesPage = () => {
   return (
     <Box>
+       {/* 🔥 SEO & Metadata */}
+      <Head>
+        <title>Mobile Pet Grooming Services | Fluffy Pet Wash</title>
+        <meta name="description" content="Discover Fluffy Pet Wash's premium mobile pet grooming services. From hypoallergenic washes to teeth brushing, we bring luxury grooming to your doorstep!" />
+        <meta name="keywords" content="mobile pet grooming, dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services, mobile dog wash" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🚀 Structured Data for SEO (Service Listings) */}
+        <script
+          type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Mobile Pet Grooming",
+      "provider": {
+        "@type": "Organization",
+        "name": "Fluffy Pet Wash",
+        "url": "https://fluffypetwash.com"
+      },
+      "serviceType": "Luxury Pet Grooming",
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Las Vegas, NV",
+          "geo": { "@type": "GeoCoordinates", "latitude": "36.1699", "longitude": "-115.1398" }
+        },
+        {
+          "@type": "Place",
+          "name": "Fort Lauderdale, FL",
+          "geo": { "@type": "GeoCoordinates", "latitude": "26.1224", "longitude": "-80.1373" }
+        },
+        {
+          "@type": "Place",
+          "name": "West Palm Beach, FL",
+          "geo": { "@type": "GeoCoordinates", "latitude": "26.7153", "longitude": "-80.0534" }
+        },
+        {
+          "@type": "Place",
+          "name": "Miami, FL",
+          "geo": { "@type": "GeoCoordinates", "latitude": "25.7617", "longitude": "-80.1918" }
+        },
+        {
+          "@type": "Place",
+          "name": "Orlando, FL",
+          "geo": { "@type": "GeoCoordinates", "latitude": "28.5383", "longitude": "-81.3792" }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Fluffy Pet Wash Services",
+        "itemListElement": services.map(service => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.text
+          }
+        }))
+      }
+    })
+  }}
+/>
+      </Head>
+
       {/* Hero Section with Animated Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
@@ -143,3 +209,4 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+

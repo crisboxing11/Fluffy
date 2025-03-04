@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, TextField, Divider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
-
+import Head from 'next/head';
 // FAQ Data
 const faqData = [
   {
@@ -93,7 +93,36 @@ const FAQPage = () => {
 
   return (
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 900, mx: "auto", textAlign: "center" }}>
-      
+       {/* 🔥 SEO & Metadata */}
+      <Head>
+        <title>FAQ | Fluffy Pet Wash</title>
+        <meta name="description" content="Find answers to common questions about Fluffy Pet Wash, including pricing, booking, grooming services, and pet safety." />
+        <meta name="keywords" content="dog grooming FAQ, mobile pet grooming questions, pet grooming pricing, dog grooming services" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🚀 Structured Data for FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqData.flatMap(section =>
+                section.questions.map(q => ({
+                  "@type": "Question",
+                  "name": q.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": q.answer
+                  }
+                }))
+              )
+            })
+          }}
+        />
+      </Head>
+
       {/* Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Typography variant="h3" fontWeight="bold" color="#067C92" mb={3}>
