@@ -50,19 +50,7 @@ const HomePage = () => {
                   "name": "Las Vegas, NV",
                   "geo": { "@type": "GeoCoordinates", "latitude": "36.1699", "longitude": "-115.1398" }
                 },
-                // {
-                //   "@type": "Place",
-                //   "name": "Los Angeles, CA",
-                //   "geo": { "@type": "GeoCoordinates", "latitude": "34.0522", "longitude": "-118.2437" }
-                // }
               ],
-              // "makesOffer": {
-              //   "@type": "Offer",
-              //   "name": "Fluffy Pet Wash Franchise Opportunity",
-              //   "url": "https://fluffypetwash.com/franchise",
-              //   "description": "Start your own Fluffy Pet Wash mobile grooming business today!",
-              //   "priceCurrency": "USD"
-              // },
               "sameAs": [
                 "https://www.facebook.com/fluffypetwash",
                 "https://www.instagram.com/fluffypetwash",
@@ -78,7 +66,7 @@ const HomePage = () => {
       {/* 🏆 Improved Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }} key={key}>
         <Typography variant="h1" fontWeight="bold" textAlign="center" mb={4}>
-          Fluffy Pet Wash Mobile Pet Grooming & Spa
+          Fluffy Pet Wash - Mobile Pet Grooming & Spa
         </Typography>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
           Book Your Appointment
