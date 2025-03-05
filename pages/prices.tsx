@@ -28,16 +28,18 @@ const preferredPricing = [
 
 // **All-Inclusive Services List**
 const services = [
-  "Professional Hypoallergenic Wash / Brush Out / Towel & Blow Out Dryer",
-  "Nails trimming & Filing",
-  "Ears cleaning",
-  "Professional organic conditioner and moisturizer",
-  "Mouth Wash and teeth brushing",
-  "Expressed Glands",
-  "Professional DeShedding",
-  "Paws cleaning & Paws Trimming",
-  "Sanitary / Backside trimming",
-  "Blueberry Facial",
+  "Professional Brush Out",
+  "Professional Hypoallergenic Wash + Organic Conditioner & Moisturizer",
+  "Towel & Blow Out Dryer",
+  "Nails Trimming & Filing",
+  "Ears Cleaning",
+  "Mouth Wash and Teeth Brushing",
+  "Expressed Glands (Optional)",
+  "Professional DeShedding If Needed (Undercoat Removal)",
+  "Paws Cleaning & Paws Trimming If Needed",
+  "Sanitary/Backside/Ears Trimming If Needed ('Dog Tidy')",
+  "Facial + Fresh & Clean Treatment",
+  "Final Brush Out",
 ];
 
 const PricesPage = () => {
