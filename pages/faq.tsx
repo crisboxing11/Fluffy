@@ -37,6 +37,11 @@ const faqData = [
         question: "How long does a grooming session take?", 
         answer: "A typical session takes between 40-90 minutes, depending on your pet’s size, coat condition, and behavior."
       },
+       { 
+        question: "Do you need to connect to water or electricity at my location?", 
+        answer: "Just to electricity! Our mobile grooming van is fully equipped with water, electricity, and all the tools needed for a complete grooming session."
+      },
+      
     ],
   },
   {

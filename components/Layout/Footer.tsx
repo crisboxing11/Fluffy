@@ -21,7 +21,7 @@ const Footer = () => {
             {["Home", "About", "Services", "Prices", "Book Now"].map((item, index) => (
               <Link
                 key={index}
-                href={`/${item.toLowerCase().replace(" ", "")}`}
+                href={item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} // ✅ Fixed Book Now link
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
@@ -45,7 +45,7 @@ const Footer = () => {
         gap={3} // ✅ Adds space between elements
       >
         {/* Social Media Links */}
-        <Box display="flex" gap={2} >
+        <Box display="flex" gap={2}>
           <IconButton color="inherit" href="https://facebook.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
             <FacebookIcon fontSize="medium" />
           </IconButton>
@@ -55,7 +55,7 @@ const Footer = () => {
         </Box>
 
         {/* Copyright */}
-        <Typography variant="body2" sx={{ fontSize: '0.875rem', whiteSpace: 'nowrap',color: '#A1E0E3'  }}>
+        <Typography variant="body2" sx={{ fontSize: '0.875rem', whiteSpace: 'nowrap', color: '#A1E0E3' }}>
           &copy; {new Date().getFullYear()} Fluffy Pet Wash. All rights reserved.
         </Typography>
       </Box>

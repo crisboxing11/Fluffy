@@ -1,9 +1,10 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Button } from '@mui/material';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 
 // Import Images
+import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import AboutHeroImage from '../public/Dog4.jpeg';
 import MissionImage from '../public/Dog6.jpeg';
 import GroomingVanImage from '../public/Dog5.jpeg';
@@ -176,6 +177,37 @@ const AboutUs = () => {
               </Typography>
             </Grid>
           </Grid>
+        </Box>
+      </motion.div>
+      {/* Call-to-Action Section */}
+      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
+        <Box
+          sx={{
+            py: 8,
+            textAlign: 'center',
+            bgcolor: '#026D7C',
+            color: 'white',
+            backgroundImage: `url(${PawPattern.src})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '120px',
+            backgroundBlendMode: 'multiply',
+            backgroundPosition: 'center',
+          }}
+        >
+          <Typography variant="h4" fontWeight="bold" mb={2}>
+            Give Your Pet the Luxury They Deserve!
+          </Typography>
+          <Typography variant="h6" mb={4}>
+            Experience stress-free, top-tier grooming right at your doorstep.
+          </Typography>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{ bgcolor: '#fff', color: '#038B95', fontWeight: 'bold', px: 4, py: 1.5 }}
+            href="/#booking"
+          >
+            Book Now
+          </Button>
         </Box>
       </motion.div>
     </Box>
