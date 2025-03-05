@@ -219,7 +219,7 @@ const PricesPage = () => {
             ))}
           </Grid>
           <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
-            * Membership is only available for recurring clients who groom their dogs every 4-8 weeks. Ask your groomer for more details and sign up for recurring appointments!.
+            * Membership is only available for recurring clients who groom their dogs every 2 - 8 weeks. Ask your groomer for more details and sign up for recurring appointments!.
           </Typography>
         </Box>
       </motion.div>
