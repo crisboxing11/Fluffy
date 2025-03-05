@@ -23,7 +23,7 @@ const preferredPricing = [
   { size: "Small Dog", price: "$75", desc: "Exclusive rate for Fluffy Preferred Members" },
   { size: "Medium Dog", price: "$85 - $115", desc: "Exclusive rate for Fluffy Preferred Members" },
   { size: "Large Dog", price: "$125 - $165", desc: "Exclusive rate for Fluffy Preferred Members" },
-  { size: "Extra Large Dog", price: "$185 & Up", desc: "Exclusive rate for Fluffy Preferred Members" },
+  { size: "Extra Large Dog", price: "$185", desc: "Exclusive rate for Fluffy Preferred Members" },
 ];
 
 // **All-Inclusive Services List**

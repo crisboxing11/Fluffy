@@ -108,7 +108,6 @@ const supportedBreeds = [
   'Shetland Sheepdog (No Shave Down)',
   'Shiba Inu',
   'Siberian Husky (No Shave Down)',
-  'Small Dog Wash (No Hair Cut)',
   'St Bernard',
   'Staffordshire Bull Terrier',
   'Toy Fox Terrier',

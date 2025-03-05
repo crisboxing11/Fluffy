@@ -1,5 +1,4 @@
 import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PetsIcon from '@mui/icons-material/Pets';
 import SpaIcon from '@mui/icons-material/Spa';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
@@ -9,103 +8,51 @@ import WavesIcon from '@mui/icons-material/Waves';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
 import CleanHandsIcon from '@mui/icons-material/CleanHands';
+import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
+import DryCleaningIcon from '@mui/icons-material/DryCleaning';
+import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
 import Image from 'next/image';
 import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animations
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
 import Head from 'next/head';
 
-// Fade & Slide-Up Animation
+// **Animations**
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 };
 
-// Zoom-In Effect for Cards
 const zoomIn = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
 };
 
-// Services List
+// **Updated Services List with Unique Icons**
 const services = [
-  { text: 'Professional Hypoallergenic Wash / Brush Out / Towel & Blow Out Dryer', icon: WavesIcon },
-  { text: 'Nail Trimming & Filing', icon: ContentCutIcon },
-  { text: 'Ear Cleaning', icon: HealingIcon },
-  { text: 'Professional Organic Conditioner & Moisturizer', icon: SpaIcon },
+  { text: 'Professional Brush Out', icon: BrushIcon },
+  { text: 'Professional Hypoallergenic Wash + Organic Conditioner & Moisturizer', icon: SpaIcon },
+  { text: 'Towel & Blow Out Dryer', icon: DryCleaningIcon },
+  { text: 'Nails Trimming & Filing', icon: ContentCutIcon },
+  { text: 'Ears Cleaning', icon: HealingIcon },
   { text: 'Mouth Wash & Teeth Brushing', icon: CleanHandsIcon },
-  { text: 'Expressed Glands', icon: PetsIcon },
-  { text: 'Professional DeShedding', icon: BrushIcon },
-  { text: 'Paw Cleaning & Paw Trimming', icon: FavoriteIcon },
-  { text: 'Sanitary / Backside Trimming', icon: StarIcon },
-  { text: 'Blueberry Facial', icon: CheckCircleIcon },
+  { text: 'Expressed Glands (Optional)', icon: PetsIcon },
+  { text: 'Professional DeShedding (Undercoat Removal) If Needed', icon: WavesIcon },
+  { text: 'Paws Cleaning & Paws Trimming If Needed', icon: FavoriteIcon },
+  { text: 'Sanitary/Backside/Ears Trimming If Needed (“Dog Tidy”)', icon: StarIcon },
+  { text: 'Facial + Fresh & Clean Treatment', icon: FaceRetouchingNaturalIcon },
+  { text: 'Final Brush Out', icon: EmojiNatureIcon },
 ];
 
 const ServicesPage = () => {
   return (
     <Box>
-       {/* 🔥 SEO & Metadata */}
+      {/* 🔥 SEO & Metadata */}
       <Head>
         <title>Mobile Pet Grooming Services | Fluffy Pet Wash</title>
         <meta name="description" content="Discover Fluffy Pet Wash's premium mobile pet grooming services. From hypoallergenic washes to teeth brushing, we bring luxury grooming to your doorstep!" />
         <meta name="keywords" content="mobile pet grooming, dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services, mobile dog wash" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* 🚀 Structured Data for SEO (Service Listings) */}
-        <script
-          type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Mobile Pet Grooming",
-      "provider": {
-        "@type": "Organization",
-        "name": "Fluffy Pet Wash",
-        "url": "https://fluffypetwash.com"
-      },
-      "serviceType": "Luxury Pet Grooming",
-      "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Las Vegas, NV",
-          "geo": { "@type": "GeoCoordinates", "latitude": "36.1699", "longitude": "-115.1398" }
-        },
-        {
-          "@type": "Place",
-          "name": "Fort Lauderdale, FL",
-          "geo": { "@type": "GeoCoordinates", "latitude": "26.1224", "longitude": "-80.1373" }
-        },
-        {
-          "@type": "Place",
-          "name": "West Palm Beach, FL",
-          "geo": { "@type": "GeoCoordinates", "latitude": "26.7153", "longitude": "-80.0534" }
-        },
-        {
-          "@type": "Place",
-          "name": "Miami, FL",
-          "geo": { "@type": "GeoCoordinates", "latitude": "25.7617", "longitude": "-80.1918" }
-        },
-        {
-          "@type": "Place",
-          "name": "Orlando, FL",
-          "geo": { "@type": "GeoCoordinates", "latitude": "28.5383", "longitude": "-81.3792" }
-        }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Fluffy Pet Wash Services",
-        "itemListElement": services.map(service => ({
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": service.text
-          }
-        }))
-      }
-    })
-  }}
-/>
       </Head>
 
       {/* Hero Section with Animated Title */}
@@ -183,6 +130,11 @@ const ServicesPage = () => {
               </Grid>
             ))}
           </Grid>
+
+          {/* From Nose to Tail Text */}
+          <Typography variant="h5" textAlign="center" fontWeight="bold" mt={4} color="#067C92">
+            From Nose to Tail, We Never Fail! 🐾
+          </Typography>
         </Box>
       </motion.div>
 
@@ -209,4 +161,3 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-
