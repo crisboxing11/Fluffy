@@ -2,7 +2,6 @@ import { Box, Typography, Grid, Button, IconButton, TextField, TextareaAutosize,
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
-
 import EmailIcon from '@mui/icons-material/Email';
 import Head from 'next/head';
 
@@ -15,7 +14,7 @@ const fadeInUp = {
 const ContactPage = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(false); // ✅ Success message state
+  const [successMessage, setSuccessMessage] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,8 +42,8 @@ const ContactPage = () => {
         throw new Error(data.message || 'Something went wrong');
       }
 
-      setSuccessMessage(true); // ✅ Show success Snackbar
-      setForm({ name: '', email: '', message: '' }); // ✅ Reset form after submission
+      setSuccessMessage(true);
+      setForm({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error:', error);
       setError('Failed to send message. Please try again.');
@@ -116,24 +115,8 @@ const ContactPage = () => {
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 6, textAlign: 'left', mx: 'auto', maxWidth: 600 }}>
           {error && <Typography color="error" mb={2}>{error}</Typography>}
 
-          <TextField
-            label="Your Name"
-            name="name"
-            fullWidth
-            required
-            value={form.name}
-            onChange={handleChange}
-            sx={{ mb: 3 }}
-          />
-          <TextField
-            label="Your Email"
-            name="email"
-            fullWidth
-            required
-            value={form.email}
-            onChange={handleChange}
-            sx={{ mb: 3 }}
-          />
+          <TextField label="Your Name" name="name" fullWidth required value={form.name} onChange={handleChange} sx={{ mb: 3 }} />
+          <TextField label="Your Email" name="email" fullWidth required value={form.email} onChange={handleChange} sx={{ mb: 3 }} />
           <TextareaAutosize
             minRows={4}
             name="message"
@@ -148,21 +131,7 @@ const ContactPage = () => {
               fontSize: '1rem',
             }}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="large"
-            sx={{
-              mt: 3,
-              px: 4,
-              py: 1.5,
-              fontWeight: 'bold',
-              textTransform: 'none',
-              background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-              '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
-            }}
-          >
+          <Button variant="contained" color="primary" type="submit" size="large" sx={{ mt: 3 }}>
             Send Message
           </Button>
         </Box>

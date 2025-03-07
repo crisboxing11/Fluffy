@@ -12,12 +12,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'All fields are required' });
   }
 
+  // ✅ Ensure environment variables are correctly set
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error("Missing email environment variables.");
+    return res.status(500).json({ message: "Email configuration error" });
+  }
+
   // ✅ Configure nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Your Gmail address
-      pass: process.env.EMAIL_PASS, // Your App Password from Google
+      user: process.env.EMAIL_USER, // ✅ Your Gmail address
+      pass: process.env.EMAIL_PASS, // ✅ Your App Password from Google
     },
   });
 
@@ -25,12 +31,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // ✅ Send Email
     await transporter.sendMail({
       from: `"Fluffy Pet Wash Contact Form" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Send email to yourself
+      to: process.env.EMAIL_USER, // ✅ Send email to yourself
       subject: 'New Contact Form Submission',
       html: `
+        <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
       `,
     });
 
