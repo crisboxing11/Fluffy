@@ -1,19 +1,42 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { name, email, message } = req.body;
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 
-    try {
-      // Example: Log data or save to a database
-      console.log({ name, email, message });
+  const { name, email, message } = req.body;
 
-      res.status(200).json({ success: true });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      res.status(500).json({ success: false, error: 'Failed to send message.' });
-    }
-  } else {
-    res.status(405).json({ error: 'Method not allowed.' });
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  // ✅ Configure nodemailer transporter
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER, // Your Gmail address
+      pass: process.env.EMAIL_PASS, // Your App Password from Google
+    },
+  });
+
+  try {
+    // ✅ Send Email
+    await transporter.sendMail({
+      from: `"Fluffy Pet Wash Contact Form" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // Send email to yourself
+      subject: 'New Contact Form Submission',
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
+    });
+
+    return res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Email Error:', error);
+    return res.status(500).json({ message: 'Error sending email' });
   }
 }

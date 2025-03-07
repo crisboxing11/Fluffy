@@ -1,11 +1,9 @@
-import { Box, Typography, Grid, Button, IconButton, TextField, TextareaAutosize } from '@mui/material';
+import { Box, Typography, Grid, Button, IconButton, TextField, TextareaAutosize, Snackbar, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
-
-import PhoneIcon from '@mui/icons-material/Phone';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
 import { useState } from 'react';
+import PhoneIcon from '@mui/icons-material/Phone';
+
+import EmailIcon from '@mui/icons-material/Email';
 import Head from 'next/head';
 
 // **Animations**
@@ -17,64 +15,72 @@ const fadeInUp = {
 const ContactPage = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(false); // ✅ Success message state
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       setError('Please fill out all fields.');
       return;
     }
+
     setError('');
-    alert('Your message has been sent! We will get back to you soon.');
-    setForm({ name: '', email: '', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      setSuccessMessage(true); // ✅ Show success Snackbar
+      setForm({ name: '', email: '', message: '' }); // ✅ Reset form after submission
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Failed to send message. Please try again.');
+    }
   };
 
   return (
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 1000, mx: 'auto', textAlign: 'center' }}>
-       {/* 🔥 SEO & Metadata */}
       <Head>
         <title>Contact Us | Fluffy Pet Wash</title>
         <meta name="description" content="Get in touch with Fluffy Pet Wash for inquiries, bookings, or franchising opportunities. Call, email, or use our contact form." />
-        <meta name="keywords" content="contact Fluffy Pet Wash, mobile pet grooming contact, dog grooming phone number, franchise pet grooming" />
-        <meta name="author" content="Fluffy Pet Wash" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* 🚀 Structured Data for Contact Page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ContactPage",
-              "mainEntity": {
-                "@type": "Organization",
-                "name": "Fluffy Pet Wash",
-                "url": "https://fluffypetwash.com",
-                "logo": "https://fluffypetwash.com/FPW-Logo.jpg",
-                "contactPoint": [
-                  {
-                    "@type": "ContactPoint",
-                    "telephone": "+702-508-6248",
-                    "contactType": "customer service",
-                    "areaServed": "US",
-                    "availableLanguage": ["English", "Spanish"]
-                  }
-                ],
-                "sameAs": [
-                  "https://facebook.com/fluffypetwash",
-                  "https://instagram.com/fluffypetwash"
-                ]
-              }
-            })
-          }}
-        />
       </Head>
+
+      {/* ✅ Snackbar for Success Message (Top of the Screen) */}
+      <Snackbar
+        open={successMessage}
+        autoHideDuration={4000} // Close after 4 seconds
+        onClose={() => setSuccessMessage(false)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }} // ✅ Position at the top center
+      >
+        <Alert 
+          onClose={() => setSuccessMessage(false)} 
+          severity="success" 
+          sx={{ 
+            width: '100%', 
+            fontSize: '1.1rem', // ✅ Make text more visible
+            fontWeight: 'bold', 
+            backgroundColor: '#038B95', // ✅ High contrast color
+            color: 'white', 
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)' // ✅ Strong shadow for visibility
+          }}
+        >
+          ✅ Your message has been sent! We will get back to you soon.
+        </Alert>
+      </Snackbar>
+
       {/* Page Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Typography variant="h3" fontWeight="bold" color="#067C92" mb={3}>
@@ -85,7 +91,7 @@ const ContactPage = () => {
         </Typography>
       </motion.div>
 
-      {/* Contact Information Section */}
+      {/* Contact Information */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} sm={6} textAlign="center">
@@ -95,7 +101,6 @@ const ContactPage = () => {
             <Typography variant="h6" fontWeight="bold">Call Us</Typography>
             <Typography variant="body1" color="textSecondary">(702) 508-6248</Typography>
           </Grid>
-
           <Grid item xs={12} sm={6} textAlign="center">
             <IconButton color="primary">
               <EmailIcon sx={{ fontSize: 40, color: '#038B95' }} />
@@ -160,40 +165,6 @@ const ContactPage = () => {
           >
             Send Message
           </Button>
-        </Box>
-      </motion.div>
-
-      {/* Social Media Links */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box mt={6} textAlign="center">
-          <Typography variant="h5" fontWeight="bold" mb={2} color="#067C92">
-            Connect With Us
-          </Typography>
-          <Box display="flex" justifyContent="center" gap={3}>
-            <IconButton color="inherit" href="https://facebook.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
-              <FacebookIcon fontSize="large" />
-            </IconButton>
-            <IconButton color="inherit" href="https://instagram.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
-              <InstagramIcon fontSize="large" />
-            </IconButton>
-          </Box>
-        </Box>
-      </motion.div>
-
-      {/* Google Maps Embed (Purely Aesthetic) */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box sx={{ mt: 6, borderRadius: '10px', overflow: 'hidden', boxShadow: 3 }}>
-          <iframe
-            title="Fluffy Pet Wash Location (Aesthetic)"
-            width="100%"
-            height="300"
-            frameBorder="0"
-            scrolling="no"
-            marginHeight={0}
-            marginWidth={0}
-            src="https://maps.google.com/maps?q=Las%20Vegas%20NV&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            style={{ borderRadius: '10px' }}
-          />
         </Box>
       </motion.div>
     </Box>
