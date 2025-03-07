@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Layout from '../components/Layout/Layout'; // Import the Layout component
 import theme from '../styles/themes';
 import { ThemeProvider, CssBaseline } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react'; // ✅ Import Vercel Analytics
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -28,7 +29,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Layout>
-        {/* Google Analytics Script */}
+        {/* ✅ Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YTSZ6NZWP3"
           strategy="afterInteractive"
@@ -45,6 +46,11 @@ const App = ({ Component, pageProps }: AppProps) => {
             `,
           }}
         />
+
+        {/* ✅ Vercel Analytics */}
+        <Analytics />
+
+        {/* Render the page content */}
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
