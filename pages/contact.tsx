@@ -105,7 +105,7 @@ const ContactPage = () => {
               <EmailIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Email Us</Typography>
-            <Typography variant="body1" color="textSecondary">info@fluffypetwash.com</Typography>
+            <Typography variant="body1" color="textSecondary">contact.fluffypetwash@gmail.com</Typography>
           </Grid>
         </Grid>
       </motion.div>
