@@ -49,7 +49,7 @@ const Footer = () => {
           <IconButton color="inherit" href="https://facebook.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
             <FacebookIcon fontSize="medium" />
           </IconButton>
-          <IconButton color="inherit" href="https://instagram.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
+          <IconButton color="inherit" href="https://instagram.com/fluffypetwash" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
             <InstagramIcon fontSize="medium" />
           </IconButton>
         </Box>
