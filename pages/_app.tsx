@@ -2,10 +2,11 @@ import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import Layout from '../components/Layout/Layout'; // Import the Layout component
+import Layout from '../components/Layout/Layout'; // Import Layout component
 import theme from '../styles/themes';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { Analytics } from '@vercel/analytics/react'; // ✅ Import Vercel Analytics
+import { Analytics } from '@vercel/analytics/react'; // ✅ Vercel Analytics
+import { SpeedInsights } from '@vercel/speed-insights/react'; // ✅ Vercel Speed Insights
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -47,8 +48,24 @@ const App = ({ Component, pageProps }: AppProps) => {
           }}
         />
 
+        {/* ✅ Google Ads Conversion Tracking */}
+        <Script
+          id="google-ads-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('config', 'AW-XXXXXXX'); // Replace with your Google Ads Conversion ID
+            `,
+          }}
+        />
+
         {/* ✅ Vercel Analytics */}
         <Analytics />
+
+        {/* ✅ Vercel Speed Insights */}
+        <SpeedInsights />
 
         {/* Render the page content */}
         <Component {...pageProps} />
