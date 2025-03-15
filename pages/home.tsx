@@ -89,7 +89,7 @@ const Home = () => {
           />
           <Box sx={{ position: 'relative', zIndex: 2, px: { xs: 3, md: 10 },textAlign: { xs: 'center', md: 'center' },ml: { xs: 0, md: 'auto' }, }}>
             <Typography
-              variant="h2"
+              variant="h1"
               fontWeight="bold"
               sx={{
                 fontSize: { xs: '2rem', md: '3.5rem' },

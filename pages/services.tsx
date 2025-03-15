@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText, Link } from '@mui/material';
 import PetsIcon from '@mui/icons-material/Pets';
 import SpaIcon from '@mui/icons-material/Spa';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
@@ -135,6 +135,9 @@ const ServicesPage = () => {
           <Typography variant="h5" textAlign="center" fontWeight="bold" mt={4} color="#067C92">
             From Nose to Tail, We Never Fail! 🐾
           </Typography>
+          <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
+  We offer a stress-free, luxury mobile grooming experience. See our <Link href="/prices">transparent pricing</Link> or <Link href="/contact">contact us</Link> for more details.
+</Typography>
         </Box>
       </motion.div>
 
