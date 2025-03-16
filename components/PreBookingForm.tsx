@@ -16,7 +16,7 @@ const PreBookingForm = () => {
 
     if (!supportedBreeds.includes(breed)) {
       setError(
-        `We only service the following breeds: ${supportedBreeds.join(', ')}. We do not groom poodles or doodle mixes.`
+        `We only service the following breeds: ${supportedBreeds.join(', ')}. If your breed is not on this list, we cannot groom them.`
       );
       return;
     }
@@ -44,11 +44,15 @@ const PreBookingForm = () => {
       }}
     >
       <Typography variant="h4" fontWeight="bold" mb={3}>
-        Pre-Booking Form
+        Confirm Your Service Area & Breed
       </Typography>
-      <Typography variant="body1" color="textSecondary" mb={2}>
-        Please confirm your dog&apos;s breed and your location to proceed with booking.
+
+      <Typography variant="body1" color="textSecondary" mb={3}>
+        This is a <b>pre-check</b> before booking. Simply select your service area and dog breed to continue.  
+        The <b>actual booking process</b> happens on the next page.
       </Typography>
+
+      {/* ❌ Strong Warning Message About Breeds */}
       <Typography
         variant="body1"
         sx={{
@@ -61,8 +65,12 @@ const PreBookingForm = () => {
           mb: 4,
         }}
       >
-        We only service select breeds and <b>do not groom poodles or doodle mixes</b>.
+        <b>Important:</b> We only service the breeds listed below.  
+        If your dog’s breed is <b>not on the list</b>, you <b>will not be able to proceed with booking</b>.  
+        <br />
+        <b>We do not groom poodles or doodle mixes.</b>
       </Typography>
+
       {error && (
         <Typography color="error" mb={2}>
           {error}
@@ -72,7 +80,7 @@ const PreBookingForm = () => {
       {/* Location Dropdown */}
       <TextField
         select
-        label="Select Location"
+        label="Select Service Area"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         fullWidth
@@ -122,8 +130,13 @@ const PreBookingForm = () => {
           },
         }}
       >
-        Proceed to Booking
+        Confirm & Continue to Booking
       </Button>
+
+      {/* Final Reminder Below */}
+      <Typography variant="body2" color="textSecondary" mt={3}>
+        * If your breed is not listed, we are unable to provide service.
+      </Typography>
     </Box>
   );
 };
