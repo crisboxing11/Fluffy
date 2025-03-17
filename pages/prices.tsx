@@ -109,11 +109,11 @@ const PricesPage = () => {
   {/* Background Image */}
   <Image
     src={PriceHeroImage}
-    alt="Groomed Dog"
+   alt="Well-groomed happy dog"
     layout="fill"
     objectFit="cover"
     objectPosition="center"
-    priority
+  loading="lazy"
   />
 
   {/* Overlay to Improve Readability */}

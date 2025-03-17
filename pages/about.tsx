@@ -79,7 +79,7 @@ const AboutUs = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="top"
-            priority
+            loading="lazy"
             style={{ filter: 'brightness(40%)' }}
           />
           <Typography
@@ -106,7 +106,7 @@ const AboutUs = () => {
             <Grid item xs={12} md={6}>
               <motion.div initial="hidden" animate="visible" variants={zoomIn}>
                 <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
-                  <Image src={MissionImage} alt="Dog being groomed" layout="fill" objectFit="cover" priority />
+                  <Image src={MissionImage} alt="Dog being groomed" layout="fill" objectFit="cover" loading="lazy"  />
                 </Box>
               </motion.div>
             </Grid>
@@ -125,7 +125,7 @@ const AboutUs = () => {
       </motion.div>
 
       {/* Why Mobile Grooming */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: false, amount: 0.3 }}>
+      
         <Box sx={{ py: { xs: 6, md: 10 }, px: 3, bgcolor: '#f9f9f9' }}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
@@ -139,24 +139,23 @@ const AboutUs = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: false, amount: 0.3 }}>
+             <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
                 <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
-                  <Image src={GroomingVanImage} alt="Fluffy Dog Spa" layout="fill" objectFit="cover" objectPosition="50% 70%" priority />
+                  <Image src={GroomingVanImage} alt="Fluffy Dog Spa" layout="fill" objectFit="cover" objectPosition="50% 70%" loading="lazy"  />
                 </Box>
               </motion.div>
             </Grid>
           </Grid>
         </Box>
-      </motion.div>
+   
 
       {/* Our Commitment */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: false, amount: 0.3 }}>
         <Box sx={{ py: { xs: 6, md: 10 }, px: 3, maxWidth: '1200px', mx: 'auto' }}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
-              <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: false, amount: 0.3 }}>
+               <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
                 <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
-                  <Image src={HappyDogImage} alt="Happy Dog After Grooming" layout="fill" objectFit="cover" priority />
+                  <Image src={HappyDogImage} alt="Happy Dog After Grooming" layout="fill" objectFit="cover" loading="lazy" />
                 </Box>
               </motion.div>
             </Grid>
@@ -178,7 +177,7 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         </Box>
-      </motion.div>
+  
       {/* Call-to-Action Section */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box

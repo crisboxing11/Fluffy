@@ -76,7 +76,7 @@ const ServicesPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            priority
+          loading="lazy"
             style={{ opacity: 0.4 }}
           />
           <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
