@@ -21,7 +21,8 @@ const Footer = () => {
             {["Home", "About", "Services", "Prices", "Book Now"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} // ✅ Fixed Book Now link
+                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} 
+                // ✅ Home now links to `/` instead of `/home`
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
