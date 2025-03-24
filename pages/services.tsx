@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText, Link } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText } from '@mui/material';
 import PetsIcon from '@mui/icons-material/Pets';
 import SpaIcon from '@mui/icons-material/Spa';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animations
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
 import Head from 'next/head';
+import Link from 'next/link'
 
 // **Animations**
 const fadeInUp = {
@@ -135,8 +136,16 @@ const ServicesPage = () => {
           <Typography variant="h5" textAlign="center" fontWeight="bold" mt={4} color="#067C92">
             From Nose to Tail, We Never Fail! 🐾
           </Typography>
-          <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
-  We offer a stress-free, luxury mobile grooming experience. See our <Link href="/prices">transparent pricing</Link> or <Link href="/contact">contact us</Link> for more details. 
+         <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
+  We offer a stress-free, luxury mobile grooming experience. See our{' '}
+  <Link href="/prices" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>transparent pricing</a>
+  </Link>{' '}
+  or{' '}
+  <Link href="/contact" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>contact us</a>
+  </Link>{' '}
+  for more details.
 </Typography>
         </Box>
       </motion.div>

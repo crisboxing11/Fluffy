@@ -5,6 +5,7 @@ import Image from 'next/image';
 import PriceHeroImage from '../public/Dog8.jpg'; // Ensure this is inside public/
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import Head from 'next/head';
+import Link from 'next/link'
 // **Animations**
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -232,7 +233,10 @@ const PricesPage = () => {
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
           {/* Internal link to services page for SEO */}
 <Typography variant="body1" textAlign="center" mt={0} mb={2}>
-  Curious about what we offer? View our full list of <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>mobile pet grooming services</a>.
+  Curious about what we offer? View our full list of{' '}
+  <Link href="/services" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>mobile pet grooming services</a>
+  </Link>.
 </Typography>
 
 <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">

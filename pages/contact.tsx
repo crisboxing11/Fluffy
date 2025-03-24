@@ -1,6 +1,7 @@
 import { Box, Typography, Grid, Button, IconButton, TextField, TextareaAutosize, Snackbar, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link'; 
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import Head from 'next/head';
@@ -117,8 +118,16 @@ const ContactPage = () => {
         <Typography variant="body1" color="textSecondary" mb={1}>
           Have questions or want to inquire about franchising? Fill out the form below, and we’ll get back to you as soon as possible.
         </Typography>
-        <Typography variant="body1" mt={1} mb={4}>
-  You can also explore our <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>services</a> or check our <a href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>grooming prices</a> before reaching out.
+       <Typography variant="body1" mt={1} mb={4}>
+  You can also explore our{' '}
+  <Link href="/services" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>services</a>
+  </Link>{' '}
+  or check our{' '}
+  <Link href="/prices" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>grooming prices</a>
+  </Link>{' '}
+  before reaching out.
 </Typography>
       </motion.div>
 

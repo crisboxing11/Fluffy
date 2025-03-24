@@ -15,6 +15,7 @@ import ReviewDog5 from '../public/ReviewDog5.jpg';
 import ReviewDog6 from '../public/ReviewDog6.jpg';
 import ReviewDog4 from '../public/ReviewDog4.jpg';
 import ReviewDog7 from '../public/ReviewDog7.jpg';
+import Link from 'next/link'
 
 
 // Testimonial Carousel Settings
@@ -137,7 +138,11 @@ const Home = () => {
             Why Choose Fluffy Pet Wash?
           </Typography>
           <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
-  We provide <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a> directly to your home.
+  We provide{' '}
+  <Link href="/services" passHref legacyBehavior>
+    <a style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a>
+  </Link>{' '}
+  directly to your home.
 </Typography>
           <Grid container spacing={3} justifyContent="center">
             {[
