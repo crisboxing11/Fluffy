@@ -35,16 +35,8 @@ const HomePage = () => {
    {/* ✅ Open Graph for SEO & Social Sharing */}
   <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
   <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-  <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
-  <meta property="og:url" content="https://fluffypetwash.com/" />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
-  <meta name="twitter:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-  <meta name="twitter:image" content="https://fluffypetwash.com/fluffy.PNG" />
-  <meta name="twitter:creator" content="@fluffypetwash" />
-  <meta name="twitter:site" content="@fluffypetwash" />
+ <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
+  <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
 
         {/* 🚀 Structured Data for Local SEO */}
         <script
