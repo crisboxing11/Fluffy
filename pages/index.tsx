@@ -28,7 +28,7 @@ const HomePage = () => {
       <Head>
         <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
         <meta name="description" content="Fluffy Pet Wash provides premium mobile pet grooming services across multiple locations. Book an appointment today!" />
-        <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog wash, mobile grooming near me, mobile dog grooming, mobile dog grooming las vegas, mobile dog grooming summerlin, mobile pet grooming las vegas, fluffy pet wash, mobile grooming, mobile grooming prices, premium mobile dog wash, premium mobile pet grooming" />
+        <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog wash" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://fluffypetwash.com/" />
