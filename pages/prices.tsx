@@ -230,9 +230,14 @@ const PricesPage = () => {
       {/* Included Services Section */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
-          <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-            What’s Included in Every Grooming Session?
-          </Typography>
+          {/* Internal link to services page for SEO */}
+<Typography variant="body1" textAlign="center" mt={0} mb={2}>
+  Curious about what we offer? View our full list of <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>mobile pet grooming services</a>.
+</Typography>
+
+<Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
+  What’s Included in Every Grooming Session?
+</Typography>
           <Grid container spacing={3} justifyContent="center">
             <Grid item xs={12} md={8}>
               <Card sx={{ boxShadow: 3, padding: 3, borderRadius: '15px', bgcolor: 'white' }}>

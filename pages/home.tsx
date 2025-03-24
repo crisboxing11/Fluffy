@@ -60,6 +60,9 @@ const Home = () => {
     return () => window.removeEventListener('resize', handleResize); // ✅ Cleanup on unmount
   }, []);
   return (
+
+
+    
     <Box>
       {/* Hero Section with Mobile Image Adjustment */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
@@ -125,6 +128,7 @@ const Home = () => {
           </Box>
         </Box>
       </motion.div>
+      
 
       {/* Why Choose Us Section */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
@@ -132,6 +136,9 @@ const Home = () => {
           <Typography variant="h4" fontWeight="bold" mb={4} color="#067C92">
             Why Choose Fluffy Pet Wash?
           </Typography>
+          <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
+  We provide <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a> directly at your home.
+</Typography>
           <Grid container spacing={3} justifyContent="center">
             {[
               { title: "Stress-Free Experience", icon: SpaIcon, desc: "No crowded salons—just a gentle, one-on-one grooming experience." },

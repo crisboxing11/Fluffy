@@ -7,7 +7,7 @@ import Head from 'next/head';
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import AboutHeroImage from '../public/Dog4.jpeg';
 import MissionImage from '../public/Dog6.jpeg';
-import GroomingVanImage from '../public/Dog5.jpeg';
+import FreshlyCLeanedDogImage from '../public/Dog5.jpeg';
 import HappyDogImage from '../public/Dog7.jpeg';
 
 // **Animations**
@@ -27,8 +27,8 @@ const AboutUs = () => {
       {/* 🔥 SEO & Metadata */}
       <Head>
         <title>About Fluffy Pet Wash | Mobile Pet Grooming</title>
-        <meta name="description" content="Learn about Fluffy Pet Wash, a stress-free mobile pet grooming service that provides top-quality care for your furry friends." />
-        <meta name="keywords" content="about fluffy pet wash, mobile dog grooming, stress-free pet grooming, pet grooming at home" />
+        <meta name="description" content="Fluffy Pet Wash offers luxury mobile pet grooming with hypoallergenic shampoos, stress-free treatments, and certified groomers. Serving Las Vegas. Book now!" />
+        <meta name="keywords" content="Fluffy Pet Wash | Mobile Dog Grooming – Stress-Free Luxury Pet Care" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -141,7 +141,7 @@ const AboutUs = () => {
             <Grid item xs={12} md={6}>
              <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
                 <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
-                  <Image src={GroomingVanImage} alt="Fluffy Dog Spa" layout="fill" objectFit="cover" objectPosition="50% 70%" loading="lazy"  />
+                  <Image src={FreshlyCLeanedDogImage} alt="Freshly cleaned dog Las Vegas"  layout="fill" objectFit="cover" objectPosition="50% 70%" loading="lazy"  />
                 </Box>
               </motion.div>
             </Grid>

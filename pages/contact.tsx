@@ -51,11 +51,40 @@ const ContactPage = () => {
   };
 
   return (
+    
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 1000, mx: 'auto', textAlign: 'center' }}>
       <Head>
-        <title>Contact Us | Fluffy Pet Wash</title>
-        <meta name="description" content="Get in touch with Fluffy Pet Wash for inquiries, bookings, or franchising opportunities. Call, email, or use our contact form." />
-      </Head>
+  <title>Contact Us | Fluffy Pet Wash</title>
+  <meta name="description" content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form." />
+  <meta name="keywords" content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me" />
+  <meta name="author" content="Fluffy Pet Wash" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {/* 🚀 Structured Data for LocalBusiness */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MobileBusiness",
+        "name": "Fluffy Pet Wash",
+        "url": "https://fluffypetwash.com",
+        "description": "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
+        "image": "https://fluffypetwash.com/fluffy.PNG",
+        "email": "contact.fluffypetwash@gmail.com",
+        "telephone": "+1-702-508-6248",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Las Vegas, NV"
+        },
+        "sameAs": [
+          "https://www.instagram.com/fluffypetwash",
+          "https://www.facebook.com/fluffypetwash"
+        ]
+      })
+    }}
+  />
+</Head>
 
       {/* ✅ Snackbar for Success Message (Top of the Screen) */}
       <Snackbar
@@ -85,9 +114,12 @@ const ContactPage = () => {
         <Typography variant="h3" fontWeight="bold" color="#067C92" mb={3}>
           Get in Touch with Us
         </Typography>
-        <Typography variant="body1" color="textSecondary" mb={4}>
+        <Typography variant="body1" color="textSecondary" mb={1}>
           Have questions or want to inquire about franchising? Fill out the form below, and we’ll get back to you as soon as possible.
         </Typography>
+        <Typography variant="body1" mt={1} mb={4}>
+  You can also explore our <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>services</a> or check our <a href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>grooming prices</a> before reaching out.
+</Typography>
       </motion.div>
 
       {/* Contact Information */}
@@ -105,7 +137,11 @@ const ContactPage = () => {
               <EmailIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Email Us</Typography>
-            <Typography variant="body1" color="textSecondary">contact.fluffypetwash@gmail.com</Typography>
+          <Typography variant="body1" color="textSecondary">
+  <a href="mailto:contact.fluffypetwash@gmail.com" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    contact.fluffypetwash@gmail.com
+  </a>
+</Typography>
           </Grid>
         </Grid>
       </motion.div>

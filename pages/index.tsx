@@ -28,9 +28,23 @@ const HomePage = () => {
       <Head>
         <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
         <meta name="description" content="Fluffy Pet Wash provides premium mobile pet grooming services across multiple locations. Book an appointment today!" />
-        <meta name="keywords" content="mobile pet grooming, dog grooming, pet wash, Fluffy Pet Wash franchise,furryland, Furryland, Zoomin Groomin, zoomin groomin, fluffy pet, fluffy pet wash, mobile dog wash, mobile dog grooming service, mobile dog grooming, mobile pet grooming near me, mobile dog grooming near me" />
-        <meta name="author" content="Fluffy Pet Wash" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="mobile pet grooming, dog grooming, pet wash, Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog wash, mobile grooming near me, mobile dog grooming, mobile dog grooming las vegas, mobile dog grooming summerlin, mobile pet grooming las vegas, fluffy pet wash, mobile grooming, mobile grooming prices, premium mobile dog wash, premium mobile pet grooming" />
+  <meta name="author" content="Fluffy Pet Wash" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://fluffypetwash.com/" />
+   {/* ✅ Open Graph for SEO & Social Sharing */}
+  <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
+  <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+  <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
+  <meta property="og:url" content="https://fluffypetwash.com/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
+  <meta name="twitter:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+  <meta name="twitter:image" content="https://fluffypetwash.com/fluffy.PNG" />
+  <meta name="twitter:creator" content="@fluffypetwash" />
+  <meta name="twitter:site" content="@fluffypetwash" />
 
         {/* 🚀 Structured Data for Local SEO */}
         <script
@@ -38,24 +52,36 @@ const HomePage = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "MobileBusiness",
-              "name": "Fluffy Pet Wash",
-              "url": "https://fluffypetwash.com",
-              "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-              "image": "https://fluffypetwash.com/logo.png",
-              "telephone": "+1-555-555-5555",
-              "serviceArea": [
-                {
-                  "@type": "Place",
-                  "name": "Las Vegas, NV",
-                  "geo": { "@type": "GeoCoordinates", "latitude": "36.1699", "longitude": "-115.1398" }
-                },
-              ],
-              "sameAs": [
-                "https://www.facebook.com/fluffypetwash",
-                "https://www.instagram.com/fluffypetwash",
-                "https://twitter.com/fluffypetwash"
-              ]
+  "@type": ["Organization", "LocalBusiness", "PetGrooming"],
+  "name": "Fluffy Pet Wash",
+  "url": "https://fluffypetwash.com",
+  "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
+  "logo": "https://fluffypetwash.com/fluffy.PNG",
+  "image": "https://fluffypetwash.com/fluffy.PNG",
+  "telephone": "+1-702-508-6248",
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Las Vegas, NV",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "36.1699",
+        "longitude": "-115.1398"
+      }
+    }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    ],
+    "opens": "08:00",
+    "closes": "19:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/fluffypetwash",
+    "https://www.instagram.com/fluffypetwash"
+  ]
             })
           }}
         />

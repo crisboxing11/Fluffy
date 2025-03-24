@@ -3,6 +3,7 @@ import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, TextFie
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+
 // FAQ Data
 const faqData = [
   {
@@ -10,7 +11,7 @@ const faqData = [
     questions: [
       { 
         question: "How do I book an appointment?", 
-        answer: "Simply visit our booking page, select your location and dog breed, and pick an available time slot. You'll receive a confirmation email after booking."
+        answer: "Simply visit our booking page, select your service area and dog breed and press the Confirm & Continue Booking button. This will take you to the actual booking and just simply follow the steps. You'll receive an email after booking and a text once we have accepted your booking."
       },
       { 
         question: "Can I reschedule or cancel my appointment?", 
