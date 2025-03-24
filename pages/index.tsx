@@ -70,6 +70,32 @@ const HomePage = () => {
       }
     }
   ],
+   "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Katie Jones"
+          },
+          "reviewBody": "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie!"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Toni Robinson"
+          },
+          "reviewBody": "The service was amazing! They were so patient and kept me updated the whole time."
+        }
+      ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [

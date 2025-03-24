@@ -137,7 +137,7 @@ const Home = () => {
             Why Choose Fluffy Pet Wash?
           </Typography>
           <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
-  We provide <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a> directly at your home.
+  We provide <a href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a> directly to your home.
 </Typography>
           <Grid container spacing={3} justifyContent="center">
             {[
