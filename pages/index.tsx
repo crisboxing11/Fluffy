@@ -27,16 +27,17 @@ const HomePage = () => {
       {/* 🔥 SEO & Metadata */}
       <Head>
         <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
-  <meta name="description" content="Fluffy Pet Wash provides premium mobile pet grooming services across multiple locations. Book an appointment today!" />
-  <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog wash, mobile grooming near me, mobile dog grooming, mobile dog grooming las vegas, mobile dog grooming summerlin, mobile pet grooming las vegas, fluffy pet wash, mobile grooming, mobile grooming prices, premium mobile dog wash, premium mobile pet grooming" />
-  <meta name="author" content="Fluffy Pet Wash" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="canonical" href="https://fluffypetwash.com/" />
-   {/* ✅ Open Graph for SEO & Social Sharing */}
-  <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
-  <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
- <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
-  <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+        <meta name="description" content="Fluffy Pet Wash provides premium mobile pet grooming services across multiple locations. Book an appointment today!" />
+        <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog wash, mobile grooming near me, mobile dog grooming, mobile dog grooming las vegas, mobile dog grooming summerlin, mobile pet grooming las vegas, fluffy pet wash, mobile grooming, mobile grooming prices, premium mobile dog wash, premium mobile pet grooming" />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://fluffypetwash.com/" />
+
+        {/* ✅ Open Graph */}
+        <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
+        <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
+        <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
 
         {/* 🚀 Structured Data for Local SEO */}
         <script
@@ -44,67 +45,75 @@ const HomePage = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "PetGrooming"],
-  "name": "Fluffy Pet Wash",
-  "url": "https://fluffypetwash.com",
-  "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-  "logo": "https://fluffypetwash.com/fluffy.PNG",
-  "image": "https://fluffypetwash.com/fluffy.PNG",
-  "telephone": "+1-702-508-6248",
-  "areaServed": [
-    {
-      "@type": "Place",
-      "name": "Las Vegas, NV",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "36.1699",
-        "longitude": "-115.1398"
-      }
-    }
-  ],
-  "aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": "5",
-  "reviewCount": "112"
-},
-"review": [
-  {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Katie Jones"
-    },
-    "reviewBody": "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie!"
-  },
-  {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Toni Robinson"
-    },
-    "reviewBody": "The service was amazing! They were so patient and kept me updated the whole time."
-  }
-],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-    ],
-    "opens": "08:00",
-    "closes": "19:00"
-  },
-  "sameAs": [
-    "https://www.facebook.com/fluffypetwash",
-    "https://www.instagram.com/fluffypetwash"
-  ]
+              "@type": ["Organization", "LocalBusiness", "PetGrooming"],
+              "@id": "https://fluffypetwash.com#fluffy",
+              "name": "Fluffy Pet Wash",
+              "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
+              "logo": "https://fluffypetwash.com/fluffy.PNG",
+              "image": "https://fluffypetwash.com/fluffy.PNG",
+              "telephone": "+1-702-508-6248",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Las Vegas",
+                "addressRegion": "NV",
+                "postalCode": "89101",
+                "addressCountry": "US"
+              },
+              "areaServed": [
+                {
+                  "@type": "Place",
+                  "name": "Las Vegas, NV",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "36.1699",
+                    "longitude": "-115.1398"
+                  }
+                }
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "112"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                  },
+                  "author": {
+                    "@type": "Person",
+                    "name": "Katie Jones"
+                  },
+                  "reviewBody": "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie!"
+                },
+                {
+                  "@type": "Review",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                  },
+                  "author": {
+                    "@type": "Person",
+                    "name": "Toni Robinson"
+                  },
+                  "reviewBody": "The service was amazing! They were so patient and kept me updated the whole time."
+                }
+              ],
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                ],
+                "opens": "08:00",
+                "closes": "19:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/fluffypetwash",
+                "https://www.instagram.com/fluffypetwash"
+              ]
             })
           }}
         />
