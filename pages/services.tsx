@@ -51,7 +51,7 @@ const ServicesPage = () => {
       <Head>
         <title>Mobile Pet Grooming Services | Fluffy Pet Wash</title>
         <meta name="description" content="Discover Fluffy Pet Wash's premium mobile pet grooming services. From hypoallergenic washes to teeth brushing, we bring luxury grooming to your doorstep!" />
-        <meta name="keywords" content=" dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services" />
+        <meta name="keywords" content=" dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services, dog grooming services, mobile dog grooming services, mobile dog grooming services Las Vegas, mobile dog grooming services las vegas, dog wash services, mobile dog wash services" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

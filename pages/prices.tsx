@@ -50,7 +50,7 @@ const PricesPage = () => {
       <Head>
         <title>Pet Grooming Prices | Fluffy Pet Wash</title>
         <meta name="description" content="Affordable and transparent pricing for luxury mobile pet grooming services. Check our pricing tiers and all-inclusive package." />
-        <meta name="keywords" content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing" />
+        <meta name="keywords" content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing, affordable mobile grooming, cheap mobile dog grooming, mobile dog wash prices" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
