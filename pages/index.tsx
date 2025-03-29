@@ -36,7 +36,7 @@ const HomePage = () => {
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
         <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy.PNG" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy-size.jpg" />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
 
         {/* 🚀 Structured Data for Local SEO */}
@@ -49,8 +49,8 @@ const HomePage = () => {
               "@id": "https://fluffypetwash.com#fluffy",
               "name": "Fluffy Pet Wash",
               "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-              "logo": "https://fluffypetwash.com/fluffy.PNG",
-              "image": "https://fluffypetwash.com/fluffy.PNG",
+              "logo": "https://fluffypetwash.com/fluffy-size.jpg",
+              "image": "https://fluffypetwash.com/fluffy-size.jpg",
               "telephone": "+1-702-508-6248",
               "priceRange": "$$",
               "address": {
