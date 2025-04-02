@@ -27,7 +27,7 @@ const HomePage = () => {
       {/* 🔥 SEO & Metadata */}
       <Head>
         <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
-        <meta name="description" content="Fluffy Pet Wash provides premium mobile pet grooming services across multiple locations. Book an appointment today!" />
+        <meta name="description" content="Fluffy Pet Wash provides the best premium mobile pet grooming services across multiple locations. Book an appointment today!" />
         <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,9 +36,15 @@ const HomePage = () => {
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
         <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy-size.jpg" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
-
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://fluffypetwash.com/" />
+{/* ✅ Twitter Card Meta Tags (used by iMessage and Discord too) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
+        <meta name="twitter:description" content="Book the best premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         {/* 🚀 Structured Data for Local SEO */}
         <script
           type="application/ld+json"
@@ -49,8 +55,8 @@ const HomePage = () => {
               "@id": "https://fluffypetwash.com#fluffy",
               "name": "Fluffy Pet Wash",
               "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-              "logo": "https://fluffypetwash.com/fluffy-size.jpg",
-              "image": "https://fluffypetwash.com/fluffy-size.jpg",
+              "logo": "https://fluffypetwash.com/fluffy-circle.PNG",
+              "image": "https://fluffypetwash.com/fluffy-circle.PNG",
               "telephone": "+1-702-508-6248",
               "priceRange": "$$",
               "address": {
