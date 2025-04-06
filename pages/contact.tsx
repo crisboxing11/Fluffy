@@ -148,7 +148,7 @@ const ContactPage = () => {
             <Typography variant="h6" fontWeight="bold">Email Us</Typography>
           <Typography variant="body1" color="textSecondary">
   <a href="mailto:contact.fluffypetwash@gmail.com" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    contact.fluffypetwash@gmail.com
+    contact@fluffypetwash.com
   </a>
 </Typography>
           </Grid>
