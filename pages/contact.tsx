@@ -72,7 +72,7 @@ const ContactPage = () => {
         "url": "https://fluffypetwash.com",
         "description": "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
         "image": "https://fluffypetwash.com/fluffy.PNG",
-        "email": "contact.fluffypetwash@gmail.com",
+        "email": "contact@fluffypetwash.com",
         "telephone": "+1-702-508-6248",
         "areaServed": {
           "@type": "Place",
