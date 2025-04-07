@@ -25,38 +25,58 @@ const AboutUs = () => {
   return (
     <Box>
       {/* 🔥 SEO & Metadata */}
-      <Head>
-        <title>About Fluffy Pet Wash | Mobile Pet Grooming</title>
-        <meta name="description" content="Fluffy Pet Wash offers luxury mobile pet grooming with hypoallergenic shampoos, stress-free treatments, and certified groomers. Serving Las Vegas. Book now!" />
-        <meta name="keywords" content="Fluffy Pet Wash | Mobile Dog Grooming – Stress-Free Luxury Pet Care, what is mobile pet grooming, mobile pet grooming, fluffy pet, fluffy pet wash, mr fluffy, mobile pet grooming, mobile pet wash " />
-        <meta name="author" content="Fluffy Pet Wash" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <Head>
+  <title>About Fluffy Pet Wash | Mobile Pet Grooming</title>
+  <meta name="description" content="Fluffy Pet Wash offers luxury mobile pet grooming with hypoallergenic shampoos, stress-free treatments, and certified groomers. Serving Las Vegas. Book now!" />
+  <meta name="keywords" content="about Fluffy Pet Wash, mobile pet grooming, stress-free grooming, mobile dog groomers, pet grooming Las Vegas, Fluffy Pet Wash company" />
+  <meta name="author" content="Fluffy Pet Wash" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* 🚀 Structured Data for About Page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Fluffy Pet Wash",
-              "url": "https://fluffypetwash.com",
-              "description": "A premium mobile pet grooming service focused on making pets look and feel their best with stress-free grooming.",
-           "logo": "https://fluffypetwash.com/FPW-Logo.jpg",
-              "sameAs": [
-                "https://www.facebook.com/fluffypetwash",
-                "https://www.instagram.com/fluffypetwash",
-                "https://twitter.com/fluffypetwash"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-555-555-5555",
-                "contactType": "customer service"
-              }
-            })
-          }}
-        />
-      </Head>
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://fluffypetwash.com/about" />
+
+  {/* Favicon */}
+  <link rel="icon" href="/fluffycon.ico" />
+
+  {/* Open Graph Tags */}
+  <meta property="og:title" content="About Fluffy Pet Wash | Mobile Pet Grooming" />
+  <meta property="og:description" content="Get to know Fluffy Pet Wash – luxury mobile dog grooming serving Las Vegas with love, skill, and stress-free care." />
+  <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fluffypetwash.com/about" />
+  <meta property="og:image:alt" content="Fluffy Pet Wash logo" />
+
+  {/* Twitter Card Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Fluffy Pet Wash | Mobile Pet Grooming" />
+  <meta name="twitter:description" content="Meet the team behind Fluffy Pet Wash – passionate mobile pet groomers dedicated to safe, luxurious, and convenient grooming." />
+  <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+
+  {/* Structured Data (Organization) */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Fluffy Pet Wash",
+        "url": "https://fluffypetwash.com",
+        "logo": "https://fluffypetwash.com/fluffy-circle.png",
+        "description": "A premium mobile pet grooming service focused on stress-free, luxury pet care at your doorstep.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-702-508-6248",
+          "contactType": "customer service"
+        },
+        "sameAs": [
+          "https://www.facebook.com/fluffypetwash",
+          "https://www.instagram.com/fluffypetwash",
+          "https://twitter.com/fluffypetwash"
+        ]
+      })
+    }}
+  />
+</Head>
 
       {/* Hero Section */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>

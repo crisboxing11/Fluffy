@@ -54,26 +54,52 @@ const ContactPage = () => {
   return (
     
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 1000, mx: 'auto', textAlign: 'center' }}>
-      <Head>
+  <Head>
   <title>Contact Us | Fluffy Pet Wash</title>
   <meta name="description" content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form." />
   <meta name="keywords" content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me" />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  {/* 🚀 Structured Data for LocalBusiness */}
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://fluffypetwash.com/contact" />
+
+  {/* Favicon */}
+  <link rel="icon" href="/fluffycon.ico" />
+
+  {/* Open Graph Tags */}
+  <meta property="og:title" content="Contact Us | Fluffy Pet Wash" />
+  <meta property="og:description" content="Contact Fluffy Pet Wash for mobile grooming, questions, or franchise inquiries. Call, email, or fill out our quick form." />
+  <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fluffypetwash.com/contact" />
+
+  {/* Twitter Card Meta */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us | Fluffy Pet Wash" />
+  <meta name="twitter:description" content="Reach out to Fluffy Pet Wash for mobile dog grooming appointments, franchising, or general questions." />
+  <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+
+  {/* Structured Data (LocalBusiness Schema) */}
   <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
       __html: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "MobileBusiness",
+        "@type": "LocalBusiness",
         "name": "Fluffy Pet Wash",
         "url": "https://fluffypetwash.com",
         "description": "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
-        "image": "https://fluffypetwash.com/fluffy.PNG",
+        "image": "https://fluffypetwash.com/fluffy-circle.png",
         "email": "contact@fluffypetwash.com",
         "telephone": "+1-702-508-6248",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Las Vegas",
+          "addressRegion": "NV",
+          "postalCode": "89101",
+          "addressCountry": "US"
+        },
         "areaServed": {
           "@type": "Place",
           "name": "Las Vegas, NV"

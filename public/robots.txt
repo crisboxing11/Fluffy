@@ -1,9 +1,10 @@
-# *
+# Robots.txt for Fluffy Pet Wash
+
 User-agent: *
 Allow: /
 
-# Host
-Host: http://localhost:3000
+# Correct Host
+Host: https://fluffypetwash.com
 
-# Sitemaps
+# Sitemap Location
 Sitemap: https://fluffypetwash.com/sitemap.xml

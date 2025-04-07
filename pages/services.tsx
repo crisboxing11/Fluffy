@@ -54,6 +54,53 @@ const ServicesPage = () => {
         <meta name="keywords" content=" dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services, dog grooming services, mobile dog grooming services, mobile dog grooming services Las Vegas, mobile dog grooming services las vegas, dog wash services, mobile dog wash services" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://fluffypetwash.com/services" />
+         <link rel="icon" href="/fluffycon.ico" />
+        {/* ✅ Open Graph */}
+        <meta property="og:title" content="Mobile Pet Grooming Services | Fluffy Pet Wash" />
+        <meta property="og:description" content="Premium, all-inclusive mobile pet grooming services delivered to your door. Stress-free luxury for your dog!" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://fluffypetwash.com/services" />
+
+{/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mobile Pet Grooming Services | Fluffy Pet Wash" />
+        <meta name="twitter:description" content="Premium, all-inclusive mobile pet grooming services delivered to your door. Stress-free luxury for your dog!" />
+        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Mobile Pet Grooming",
+      "provider": {
+        "@type": "Organization",
+        "name": "Fluffy Pet Wash",
+        "url": "https://fluffypetwash.com",
+        "logo": "https://fluffypetwash.com/fluffy-circle.png"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Las Vegas, NV"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mobile Grooming Package",
+        "itemListElement": services.map(service => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.text
+          }
+        }))
+      }
+    })
+  }}
+/>
       </Head>
 
       {/* Hero Section with Animated Title */}

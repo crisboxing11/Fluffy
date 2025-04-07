@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 
+
 // FAQ Data
 const faqData = [
   {
@@ -96,38 +97,60 @@ const FAQPage = () => {
       q.question.toLowerCase().includes(search.toLowerCase())
     ),
   })).filter((section) => section.questions.length > 0);
+  
 
   return (
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 900, mx: "auto", textAlign: "center" }}>
        {/* 🔥 SEO & Metadata */}
-      <Head>
-        <title>FAQ | Fluffy Pet Wash</title>
-        <meta name="description" content="Find answers to common questions about Fluffy Pet Wash, including pricing, booking, grooming services, and pet safety." />
-        <meta name="keywords" content="dog grooming FAQ, mobile pet grooming questions, pet grooming pricing, dog grooming services" />
-        <meta name="author" content="Fluffy Pet Wash" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <Head>
+  {/* Page Title & Meta */}
+  <title>FAQ | Fluffy Pet Wash</title>
+  <meta name="description" content="Find answers to common questions about Fluffy Pet Wash, including pricing, booking, grooming services, and pet safety." />
+  <meta name="keywords" content="dog grooming FAQ, mobile pet grooming questions, pet grooming pricing, dog grooming services" />
+  <meta name="author" content="Fluffy Pet Wash" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* 🚀 Structured Data for FAQ Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": faqData.flatMap(section =>
-                section.questions.map(q => ({
-                  "@type": "Question",
-                  "name": q.question,
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": q.answer
-                  }
-                }))
-              )
-            })
-          }}
-        />
-      </Head>
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://fluffypetwash.com/faq" />
+
+  {/* Favicon */}
+  <link rel="icon" href="/fluffycon.ico" />
+
+  {/* Open Graph Meta Tags */}
+  <meta property="og:title" content="FAQ | Fluffy Pet Wash" />
+  <meta property="og:description" content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling." />
+  <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fluffypetwash.com/faq" />
+
+  {/* Twitter Card Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ | Fluffy Pet Wash" />
+  <meta name="twitter:description" content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling." />
+  <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+
+  {/* FAQ Structured Data */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqData.flatMap(section =>
+          section.questions.map(q => ({
+            "@type": "Question",
+            "name": q.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": q.answer
+            }
+          }))
+        )
+      })
+    }}
+  />
+</Head>
 
       {/* Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
