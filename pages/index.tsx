@@ -32,11 +32,11 @@ const HomePage = () => {
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://fluffypetwash.com/" />
-
+        <link rel="icon" href="/fluffycon.ico" />
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
         <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffycon.PNG" />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/" />
