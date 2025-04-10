@@ -55,8 +55,8 @@ const HomePage = () => {
               "@id": "https://fluffypetwash.com#fluffy",
               "name": "Fluffy Pet Wash",
               "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-              "logo": "https://fluffypetwash.com/fluffy-circle.PNG",
-              "image": "https://fluffypetwash.com/fluffy-circle.PNG",
+              "logo": "https://fluffypetwash.com/fluffycon.ico",
+              "image": "https://fluffypetwash.com/fluffycon.ico",
               "telephone": "+1-702-508-6248",
               "priceRange": "$$",
               "address": {
