@@ -60,7 +60,7 @@ const ServicesPage = () => {
         <meta property="og:title" content="Mobile Pet Grooming Services | Fluffy Pet Wash" />
         <meta property="og:description" content="Premium, all-inclusive mobile pet grooming services delivered to your door. Stress-free luxury for your dog!" />
         <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
-        <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+        <meta property="og:image:alt" content="Fluffy Pet Wash Services" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/services" />
 

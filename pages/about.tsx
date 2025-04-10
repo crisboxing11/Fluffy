@@ -44,7 +44,7 @@ const AboutUs = () => {
   <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fluffypetwash.com/about" />
-  <meta property="og:image:alt" content="Fluffy Pet Wash logo" />
+  <meta property="og:image:alt" content="About Fluffy Pet Wash" />
 
   {/* Twitter Card Tags */}
   <meta name="twitter:card" content="summary_large_image" />

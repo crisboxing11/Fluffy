@@ -37,7 +37,7 @@ const HomePage = () => {
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
         <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
         <meta property="og:image" content="https://fluffypetwash.com/fluffycon.ico" />
-        <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+        <meta property="og:image:alt" content="Fluffy Pet Wash" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/" />
 {/* ✅ Twitter Card Meta Tags (used by iMessage and Discord too) */}

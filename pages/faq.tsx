@@ -120,7 +120,7 @@ const FAQPage = () => {
   <meta property="og:title" content="FAQ | Fluffy Pet Wash" />
   <meta property="og:description" content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling." />
   <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
-  <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+  <meta property="og:image:alt" content="Fluffy Pet Wash Questions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fluffypetwash.com/faq" />
 

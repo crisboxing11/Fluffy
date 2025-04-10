@@ -59,7 +59,7 @@ const PricesPage = () => {
         <meta property="og:title" content="Pet Grooming Prices | Fluffy Pet Wash" />
         <meta property="og:description" content="Check transparent, all-inclusive pricing tiers for mobile grooming services by Fluffy Pet Wash." />
         <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
-        <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
+        <meta property="og:image:alt" content="Fluffy Pet Wash Prices" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/prices" />
 
