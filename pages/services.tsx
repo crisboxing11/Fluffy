@@ -55,7 +55,7 @@ const ServicesPage = () => {
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://fluffypetwash.com/services" />
-         <link rel="icon" href="/favicon.ico" />
+         <link rel="icon" href="/fluffycon.ico" />
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Mobile Pet Grooming Services | Fluffy Pet Wash" />
         <meta property="og:description" content="Premium, all-inclusive mobile pet grooming services delivered to your door. Stress-free luxury for your dog!" />

@@ -36,7 +36,7 @@ const AboutUs = () => {
   <link rel="canonical" href="https://fluffypetwash.com/about" />
 
   {/* Favicon */}
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/fluffycon.ico" />
 
   {/* Open Graph Tags */}
   <meta property="og:title" content="About Fluffy Pet Wash | Mobile Pet Grooming" />
