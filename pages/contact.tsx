@@ -142,8 +142,25 @@ const ContactPage = () => {
           Get in Touch with Us
         </Typography>
         <Typography variant="body1" color="textSecondary" mb={1}>
-          Have questions or want to inquire about franchising? Fill out the form below, and we’ll get back to you as soon as possible.
-        </Typography>
+  Have questions or want to inquire about{' '}
+  <a
+    href="https://franchise.fluffypetwash.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: '#038B95',
+      fontWeight: 'bold',
+      textDecoration: 'none',
+      borderBottom: '2px solid #00ADCD',
+      transition: 'all 0.3s ease-in-out',
+    }}
+    onMouseOver={(e) => { e.currentTarget.style.color = '#026D7C'; }}
+    onMouseOut={(e) => { e.currentTarget.style.color = '#038B95'; }}
+  >
+    franchising
+  </a>
+  ? Fill out the form below, and we’ll get back to you as soon as possible.
+</Typography>
        <Typography variant="body1" mt={1} mb={4}>
   You can also explore our{' '}
   <Link href="/services" passHref legacyBehavior>
