@@ -46,11 +46,34 @@ const Navbar = () => {
             <Button 
               key={index} 
               sx={{ color: '#067C92', mx: 1 }} 
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`} // ✅ Ensures "Home" goes to "/"
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
             >
               {item}
             </Button>
           ))}
+
+          {/* ✨ Franchise Button */}
+          <Button
+            variant="contained"
+            href="https://franchise.fluffypetwash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              ml: 2,
+              background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+              color: '#fff',
+              fontWeight: 'bold',
+              px: 3,
+              py: 1,
+              borderRadius: '20px',
+              textTransform: 'none',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+              },
+            }}
+          >
+            Franchise With Us!
+          </Button>
         </Box>
         
         {/* Mobile Drawer Menu */}
@@ -94,6 +117,29 @@ const Navbar = () => {
                 </ListItem>
               ))}
               <Divider sx={{ my: 2 }} />
+              {/* Franchise Button - Mobile */}
+              <ListItem>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  href="https://franchise.fluffypetwash.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    borderRadius: '30px',
+                    py: 1.2,
+                    textTransform: 'none',
+                    '&:hover': {
+                      background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+                    },
+                  }}
+                >
+                  Franchise With Us!
+                </Button>
+              </ListItem>
             </List>
           </Drawer>
         </Box>
