@@ -54,7 +54,7 @@ const PricesPage = () => {
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://fluffypetwash.com/prices" />
-         <link rel="icon" href="/fluffycon.ico" />
+         <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Pet Grooming Prices | Fluffy Pet Wash" />
         <meta property="og:description" content="Check transparent, all-inclusive pricing tiers for mobile grooming services by Fluffy Pet Wash." />

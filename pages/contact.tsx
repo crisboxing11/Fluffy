@@ -65,7 +65,7 @@ const ContactPage = () => {
   <link rel="canonical" href="https://fluffypetwash.com/contact" />
 
   {/* Favicon */}
-  <link rel="icon" href="/fluffycon.ico" />
+  <link rel="icon" href="/favicon.ico" />
 
   {/* Open Graph Tags */}
   <meta property="og:title" content="Contact Us | Fluffy Pet Wash" />

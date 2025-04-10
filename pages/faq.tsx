@@ -114,7 +114,7 @@ const FAQPage = () => {
   <link rel="canonical" href="https://fluffypetwash.com/faq" />
 
   {/* Favicon */}
-  <link rel="icon" href="/fluffycon.ico" />
+  <link rel="icon" href="/favicon.ico" />
 
   {/* Open Graph Meta Tags */}
   <meta property="og:title" content="FAQ | Fluffy Pet Wash" />
