@@ -32,11 +32,11 @@ const HomePage = () => {
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://fluffypetwash.com/" />
-        <link rel="icon" href="/fluffycon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
         <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffycon.ico" />
+        <meta property="og:image" content="https://fluffypetwash.com/favicon.ico" />
         <meta property="og:image:alt" content="Fluffy Pet Wash" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/" />
@@ -55,8 +55,8 @@ const HomePage = () => {
               "@id": "https://fluffypetwash.com#fluffy",
               "name": "Fluffy Pet Wash",
               "description": "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
-              "logo": "https://fluffypetwash.com/fluffycon.ico",
-              "image": "https://fluffypetwash.com/fluffycon.ico",
+              "logo": "https://fluffypetwash.com/favicon.ico",
+              "image": "https://fluffypetwash.com/favicon.ico",
               "telephone": "+1-702-508-6248",
               "priceRange": "$$",
               "address": {
