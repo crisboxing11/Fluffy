@@ -1,0 +1,21 @@
+{
+  "name": "Fluffy Pet Wash",
+  "short_name": "Fluffy",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#038B95",
+  "background_color": "#ffffff",
+  "description": "Premium mobile pet grooming delivered right to your door.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
