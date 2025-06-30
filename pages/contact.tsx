@@ -190,7 +190,7 @@ const ContactPage = () => {
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Email Us</Typography>
           <Typography variant="body1" color="textSecondary">
-  <a href="mailto:contact.fluffypetwash@gmail.com" style={{ color: '#038B95', fontWeight: 'bold' }}>
+  <a href="mailto:contact@fluffypetwash.com" style={{ color: '#038B95', fontWeight: 'bold' }}>
     contact@fluffypetwash.com
   </a>
 </Typography>
