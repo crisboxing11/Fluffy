@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
 import territories from '../data/territories';
-import supportedBreeds from '../data/supportedBreeds';
+import supportedBreeds from '../data/supportedBreeds.json';
 
 const PreBookingForm = () => {
   const [location, setLocation] = useState('');
