@@ -1,6 +1,6 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fluffypetwash.com';
+
 module.exports = {
-  siteUrl: 'http://localhost:3000', // Temporary localhost URL
+  siteUrl,
   generateRobotsTxt: true,
-  // siteUrl: 'https://fluffypetwash.com', 
-  // generateRobotsTxt: true,
 };
