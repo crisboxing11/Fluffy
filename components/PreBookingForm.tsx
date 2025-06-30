@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
 import territories from '../data/territories';
 import supportedBreeds from '../data/supportedBreeds';
@@ -7,6 +8,7 @@ const PreBookingForm = () => {
   const [location, setLocation] = useState('');
   const [breed, setBreed] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSubmit = () => {
     if (!location || !breed) {
@@ -26,7 +28,7 @@ const PreBookingForm = () => {
 
     if (selectedTerritory) {
       // Redirect to the booking page for the selected territory
-      window.location.href = selectedTerritory.bookingUrl;
+      router.push(selectedTerritory.bookingUrl);
     }
   };
 
