@@ -101,7 +101,7 @@ const PreBookingForm = () => {
         freeSolo
         options={supportedBreeds}
         value={breed}
-        onChange={(_, newValue) => setBreed(newValue || '')}
+        onInputChange={(_, newValue) => setBreed(newValue)}
         renderInput={(params) => (
           <TextField
             {...params}
