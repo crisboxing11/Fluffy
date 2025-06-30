@@ -1,4 +1,15 @@
-import { AppBar, Toolbar, Box, Button, IconButton, Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,25 +23,32 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar 
-      position="fixed" 
-      sx={{ 
-        bgcolor: '#FFFFFF', 
-        color: '#067C92', 
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', 
+    <AppBar
+      position="fixed"
+      sx={{
+        bgcolor: '#FFFFFF',
+        color: '#067C92',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
         zIndex: 10,
-        px: { xs: 2, md: 4 }
+        px: { xs: 2, md: 4 },
       }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         {/* Fluffy Logo as Homepage Link */}
         <Link href="/">
-          <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+          >
             <Image
               src="/Fluffy Logo.svg"
               alt="Fluffy Pet Wash Logo"
-              width={120} 
+              width={120}
               height={40}
               priority
               style={{
@@ -41,16 +59,24 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-          {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
-            <Button 
-              key={index} 
-              sx={{ color: '#067C92', mx: 1 }} 
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-            >
-              {item}
-            </Button>
-          ))}
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            gap: 2,
+            alignItems: 'center',
+          }}
+        >
+          {['Home', 'About', 'Services', 'Prices', 'FAQ', 'Contact'].map(
+            (item, index) => (
+              <Button
+                key={index}
+                sx={{ color: '#067C92', mx: 1 }}
+                href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              >
+                {item}
+              </Button>
+            ),
+          )}
 
           {/* ✨ Franchise Button */}
           <Button
@@ -75,7 +101,7 @@ const Navbar = () => {
             Franchise With Us!
           </Button>
         </Box>
-        
+
         {/* Mobile Drawer Menu */}
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
           <IconButton onClick={handleDrawerToggle}>
@@ -92,30 +118,42 @@ const Navbar = () => {
                 color: '#067C92',
                 padding: 3,
                 borderRadius: '10px 0 0 10px',
-              }
+              },
             }}
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
-              {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
-                <ListItem 
-                  key={index} 
-                  sx={{ 
-                    py: 2, 
-                    px: 3, 
-                    borderRadius: '10px',
-                    transition: 'all 0.3s ease-in-out',
-                    '&:hover': { bgcolor: '#E0F7FA', transform: 'scale(1.05)' }
-                  }}
-                >
-                  <Link 
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
-                    style={{ textDecoration: 'none', color: '#067C92', fontWeight: 'bold', width: '100%', display: 'block', textAlign: 'center' }}
-                    onClick={handleDrawerToggle}
+              {['Home', 'About', 'Services', 'Prices', 'FAQ', 'Contact'].map(
+                (item, index) => (
+                  <ListItem
+                    key={index}
+                    sx={{
+                      py: 2,
+                      px: 3,
+                      borderRadius: '10px',
+                      transition: 'all 0.3s ease-in-out',
+                      '&:hover': {
+                        bgcolor: '#E0F7FA',
+                        transform: 'scale(1.05)',
+                      },
+                    }}
                   >
-                    <ListItemText primary={item} />
-                  </Link>
-                </ListItem>
-              ))}
+                    <Link
+                      href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                      style={{
+                        textDecoration: 'none',
+                        color: '#067C92',
+                        fontWeight: 'bold',
+                        width: '100%',
+                        display: 'block',
+                        textAlign: 'center',
+                      }}
+                      onClick={handleDrawerToggle}
+                    >
+                      <ListItemText primary={item} />
+                    </Link>
+                  </ListItem>
+                ),
+              )}
               <Divider sx={{ my: 2 }} />
               {/* Franchise Button - Mobile */}
               <ListItem>

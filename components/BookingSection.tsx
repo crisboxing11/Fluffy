@@ -5,12 +5,21 @@ import { motion } from 'framer-motion';
 const BookingSection = () => {
   return (
     <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }}>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <Typography variant="h3" fontWeight="bold" textAlign="center" mb={4}>
           Book Your Appointment
         </Typography>
       </motion.div>
-      <Typography variant="body1" color="textSecondary" textAlign="center" mb={4}>
+      <Typography
+        variant="body1"
+        color="textSecondary"
+        textAlign="center"
+        mb={4}
+      >
         Before proceeding, confirm your dog&apos;s eligibility.
       </Typography>
 

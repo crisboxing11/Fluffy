@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  MenuItem,
+  Autocomplete,
+} from '@mui/material';
 import territories from '../data/territories';
 import supportedBreeds from '../data/supportedBreeds';
 
@@ -18,13 +25,15 @@ const PreBookingForm = () => {
 
     if (!supportedBreeds.includes(breed)) {
       setError(
-        `We only service the following breeds: ${supportedBreeds.join(', ')}. If your breed is not on this list, we cannot groom them.`
+        `We only service the following breeds: ${supportedBreeds.join(', ')}. If your breed is not on this list, we cannot groom them.`,
       );
       return;
     }
 
     setError('');
-    const selectedTerritory = territories.find((territory) => territory.name === location);
+    const selectedTerritory = territories.find(
+      (territory) => territory.name === location,
+    );
 
     if (selectedTerritory) {
       // Redirect to the booking page for the selected territory
@@ -50,8 +59,9 @@ const PreBookingForm = () => {
       </Typography>
 
       <Typography variant="body1" color="textSecondary" mb={3}>
-        This is a <b>pre-check</b> before booking. Simply select your service area and dog breed to continue.  
-        The <b>actual booking process</b> happens on the next page.
+        This is a <b>pre-check</b> before booking. Simply select your service
+        area and dog breed to continue. The <b>actual booking process</b>{' '}
+        happens on the next page.
       </Typography>
 
       {/* ❌ Strong Warning Message About Breeds */}
@@ -67,8 +77,9 @@ const PreBookingForm = () => {
           mb: 4,
         }}
       >
-        <b>Important:</b> We only service the breeds listed below.  
-        If your dog’s breed is <b>not on the list</b>, you <b>will not be able to proceed with booking</b>.  
+        <b>Important:</b> We only service the breeds listed below. If your dog’s
+        breed is <b>not on the list</b>, you{' '}
+        <b>will not be able to proceed with booking</b>.
         <br />
         <b>We do not groom poodles or doodle mixes.</b>
       </Typography>
@@ -119,9 +130,9 @@ const PreBookingForm = () => {
         color="primary"
         onClick={handleSubmit}
         size="large"
-        sx={{ 
-          textTransform: 'none', 
-          background: 'linear-gradient(90deg, #00ADCD, #038B95)', 
+        sx={{
+          textTransform: 'none',
+          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
           px: 4,
           py: 1.5,
           fontWeight: 'bold',

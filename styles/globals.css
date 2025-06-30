@@ -5,7 +5,7 @@
 /* Custom global styles */
 /* General */
 body {
-  font-family: 'Inter','Arial', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   margin: 0;
   background-color: #f9f9f9;
   color: #333333;
@@ -110,19 +110,19 @@ select:focus {
 
 .slick-prev:before,
 .slick-next:before {
-  color: #067C92 !important;
+  color: #067c92 !important;
   /* Adjust arrow color */
   font-size: 20px !important;
 }
 
 .slick-dots li button:before {
-  color: #067C92 !important;
+  color: #067c92 !important;
   /* Dot color */
   font-size: 12px;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #038B95 !important;
+  color: #038b95 !important;
   /* Active dot color */
 }
 
@@ -135,7 +135,6 @@ select:focus {
 
 /* Mobile Optimization */
 @media screen and (max-width: 768px) {
-
   .slick-prev,
   .slick-next {
     display: none !important;

@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
@@ -14,8 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // ✅ Ensure environment variables are correctly set
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error("Missing email environment variables.");
-    return res.status(500).json({ message: "Email configuration error" });
+    console.error('Missing email environment variables.');
+    return res.status(500).json({ message: 'Email configuration error' });
   }
 
   // ✅ Configure nodemailer transporter

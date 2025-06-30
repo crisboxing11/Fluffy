@@ -115,7 +115,7 @@ const supportedBreeds = [
   'Vizsla',
   'Weimaraner',
   'Welsh Springer Spaniel (No Shave Down)',
-  'Whippet'
+  'Whippet',
 ];
 
 export default supportedBreeds;
