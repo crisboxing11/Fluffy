@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import franchises from '../../data/franchises.json'; // Import franchise data
 import Head from 'next/head';
+import Image from 'next/image';
 
 const FranchisePage = () => {
   const { query } = useRouter();
@@ -59,7 +60,13 @@ const FranchisePage = () => {
         {/* Optional: Display franchise image */}
         {franchise.image && (
           <div className="mt-6">
-            <img src={franchise.image} alt={`${franchise.name} Location`} className="w-full max-w-md mx-auto rounded shadow-md" />
+            <Image
+              src={franchise.image}
+              alt={`${franchise.name} Location`}
+              className="w-full max-w-md mx-auto rounded shadow-md"
+              width={800}
+              height={500}
+            />
           </div>
         )}
 
