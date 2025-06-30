@@ -163,12 +163,12 @@ const ContactPage = () => {
 </Typography>
        <Typography variant="body1" mt={1} mb={4}>
   You can also explore our{' '}
-  <Link href="/services" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>services</a>
+  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    services
   </Link>{' '}
   or check our{' '}
-  <Link href="/prices" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>grooming prices</a>
+  <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    grooming prices
   </Link>{' '}
   before reaching out.
 </Typography>

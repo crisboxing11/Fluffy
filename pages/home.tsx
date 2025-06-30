@@ -139,8 +139,8 @@ const Home = () => {
           </Typography>
           <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
   We provide{' '}
-  <Link href="/services" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>premium mobile grooming services</a>
+  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    premium mobile grooming services
   </Link>{' '}
   directly to your home.
 </Typography>
