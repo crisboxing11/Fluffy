@@ -1,5 +1,7 @@
+import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import franchises from '../../data/franchises.json'; // Import franchise data
 import Head from 'next/head';
 
@@ -13,15 +15,17 @@ const FranchisePage = () => {
   // If no franchise matches the slug, show a 404-like message
   if (!franchise) {
     return (
-      <div className="container mx-auto py-10 text-center">
-        <h1 className="text-3xl font-bold">Franchise Not Found</h1>
-        <p className="mt-4">
+      <Box sx={{ py: 10, textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Franchise Not Found
+        </Typography>
+        <Typography sx={{ mt: 4 }}>
           Sorry, we couldn&apos;t find the franchise you&apos;re looking for. Please check the URL or go back to the{' '}
-          <Link href="/" className="text-blue-500 underline">
+          <Link href="/" style={{ color: '#067C92', textDecoration: 'underline' }}>
             homepage
           </Link>.
-        </p>
-      </div>
+        </Typography>
+      </Box>
     );
   }
 
@@ -51,26 +55,34 @@ const FranchisePage = () => {
       </Head>
 
       {/* Page Content */}
-      <div className="container mx-auto py-10">
-        <h1 className="text-3xl font-bold">{franchise.name} Franchise</h1>
-        <p className="mt-4">{franchise.address}</p>
-        <p className="mt-2">{franchise.phone}</p>
+      <Box sx={{ py: 10, maxWidth: 800, mx: 'auto', textAlign: 'center' }}>
+        <Typography variant="h4" fontWeight="bold">
+          {franchise.name} Franchise
+        </Typography>
+        <Typography sx={{ mt: 4 }}>{franchise.address}</Typography>
+        <Typography sx={{ mt: 2 }}>{franchise.phone}</Typography>
 
         {/* Optional: Display franchise image */}
-        {franchise.image && (
-          <div className="mt-6">
-            <img src={franchise.image} alt={`${franchise.name} Location`} className="w-full max-w-md mx-auto rounded shadow-md" />
-          </div>
-        )}
+          {franchise.image && (
+            <Box sx={{ mt: 6 }}>
+              <Image
+                src={franchise.image}
+                alt={`${franchise.name} Location`}
+                width={400}
+                height={300}
+                style={{ width: '100%', maxWidth: 400, margin: '0 auto', borderRadius: 8, boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}
+              />
+            </Box>
+          )}
 
 
         {/* Back to Home Link */}
-        <div className="mt-8 text-center">
-          <Link href="/">
-           Back to Home
+        <Box sx={{ mt: 8, textAlign: 'center' }}>
+          <Link href="/" style={{ color: '#067C92', textDecoration: 'underline' }}>
+            Back to Home
           </Link>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 };
