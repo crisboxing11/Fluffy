@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import PreBookingForm from '../components/PreBookingForm';
-import Home from './home';
+import Home from '../components/Home';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
