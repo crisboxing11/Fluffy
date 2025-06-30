@@ -7,7 +7,7 @@ import Head from 'next/head';
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import AboutHeroImage from '../public/Dog4.jpeg';
 import MissionImage from '../public/Dog6.jpeg';
-import FreshlyCLeanedDogImage from '../public/Dog5.jpeg';
+import FreshlyCleanedDogImage from '../public/Dog5.jpeg';
 import HappyDogImage from '../public/Dog7.jpeg';
 
 // **Animations**
@@ -161,7 +161,7 @@ const AboutUs = () => {
             <Grid item xs={12} md={6}>
              <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
                 <Box sx={{ width: '100%', height: { xs: 250, md: 400 }, position: 'relative', borderRadius: '20px', boxShadow: 3 }}>
-                  <Image src={FreshlyCLeanedDogImage} alt="Freshly cleaned dog Las Vegas"  layout="fill" objectFit="cover" objectPosition="50% 70%" loading="lazy"  />
+                  <Image src={FreshlyCleanedDogImage} alt="Freshly cleaned dog Las Vegas"  layout="fill" objectFit="cover" objectPosition="50% 70%" loading="lazy"  />
                 </Box>
               </motion.div>
             </Grid>
