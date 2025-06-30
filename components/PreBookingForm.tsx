@@ -16,7 +16,7 @@ const PreBookingForm = () => {
       return;
     }
 
-    if (!supportedBreeds.includes(breed)) {
+    if (!supportedBreeds.some(b => b.toLowerCase() === breed.toLowerCase())) {
       setError(
         `We only service the following breeds: ${supportedBreeds.join(', ')}. If your breed is not on this list, we cannot groom them.`
       );
