@@ -22,7 +22,11 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Environment Variables
 
-The sitemap configuration reads the base URL from the `NEXT_PUBLIC_SITE_URL` environment variable. When this variable is not provided, the application falls back to `https://fluffypetwash.com`.
+Copy `.env.example` to `.env` and provide values for the following variables:
+
+- `NEXT_PUBLIC_SITE_URL` – base URL used by the sitemap and other features. When not set, it defaults to `https://fluffypetwash.com`.
+- `EMAIL_USER` – Gmail address used to send contact form messages.
+- `EMAIL_PASS` – app password for the above Gmail account.
 
 ## Learn More
 
