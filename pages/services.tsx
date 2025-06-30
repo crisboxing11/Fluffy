@@ -185,12 +185,12 @@ const ServicesPage = () => {
           </Typography>
          <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
   We offer a stress-free, luxury mobile grooming experience. See our{' '}
-  <Link href="/prices" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>transparent pricing</a>
+  <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    transparent pricing
   </Link>{' '}
   or{' '}
-  <Link href="/contact" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>contact us</a>
+  <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    contact us
   </Link>{' '}
   for more details.
 </Typography>

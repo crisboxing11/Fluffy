@@ -248,8 +248,8 @@ const PricesPage = () => {
           {/* Internal link to services page for SEO */}
 <Typography variant="body1" textAlign="center" mt={0} mb={2}>
   Curious about what we offer? View our full list of{' '}
-  <Link href="/services" passHref legacyBehavior>
-    <a style={{ color: '#038B95', fontWeight: 'bold' }}>mobile pet grooming services</a>
+  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
+    mobile pet grooming services
   </Link>.
 </Typography>
 

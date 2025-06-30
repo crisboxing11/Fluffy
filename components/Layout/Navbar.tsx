@@ -25,7 +25,7 @@ const Navbar = () => {
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         
         {/* Fluffy Logo as Homepage Link */}
-        <Link href="/" passHref>
+        <Link href="/">
           <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
             <Image
               src="/Fluffy Logo.svg"
