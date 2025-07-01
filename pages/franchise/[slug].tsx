@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import franchises from '../../data/franchises.json'; // Import franchise data
 import Head from 'next/head';
 
@@ -59,7 +60,13 @@ const FranchisePage = () => {
         {/* Optional: Display franchise image */}
         {franchise.image && (
           <div className="mt-6">
-            <img src={franchise.image} alt={`${franchise.name} Location`} className="w-full max-w-md mx-auto rounded shadow-md" />
+            <Image
+              src={franchise.image}
+              alt={`${franchise.name} Location`}
+              width={400}
+              height={300}
+              className="w-full max-w-md mx-auto rounded shadow-md"
+            />
           </div>
         )}
 
