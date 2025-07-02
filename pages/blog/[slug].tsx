@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { posted, BlogPost } from '../../data/posted';
 import Head from 'next/head';
-import { Typography, Container } from '@mui/material';
+import { Typography, Container, Box } from '@mui/material';
+import Image from 'next/image';
 
 type Props = {
   post: BlogPost;
@@ -13,20 +14,76 @@ const BlogPostPage = ({ post }: Props) => {
       <Head>
         <title>{post.title} | Fluffy Pet Wash Blog</title>
         <meta name="description" content={post.excerpt} />
+        <meta
+          name="keywords"
+          content="dog grooming tips, mobile pet grooming, pet care advice"
+        />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={`https://fluffypetwash.com${post.image}`} />
-        <meta property="og:url" content={`https://fluffypetwash.com/blog/${post.slug}`} />
+        <meta
+          property="og:image"
+          content={`https://fluffypetwash.com${post.image}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://fluffypetwash.com/blog/${post.slug}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://fluffypetwash.com/blog/${post.slug}`}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.excerpt,
+              image: `https://fluffypetwash.com${post.image}`,
+              url: `https://fluffypetwash.com/blog/${post.slug}`,
+              datePublished: post.date,
+              author: {
+                '@type': 'Organization',
+                name: 'Fluffy Pet Wash'
+              }
+            })
+          }}
+        />
       </Head>
 
-      <Container maxWidth="md" sx={{ py: 6 }}>
-        <Typography variant="h3" fontWeight="bold" gutterBottom>{post.title}</Typography>
-        <Typography variant="subtitle2" color="textSecondary" gutterBottom>{post.date}</Typography>
-        <img
+      <Box
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: { xs: '40vh', md: '50vh' },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          color: 'white',
+          overflow: 'hidden'
+        }}
+      >
+        <Image
           src={post.image}
           alt={post.title}
-          style={{ width: '100%', borderRadius: '15px', marginBottom: '24px' }}
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
         />
+        <Box
+          sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }}
+        />
+        <Typography variant="h2" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
+          {post.title}
+        </Typography>
+      </Box>
+
+      <Container maxWidth="md" sx={{ py: 6 }}>
+        <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+          {post.date}
+        </Typography>
         <Typography
           variant="body1"
           component="div"
