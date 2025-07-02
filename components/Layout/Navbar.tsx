@@ -42,7 +42,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-          {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
+          {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
             <Button 
               key={index} 
               sx={{ color: '#067C92', mx: 1 }} 
@@ -96,7 +96,7 @@ const Navbar = () => {
             }}
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
-              {["Home", "About", "Services", "Prices", "FAQ", "Contact"].map((item, index) => (
+              {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
                 <ListItem 
                   key={index} 
                   sx={{ 
