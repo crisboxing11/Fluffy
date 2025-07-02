@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { posted, BlogPost } from '../data/posted';
+import { posted, BlogPost } from '../../data/posted';
 import Head from 'next/head';
 import { Typography, Container } from '@mui/material';
 
