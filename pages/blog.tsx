@@ -106,10 +106,17 @@ const BlogPage = () => {
             loading="lazy"
             style={{ opacity: 0.4 }}
           />
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(0,0,0,0.4)',
+            }}
+          />
           <Typography
             variant="h1"
             fontWeight="bold"
-            sx={{ position: 'relative', zIndex: 2 }}
+            sx={{ position: 'relative', zIndex: 2, textShadow: '2px 2px 6px rgba(0,0,0,0.6)' }}
           >
             Fluffy Pet Wash Blog
           </Typography>
