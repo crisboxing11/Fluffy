@@ -36,6 +36,7 @@ const BlogPage = () => {
           name="keywords"
           content="pet grooming blog, dog grooming tips, mobile pet grooming articles"
         />
+        <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://fluffypetwash.com/blog" />
         <meta property="og:title" content="Fluffy Pet Wash Blog" />
         <meta
@@ -45,6 +46,8 @@ const BlogPage = () => {
         <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/blog" />
+        <meta property="og:site_name" content="Fluffy Pet Wash" />
+        <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Fluffy Pet Wash Blog" />
         <meta
@@ -52,6 +55,32 @@ const BlogPage = () => {
           content="Insights and updates from the Fluffy Pet Wash team."
         />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:site" content="@fluffypetwash" />
+        <meta name="twitter:creator" content="@fluffypetwash" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Blog',
+              name: 'Fluffy Pet Wash Blog',
+              description: 'Insights and updates from the Fluffy Pet Wash team.',
+              url: 'https://fluffypetwash.com/blog',
+              blogPost: posted.map((p) => ({
+                '@type': 'BlogPosting',
+                headline: p.title,
+                description: p.excerpt,
+                image: `https://fluffypetwash.com${p.image}`,
+                url: `https://fluffypetwash.com/blog/${p.slug}`,
+                datePublished: p.date,
+                author: {
+                  '@type': 'Organization',
+                  name: 'Fluffy Pet Wash',
+                },
+              })),
+            }),
+          }}
+        />
       </Head>
 
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
