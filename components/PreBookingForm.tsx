@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  MenuItem,
+  Autocomplete,
+  Skeleton,
+} from '@mui/material';
 import territories from '../data/territories';
 import supportedBreeds from '../data/supportedBreeds.json'; // Importing from JSON file
 
@@ -9,6 +17,7 @@ const PreBookingForm = () => {
   const [error, setError] = useState('');
   const [showIframe, setShowIframe] = useState(false);
   const [iframeUrl, setIframeUrl] = useState('');
+  const [iframeLoading, setIframeLoading] = useState(true);
 
   const handleSubmit = () => {
     if (!location || !breed) {
@@ -30,6 +39,7 @@ const PreBookingForm = () => {
       // Add cache-busting param
       const randomQuery = `&nocache=${Date.now()}`;
       setIframeUrl(`${selectedTerritory.bookingUrl}${randomQuery}`);
+      setIframeLoading(true);
       setShowIframe(true);
     }
   };
@@ -140,7 +150,15 @@ const PreBookingForm = () => {
           </Typography>
         </>
       ) : (
-        <Box sx={{ width: '100%', height: '800px', mt: 4 }}>
+        <Box sx={{ width: '100%', height: '800px', mt: 4, position: 'relative' }}>
+          {iframeLoading && (
+            <Skeleton
+              variant="rectangular"
+              width="100%"
+              height="100%"
+              animation="wave"
+            />
+          )}
           <iframe
             src={iframeUrl}
             width="100%"
@@ -148,6 +166,9 @@ const PreBookingForm = () => {
             frameBorder="0"
             title="Online booking"
             scrolling="no"
+            loading="lazy"
+            style={{ display: iframeLoading ? 'none' : 'block' }}
+            onLoad={() => setIframeLoading(false)}
           />
         </Box>
       )}
