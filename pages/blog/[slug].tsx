@@ -117,7 +117,7 @@ const BlogPostPage = ({ post }: Props) => {
           priority
         />
         <Box
-          sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }}
+          sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }}
         />
         <Typography variant="h2" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
           {post.title}
