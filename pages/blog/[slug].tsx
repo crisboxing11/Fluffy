@@ -18,6 +18,7 @@ const BlogPostPage = ({ post }: Props) => {
           name="keywords"
           content="dog grooming tips, mobile pet grooming, pet care advice"
         />
+        <meta name="robots" content="index,follow" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta
@@ -28,10 +29,21 @@ const BlogPostPage = ({ post }: Props) => {
           property="og:url"
           content={`https://fluffypetwash.com/blog/${post.slug}`}
         />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Fluffy Pet Wash" />
+        <meta property="og:locale" content="en_US" />
         <link
           rel="canonical"
           href={`https://fluffypetwash.com/blog/${post.slug}`}
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={`https://fluffypetwash.com${post.image}`} />
+        <meta name="twitter:site" content="@fluffypetwash" />
+        <meta name="twitter:creator" content="@fluffypetwash" />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:author" content="Fluffy Pet Wash" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -43,11 +55,43 @@ const BlogPostPage = ({ post }: Props) => {
               image: `https://fluffypetwash.com${post.image}`,
               url: `https://fluffypetwash.com/blog/${post.slug}`,
               datePublished: post.date,
+              dateModified: post.date,
               author: {
                 '@type': 'Organization',
-                name: 'Fluffy Pet Wash'
-              }
+                name: 'Fluffy Pet Wash',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Fluffy Pet Wash',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://fluffypetwash.com/fluffy-circle.png',
+                },
+              },
             })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Blog',
+                  item: 'https://fluffypetwash.com/blog',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: post.title,
+                  item: `https://fluffypetwash.com/blog/${post.slug}`,
+                },
+              ],
+            }),
           }}
         />
       </Head>
