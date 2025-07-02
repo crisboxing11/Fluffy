@@ -127,7 +127,7 @@ const ServicesPage = () => {
           loading="lazy"
             style={{ opacity: 0.4 }}
           />
-          <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }} />
+          <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.2)' }} />
           <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
             <Typography variant="h1" fontWeight="bold" sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, textShadow: '2px 2px 6px rgba(0,0,0,0.6)' }}>
               Luxury Mobile Grooming Services
