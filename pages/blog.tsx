@@ -2,6 +2,7 @@ import { Box, Typography, Grid, Card, CardContent, Button } from '@mui/material'
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import Link from 'next/link';
 import { posted } from '../data/posted';
 
 const fadeInUp = {
@@ -114,7 +115,7 @@ const BlogPage = () => {
                       {post.excerpt}
                     </Typography>
                     <Box mt="auto">
-                      <Button variant="contained" href={post.link}>
+                      <Button component={Link} href={post.link} variant="contained">
                         Read More
                       </Button>
                     </Box>
