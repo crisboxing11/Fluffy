@@ -2,6 +2,7 @@ import { Box, Typography, Grid, Card, CardContent, Button } from '@mui/material'
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import { posted } from '../data/posted';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -13,29 +14,13 @@ const zoomIn = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
 };
 
-const posts = [
-  {
-    title: '5 Tips for Stress-Free Grooming',
-    excerpt:
-      'Discover simple ways to make grooming a relaxing experience for your furry friend.',
-    image: '/Dog5.jpeg',
-    link: '#',
-  },
-  {
-    title: 'Why Mobile Grooming Works',
-    excerpt:
-      'Learn about the benefits of having a professional groomer come right to your door.',
-    image: '/Dog6.jpeg',
-    link: '#',
-  },
-  {
-    title: 'Choosing the Right Shampoo',
-    excerpt:
-      'We break down hypoallergenic options to keep your pet’s coat shiny and healthy.',
-    image: '/Dog7.jpeg',
-    link: '#',
-  },
-];
+// Build the blog post cards from posted
+const posts = posted.map((post) => ({
+  title: post.title,
+  excerpt: post.excerpt,
+  image: post.image,
+  link: `/blog/${post.slug}`,
+}));
 
 const BlogPage = () => {
   return (
@@ -84,7 +69,7 @@ const BlogPage = () => {
           }}
         >
           <Image
-            src="/Dog3.png"
+            src="/Four Dogs.png"
             alt="Fluffy dog enjoying spa"
             layout="fill"
             objectFit="cover"
@@ -109,20 +94,30 @@ const BlogPage = () => {
           {posts.map((post, index) => (
             <Grid item xs={12} md={4} key={index}>
               <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
-                <Card sx={{ boxShadow: 3, borderRadius: '15px', height: '100%' }}>
+                <Card
+                  sx={{
+                    boxShadow: 3,
+                    borderRadius: '15px',
+                    height: '100%',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': { transform: 'scale(1.03)' },
+                  }}
+                >
                   <Box sx={{ position: 'relative', height: 200 }}>
                     <Image src={post.image} alt={post.title} layout="fill" objectFit="cover" />
                   </Box>
-                  <CardContent>
+                  <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                     <Typography variant="h6" fontWeight="bold" gutterBottom>
                       {post.title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" mb={2}>
+                    <Typography variant="body2" color="textSecondary" sx={{ mb: 2 }}>
                       {post.excerpt}
                     </Typography>
-                    <Button variant="contained" href={post.link} sx={{ mt: 'auto' }}>
-                      Read More
-                    </Button>
+                    <Box mt="auto">
+                      <Button variant="contained" href={post.link}>
+                        Read More
+                      </Button>
+                    </Box>
                   </CardContent>
                 </Card>
               </motion.div>
