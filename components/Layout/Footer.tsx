@@ -18,7 +18,7 @@ const Footer = () => {
         <Grid item xs={12} md={6} textAlign="center">
           <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
           <Stack spacing={1.5} mt={1} direction="row" justifyContent="center">
-            {["Home", "About", "Services", "Prices", "Book Now"].map((item, index) => (
+            {["Home", "About", "Services", "Prices", "Blog", "Book Now"].map((item, index) => (
               <Link
                 key={index}
                 href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} 

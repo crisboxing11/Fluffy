@@ -127,11 +127,12 @@ const ServicesPage = () => {
           loading="lazy"
             style={{ opacity: 0.4 }}
           />
+          <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.2)' }} />
           <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
-            <Typography variant="h1" fontWeight="bold" sx={{ fontSize: { xs: '2rem', md: '3.5rem' } }}>
+            <Typography variant="h1" fontWeight="bold" sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, textShadow: '2px 2px 6px rgba(0,0,0,0.6)' }}>
               Luxury Mobile Grooming Services
             </Typography>
-            <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mt: 2 }}>
+            <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mt: 2, textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
               Stress-free, premium pet grooming delivered <b>right to your doorstep</b>.
             </Typography>
             <Button
