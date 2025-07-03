@@ -67,37 +67,37 @@ export const posted: BlogPost[] = [
       <p><strong>Join thousands of happy pet parents who trust Fluffy Pet Wash to make grooming easier, faster, and fluffier.</strong> Book now at <a href="https://fluffypetwash.com">fluffypetwash.com</a> and see why mobile grooming isn’t just a trend—it’s the future.</p>
     `
   },
-  // {
-  //   slug: 'choosing-the-right-shampoo',
-  //   title: 'Choosing the Right Shampoo for Your Dog',
-  //   excerpt: 'Not all pet shampoos are created equal. Discover how to choose the best formula for your dog’s unique coat and skin.',
-  //   image: '/Black Happy Dog.jpeg',
-  //   date: '2024-07-02',
-  //   content: `
-  //     <p>Ever wonder why your dog’s coat isn’t as shiny or soft as it could be? The culprit might be your shampoo. At Fluffy Pet Wash, we’ve seen it all—from flaky skin to irritated paws—all caused by the wrong products. Choosing the right shampoo is about more than smell. It’s about skin health, coat quality, and overall comfort.</p>
+  {
+    slug: 'choosing-the-right-shampoo',
+    title: 'Choosing the Right Shampoo for Your Dog',
+    excerpt: 'Not all pet shampoos are created equal. Discover how to choose the best formula for your dog’s unique coat and skin.',
+    image: '/Black Happy Dog.jpeg',
+    date: '2024-07-02',
+    content: `
+      <p>Ever wonder why your dog’s coat isn’t as shiny or soft as it could be? The culprit might be your shampoo. At Fluffy Pet Wash, we’ve seen it all—from flaky skin to irritated paws—all caused by the wrong products. Choosing the right shampoo is about more than smell. It’s about skin health, coat quality, and overall comfort.</p>
   
-  //     <h2>1. Avoid Human Shampoo at All Costs</h2>
-  //     <p>Human shampoo is not pH-balanced for dogs. It strips their natural oils, leaving skin dry and irritated. Always use products specifically designed for canine skin.</p>
+      <h2>1. Avoid Human Shampoo at All Costs</h2>
+      <p>Human shampoo is not pH-balanced for dogs. It strips their natural oils, leaving skin dry and irritated. Always use products specifically designed for canine skin.</p>
   
-  //     <h2>2. Look for Hypoallergenic and Organic Options</h2>
-  //     <p>If your dog licks their paws, scratches often, or has dry skin, hypoallergenic shampoos are your best bet. Ingredients like oatmeal, chamomile, coconut oil, and aloe vera soothe and protect sensitive skin without harsh chemicals.</p>
+      <h2>2. Look for Hypoallergenic and Organic Options</h2>
+      <p>If your dog licks their paws, scratches often, or has dry skin, hypoallergenic shampoos are your best bet. Ingredients like oatmeal, chamomile, coconut oil, and aloe vera soothe and protect sensitive skin without harsh chemicals.</p>
   
-  //     <h2>3. Choose Shampoo Based on Coat Type</h2>
-  //     <ul>
-  //       <li><strong>Short-coated dogs</strong> may benefit from deep-cleaning formulas that remove oils and debris.</li>
-  //       <li><strong>Long-haired breeds</strong> often need moisturizing shampoos with detangling conditioners to prevent matting.</li>
-  //       <li><strong>Double-coated dogs</strong> require products that help with deshedding and promote undercoat health.</li>
-  //     </ul>
+      <h2>3. Choose Shampoo Based on Coat Type</h2>
+      <ul>
+        <li><strong>Short-coated dogs</strong> may benefit from deep-cleaning formulas that remove oils and debris.</li>
+        <li><strong>Long-haired breeds</strong> often need moisturizing shampoos with detangling conditioners to prevent matting.</li>
+        <li><strong>Double-coated dogs</strong> require products that help with deshedding and promote undercoat health.</li>
+      </ul>
   
-  //     <h2>4. Watch Out for Artificial Fragrances & Dyes</h2>
-  //     <p>Many commercial shampoos smell nice but are loaded with synthetic chemicals that can irritate your dog’s skin. Always choose shampoos with natural, essential-oil-based scents.</p>
+      <h2>4. Watch Out for Artificial Fragrances & Dyes</h2>
+      <p>Many commercial shampoos smell nice but are loaded with synthetic chemicals that can irritate your dog’s skin. Always choose shampoos with natural, essential-oil-based scents.</p>
   
-  //     <h2>5. Ask Your Groomer</h2>
-  //     <p>At Fluffy Pet Wash, our groomers select shampoos and conditioners tailored to your dog’s specific needs. Whether it’s a medicated formula, a flea-fighting rinse, or a blueberry facial, we’ve got it covered.</p>
+      <h2>5. Ask Your Groomer</h2>
+      <p>At Fluffy Pet Wash, our groomers select shampoos and conditioners tailored to your dog’s specific needs. Whether it’s a medicated formula, a flea-fighting rinse, or a blueberry facial, we’ve got it covered.</p>
   
-  //     <p><strong>Want your dog to look and feel amazing?</strong> Book a Fluffy appointment today and let us choose the best products for your pup’s coat and skin. A healthy dog is a happy dog—and nothing feels better than a soft, shiny fluffball curled up next to you.</p>
-  //   `
-  // },
+      <p><strong>Want your dog to look and feel amazing?</strong> Book a Fluffy appointment today and let us choose the best products for your pup’s coat and skin. A healthy dog is a happy dog—and nothing feels better than a soft, shiny fluffball curled up next to you.</p>
+    `
+  },
   // {
   //   slug: 'orlando-grand-opening',
   //   title: 'Fluffy Pet Wash Expands to Orlando!',
