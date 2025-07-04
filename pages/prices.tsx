@@ -1,46 +1,60 @@
-import { Box, Typography, Grid, Card, CardContent, Button, List, ListItem, ListItemIcon } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Button, List, ListItem, ListItemIcon, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import PriceHeroImage from '../public/Dog8.jpg'; // Ensure this is inside public/
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import Head from 'next/head';
-import Link from 'next/link'
 // **Animations**
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
-// **Price Tiers**
-const pricing = [
-  { size: "Small Dog", price: "$85", desc: "Depending on Weight & Coat Condition" },
-  { size: "Medium Dog", price: "$95 - $125", desc: "Depending on Weight & Coat Condition" },
-  { size: "Large Dog", price: "$140 - $185", desc: "Depending on Weight & Coat Condition" },
-  { size: "Extra Large Dog", price: "$200 & Up", desc: "Depending on Weight & Coat Condition" },
-];
-// **Fluffy Preferred Membership Pricing (Fixed Discounted Prices)**
-const preferredPricing = [
-  { size: "Small Dog", price: "$75", desc: "Exclusive rate for Fluffy Preferred Members" },
-  { size: "Medium Dog", price: "$85 - $115", desc: "Exclusive rate for Fluffy Preferred Members" },
-  { size: "Large Dog", price: "$125 - $165", desc: "Exclusive rate for Fluffy Preferred Members" },
-  { size: "Extra Large Dog", price: "$185", desc: "Exclusive rate for Fluffy Preferred Members" },
+// **Grooming Packages**
+const packages = [
+  {
+    name: "Basic",
+    features: [
+      "Hypoallergenic Wash",
+      "Towel & blow dryer",
+      "Brush out",
+      "Perfume",
+    ],
+  },
+  {
+    name: "Premium",
+    features: [
+      "Everything in Basic Plus",
+      "Nail Trim & filing",
+      "Ear Cleaning",
+      "Teeth Brushing",
+      "Conditioning treatment",
+      "Paw cleaning and Sanitary trim",
+    ],
+  },
+  {
+    name: "Fluffy Royale",
+    features: [
+      "Everything in Premium Plus",
+      "Blueberry Facial",
+      "paws + pad massage with balm",
+      "tear stain treatment",
+      "De-shedding treatment & brushing",
+      "Deep teeth cleaning",
+      "Premium cologne spritz",
+      "Seasonal bandana or bow",
+    ],
+  },
 ];
 
-// **All-Inclusive Services List**
-const services = [
-  "Professional Brush Out",
-  "Professional Hypoallergenic Wash + Organic Conditioner & Moisturizer",
-  "Towel & Blow Out Dryer",
-  "Nails Trimming & Filing",
-  "Ears Cleaning",
-  "Mouth Wash and Teeth Brushing",
-  "Expressed Glands (Optional)",
-  "Professional DeShedding If Needed (Undercoat Removal)",
-  "Paws Cleaning & Paws Trimming If Needed",
-  "Sanitary/Backside/Ears Trimming If Needed ('Dog Tidy')",
-  "Facial + Fresh & Clean Treatment",
-  "Final Brush Out",
+// **Pricing by Dog Size**
+const dogSizes = [
+  { size: "Small", prices: { basic: 55, premium: 70, royale: 90 } },
+  { size: "Medium", prices: { basic: 70, premium: 85, royale: 105 } },
+  { size: "Large", prices: { basic: 90, premium: 115, royale: 145 } },
+  { size: "Extra Large", prices: { basic: 100, premium: 125, royale: 165 } },
+  { size: "XXL", prices: { basic: 110, premium: 145, royale: 185 } },
 ];
 
 const PricesPage = () => {
@@ -83,21 +97,21 @@ const PricesPage = () => {
                 "logo": "https://fluffypetwash.com/fluffy-circle.PNG"
               },
               "serviceType": "Luxury Mobile Grooming",
-              "offers": pricing.map(tier => ({
+              "offers": dogSizes.map(size => ({
                 "@type": "Offer",
-                "name": `${tier.size} Grooming`,
-                "price": tier.price.replace("$", ""),
-                "priceCurrency": "USD",
-                "description": tier.desc
+                "name": `${size.size} Dog Grooming`,
+                "price": size.prices.basic,
+                "priceCurrency": "USD"
               })),
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Fluffy Pet Wash Services",
-                "itemListElement": services.map(service => ({
+                "name": "Grooming Packages",
+                "itemListElement": packages.map(pkg => ({
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": service
+                    "name": pkg.name,
+                    "description": pkg.features.join(', ')
                   }
                 }))
               }
@@ -163,115 +177,80 @@ const PricesPage = () => {
         textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)', // ✅ Keeps text readable over image
       }}
     >
-      No hidden fees. One all-inclusive package tailored to your pet&apos;s needs.
+      Choose from three packages designed to pamper every pup.
     </Typography>
   </Box>
 </Box>
       </motion.div>
 
-      {/* Pricing Section */}
+      {/* Grooming Packages */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 } }}>
           <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-            Our Pricing Tiers
+            Our Grooming Packages
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            {pricing.map((tier, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-                  <Card
-                    sx={{
-                      boxShadow: 4,
-                      borderRadius: '15px',
-                      textAlign: 'center',
-                      transition: 'transform 0.3s ease-in-out',
-                      '&:hover': { transform: 'scale(1.05)' },
-                    }}
-                  >
-                    <CardContent>
-                      <Typography variant="h5" fontWeight="bold" color="#038B95" mb={2}>
-                        {tier.size}
-                      </Typography>
-                      <Typography variant="h4" fontWeight="bold" color="#067C92">
-                        {tier.price}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary" mt={1}>
-                        {tier.desc}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-           <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
-            * A <b>3.4% service charge</b> applies to all credit/debit card transactions.
-          </Typography>
-        </Box>
-      </motion.div>
-       {/* Fluffy Preferred Membership Pricing */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
-          <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#026D7C">
-            Fluffy Preferred Membership Pricing ✨
-          </Typography>
-          <Grid container spacing={4} justifyContent="center">
-            {preferredPricing.map((tier, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <Card sx={{ boxShadow: 4, borderRadius: '15px', textAlign: 'center', border: '2px solid #026D7C',transition: 'transform 0.3s ease-in-out',
-                      '&:hover': { transform: 'scale(1.05)' } }}>
+            {packages.map((pkg, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card sx={{ boxShadow: 4, borderRadius: '15px', textAlign: 'center', transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                   <CardContent>
-                    <Typography variant="h5" fontWeight="bold" color="#026D7C" mb={2}>
-                      {tier.size}
+                    <Typography variant="h5" fontWeight="bold" color="#038B95" mb={2}>
+                      {pkg.name}
                     </Typography>
-                    <Typography variant="h4" fontWeight="bold" color="#FFD700">
-                      {tier.price}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" mt={1}>
-                      {tier.desc}
-                    </Typography>
+                    <List>
+                      {pkg.features.map((feature, i) => (
+                        <ListItem key={i} sx={{ justifyContent: 'center' }}>
+                          <ListItemIcon>
+                            <CheckCircleIcon sx={{ color: '#038B95' }} />
+                          </ListItemIcon>
+                          {feature}
+                        </ListItem>
+                      ))}
+                    </List>
                   </CardContent>
                 </Card>
               </Grid>
             ))}
           </Grid>
-          <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
-            * Membership is only available for recurring clients who groom their dogs every 2 - 8 weeks. Ask your groomer for more details and sign up for recurring appointments!.
-          </Typography>
         </Box>
       </motion.div>
 
-
-      {/* Included Services Section */}
+      {/* Pricing Table */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
-          {/* Internal link to services page for SEO */}
-<Typography variant="body1" textAlign="center" mt={0} mb={2}>
-  Curious about what we offer? View our full list of{' '}
-  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    mobile pet grooming services
-  </Link>.
-</Typography>
-
-<Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-  What’s Included in Every Grooming Session?
-</Typography>
-          <Grid container spacing={3} justifyContent="center">
-            <Grid item xs={12} md={8}>
-              <Card sx={{ boxShadow: 3, padding: 3, borderRadius: '15px', bgcolor: 'white' }}>
-                <List>
-                  {services.map((service, index) => (
-                    <ListItem key={index}>
-                      <ListItemIcon>
-                        <CheckCircleIcon sx={{ color: '#038B95' }} />
-                      </ListItemIcon>
-                      {service}
-                    </ListItem>
-                  ))}
-                </List>
-              </Card>
-            </Grid>
-          </Grid>
+          <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#026D7C">
+            Package Pricing by Dog Size
+          </Typography>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Dog Size</TableCell>
+                  <TableCell align="center">Basic</TableCell>
+                  <TableCell align="center">Premium</TableCell>
+                  <TableCell align="center">Fluffy Royale</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {dogSizes.map((row) => (
+                  <TableRow key={row.size}>
+                    <TableCell component="th" scope="row">
+                      {row.size}
+                    </TableCell>
+                    <TableCell align="center">${row.prices.basic}</TableCell>
+                    <TableCell align="center">${row.prices.premium}</TableCell>
+                    <TableCell align="center">${row.prices.royale}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
+            * A <b>3.4% service charge</b> applies to all credit/debit card transactions.
+          </Typography>
+          <Typography variant="body2" color="textSecondary" textAlign="center" mt={1}>
+            Pricing is automatically calculated for each breed—no need to call.
+          </Typography>
         </Box>
       </motion.div>
 
