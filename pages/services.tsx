@@ -16,6 +16,9 @@ import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animatio
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
 import Head from 'next/head';
 import Link from 'next/link'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
+import { useTranslation, Trans } from 'next-i18next';
 
 // **Animations**
 const fadeInUp = {
@@ -45,6 +48,7 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const { t } = useTranslation('services');
   return (
     <Box>
       {/* 🔥 SEO & Metadata */}
@@ -130,10 +134,10 @@ const ServicesPage = () => {
           <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.2)' }} />
           <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
             <Typography variant="h1" fontWeight="bold" sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, textShadow: '2px 2px 6px rgba(0,0,0,0.6)' }}>
-              Luxury Mobile Grooming Services
+              {t('hero.title')}
             </Typography>
             <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mt: 2, textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
-              Stress-free, premium pet grooming delivered <b>right to your doorstep</b>.
+              <span dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
             </Typography>
             <Button
               variant="contained"
@@ -151,7 +155,7 @@ const ServicesPage = () => {
               }}
               href="/#booking"
             >
-              Book an Appointment
+              {t('hero.button')}
             </Button>
           </Box>
         </Box>
@@ -161,7 +165,7 @@ const ServicesPage = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box id="services" sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
           <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-            Our All-Inclusive Grooming Package
+            {t('package.title')}
           </Typography>
           <Grid container spacing={3} justifyContent="center">
             {services.map((service, index) => (
@@ -182,19 +186,14 @@ const ServicesPage = () => {
 
           {/* From Nose to Tail Text */}
           <Typography variant="h5" textAlign="center" fontWeight="bold" mt={4} color="#067C92">
-            From Nose to Tail, We Never Fail! 🐾
+            {t('package.fromNose')}
           </Typography>
          <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
-  We offer a stress-free, luxury mobile grooming experience. See our{' '}
-  <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    transparent pricing
-  </Link>{' '}
-  or{' '}
-  <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    contact us
-  </Link>{' '}
-  for more details.
-</Typography>
+            <Trans i18nKey="package.description" t={t} components={{
+              prices: <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }} />,
+              contact: <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }} />
+            }} />
+          </Typography>
         </Box>
       </motion.div>
 
@@ -202,15 +201,15 @@ const ServicesPage = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center', bgcolor: '#00ADCD', color: 'white' }}>
           <Typography variant="h4" fontWeight="bold" mb={4}>
-            Why Choose Fluffy Pet Wash?
+            {t('why.title')}
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: 700, mx: 'auto', mb: 3 }}>
-            🏡 <b>Convenience at Your Doorstep</b> <br />
-            No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.
+            🏡 <b>{t('why.convenience')}</b> <br />
+            {t('why.description')}
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
              <Button variant="contained" size="large" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
-            Book Now
+            {t('why.button')}
           </Button>
           </motion.div>
           
@@ -221,3 +220,9 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common', 'services'])),
+  },
+});

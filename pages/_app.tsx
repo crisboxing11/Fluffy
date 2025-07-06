@@ -2,11 +2,13 @@ import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import Layout from '../components/Layout/Layout'; // Import Layout component
+import Layout from '../components/Layout/Layout';
 import theme from '../styles/themes';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { Analytics } from '@vercel/analytics/react'; // ✅ Vercel Analytics
-import { SpeedInsights } from '@vercel/speed-insights/react'; // ✅ Vercel Speed Insights
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { appWithTranslation } from 'next-i18next';
+import nextI18NextConfig from '../next-i18next.config.js';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -74,4 +76,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default App;
+export default appWithTranslation(App, nextI18NextConfig);

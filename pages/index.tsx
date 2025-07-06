@@ -4,8 +4,12 @@ import Home from '../components/Home';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
+import { useTranslation } from 'next-i18next';
 
 const HomePage = () => {
+  const { t } = useTranslation('home');
   const router = useRouter();
   const [key, setKey] = useState(0);
 
@@ -136,13 +140,13 @@ const HomePage = () => {
       {/* 🏆 Improved Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: '#f9f9f9' }} key={key}>
         <Typography variant="h1" fontWeight="bold" textAlign="center" mb={4}>
-          Fluffy Pet Wash Mobile Pet Grooming & Spa
+          {t('booking.title')}
         </Typography>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
-          Book Your Appointment
+          {t('booking.subtitle')}
         </Typography>
         <Typography variant="body1" color="textSecondary" textAlign="center" mb={4}>
-          Before proceeding to booking, confirm your dog&apos;s eligibility for our services.
+          {t('booking.description')}
         </Typography>
         <PreBookingForm />
       </Box>
@@ -151,3 +155,9 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common', 'home'])),
+  },
+});

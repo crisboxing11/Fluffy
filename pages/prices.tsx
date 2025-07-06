@@ -6,6 +6,9 @@ import PriceHeroImage from '../public/Dog8.jpg'; // Ensure this is inside public
 import PawPattern from '../public/paw-pattern.jpeg'; // ✅ Add a seamless repeating paw print image
 import Head from 'next/head';
 import Link from 'next/link'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
+import { useTranslation, Trans } from 'next-i18next';
 // **Animations**
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -44,6 +47,7 @@ const services = [
 ];
 
 const PricesPage = () => {
+  const { t } = useTranslation('prices');
   return (
     <Box>
        {/* 🔥 SEO & Metadata */}
@@ -149,10 +153,10 @@ const PricesPage = () => {
       fontWeight="bold"
       sx={{
         fontSize: { xs: '2rem', md: '3.5rem' },
-        textShadow: '2px 2px 6px rgba(0, 0, 0, 0.6)', // ✅ Adds text shadow for better contrast
+        textShadow: '2px 2px 6px rgba(0, 0, 0, 0.6)',
       }}
     >
-      Transparent & Affordable Pricing
+      {t('hero.title')}
     </Typography>
     <Typography
       variant="h6"
@@ -160,10 +164,10 @@ const PricesPage = () => {
         maxWidth: 700,
         mx: 'auto',
         mt: 2,
-        textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)', // ✅ Keeps text readable over image
+        textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
       }}
     >
-      No hidden fees. One all-inclusive package tailored to your pet&apos;s needs.
+      {t('hero.subtitle')}
     </Typography>
   </Box>
 </Box>
@@ -173,7 +177,7 @@ const PricesPage = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 } }}>
           <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-            Our Pricing Tiers
+            {t('pricing.title')}
           </Typography>
           <Grid container spacing={4} justifyContent="center">
             {pricing.map((tier, index) => (
@@ -205,7 +209,7 @@ const PricesPage = () => {
             ))}
           </Grid>
            <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
-            * A <b>3.4% service charge</b> applies to all credit/debit card transactions.
+            <span dangerouslySetInnerHTML={{ __html: t('pricing.charge') }} />
           </Typography>
         </Box>
       </motion.div>
@@ -213,7 +217,7 @@ const PricesPage = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
           <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#026D7C">
-            Fluffy Preferred Membership Pricing ✨
+            {t('membership.title')}
           </Typography>
           <Grid container spacing={4} justifyContent="center">
             {preferredPricing.map((tier, index) => (
@@ -236,7 +240,7 @@ const PricesPage = () => {
             ))}
           </Grid>
           <Typography variant="body2" color="textSecondary" textAlign="center" mt={3}>
-            * Membership is only available for recurring clients who groom their dogs every 2 - 8 weeks. Ask your groomer for more details and sign up for recurring appointments!.
+            {t('membership.note')}
           </Typography>
         </Box>
       </motion.div>
@@ -247,14 +251,11 @@ const PricesPage = () => {
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, bgcolor: '#F8F9FA' }}>
           {/* Internal link to services page for SEO */}
 <Typography variant="body1" textAlign="center" mt={0} mb={2}>
-  Curious about what we offer? View our full list of{' '}
-  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    mobile pet grooming services
-  </Link>.
+  <Trans i18nKey="included.curious" t={t} components={{ link: <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }} /> }} />
 </Typography>
 
 <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="#067C92">
-  What’s Included in Every Grooming Session?
+  {t('included.title')}
 </Typography>
           <Grid container spacing={3} justifyContent="center">
             <Grid item xs={12} md={8}>
@@ -291,7 +292,7 @@ const PricesPage = () => {
   }}
 >
   <Typography variant="h4" fontWeight="bold">
-    Ready to Pamper Your Pet?
+    {t('cta.title')}
   </Typography>
   <Button
     variant="contained"
@@ -299,7 +300,7 @@ const PricesPage = () => {
     sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
     href="/#booking"
   >
-    Book Now
+    {t('cta.button')}
   </Button>
 </Box>
       </motion.div>
@@ -308,6 +309,12 @@ const PricesPage = () => {
 };
 
 export default PricesPage;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common', 'prices'])),
+  },
+});
 
 
 

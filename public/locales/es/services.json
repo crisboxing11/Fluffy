@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Servicios de grooming móvil de lujo",
+    "subtitle": "Cuidado premium sin estrés entregado <b>directamente a tu puerta</b>.",
+    "button": "Reservar cita"
+  },
+  "package": {
+    "title": "Nuestro paquete de grooming todo incluido",
+    "fromNose": "¡De nariz a cola nunca fallamos! 🐾",
+    "description": "Ofrecemos una experiencia de grooming móvil de lujo y sin estrés. Consulta nuestros <prices>precios transparentes</prices> o <contact>contáctanos</contact> para más detalles.",
+    "linkPrices": "precios transparentes",
+    "linkContact": "contáctanos",
+    "more": "para más detalles."
+  },
+  "why": {
+    "title": "¿Por qué elegir Fluffy Pet Wash?",
+    "convenience": "Comodidad en tu puerta",
+    "description": "Nada de visitas estresantes a salones, nuestra van totalmente equipada lleva el cuidado <b>hasta ti</b>.",
+    "button": "Reservar"
+  }
+}

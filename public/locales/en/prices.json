@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Transparent & Affordable Pricing",
+    "subtitle": "No hidden fees. One all-inclusive package tailored to your pet's needs."
+  },
+  "pricing": {
+    "title": "Our Pricing Tiers",
+    "charge": "* A <b>3.4% service charge</b> applies to all credit/debit card transactions."
+  },
+  "membership": {
+    "title": "Fluffy Preferred Membership Pricing ✨",
+    "note": "* Membership is only available for recurring clients who groom their dogs every 2 - 8 weeks. Ask your groomer for more details and sign up for recurring appointments!."
+  },
+  "included": {
+    "link": "mobile pet grooming services",
+    "curious": "Curious about what we offer? View our full list of <link>mobile pet grooming services</link>.",
+    "title": "What’s Included in Every Grooming Session?"
+  },
+  "cta": {
+    "title": "Ready to Pamper Your Pet?",
+    "button": "Book Now"
+  }
+}

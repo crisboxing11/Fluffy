@@ -1,8 +1,10 @@
 import { Box, Typography, Link, IconButton, Grid, Divider, Stack } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { useTranslation } from 'next-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation(['common']);
   return (
     <Box
       sx={{
@@ -16,18 +18,24 @@ const Footer = () => {
         
         {/* Quick Links */}
         <Grid item xs={12} md={6} textAlign="center">
-          <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
+          <Typography variant="h6" fontWeight="bold">{t('nav.quickLinks')}</Typography>
           <Stack spacing={1.5} mt={1} direction="row" justifyContent="center">
-            {["Home", "About", "Services", "Prices", "Blog", "Book Now"].map((item, index) => (
+            {[
+              { label: t('nav.home'), href: '/' },
+              { label: t('nav.about'), href: '/about' },
+              { label: t('nav.services'), href: '/services' },
+              { label: t('nav.prices'), href: '/prices' },
+              { label: t('nav.blog'), href: '/blog' },
+              { label: t('nav.bookNow'), href: '/#booking' }
+            ].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} 
-                // ✅ Home now links to `/` instead of `/home`
+                href={item.href}
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
               >
-                {item}
+                {item.label}
               </Link>
             ))}
           </Stack>

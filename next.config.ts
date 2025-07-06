@@ -4,6 +4,10 @@ const nextConfig = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })({
   reactStrictMode: true,
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+  },
 
   async rewrites() {
     return [

@@ -16,6 +16,7 @@ import ReviewDog6 from '../public/ReviewDog6.jpg';
 import ReviewDog4 from '../public/ReviewDog4.jpg';
 import ReviewDog7 from '../public/ReviewDog7.jpg';
 import Link from 'next/link'
+import { useTranslation, Trans } from 'next-i18next';
 
 
 // Testimonial Carousel Settings
@@ -48,6 +49,7 @@ const fadeInUp = {
 };
 
 const Home = () => {
+  const { t } = useTranslation('home');
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
 
   useEffect(() => {
@@ -101,10 +103,10 @@ const Home = () => {
                 textAlign: 'center',
               }}
             >
-              Luxury Mobile Pet Grooming
+              {t('hero.title')}
             </Typography>
             <Typography variant="h5" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
-              Bringing stress-free, professional pet grooming straight to your doorstep.
+              {t('hero.subtitle')}
             </Typography>
             <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
               <Button
@@ -123,7 +125,7 @@ const Home = () => {
                 }}
                 href="#booking"
               >
-                Book an Appointment
+                {t('hero.button')}
               </Button>
             </motion.div>
           </Box>
@@ -135,20 +137,16 @@ const Home = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center', bgcolor: '#F8F9FA' }}>
           <Typography variant="h4" fontWeight="bold" mb={4} color="#067C92">
-            Why Choose Fluffy Pet Wash?
+            {t('choose.title')}
           </Typography>
           <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
-  We provide{' '}
-  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    premium mobile grooming services
-  </Link>{' '}
-  directly to your home.
-</Typography>
+            <Trans i18nKey="choose.text" t={t} components={{ link: <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }} /> }} />
+          </Typography>
           <Grid container spacing={3} justifyContent="center">
             {[
-              { title: "Stress-Free Experience", icon: SpaIcon, desc: "No crowded salons—just a gentle, one-on-one grooming experience." },
-              { title: "Top-Tier Grooming", icon: StarIcon, desc: "We use hypoallergenic, organic shampoos to keep your pet’s coat healthy." },
-              { title: "Convenient Mobile Service", icon: PetsIcon, desc: "We come to you, saving you time and ensuring your pet’s comfort." },
+              { title: t('choose.features.0.title'), desc: t('choose.features.0.desc'), icon: SpaIcon },
+              { title: t('choose.features.1.title'), desc: t('choose.features.1.desc'), icon: StarIcon },
+              { title: t('choose.features.2.title'), desc: t('choose.features.2.desc'), icon: PetsIcon }
             ].map((feature, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
@@ -170,7 +168,7 @@ const Home = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center' }}>
           <Typography variant="h4" fontWeight="bold" mb={4} color="#067C92">
-            What Pet Owners Are Saying
+            {t('testimonials.title')}
           </Typography>
           
          <Slider {...testimonialSettings}>

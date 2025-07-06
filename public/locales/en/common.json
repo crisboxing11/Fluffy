@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "prices": "Prices",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "franchise": "Franchise With Us!",
+    "quickLinks": "Quick Links",
+    "bookNow": "Book Now"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Precios transparentes y accesibles",
+    "subtitle": "Sin costos ocultos. Un paquete todo incluido adaptado a las necesidades de tu mascota."
+  },
+  "pricing": {
+    "title": "Nuestras tarifas",
+    "charge": "* Se aplica un <b>cargo del 3.4%</b> a todas las transacciones con tarjeta."
+  },
+  "membership": {
+    "title": "Precios para miembros preferidos ✨",
+    "note": "* La membresía está disponible sólo para clientes recurrentes que acicalan a sus perros cada 2 - 8 semanas. ¡Pregunta a tu estilista y agenda citas recurrentes!"
+  },
+  "included": {
+    "link": "servicios de grooming móvil",
+    "curious": "¿Curioso por lo que ofrecemos? Revisa nuestra lista completa de <link>servicios de grooming móvil</link>.",
+    "title": "¿Qué incluye cada sesión de grooming?"
+  },
+  "cta": {
+    "title": "¿Listo para consentir a tu mascota?",
+    "button": "Reservar"
+  }
+}

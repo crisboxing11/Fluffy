@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "title": "Luxury Mobile Pet Grooming",
+    "subtitle": "Bringing stress-free, professional pet grooming straight to your doorstep.",
+    "button": "Book an Appointment"
+  },
+  "choose": {
+    "title": "Why Choose Fluffy Pet Wash?",
+    "text": "We provide <link>premium mobile grooming services</link> directly to your home.",
+    "features": [
+      {
+        "title": "Stress-Free Experience",
+        "desc": "No crowded salons—just a gentle, one-on-one grooming experience."
+      },
+      {
+        "title": "Top-Tier Grooming",
+        "desc": "We use hypoallergenic, organic shampoos to keep your pet’s coat healthy."
+      },
+      {
+        "title": "Convenient Mobile Service",
+        "desc": "We come to you, saving you time and ensuring your pet’s comfort."
+      }
+    ]
+  },
+  "booking": {
+    "title": "Fluffy Pet Wash Mobile Pet Grooming & Spa",
+    "subtitle": "Book Your Appointment",
+    "description": "Before proceeding to booking, confirm your dog's eligibility for our services."
+  },
+  "testimonials": {
+    "title": "What Pet Owners Are Saying"
+  }
+}

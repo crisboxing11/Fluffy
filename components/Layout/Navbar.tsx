@@ -3,9 +3,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useTranslation(['common']);
+  const router = useRouter();
+  const { locale, asPath } = router;
+
+  const toggleLocale = () => {
+    const nextLocale = locale === 'en' ? 'es' : 'en';
+    router.push(asPath, asPath, { locale: nextLocale });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -42,15 +52,22 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-          {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
-            <Button 
-              key={index} 
-              sx={{ color: '#067C92', mx: 1 }} 
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-            >
-              {item}
+          {[
+            { label: t('nav.home'), href: '/' },
+            { label: t('nav.about'), href: '/about' },
+            { label: t('nav.services'), href: '/services' },
+            { label: t('nav.prices'), href: '/prices' },
+            { label: t('nav.blog'), href: '/blog' },
+            { label: t('nav.faq'), href: '/faq' },
+            { label: t('nav.contact'), href: '/contact' }
+          ].map((item, index) => (
+            <Button key={index} sx={{ color: '#067C92', mx: 1 }} href={item.href}>
+              {item.label}
             </Button>
           ))}
+          <Button onClick={toggleLocale} sx={{ color: '#067C92', mx: 1 }}>
+            {locale === 'en' ? 'ES' : 'EN'}
+          </Button>
 
           {/* ✨ Franchise Button */}
           <Button
@@ -96,26 +113,39 @@ const Navbar = () => {
             }}
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
-              {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
-                <ListItem 
-                  key={index} 
-                  sx={{ 
-                    py: 2, 
-                    px: 3, 
+              {[
+                { label: t('nav.home'), href: '/' },
+                { label: t('nav.about'), href: '/about' },
+                { label: t('nav.services'), href: '/services' },
+                { label: t('nav.prices'), href: '/prices' },
+                { label: t('nav.blog'), href: '/blog' },
+                { label: t('nav.faq'), href: '/faq' },
+                { label: t('nav.contact'), href: '/contact' }
+              ].map((item, index) => (
+                <ListItem
+                  key={index}
+                  sx={{
+                    py: 2,
+                    px: 3,
                     borderRadius: '10px',
                     transition: 'all 0.3s ease-in-out',
                     '&:hover': { bgcolor: '#E0F7FA', transform: 'scale(1.05)' }
                   }}
                 >
-                  <Link 
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                  <Link
+                    href={item.href}
                     style={{ textDecoration: 'none', color: '#067C92', fontWeight: 'bold', width: '100%', display: 'block', textAlign: 'center' }}
                     onClick={handleDrawerToggle}
                   >
-                    <ListItemText primary={item} />
+                    <ListItemText primary={item.label} />
                   </Link>
                 </ListItem>
               ))}
+              <ListItem>
+                <Button onClick={() => {toggleLocale(); handleDrawerToggle();}} fullWidth sx={{ color: '#067C92' }}>
+                  {locale === 'en' ? 'ES' : 'EN'}
+                </Button>
+              </ListItem>
               <Divider sx={{ my: 2 }} />
               {/* Franchise Button - Mobile */}
               <ListItem>

@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Luxury Mobile Grooming Services",
+    "subtitle": "Stress-free, premium pet grooming delivered <b>right to your doorstep</b>.",
+    "button": "Book an Appointment"
+  },
+  "package": {
+    "title": "Our All-Inclusive Grooming Package",
+    "fromNose": "From Nose to Tail, We Never Fail! 🐾",
+    "description": "We offer a stress-free, luxury mobile grooming experience. See our <prices>transparent pricing</prices> or <contact>contact us</contact> for more details.",
+    "linkPrices": "transparent pricing",
+    "linkContact": "contact us",
+    "more": "for more details."
+  },
+  "why": {
+    "title": "Why Choose Fluffy Pet Wash?",
+    "convenience": "Convenience at Your Doorstep",
+    "description": "No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.",
+    "button": "Book Now"
+  }
+}

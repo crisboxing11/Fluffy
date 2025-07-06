@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "title": "Grooming móvil de lujo",
+    "subtitle": "Llevamos un cuidado profesional y sin estrés directamente a tu puerta.",
+    "button": "Reservar cita"
+  },
+  "choose": {
+    "title": "¿Por qué elegir Fluffy Pet Wash?",
+    "text": "Ofrecemos <link>servicios de grooming premium</link> directamente en tu hogar.",
+    "features": [
+      {
+        "title": "Experiencia sin Estrés",
+        "desc": "Nada de salones abarrotados, solo una atención personalizada."
+      },
+      {
+        "title": "Grooming de Primera",
+        "desc": "Utilizamos champús hipoalergénicos y orgánicos para cuidar el pelaje."
+      },
+      {
+        "title": "Servicio Móvil Conveniente",
+        "desc": "Vamos a ti, ahorrándote tiempo y dando comodidad a tu mascota."
+      }
+    ]
+  },
+  "booking": {
+    "title": "Fluffy Pet Wash Grooming móvil y spa",
+    "subtitle": "Reserva tu cita",
+    "description": "Antes de reservar confirma que tu perro es elegible para nuestros servicios."
+  },
+  "testimonials": {
+    "title": "Lo que dicen los dueños de mascotas"
+  }
+}
