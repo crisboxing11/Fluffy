@@ -52,6 +52,27 @@ const Navbar = () => {
             </Button>
           ))}
 
+          {/* Book Now Button */}
+          <Button
+            variant="contained"
+            href="/booking"
+            sx={{
+              ml: 2,
+              background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+              color: '#fff',
+              fontWeight: 'bold',
+              px: 3,
+              py: 1,
+              borderRadius: '20px',
+              textTransform: 'none',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+              },
+            }}
+          >
+            Book Now
+          </Button>
+
           {/* ✨ Franchise Button */}
           <Button
             variant="contained"
@@ -116,6 +137,29 @@ const Navbar = () => {
                   </Link>
                 </ListItem>
               ))}
+
+              {/* Book Now Button - Mobile */}
+              <ListItem>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  href="/booking"
+                  onClick={handleDrawerToggle}
+                  sx={{
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    borderRadius: '30px',
+                    py: 1.2,
+                    textTransform: 'none',
+                    '&:hover': {
+                      background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+                    },
+                  }}
+                >
+                  Book Now
+                </Button>
+              </ListItem>
               <Divider sx={{ my: 2 }} />
               {/* Franchise Button - Mobile */}
               <ListItem>
