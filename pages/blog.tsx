@@ -20,6 +20,7 @@ const posts = posted.map((post) => ({
   title: post.title,
   excerpt: post.excerpt,
   image: post.image,
+  imageAlt: post.imageAlt,
   link: `/blog/${post.slug}`,
 }));
 
@@ -141,7 +142,12 @@ const BlogPage = () => {
                   }}
                 >
                   <Box sx={{ position: 'relative', height: 200 }}>
-                    <Image src={post.image} alt={post.title} layout="fill" objectFit="cover" />
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt || post.title}
+                      layout="fill"
+                      objectFit="cover"
+                    />
                   </Box>
                   <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                     <Typography variant="h6" fontWeight="bold" gutterBottom>

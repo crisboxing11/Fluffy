@@ -3,12 +3,15 @@ import { posted, BlogPost } from '../../data/posted';
 import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {
   post: BlogPost;
 };
 
 const BlogPostPage = ({ post }: Props) => {
+  const wordCount = post.content.replace(/<[^>]+>/g, '').split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / 200);
   return (
     <>
       <Head>
@@ -56,6 +59,7 @@ const BlogPostPage = ({ post }: Props) => {
               url: `https://fluffypetwash.com/blog/${post.slug}`,
               datePublished: post.date,
               dateModified: post.date,
+              timeRequired: `PT${readingTime}M`,
               author: {
                 '@type': 'Organization',
                 name: 'Fluffy Pet Wash',
@@ -111,7 +115,7 @@ const BlogPostPage = ({ post }: Props) => {
       >
         <Image
           src={post.image}
-          alt={post.title}
+          alt={post.imageAlt || post.title}
           fill
           style={{ objectFit: 'cover' }}
           priority
@@ -126,13 +130,35 @@ const BlogPostPage = ({ post }: Props) => {
 
       <Container maxWidth="md" sx={{ py: 6 }}>
         <Typography variant="subtitle2" color="textSecondary" gutterBottom>
-          {post.date}
+          {`${post.date} • ${readingTime} min read`}
         </Typography>
         <Typography
           variant="body1"
           component="div"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+        <Box mt={4}>
+          <Typography>
+            Learn more on our{' '}
+            <Link href="/prices">pricing</Link> and{' '}
+            <Link href="/services">services</Link> pages.
+          </Typography>
+        </Box>
+        <Box component="aside" mt={6}>
+          <Typography variant="h5" gutterBottom>
+            Related Posts
+          </Typography>
+          <ul>
+            {posted
+              .filter((p) => p.slug !== post.slug)
+              .slice(0, 3)
+              .map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+                </li>
+              ))}
+          </ul>
+        </Box>
       </Container>
     </>
   );
