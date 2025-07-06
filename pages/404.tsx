@@ -22,7 +22,7 @@ const Custom404 = () => {
         The page you are looking for might have been removed or is temporarily unavailable.
       </Typography>
       <Link href="/" passHref legacyBehavior>
-        <Button variant="contained" color="primary">Go Back Home</Button>
+        <Button variant="contained" color="primary" aria-label="Go back to homepage">Go Back Home</Button>
       </Link>
     </Box>
   );

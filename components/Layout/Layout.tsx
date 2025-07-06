@@ -11,15 +11,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       sx={{ bgcolor: '#ffffff' }}
     >
       {/* Navbar */}
-      <Navbar />
+      <Box component="header" role="banner">
+        <Navbar />
+      </Box>
 
       {/* Main Content */}
-      <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
+      <Box component="main" role="main" sx={{ flexGrow: 1, py: 4 }}>
         {children}
       </Box>
 
       {/* Footer */}
-      <Footer />
+      <Box component="footer" role="contentinfo">
+        <Footer />
+      </Box>
     </Box>
   );
 };

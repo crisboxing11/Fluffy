@@ -139,6 +139,7 @@ const ServicesPage = () => {
               variant="contained"
               color="secondary"
               size="large"
+              aria-label="Book a grooming appointment"
               sx={{
                 mt: 3,
                 px: 4,
@@ -209,7 +210,7 @@ const ServicesPage = () => {
             No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-             <Button variant="contained" size="large" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
+             <Button variant="contained" size="large" aria-label="Book a grooming appointment" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
             Book Now
           </Button>
           </motion.div>
