@@ -3,6 +3,7 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   image: string;
+  imageAlt: string;
   date: string;
   content: string;
 };
@@ -13,6 +14,7 @@ export const posted: BlogPost[] = [
     title: '5 Tips for Stress-Free Grooming',
     excerpt: 'Transform your dog’s grooming routine into a calm, happy experience with these expert tips from Fluffy Pet Wash.',
     image: '/Blow Dry Dog.jpeg',
+    imageAlt: 'Dog being blow dried',
     date: '2024-06-30',
     content: `
       <p>At Fluffy Pet Wash, we know that grooming time doesn’t have to be a stressful experience. In fact, it can be one of the most powerful ways to bond with your dog. Whether you’re grooming at home or scheduling a mobile grooming session with our expert team, here are 5 proven ways to turn grooming into a peaceful ritual your pup will love.</p>
@@ -43,6 +45,7 @@ export const posted: BlogPost[] = [
     title: 'Why Mobile Grooming Works',
     excerpt: 'Skip the stress and book a mobile dog grooming appointment with Fluffy Pet Wash for a happier, healthier pet.',
     image: '/White Happy Dog.jpeg',
+    imageAlt: 'Happy white dog with tongue out',
     date: '2024-07-01',
     content: `
       <p>Let’s face it: traditional dog grooming can be a nightmare. You load your dog into the car, deal with traffic, wait in line, and leave your pup in a noisy salon filled with barking dogs and strangers. For many pets (and their humans), this is a recipe for anxiety.</p>
@@ -72,6 +75,7 @@ export const posted: BlogPost[] = [
     title: 'Choosing the Right Shampoo for Your Dog',
     excerpt: 'Not all pet shampoos are created equal. Discover how to choose the best formula for your dog’s unique coat and skin.',
     image: '/Black Happy Dog.jpeg',
+    imageAlt: 'Black dog smiling after bath',
     date: '2024-07-02',
     content: `
       <p>Ever wonder why your dog’s coat isn’t as shiny or soft as it could be? The culprit might be your shampoo. At Fluffy Pet Wash, we’ve seen it all—from flaky skin to irritated paws—all caused by the wrong products. Choosing the right shampoo is about more than smell. It’s about skin health, coat quality, and overall comfort.</p>
