@@ -44,10 +44,10 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-          {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
-            <Button 
-              key={index} 
-              sx={{ color: '#067C92', mx: 1 }} 
+          {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
+            <Button
+              key={index}
+              sx={{ color: '#067C92', mx: 1 }}
               href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
             >
               {item}
@@ -100,12 +100,12 @@ const Navbar = () => {
             }}
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
-              {["Home", "About", "Services", "Prices", "Blog", "FAQ", "Contact"].map((item, index) => (
-                <ListItem 
-                  key={index} 
-                  sx={{ 
-                    py: 2, 
-                    px: 3, 
+              {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
+                <ListItem
+                  key={index}
+                  sx={{
+                    py: 2,
+                    px: 3,
                     borderRadius: '10px',
                     transition: 'all 0.3s ease-in-out',
                     '&:hover': { bgcolor: '#E0F7FA', transform: 'scale(1.05)' }

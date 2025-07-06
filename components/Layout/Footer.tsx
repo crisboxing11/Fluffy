@@ -14,17 +14,16 @@ const Footer = () => {
         px: { xs: 3, md: 8 },
       }}
     >
-      <Grid container spacing={4} justifyContent="center" alignItems="center">
-        
+      <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
+
         {/* Quick Links */}
         <Grid item xs={12} md={6} textAlign="center">
           <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
           <Stack spacing={1.5} mt={1} direction="row" justifyContent="center">
-            {["Home", "About", "Services", "Prices", "Blog", "Book Now"].map((item, index) => (
+            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "Book Now"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} 
-                // ✅ Home now links to `/` instead of `/home`
+                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`}
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
@@ -34,6 +33,7 @@ const Footer = () => {
             ))}
           </Stack>
         </Grid>
+
       </Grid>
 
       {/* Divider */}
