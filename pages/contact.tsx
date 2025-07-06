@@ -178,14 +178,14 @@ const ContactPage = () => {
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} sm={6} textAlign="center">
-            <IconButton color="primary">
+            <IconButton color="primary" aria-label="Call Fluffy Pet Wash">
               <PhoneIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Call Us</Typography>
             <Typography variant="body1" color="textSecondary">(702) 508-6248</Typography>
           </Grid>
           <Grid item xs={12} sm={6} textAlign="center">
-            <IconButton color="primary">
+            <IconButton color="primary" aria-label="Email Fluffy Pet Wash">
               <EmailIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Email Us</Typography>
@@ -200,8 +200,8 @@ const ContactPage = () => {
 
       {/* Contact Form */}
       <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 6, textAlign: 'left', mx: 'auto', maxWidth: 600 }}>
-          {error && <Typography color="error" mb={2}>{error}</Typography>}
+        <Box component="form" onSubmit={handleSubmit} aria-label="Contact form" sx={{ mt: 6, textAlign: 'left', mx: 'auto', maxWidth: 600 }}>
+          {error && <Typography color="error" mb={2} aria-live="assertive">{error}</Typography>}
 
           <TextField label="Your Name" name="name" fullWidth required value={form.name} onChange={handleChange} sx={{ mb: 3 }} />
           <TextField label="Your Email" name="email" fullWidth required value={form.email} onChange={handleChange} sx={{ mb: 3 }} />
@@ -219,7 +219,7 @@ const ContactPage = () => {
               fontSize: '1rem',
             }}
           />
-          <Button variant="contained" color="primary" type="submit" size="large" sx={{ mt: 3 }}>
+          <Button variant="contained" color="primary" type="submit" size="large" aria-label="Send message" sx={{ mt: 3 }}>
             Send Message
           </Button>
         </Box>

@@ -170,6 +170,7 @@ const FAQPage = () => {
           placeholder="Search for a question..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          inputProps={{ 'aria-label': 'Search questions' }}
           sx={{
             mb: 4,
             '& .MuiOutlinedInput-root': {

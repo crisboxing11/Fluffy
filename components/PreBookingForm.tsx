@@ -10,7 +10,8 @@ const PreBookingForm = () => {
   const [showIframe, setShowIframe] = useState(false);
   const [iframeUrl, setIframeUrl] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+    if (e) e.preventDefault();
     if (!location || !breed) {
       setError('Please select both a location and a dog breed.');
       return;
@@ -36,6 +37,9 @@ const PreBookingForm = () => {
 
   return (
     <Box
+      component="form"
+      aria-label="Pre-booking form"
+      onSubmit={handleSubmit}
       sx={{
         py: 6,
         px: 3,
@@ -77,7 +81,7 @@ const PreBookingForm = () => {
           </Typography>
 
           {error && (
-            <Typography color="error" mb={2}>
+            <Typography color="error" mb={2} aria-live="assertive">
               {error}
             </Typography>
           )}
@@ -107,6 +111,7 @@ const PreBookingForm = () => {
               <TextField
                 {...params}
                 label="Dog Breed"
+                inputProps={{ ...params.inputProps, 'aria-label': 'Dog breed' }}
                 fullWidth
                 required
                 sx={{ mb: 3 }}
@@ -117,7 +122,8 @@ const PreBookingForm = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleSubmit}
+            type="submit"
+            aria-label="Confirm and continue to booking"
             size="large"
             sx={{
               textTransform: 'none',

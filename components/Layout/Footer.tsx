@@ -5,6 +5,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 const Footer = () => {
   return (
     <Box
+      component="footer"
+      role="contentinfo"
       sx={{
         bgcolor: '#038B95',
         color: 'white',
@@ -47,10 +49,20 @@ const Footer = () => {
       >
         {/* Social Media Links */}
         <Box display="flex" gap={2}>
-          <IconButton color="inherit" href="https://facebook.com" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
+          <IconButton
+            color="inherit"
+            href="https://facebook.com"
+            target="_blank"
+            aria-label="Fluffy Pet Wash on Facebook"
+            sx={{ '&:hover': { color: '#A1E0E3' } }}>
             <FacebookIcon fontSize="medium" />
           </IconButton>
-          <IconButton color="inherit" href="https://instagram.com/fluffypetwash" target="_blank" sx={{ '&:hover': { color: '#A1E0E3' } }}>
+          <IconButton
+            color="inherit"
+            href="https://instagram.com/fluffypetwash"
+            target="_blank"
+            aria-label="Fluffy Pet Wash on Instagram"
+            sx={{ '&:hover': { color: '#A1E0E3' } }}>
             <InstagramIcon fontSize="medium" />
           </IconButton>
         </Box>

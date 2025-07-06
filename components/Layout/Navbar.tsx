@@ -12,12 +12,14 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar 
-      position="fixed" 
-      sx={{ 
-        bgcolor: '#FFFFFF', 
-        color: '#067C92', 
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', 
+    <AppBar
+      component="nav"
+      role="navigation"
+      position="fixed"
+      sx={{
+        bgcolor: '#FFFFFF',
+        color: '#067C92',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
         zIndex: 10,
         px: { xs: 2, md: 4 }
       }}
@@ -58,6 +60,7 @@ const Navbar = () => {
             href="https://franchise.fluffypetwash.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Franchise with Fluffy Pet Wash"
             sx={{
               ml: 2,
               background: 'linear-gradient(90deg, #00ADCD, #038B95)',
@@ -78,13 +81,14 @@ const Navbar = () => {
         
         {/* Mobile Drawer Menu */}
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
-          <IconButton onClick={handleDrawerToggle}>
+          <IconButton onClick={handleDrawerToggle} aria-label="Open navigation menu">
             <MenuIcon sx={{ fontSize: '2rem', color: '#067C92' }} />
           </IconButton>
           <Drawer
             anchor="right"
             open={mobileOpen}
             onClose={handleDrawerToggle}
+            PaperProps={{ component: 'nav', 'aria-label': 'Mobile navigation menu' }}
             sx={{
               '& .MuiDrawer-paper': {
                 width: '75vw',
@@ -125,6 +129,7 @@ const Navbar = () => {
                   href="https://franchise.fluffypetwash.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Franchise with Fluffy Pet Wash"
                   sx={{
                     background: 'linear-gradient(90deg, #00ADCD, #038B95)',
                     color: '#fff',

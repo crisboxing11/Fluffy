@@ -222,6 +222,7 @@ const AboutUs = () => {
           <Button
             variant="contained"
             size="large"
+            aria-label="Book a grooming appointment"
             sx={{ bgcolor: '#fff', color: '#038B95', fontWeight: 'bold', px: 4, py: 1.5 }}
             href="/#booking"
           >

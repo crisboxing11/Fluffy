@@ -111,6 +111,7 @@ const Home = () => {
                 variant="contained"
                 color="secondary"
                 size="large"
+                aria-label="Book a grooming appointment"
                 sx={{
                   mt: 3,
                   px: 4,
@@ -173,7 +174,7 @@ const Home = () => {
             What Pet Owners Are Saying
           </Typography>
           
-         <Slider {...testimonialSettings}>
+         <Slider {...testimonialSettings} aria-label="Testimonials carousel">
             {testimonials.map((review, index) => (
               <Card 
                 key={index} 

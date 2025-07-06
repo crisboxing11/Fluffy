@@ -296,6 +296,7 @@ const PricesPage = () => {
   <Button
     variant="contained"
     size="large"
+    aria-label="Book a grooming appointment"
     sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
     href="/#booking"
   >
