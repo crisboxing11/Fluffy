@@ -26,6 +26,38 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const checkLocation = async () => {
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        const { city, region_code } = data;
+        const orlandoAreas = [
+          'Orlando',
+          'Kissimmee',
+          'Winter Park',
+          'Oviedo',
+          'Altamonte Springs',
+          'Winter Garden',
+          'Apopka'
+        ];
+
+        if (
+          router.pathname === '/' &&
+          region_code === 'FL' &&
+          city &&
+          orlandoAreas.some((c) => city.toLowerCase().includes(c.toLowerCase()))
+        ) {
+          router.replace('/orlando');
+        }
+      } catch (err) {
+        console.error('Geolocation lookup failed', err);
+      }
+    };
+
+    checkLocation();
+  }, [router]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
