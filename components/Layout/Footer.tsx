@@ -1,6 +1,7 @@
 import { Box, Typography, Link, IconButton, Grid, Divider, Stack } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import TestimonialsCarousel from '../TestimonialsCarousel';
 
 const Footer = () => {
   return (
@@ -12,8 +13,8 @@ const Footer = () => {
         px: { xs: 3, md: 8 },
       }}
     >
-      <Grid container spacing={4} justifyContent="center" alignItems="center">
-        
+      <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
+
         {/* Quick Links */}
         <Grid item xs={12} md={6} textAlign="center">
           <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
@@ -21,8 +22,7 @@ const Footer = () => {
             {["Home", "About", "Services", "Prices", "Blog", "Book Now"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`} 
-                // ✅ Home now links to `/` instead of `/home`
+                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`}
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
@@ -31,6 +31,12 @@ const Footer = () => {
               </Link>
             ))}
           </Stack>
+        </Grid>
+
+        {/* Testimonials Carousel */}
+        <Grid item xs={12} md={6} textAlign="center">
+          <Typography variant="h6" fontWeight="bold" mb={2}>Happy Clients</Typography>
+          <TestimonialsCarousel />
         </Grid>
       </Grid>
 
