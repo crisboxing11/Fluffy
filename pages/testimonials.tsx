@@ -138,14 +138,16 @@ const TestimonialsPage = () => (
         <Typography variant="h4" fontWeight="bold">
           Ready to Pamper Your Pet?
         </Typography>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
-          href="/#booking"
-        >
-          Book Now
-        </Button>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
+            href="/#booking"
+          >
+            Book Now
+          </Button>
+        </motion.div>
       </Box>
     </motion.div>
   </Box>

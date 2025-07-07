@@ -219,9 +219,11 @@ const ContactPage = () => {
               fontSize: '1rem',
             }}
           />
-          <Button variant="contained" color="primary" type="submit" size="large" aria-label="Send message" sx={{ mt: 3 }}>
-            Send Message
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
+            <Button variant="contained" color="primary" type="submit" size="large" aria-label="Send message" sx={{ mt: 3 }}>
+              Send Message
+            </Button>
+          </motion.div>
         </Box>
       </motion.div>
     </Box>
