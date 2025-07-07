@@ -85,7 +85,8 @@ const Home = () => {
            alt="Happy dog after Fluffy Pet Wash grooming"
             layout="fill"
             objectFit="cover"
-            loading="lazy" // ✅ Lazy load for performance
+            priority
+            sizes="100vw"
             style={{
               opacity: opacity, // ✅ Adjusted opacity based on screen width
               objectPosition: 'center left', // Default Centered

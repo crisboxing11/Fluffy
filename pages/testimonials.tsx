@@ -90,7 +90,7 @@ const TestimonialsPage = () => (
           overflow: 'hidden',
         }}
       >
-        <Image src={HeroImage} alt="Happy dog after grooming" layout="fill" objectFit="cover" loading="lazy" />
+        <Image src={HeroImage} alt="Happy dog after grooming" layout="fill" objectFit="cover" priority sizes="100vw" />
         <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }} />
         <Typography
           variant="h2"

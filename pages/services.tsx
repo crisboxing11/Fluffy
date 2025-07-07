@@ -124,7 +124,8 @@ const ServicesPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-          loading="lazy"
+            priority
+            sizes="100vw"
             style={{ opacity: 0.4 }}
           />
           <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.2)' }} />
