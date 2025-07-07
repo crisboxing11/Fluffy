@@ -106,7 +106,7 @@ const Home = () => {
             <Typography variant="h5" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
               Bringing stress-free, professional pet grooming straight to your doorstep.
             </Typography>
-            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
               <Button
                 variant="contained"
                 color="secondary"

@@ -209,7 +209,7 @@ const ServicesPage = () => {
             🏡 <b>Convenience at Your Doorstep</b> <br />
             No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.
           </Typography>
-          <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
              <Button variant="contained" size="large" aria-label="Book a grooming appointment" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
             Book Now
           </Button>
