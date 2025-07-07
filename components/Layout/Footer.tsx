@@ -17,13 +17,13 @@ const Footer = () => {
       <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
 
         {/* Quick Links */}
-        <Grid item xs={12} md={6} textAlign="center">
+        <Grid item xs={12} md={4} textAlign="center">
           <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
-          <Stack spacing={1.5} mt={1} direction="row" justifyContent="center">
-            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "Book Now"].map((item, index) => (
+          <Stack spacing={1.5} mt={1} direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center" flexWrap="wrap">
+            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`}
+                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
@@ -31,6 +31,17 @@ const Footer = () => {
                 {item}
               </Link>
             ))}
+          </Stack>
+        </Grid>
+
+        {/* Contact Info */}
+        <Grid item xs={12} md={4} textAlign="center">
+          <Typography variant="h6" fontWeight="bold">Contact Us</Typography>
+          <Stack spacing={1} mt={1} alignItems="center">
+            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>(702) 508-6248</Typography>
+            <Link href="mailto:contact@fluffypetwash.com" color="inherit" underline="none" sx={{ fontSize: '0.9rem', fontWeight: 'bold', '&:hover': { color: '#A1E0E3' } }}>
+              contact@fluffypetwash.com
+            </Link>
           </Stack>
         </Grid>
 
