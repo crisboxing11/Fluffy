@@ -109,6 +109,7 @@ const FAQPage = () => {
   <meta name="keywords" content="dog grooming FAQ, mobile pet grooming questions, pet grooming pricing, dog grooming services" />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
   <link rel="canonical" href="https://fluffypetwash.com/faq" />
@@ -123,12 +124,16 @@ const FAQPage = () => {
   <meta property="og:image:alt" content="Fluffy Pet Wash Questions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fluffypetwash.com/faq" />
+  <meta property="og:site_name" content="Fluffy Pet Wash" />
+  <meta property="og:locale" content="en_US" />
 
   {/* Twitter Card Meta Tags */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQ | Fluffy Pet Wash" />
   <meta name="twitter:description" content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling." />
   <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta name="twitter:site" content="@fluffypetwash" />
+  <meta name="twitter:creator" content="@fluffypetwash" />
 
   {/* FAQ Structured Data */}
   <script

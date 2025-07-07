@@ -60,6 +60,7 @@ const ContactPage = () => {
   <meta name="keywords" content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me" />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
   <link rel="canonical" href="https://fluffypetwash.com/contact" />
@@ -73,12 +74,16 @@ const ContactPage = () => {
   <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fluffypetwash.com/contact" />
+  <meta property="og:site_name" content="Fluffy Pet Wash" />
+  <meta property="og:locale" content="en_US" />
 
   {/* Twitter Card Meta */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Us | Fluffy Pet Wash" />
   <meta name="twitter:description" content="Reach out to Fluffy Pet Wash for mobile dog grooming appointments, franchising, or general questions." />
   <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta name="twitter:site" content="@fluffypetwash" />
+  <meta name="twitter:creator" content="@fluffypetwash" />
 
   {/* Structured Data (LocalBusiness Schema) */}
   <script

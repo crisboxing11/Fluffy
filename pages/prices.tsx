@@ -53,6 +53,7 @@ const PricesPage = () => {
         <meta name="keywords" content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing, affordable mobile grooming, cheap mobile dog grooming, mobile dog wash prices" />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://fluffypetwash.com/prices" />
          <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
@@ -62,12 +63,16 @@ const PricesPage = () => {
         <meta property="og:image:alt" content="Fluffy Pet Wash Prices" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/prices" />
+        <meta property="og:site_name" content="Fluffy Pet Wash" />
+        <meta property="og:locale" content="en_US" />
 
         {/* ✅ Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pet Grooming Prices | Fluffy Pet Wash" />
         <meta name="twitter:description" content="Check transparent, all-inclusive pricing tiers for mobile grooming services by Fluffy Pet Wash." />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:site" content="@fluffypetwash" />
+        <meta name="twitter:creator" content="@fluffypetwash" />
         {/* 🚀 Structured Data for Pricing and Services */}
         <script
           type="application/ld+json"
