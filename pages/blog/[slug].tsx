@@ -43,6 +43,7 @@ const BlogPostPage = ({ post }: Props) => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={`https://fluffypetwash.com${post.image}`} />
+        <meta name="twitter:image:alt" content={post.imageAlt || post.title} />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
         <meta property="article:published_time" content={post.date} />
