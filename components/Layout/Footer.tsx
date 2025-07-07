@@ -1,6 +1,8 @@
 import { Box, Typography, Link, IconButton, Grid, Divider, Stack } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
   return (
@@ -19,11 +21,18 @@ const Footer = () => {
         {/* Quick Links */}
         <Grid item xs={12} md={6} textAlign="center">
           <Typography variant="h6" fontWeight="bold">Quick Links</Typography>
-          <Stack spacing={1.5} mt={1} direction="row" justifyContent="center">
-            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "Book Now"].map((item, index) => (
+          <Stack
+            spacing={1.5}
+            mt={1}
+            direction={{ xs: 'column', sm: 'row' }}
+            justifyContent="center"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : item === "Book Now" ? "/#booking" : `/${item.toLowerCase().replace(" ", "")}`}
+                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}
@@ -31,6 +40,23 @@ const Footer = () => {
                 {item}
               </Link>
             ))}
+          </Stack>
+        </Grid>
+
+        {/* Contact Info */}
+        <Grid item xs={12} md={6} textAlign="center">
+          <Typography variant="h6" fontWeight="bold">Contact Us</Typography>
+          <Stack spacing={1} mt={1} alignItems="center">
+            <Box display="flex" alignItems="center" gap={1}>
+              <PhoneIcon fontSize="small" />
+              <Typography variant="body2" sx={{ fontWeight: 'bold' }}>(702) 508-6248</Typography>
+            </Box>
+            <Box display="flex" alignItems="center" gap={1}>
+              <EmailIcon fontSize="small" />
+              <Link href="mailto:contact@fluffypetwash.com" color="inherit" underline="none" sx={{ fontSize: '0.9rem', fontWeight: 'bold', '&:hover': { color: '#A1E0E3' } }}>
+                contact@fluffypetwash.com
+              </Link>
+            </Box>
           </Stack>
         </Grid>
 
