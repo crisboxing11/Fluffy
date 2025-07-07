@@ -128,7 +128,8 @@ const PricesPage = () => {
     layout="fill"
     objectFit="cover"
     objectPosition="center"
-  loading="lazy"
+    priority
+    sizes="100vw"
   />
 
   {/* Overlay to Improve Readability */}

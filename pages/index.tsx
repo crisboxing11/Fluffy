@@ -1,6 +1,12 @@
 import { Box, Typography } from '@mui/material';
-import PreBookingForm from '../components/PreBookingForm';
+import dynamic from 'next/dynamic';
 import Home from '../components/Home';
+
+// Dynamically load the heavy booking form to keep the initial bundle small
+const PreBookingForm = dynamic(() => import('../components/PreBookingForm'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+});
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';

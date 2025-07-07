@@ -99,7 +99,8 @@ const AboutUs = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="top"
-            loading="lazy"
+            priority
+            sizes="100vw"
             style={{ filter: 'brightness(40%)' }}
           />
           <Typography

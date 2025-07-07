@@ -104,7 +104,8 @@ const BlogPage = () => {
             alt="Fluffy dog enjoying spa"
             layout="fill"
             objectFit="cover"
-            loading="lazy"
+            priority
+            sizes="100vw"
             style={{ opacity: 0.4 }}
           />
           <Box
