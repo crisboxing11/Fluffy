@@ -56,6 +56,7 @@ const BlogPage = () => {
           content="Insights and updates from the Fluffy Pet Wash team."
         />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:image:alt" content="Fluffy Pet Wash Blog" />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
         <script

@@ -46,6 +46,8 @@ const TestimonialsPage = () => (
         content="See what our customers are saying about our mobile pet grooming services."
       />
       <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+      <meta name="twitter:image:alt" content="Fluffy Pet Wash Testimonials" />
+
       <meta name="twitter:site" content="@fluffypetwash" />
       <meta name="twitter:creator" content="@fluffypetwash" />
       <script

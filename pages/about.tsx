@@ -31,6 +31,7 @@ const AboutUs = () => {
   <meta name="keywords" content="about Fluffy Pet Wash, mobile pet grooming, stress-free grooming, mobile dog groomers, pet grooming Las Vegas, Fluffy Pet Wash company" />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
   <link rel="canonical" href="https://fluffypetwash.com/about" />
@@ -45,12 +46,17 @@ const AboutUs = () => {
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fluffypetwash.com/about" />
   <meta property="og:image:alt" content="About Fluffy Pet Wash" />
+  <meta property="og:site_name" content="Fluffy Pet Wash" />
+  <meta property="og:locale" content="en_US" />
 
   {/* Twitter Card Tags */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Fluffy Pet Wash | Mobile Pet Grooming" />
   <meta name="twitter:description" content="Meet the team behind Fluffy Pet Wash – passionate mobile pet groomers dedicated to safe, luxurious, and convenient grooming." />
   <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+  <meta name="twitter:image:alt" content="About Fluffy Pet Wash" />
+  <meta name="twitter:site" content="@fluffypetwash" />
+  <meta name="twitter:creator" content="@fluffypetwash" />
 
   {/* Structured Data (Organization) */}
   <script

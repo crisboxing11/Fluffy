@@ -52,8 +52,9 @@ const ServicesPage = () => {
         <title>Mobile Pet Grooming Services | Fluffy Pet Wash</title>
         <meta name="description" content="Discover Fluffy Pet Wash's premium mobile pet grooming services. From hypoallergenic washes to teeth brushing, we bring luxury grooming to your doorstep!" />
         <meta name="keywords" content=" dog grooming, luxury pet grooming, pet wash, Fluffy Pet Wash services, dog grooming services, mobile dog grooming services, mobile dog grooming services Las Vegas, mobile dog grooming services las vegas, dog wash services, mobile dog wash services" />
-        <meta name="author" content="Fluffy Pet Wash" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Fluffy Pet Wash" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://fluffypetwash.com/services" />
          <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
@@ -63,12 +64,17 @@ const ServicesPage = () => {
         <meta property="og:image:alt" content="Fluffy Pet Wash Services" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/services" />
+        <meta property="og:site_name" content="Fluffy Pet Wash" />
+        <meta property="og:locale" content="en_US" />
 
 {/* ✅ Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile Pet Grooming Services | Fluffy Pet Wash" />
         <meta name="twitter:description" content="Premium, all-inclusive mobile pet grooming services delivered to your door. Stress-free luxury for your dog!" />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:image:alt" content="Fluffy Pet Wash Services" />
+        <meta name="twitter:site" content="@fluffypetwash" />
+        <meta name="twitter:creator" content="@fluffypetwash" />
 
         <script
   type="application/ld+json"
