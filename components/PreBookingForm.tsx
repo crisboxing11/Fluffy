@@ -1,38 +1,35 @@
 import { useState } from 'react';
-import { Box, Typography, TextField, Button, MenuItem, Autocomplete } from '@mui/material';
+import { Box, Typography, TextField, Button, MenuItem } from '@mui/material';
+import { useRouter } from 'next/router';
 import territories from '../data/territories';
-import supportedBreeds from '../data/supportedBreeds.json'; // Importing from JSON file
 
 const PreBookingForm = () => {
-  const [location, setLocation] = useState('');
-  const [breed, setBreed] = useState('');
+  const router = useRouter();
+  const [form, setForm] = useState({
+    name: '',
+    address: '',
+    dogs: '',
+    location: '',
+  });
   const [error, setError] = useState('');
-  const [showIframe, setShowIframe] = useState(false);
-  const [iframeUrl, setIframeUrl] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
-    if (!location || !breed) {
-      setError('Please select both a location and a dog breed.');
+
+    if (!form.location || !form.name || !form.address || !form.dogs) {
+      setError('Please complete all fields.');
       return;
     }
 
-    if (!supportedBreeds.includes(breed)) {
-      setError(
-        `We only service the following breeds: ${supportedBreeds.join(', ')}. If your breed is not on this list, we cannot groom them.`
-      );
-      return;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('bookingInfo', JSON.stringify(form));
     }
 
-    setError('');
-    const selectedTerritory = territories.find((territory) => territory.name === location);
-
-    if (selectedTerritory) {
-      // Add cache-busting param
-      const randomQuery = `&nocache=${Date.now()}`;
-      setIframeUrl(`${selectedTerritory.bookingUrl}${randomQuery}`);
-      setShowIframe(true);
-    }
+    router.push('/booking');
   };
 
   return (
@@ -51,112 +48,86 @@ const PreBookingForm = () => {
         mx: 'auto',
       }}
     >
-      {!showIframe ? (
-        <>
-          <Typography variant="h4" fontWeight="bold" mb={3}>
-            Confirm Your Service Area & Breed
-          </Typography>
+      <Typography variant="h4" fontWeight="bold" mb={3}>
+        Start Your Booking
+      </Typography>
 
-          <Typography variant="body1" color="textSecondary" mb={3}>
-            This is a <b>pre-check</b> before booking. Simply select your service area and dog breed to continue.
-            The <b>actual booking process</b> happens on the next page.
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              fontWeight: 'bold',
-              color: 'error.main',
-              backgroundColor: '#ffe6e6',
-              border: '1px solid red',
-              borderRadius: 2,
-              p: 2,
-              mb: 4,
-            }}
-          >
-            <b>Important:</b> We only service the breeds listed below.  
-            If your dog’s breed is <b>not on the list</b>, you <b>will not be able to proceed with booking</b>.  
-            <br />
-            <b>We do not groom poodles or doodle mixes.</b>
-          </Typography>
-
-          {error && (
-            <Typography color="error" mb={2} aria-live="assertive">
-              {error}
-            </Typography>
-          )}
-
-          <TextField
-            select
-            label="Select Service Area"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            fullWidth
-            required
-            sx={{ mb: 3 }}
-          >
-            {territories.map((territory, index) => (
-              <MenuItem key={index} value={territory.name}>
-                {territory.name}
-              </MenuItem>
-            ))}
-          </TextField>
-
-          <Autocomplete
-            freeSolo
-            options={supportedBreeds}
-            value={breed}
-            onInputChange={(_, newValue) => setBreed(newValue)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Dog Breed"
-                inputProps={{ ...params.inputProps, 'aria-label': 'Dog breed' }}
-                fullWidth
-                required
-                sx={{ mb: 3 }}
-              />
-            )}
-          />
-
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            aria-label="Confirm and continue to booking"
-            size="large"
-            sx={{
-              textTransform: 'none',
-              background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-              px: 4,
-              py: 1.5,
-              fontWeight: 'bold',
-              '&:hover': {
-                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
-                transform: 'scale(1.05)',
-                transition: 'all 0.3s ease-in-out',
-              },
-            }}
-          >
-            Confirm & Continue to Booking
-          </Button>
-
-          <Typography variant="body2" color="textSecondary" mt={3}>
-            * If your breed is not listed, we are unable to provide service.
-          </Typography>
-        </>
-      ) : (
-        <Box sx={{ width: '100%', height: '800px', mt: 4 }}>
-          <iframe
-            src={iframeUrl}
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            title="Online booking"
-            scrolling="no"
-          />
-        </Box>
+      {error && (
+        <Typography color="error" mb={2} aria-live="assertive">
+          {error}
+        </Typography>
       )}
+
+      <TextField
+        select
+        label="Service Area"
+        name="location"
+        value={form.location}
+        onChange={handleChange}
+        fullWidth
+        required
+        sx={{ mb: 3 }}
+      >
+        {territories.map((territory, index) => (
+          <MenuItem key={index} value={territory.name}>
+            {territory.name}
+          </MenuItem>
+        ))}
+      </TextField>
+
+      <TextField
+        label="Your Name"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        fullWidth
+        required
+        sx={{ mb: 3 }}
+      />
+
+      <TextField
+        label="Address"
+        name="address"
+        value={form.address}
+        onChange={handleChange}
+        fullWidth
+        required
+        sx={{ mb: 3 }}
+      />
+
+      <TextField
+        label="Number of Dogs"
+        name="dogs"
+        type="number"
+        value={form.dogs}
+        onChange={handleChange}
+        fullWidth
+        required
+        sx={{ mb: 4 }}
+        inputProps={{ min: 1 }}
+      />
+
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        aria-label="Continue to booking"
+        size="large"
+        sx={{
+          textTransform: 'none',
+          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+          px: 4,
+          py: 1.5,
+          fontWeight: 'bold',
+          '&:hover': {
+            background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+            transform: 'scale(1.05)',
+            transition: 'all 0.3s ease-in-out',
+          },
+        }}
+      >
+        Continue to Booking
+      </Button>
     </Box>
   );
 };
