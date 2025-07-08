@@ -108,25 +108,27 @@ const Home = () => {
               Bringing stress-free, professional pet grooming straight to your doorstep.
             </Typography>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                aria-label="Book a grooming appointment"
-                sx={{
-                  mt: 3,
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '1.2rem',
-                  fontWeight: 'bold',
-                  textTransform: 'none',
-                  background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-                  '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
-                }}
-                href="#booking"
-              >
-                Book an Appointment
-              </Button>
+              <Link href="/prebook" passHref legacyBehavior>
+                <Button
+                  component="a"
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  aria-label="Book a grooming appointment"
+                  sx={{
+                    mt: 3,
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
+                    textTransform: 'none',
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                    '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
+                  }}
+                >
+                  Book an Appointment
+                </Button>
+              </Link>
             </motion.div>
           </Box>
         </Box>
