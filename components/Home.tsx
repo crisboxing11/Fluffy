@@ -123,7 +123,7 @@ const Home = () => {
                   background: 'linear-gradient(90deg, #00ADCD, #038B95)',
                   '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
                 }}
-                href="#booking"
+                href="/prebook"
               >
                 Book an Appointment
               </Button>
