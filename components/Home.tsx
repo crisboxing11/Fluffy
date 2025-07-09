@@ -109,6 +109,8 @@ const Home = () => {
             </Typography>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
               <Button
+                component={Link}
+                href="/prebook"
                 variant="contained"
                 color="secondary"
                 size="large"
@@ -123,7 +125,6 @@ const Home = () => {
                   background: 'linear-gradient(90deg, #00ADCD, #038B95)',
                   '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
                 }}
-                href="#booking"
               >
                 Book an Appointment
               </Button>
