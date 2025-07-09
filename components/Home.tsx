@@ -82,7 +82,7 @@ const Home = () => {
         >
           <Image
             src={DogImage}
-           alt="Happy dog after Fluffy Pet Wash grooming"
+            alt="Happy dog after Fluffy Pet Wash grooming"
             layout="fill"
             objectFit="cover"
             priority
@@ -90,6 +90,7 @@ const Home = () => {
             style={{
               opacity: opacity, // ✅ Adjusted opacity based on screen width
               objectPosition: 'center left', // Default Centered
+              pointerEvents: 'none', // Ensure background doesn't block clicks
             }}
           />
           <Box sx={{ position: 'relative', zIndex: 2, px: { xs: 3, md: 10 },textAlign: { xs: 'center', md: 'center' },ml: { xs: 0, md: 'auto' }, }}>
@@ -108,25 +109,27 @@ const Home = () => {
               Bringing stress-free, professional pet grooming straight to your doorstep.
             </Typography>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                aria-label="Book a grooming appointment"
-                sx={{
-                  mt: 3,
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '1.2rem',
-                  fontWeight: 'bold',
-                  textTransform: 'none',
-                  background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-                  '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
-                }}
-                href="#booking"
-              >
-                Book an Appointment
-              </Button>
+              <Link href="/prebook" passHref legacyBehavior>
+                <Button
+                  component="a"
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  aria-label="Book a grooming appointment"
+                  sx={{
+                    mt: 3,
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
+                    textTransform: 'none',
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                    '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
+                  }}
+                >
+                  Book an Appointment
+                </Button>
+              </Link>
             </motion.div>
           </Box>
         </Box>

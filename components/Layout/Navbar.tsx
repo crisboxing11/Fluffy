@@ -54,6 +54,27 @@ const Navbar = () => {
             </Button>
           ))}
 
+          <Button
+            variant="contained"
+            href="/prebook"
+            aria-label="Book grooming appointment"
+            sx={{
+              ml: 2,
+              background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+              color: '#fff',
+              fontWeight: 'bold',
+              px: 3,
+              py: 1,
+              borderRadius: '20px',
+              textTransform: 'none',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+              },
+            }}
+          >
+            Book Now
+          </Button>
+
           {/* ✨ Franchise Button */}
           <Button
             variant="contained"
@@ -101,7 +122,7 @@ const Navbar = () => {
           >
             <List sx={{ textAlign: 'center', py: 2 }}>
               {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
-                <ListItem
+              <ListItem
                   key={index}
                   sx={{
                     py: 2,
@@ -111,8 +132,8 @@ const Navbar = () => {
                     '&:hover': { bgcolor: '#E0F7FA', transform: 'scale(1.05)' }
                   }}
                 >
-                  <Link 
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                  <Link
+                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                     style={{ textDecoration: 'none', color: '#067C92', fontWeight: 'bold', width: '100%', display: 'block', textAlign: 'center' }}
                     onClick={handleDrawerToggle}
                   >
@@ -121,6 +142,27 @@ const Navbar = () => {
                 </ListItem>
               ))}
               <Divider sx={{ my: 2 }} />
+              <ListItem>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  href="/prebook"
+                  aria-label="Book grooming appointment"
+                  sx={{
+                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    borderRadius: '30px',
+                    py: 1.2,
+                    textTransform: 'none',
+                    '&:hover': {
+                      background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+                    },
+                  }}
+                >
+                  Book Now
+                </Button>
+              </ListItem>
               {/* Franchise Button - Mobile */}
               <ListItem>
                 <Button
