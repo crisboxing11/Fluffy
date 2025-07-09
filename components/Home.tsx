@@ -82,7 +82,7 @@ const Home = () => {
         >
           <Image
             src={DogImage}
-           alt="Happy dog after Fluffy Pet Wash grooming"
+            alt="Happy dog after Fluffy Pet Wash grooming"
             layout="fill"
             objectFit="cover"
             priority
@@ -90,6 +90,7 @@ const Home = () => {
             style={{
               opacity: opacity, // ✅ Adjusted opacity based on screen width
               objectPosition: 'center left', // Default Centered
+              pointerEvents: 'none', // Ensure background doesn't block clicks
             }}
           />
           <Box sx={{ position: 'relative', zIndex: 2, px: { xs: 3, md: 10 },textAlign: { xs: 'center', md: 'center' },ml: { xs: 0, md: 'auto' }, }}>
@@ -109,6 +110,8 @@ const Home = () => {
             </Typography>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
               <Button
+                component={Link}
+                href="/prebook"
                 variant="contained"
                 color="secondary"
                 size="large"
@@ -123,7 +126,6 @@ const Home = () => {
                   background: 'linear-gradient(90deg, #00ADCD, #038B95)',
                   '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
                 }}
-                href="#booking"
               >
                 Book an Appointment
               </Button>
