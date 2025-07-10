@@ -1,4 +1,5 @@
 import { Box, Typography, Grid, Card, CardContent, Button, ListItemIcon, ListItemText } from '@mui/material';
+import Link from 'next/link';
 import PetsIcon from '@mui/icons-material/Pets';
 import SpaIcon from '@mui/icons-material/Spa';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
@@ -15,7 +16,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animations
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
 import Head from 'next/head';
-import Link from 'next/link'
 
 // **Animations**
 const fadeInUp = {
@@ -142,25 +142,30 @@ const ServicesPage = () => {
             <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mt: 2, textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
               Stress-free, premium pet grooming delivered <b>right to your doorstep</b>.
             </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              aria-label="Book a grooming appointment"
-              sx={{
-                mt: 3,
-                px: 4,
-                py: 1.5,
-                fontSize: '1.2rem',
-                fontWeight: 'bold',
-                textTransform: 'none',
-                background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-                '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)', transform: 'scale(1.05)' },
-              }}
-              href="/#booking"
-            >
-              Book an Appointment
-            </Button>
+            <Link href="/prebook" passHref legacyBehavior>
+              <Button
+                component="a"
+                variant="contained"
+                color="secondary"
+                size="large"
+                aria-label="Book a grooming appointment"
+                sx={{
+                  mt: 3,
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1.2rem',
+                  fontWeight: 'bold',
+                  textTransform: 'none',
+                  background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+                  '&:hover': {
+                    background: 'linear-gradient(90deg, #038B95, #00ADCD)',
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              >
+                Book an Appointment
+              </Button>
+            </Link>
           </Box>
         </Box>
       </motion.div>
@@ -217,9 +222,17 @@ const ServicesPage = () => {
             No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-             <Button variant="contained" size="large" aria-label="Book a grooming appointment" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
-            Book Now
-          </Button>
+            <Link href="/prebook" passHref legacyBehavior>
+              <Button
+                component="a"
+                variant="contained"
+                size="large"
+                aria-label="Book a grooming appointment"
+                sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
+              >
+                Book Now
+              </Button>
+            </Link>
           </motion.div>
           
         </Box>

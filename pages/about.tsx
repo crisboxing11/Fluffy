@@ -1,4 +1,5 @@
 import { Box, Typography, Grid, Button } from '@mui/material';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
@@ -227,15 +228,17 @@ const AboutUs = () => {
             Experience stress-free, top-tier grooming right at your doorstep.
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-            <Button
-              variant="contained"
-              size="large"
-              aria-label="Book a grooming appointment"
-              sx={{ bgcolor: '#fff', color: '#038B95', fontWeight: 'bold', px: 4, py: 1.5 }}
-              href="/#booking"
-            >
-              Book Now
-            </Button>
+            <Link href="/prebook" passHref legacyBehavior>
+              <Button
+                component="a"
+                variant="contained"
+                size="large"
+                aria-label="Book a grooming appointment"
+                sx={{ bgcolor: '#fff', color: '#038B95', fontWeight: 'bold', px: 4, py: 1.5 }}
+              >
+                Book Now
+              </Button>
+            </Link>
           </motion.div>
         </Box>
       </motion.div>
