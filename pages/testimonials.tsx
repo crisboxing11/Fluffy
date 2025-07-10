@@ -141,14 +141,16 @@ const TestimonialsPage = () => (
           Ready to Pamper Your Pet?
         </Typography>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
-            href="/#booking"
-          >
-            Book Now
-          </Button>
+          <Link href="/prebook" passHref legacyBehavior>
+            <Button
+              component="a"
+              variant="contained"
+              size="large"
+              sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
+            >
+              Book Now
+            </Button>
+          </Link>
         </motion.div>
       </Box>
     </motion.div>
