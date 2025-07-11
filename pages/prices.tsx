@@ -50,7 +50,10 @@ const PricesPage = () => {
       <Head>
         <title>Pet Grooming Prices | Fluffy Pet Wash</title>
         <meta name="description" content="Affordable and transparent pricing for luxury mobile pet grooming services. Check our pricing tiers and all-inclusive package." />
-        <meta name="keywords" content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing, affordable mobile grooming, cheap mobile dog grooming, mobile dog wash prices" />
+        <meta
+          name="keywords"
+          content="dog grooming prices, mobile pet grooming cost, pet grooming services, luxury pet wash pricing, affordable mobile grooming, cheap mobile dog grooming, mobile dog wash prices, mobile dog grooming orlando, mobile pet grooming orlando, dog groomer orlando, mobile dog grooming orlando fl, mobile pet grooming orlando fl, mobile dog grooming las vegas, mobile pet grooming las vegas"
+        />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />

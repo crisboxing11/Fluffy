@@ -22,7 +22,7 @@ const TestimonialsPage = () => (
       />
       <meta
         name="keywords"
-        content="Fluffy Pet Wash testimonials, customer reviews, mobile pet grooming reviews"
+        content="Fluffy Pet Wash testimonials, customer reviews, mobile pet grooming reviews, dog groomer near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
       />
       <meta name="author" content="Fluffy Pet Wash" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
