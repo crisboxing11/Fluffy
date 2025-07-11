@@ -19,7 +19,7 @@ const BlogPostPage = ({ post }: Props) => {
         <meta name="description" content={post.excerpt} />
         <meta
           name="keywords"
-          content="dog grooming tips, mobile pet grooming, pet care advice"
+          content="dog grooming tips, mobile pet grooming, pet care advice, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas, dog groomer near me"
         />
         <meta name="robots" content="index,follow" />
         <meta property="og:title" content={post.title} />

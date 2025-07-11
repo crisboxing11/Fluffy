@@ -60,7 +60,10 @@ const HomePage = () => {
       <Head>
         <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
         <meta name="description" content="Fluffy Pet Wash provides the best premium mobile pet grooming services across multiple locations. Book an appointment today!" />
-        <meta name="keywords" content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas" />
+        <meta
+          name="keywords"
+          content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas, dog groomer near me, cheap dogs, mobile dog grooming near me, purrfect grooming, mobile pet grooming, dog grooming orlando, mobile dog grooming orlando, mobile pet grooming orlando, mobile groomers near me, purrfect grooming mobile pet dog grooming orlando, mobile dog groomer near me, mobile dog wash near me, low maintenance dogs, pet mobile grooming, mobile pet grooming orlando fl, mobile grooming orlando, mobile grooming for dogs, grooming orlando, dog groomer orlando, mobile dog grooming orlando fl, pet grooming mobile near me, mobile groomers, groomers on orlando fl"
+        />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
@@ -74,7 +77,7 @@ const HomePage = () => {
         <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
         <meta property="og:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
-        <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+        <meta property="og:description" content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas and Orlando." />
         <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
         <meta property="og:type" content="website" />
@@ -84,7 +87,7 @@ const HomePage = () => {
 {/* ✅ Twitter Card Meta Tags (used by iMessage and Discord too) */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Fluffy Pet Wash | Mobile Pet Grooming Services" />
-        <meta name="twitter:description" content="Book the best premium mobile pet grooming with Fluffy Pet Wash in Las Vegas." />
+        <meta name="twitter:description" content="Book the best premium mobile pet grooming with Fluffy Pet Wash in Las Vegas and Orlando." />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Logo" />
         <meta name="twitter:site" content="@fluffypetwash" />
@@ -118,6 +121,15 @@ const HomePage = () => {
                     "@type": "GeoCoordinates",
                     "latitude": "36.1699",
                     "longitude": "-115.1398"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Orlando, FL",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "28.5383",
+                    "longitude": "-81.3792"
                   }
                 }
               ],

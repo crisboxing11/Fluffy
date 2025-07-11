@@ -57,7 +57,10 @@ const ContactPage = () => {
   <Head>
   <title>Contact Us | Fluffy Pet Wash</title>
   <meta name="description" content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form." />
-  <meta name="keywords" content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me" />
+  <meta
+    name="keywords"
+    content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me, dog groomer near me, mobile dog groomer near me, mobile groomers near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
+  />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
@@ -106,10 +109,16 @@ const ContactPage = () => {
           "postalCode": "89101",
           "addressCountry": "US"
         },
-        "areaServed": {
-          "@type": "Place",
-          "name": "Las Vegas, NV"
-        },
+        "areaServed": [
+          {
+            "@type": "Place",
+            "name": "Las Vegas, NV"
+          },
+          {
+            "@type": "Place",
+            "name": "Orlando, FL"
+          }
+        ],
         "sameAs": [
           "https://www.instagram.com/fluffypetwash",
           "https://www.facebook.com/fluffypetwash"

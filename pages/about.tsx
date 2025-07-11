@@ -27,8 +27,11 @@ const AboutUs = () => {
       {/* 🔥 SEO & Metadata */}
      <Head>
   <title>About Fluffy Pet Wash | Mobile Pet Grooming</title>
-  <meta name="description" content="Fluffy Pet Wash offers luxury mobile pet grooming with hypoallergenic shampoos, stress-free treatments, and certified groomers. Serving Las Vegas. Book now!" />
-  <meta name="keywords" content="about Fluffy Pet Wash, mobile pet grooming, stress-free grooming, mobile dog groomers, pet grooming Las Vegas, Fluffy Pet Wash company" />
+  <meta name="description" content="Fluffy Pet Wash offers luxury mobile pet grooming with hypoallergenic shampoos, stress-free treatments, and certified groomers. Serving Las Vegas and Orlando. Book now!" />
+  <meta
+    name="keywords"
+    content="about Fluffy Pet Wash, mobile pet grooming, stress-free grooming, mobile dog groomers, pet grooming Las Vegas, Fluffy Pet Wash company, dog grooming orlando, mobile dog grooming orlando, mobile pet grooming orlando, mobile pet grooming orlando fl, mobile dog grooming orlando fl, grooming orlando, dog groomer orlando, mobile grooming orlando, mobile dog groomer near me, mobile groomers near me"
+  />
   <meta name="author" content="Fluffy Pet Wash" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
