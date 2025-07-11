@@ -18,16 +18,7 @@ const PrebookPage = () => (
         Book Your Appointment
       </Typography>
       <PreBookingForm />
-      <Box sx={{ width: '100%', height: 800, mt: 4 }}>
-        <iframe
-          src="https://booking.moego.pet/ol/FluffyPetWashOrlando/book?utm_medium=embed"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          title="Online booking"
-          scrolling="no"
-        ></iframe>
-      </Box>
+     
     </Box>
   </Box>
 );
