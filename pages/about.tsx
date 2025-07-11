@@ -226,17 +226,17 @@ const AboutUs = () => {
           <Typography variant="h6" mb={4}>
             Experience stress-free, top-tier grooming right at your doorstep.
           </Typography>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
+          
             <Button
               variant="contained"
               size="large"
               aria-label="Book a grooming appointment"
               sx={{ bgcolor: '#fff', color: '#038B95', fontWeight: 'bold', px: 4, py: 1.5 }}
-              href="/#booking"
+              href="/prebook"
             >
               Book Now
             </Button>
-          </motion.div>
+
         </Box>
       </motion.div>
     </Box>

@@ -300,17 +300,16 @@ const PricesPage = () => {
   <Typography variant="h4" fontWeight="bold">
     Ready to Pamper Your Pet?
   </Typography>
-  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
     <Button
       variant="contained"
       size="large"
       aria-label="Book a grooming appointment"
       sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }}
-      href="/#booking"
+      href="/prebook"
     >
       Book Now
     </Button>
-  </motion.div>
+  
 </Box>
       </motion.div>
     </Box>

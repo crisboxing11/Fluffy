@@ -157,7 +157,7 @@ const ServicesPage = () => {
                 background: 'linear-gradient(90deg, #00ADCD, #038B95)',
                 '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)', transform: 'scale(1.05)' },
               }}
-              href="/#booking"
+              href="/prebook"
             >
               Book an Appointment
             </Button>
@@ -216,11 +216,11 @@ const ServicesPage = () => {
             🏡 <b>Convenience at Your Doorstep</b> <br />
             No more stressful salon visits, our fully equipped mobile van brings luxury grooming <b>to you</b>.
           </Typography>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
-             <Button variant="contained" size="large" aria-label="Book a grooming appointment" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/#booking">
+         
+             <Button variant="contained" size="large" aria-label="Book a grooming appointment" sx={{ mt: 3, bgcolor: '#fff', color: '#038B95', fontWeight: 'bold' }} href="/prebook">
             Book Now
           </Button>
-          </motion.div>
+       
           
         </Box>
       </motion.div>
