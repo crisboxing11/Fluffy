@@ -102,6 +102,50 @@ export const posted: BlogPost[] = [
       <p><strong>Want your dog to look and feel amazing?</strong> Book a Fluffy appointment today and let us choose the best products for your pup’s coat and skin. A healthy dog is a happy dog—and nothing feels better than a soft, shiny fluffball curled up next to you.</p>
     `
   },
+  {
+    slug: 'why-we-dont-shave',
+    title: 'Why We Don’t Shave Dogs And Why You Shouldn’t Either',
+    excerpt: 'Thinking about shaving your dog to keep them cool? Here’s why that can actually harm their coat, their skin, and even their health.',
+    image: '/No Shave.jpeg',
+    date: '2024-07-25',
+    content: `
+      <p>It’s a hot day. Your dog is panting. And someone says, you should shave them to keep them cool. It seems like a logical solution, right?</p>
+  
+      <p>Wrong. At Fluffy Pet Wash, we do not offer full body shave downs for double coated or non hair breeds, and there’s a very good reason why. Shaving the wrong dog doesn’t just change their look. It can lead to long term coat damage, skin irritation, overheating, and even behavioral stress.</p>
+  
+      <h2>Understanding Your Dog’s Coat Type</h2>
+      <p>Not all dogs have the same coat. Some breeds, like poodles, have hair that grows continuously and can safely be trimmed. Others, like golden retrievers, huskies, or German shepherds, have what’s called a double coat. That means a dense insulating undercoat beneath a protective outer coat.</p>
+  
+      <p>These two layers work together to regulate your dog’s temperature in both cold and hot weather. Shaving that system off removes their natural protection and can create long term harm.</p>
+  
+      <h2>Why Shaving Can Actually Make Your Dog Hotter</h2>
+      <ul>
+        <li><strong>Damages the coat permanently:</strong> After shaving, some dogs experience patchy, uneven regrowth or never recover their natural coat, especially older dogs.</li>
+        <li><strong>Leads to overheating:</strong> Contrary to popular belief, the coat actually insulates against heat. Removing it makes dogs more vulnerable to sun and extreme temperatures.</li>
+        <li><strong>Causes sunburn and skin damage:</strong> Dog skin is extremely sensitive. Shaving removes their only protective barrier, leaving them exposed to UV rays, allergens, and abrasions.</li>
+        <li><strong>Triggers behavioral anxiety:</strong> Many dogs feel exposed and uncomfortable after being shaved. They may hide, lick excessively, or show signs of stress.</li>
+        <li><strong>Disrupts shedding cycles:</strong> A healthy double coat sheds seasonally. Shaving confuses this natural rhythm and can cause unpredictable, excessive year round shedding.</li>
+      </ul>
+  
+      <h2>What to Do Instead</h2>
+      <p>At Fluffy Pet Wash, we believe in doing what’s right for the dog, not what’s quick or trendy. Here are our safe and effective alternatives to shaving:</p>
+      <ul>
+        <li><strong>Deshedding treatments:</strong> We remove loose undercoat using professional tools without damaging the outer guard hairs.</li>
+        <li><strong>Sanitary and belly trims:</strong> We keep your dog clean and comfortable without compromising their insulation.</li>
+        <li><strong>Paw pad and ear trims:</strong> These areas trap heat and dirt. Trimming them can improve comfort and airflow.</li>
+        <li><strong>Conditioning and moisturizing:</strong> A healthy coat insulates better. We nourish the skin and fur to prevent dryness and matting.</li>
+      </ul>
+  
+      <h2>Let the Coat Do Its Job</h2>
+      <p>That fluffy coat isn’t just for looks. It’s designed by nature to protect, regulate, and shield your dog. With proper grooming and maintenance, it works like a high tech natural cooling system. Removing it is like taking the insulation off your roof during a heat wave.</p>
+  
+      <p>We know you want your dog to be comfortable. That’s exactly why we don’t shave. Instead, we provide expert care tailored to your dog’s breed, coat type, and health. From deshedding to spa grade conditioning, we do it right every time.</p>
+  
+      <p><strong>Book your grooming appointment with Fluffy Pet Wash today and help your dog stay cool, comfortable, and protected the safe way.</strong> Visit <a href="https://fluffypetwash.com">fluffypetwash.com</a> to schedule now.</p>
+    `,
+    imageAlt: ""
+  }
+
   // {
   //   slug: 'orlando-grand-opening',
   //   title: 'Fluffy Pet Wash Expands to Orlando!',
