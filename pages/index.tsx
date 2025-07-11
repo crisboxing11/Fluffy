@@ -28,6 +28,32 @@ const HomePage = () => {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const checkLocation = async () => {
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        if (!res.ok) return;
+        const data = await res.json();
+        const lat = parseFloat(data.latitude);
+        const lon = parseFloat(data.longitude);
+        const inOrlandoArea =
+          data.region_code === 'FL' &&
+          !isNaN(lat) &&
+          !isNaN(lon) &&
+          lat >= 28 &&
+          lat <= 29.2 &&
+          lon >= -82 &&
+          lon <= -80.5;
+        if (inOrlandoArea && router.pathname !== '/orlando') {
+          router.replace('/orlando');
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    checkLocation();
+  }, [router]);
+
   return (
     <Box>
       {/* 🔥 SEO & Metadata */}
@@ -157,6 +183,7 @@ const HomePage = () => {
           Before proceeding to booking, confirm your dog&apos;s eligibility for our services.
         </Typography>
         <PreBookingForm />
+        
       </Box>
     </Box>
   );
