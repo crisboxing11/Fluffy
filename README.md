@@ -42,3 +42,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Resolving Orphaned Pages
+
+Use the `find-orphans.js` script to analyze a SEMrush CSV export and detect pages that are not internally linked. Provide the path to the CSV file:
+
+```bash
+node scripts/find-orphans.js path/to/semrush.csv
+```
+
+Any slugs printed by the script are considered orphaned. For each slug you can either:
+
+1. **Delete the page** and list the slug in `data/semrush-exclude.json` so it is removed from the sitemap.
+2. **Add internal links** from relevant blog posts or location pages to keep the page indexed.
+
