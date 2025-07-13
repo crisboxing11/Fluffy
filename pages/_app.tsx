@@ -1,15 +1,28 @@
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Script from 'next/script';
-import Layout from '../components/Layout/Layout'; // Import Layout component
+import Layout from '../components/Layout/Layout';
 import theme from '../styles/themes';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { Analytics } from '@vercel/analytics/react'; // ✅ Vercel Analytics
-import { SpeedInsights } from '@vercel/speed-insights/react'; // ✅ Vercel Speed Insights
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
+
+  const generateTitle = (pathname: string) => {
+    if (pathname === '/') return 'Fluffy Pet Wash | Mobile Dog Grooming Services';
+    if (pathname.startsWith('/blog/')) return 'Fluffy Pet Wash Blog | Grooming Tips & News';
+    const segments = pathname.replace(/^\//, '').split('/');
+    const last = segments[segments.length - 1];
+    if (!last) return 'Fluffy Pet Wash';
+    const words = last.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1));
+    return `${words.join(' ')} | Fluffy Pet Wash`;
+  };
+
+  const dynamicTitle = generateTitle(router.pathname);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -29,6 +42,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <title>{dynamicTitle}</title>
+      </Head>
       <Layout>
         {/* ✅ Google Analytics */}
         <Script
