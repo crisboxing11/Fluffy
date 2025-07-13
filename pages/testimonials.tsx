@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import PawPattern from '../public/paw-pattern.jpeg';
 import HeroImage from '../public/Dog6.jpeg';
@@ -11,6 +12,13 @@ const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
+
+const exploreLinks = [
+  { href: "/services", label: "Services" },
+  { href: "/prices", label: "Prices" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
 
 const TestimonialsPage = () => (
   <Box>
@@ -118,10 +126,9 @@ const TestimonialsPage = () => (
           Explore Fluffy Pet Wash
         </Typography>
         <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
-          <Button component={Link} href="/services" variant="outlined" color="primary">Services</Button>
-          <Button component={Link} href="/prices" variant="outlined" color="primary">Prices</Button>
-          <Button component={Link} href="/blog" variant="outlined" color="primary">Blog</Button>
-          <Button component={Link} href="/contact" variant="outlined" color="primary">Contact</Button>
+          {exploreLinks.map((link) => (
+            <Button key={link.href} component={Link} href={link.href} variant="outlined" color="primary">{link.label}</Button>
+          ))}
         </Stack>
       </Box>
     </Box>
