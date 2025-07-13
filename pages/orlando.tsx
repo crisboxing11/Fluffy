@@ -1,2 +1,13 @@
+import Head from 'next/head';
 import HomePage from './index';
-export default HomePage;
+
+const OrlandoPage = () => (
+  <>
+    <Head>
+      <title>Mobile Pet Grooming Orlando, FL | Fluffy Pet Wash</title>
+    </Head>
+    <HomePage />
+  </>
+);
+
+export default OrlandoPage;
