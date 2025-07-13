@@ -144,35 +144,36 @@ export const posted: BlogPost[] = [
       <p><strong>Book your grooming appointment with Fluffy Pet Wash today and help your dog stay cool, comfortable, and protected the safe way.</strong> Visit <a href="https://fluffypetwash.com">fluffypetwash.com</a> to schedule now.</p>
     `,
     imageAlt: ""
-  }
+  },
 
-  // {
-  //   slug: 'orlando-grand-opening',
-  //   title: 'Fluffy Pet Wash Expands to Orlando!',
-  //   excerpt: 'The most loved mobile pet grooming service in Las Vegas is now grooming pups across Orlando.',
-  //   image: '/Orlando Van .png',
-  //   date: '2024-07-15',
-  //   content: `
-  //     <p>🎉 <strong>Orlando, welcome to the Fluffy family!</strong> After years of delighting pets and their parents in Las Vegas, <strong>Fluffy Pet Wash</strong> has officially launched in sunny Orlando—and we're ready to make every pup in town look (and smell) amazing.</p>
+  {
+    slug: 'orlando-grand-opening',
+    title: 'Fluffy Pet Wash Expands to Orlando!',
+    excerpt: 'The most loved mobile pet grooming service in Las Vegas is now grooming pups across Orlando.',
+    image: '/Orlando Van .png',
+    date: '2024-07-12',
+    content: `
+      <p>🎉 <strong>Orlando, welcome to the Fluffy family!</strong> After years of delighting pets and their parents in Las Vegas, <strong>Fluffy Pet Wash</strong> has officially launched in sunny Orlando—and we're ready to make every pup in town look (and smell) amazing.</p>
   
-  //     <h2>Why Orlando?</h2>
-  //     <p>Orlando isn’t just home to magic kingdoms—it's home to thousands of beloved dogs who deserve premium, stress-free grooming right at their doorstep. We knew this city needed a mobile grooming solution that’s clean, kind, convenient, and powered by real pet lovers. So we brought it.</p>
+      <h2>Why Orlando?</h2>
+      <p>Orlando isn’t just home to magic kingdoms—it's home to thousands of beloved dogs who deserve premium, stress-free grooming right at their doorstep. We knew this city needed a mobile grooming solution that’s clean, kind, convenient, and powered by real pet lovers. So we brought it.</p>
   
-  //     <h2>What Makes Fluffy Different?</h2>
-  //     <ul>
-  //       <li><strong>We Come to You:</strong> No more traffic, no more waiting rooms. Just book online, and our beautiful Fluffy van rolls up to your driveway.</li>
-  //       <li><strong>One-on-One Service:</strong> Your dog is the only client. That means no cages, no barking chaos, just calm, professional grooming from start to finish.</li>
-  //       <li><strong>Premium Hypoallergenic Products:</strong> We use the best shampoos, conditioners, and de-shedding treatments in the industry—safe for all breeds and coat types.</li>
-  //       <li><strong>Veteran-Owned, Passion-Driven:</strong> We’re not just groomers. We’re animal advocates, proud veterans, and entrepreneurs driven by purpose.</li>
-  //     </ul>
+      <h2>What Makes Fluffy Different?</h2>
+      <ul>
+        <li><strong>We Come to You:</strong> No more traffic, no more waiting rooms. Just book online, and our beautiful Fluffy van rolls up to your driveway.</li>
+        <li><strong>One-on-One Service:</strong> Your dog is the only client. That means no cages, no barking chaos, just calm, professional grooming from start to finish.</li>
+        <li><strong>Premium Hypoallergenic Products:</strong> We use the best shampoos, conditioners, and de-shedding treatments in the industry—safe for all breeds and coat types.</li>
+        <li><strong>Veteran-Owned, Passion-Driven:</strong> We’re not just groomers. We’re animal advocates, proud veterans, and entrepreneurs driven by purpose.</li>
+      </ul>
   
-  //     <h2>🚐 Meet the Fluffy Van</h2>
-  //     <p>Our mobile grooming unit is a fully equipped spa on wheels. It’s got warm water, AC, soft lighting, calming music, and all the tools needed for a show-stopping glow-up. Your dog will come out looking red-carpet ready—and feeling like royalty.</p>
+      <h2>🚐 Meet the Fluffy Van</h2>
+      <p>Our mobile grooming unit is a fully equipped spa on wheels. It’s got warm water, AC, soft lighting, calming music, and all the tools needed for a show-stopping glow-up. Your dog will come out looking red-carpet ready—and feeling like royalty.</p>
   
-  //     <h2>🎁 Grand Opening Special</h2>
-  //     <p>To celebrate our Orlando launch, we’re offering an exclusive <strong>10% off your first appointment</strong> plus <strong>FREE premium add-ons</strong> like blueberry facials, paw balm, and teeth brushing—because your pup deserves the full Fluffy treatment.</p>
+      <h2>🎁 Grand Opening Special</h2>
+      <p>To celebrate our Orlando launch, we’re offering an exclusive <strong>10% off your first appointment</strong> plus <strong>FREE premium add-ons</strong> like blueberry facials, paw balm, and teeth brushing—because your pup deserves the full Fluffy treatment.</p>
   
-  //     <p><strong>Booking is easy:</strong> Visit <a href="https://fluffypetwash.com">fluffypetwash.com</a> and select your location. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
-  //   `
-  // },
+      <p><strong>Booking is easy:</strong> Visit <a href="https://fluffypetwash.com">fluffypetwash.com</a> and select your location. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
+    `,
+    imageAlt: ""
+  },
 ];
