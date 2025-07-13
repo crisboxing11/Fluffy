@@ -113,7 +113,7 @@ const AboutUs = () => {
             style={{ filter: 'brightness(40%)' }}
           />
           <Typography
-            variant="h2"
+            variant="h1"
             fontWeight="bold"
             sx={{
               position: 'relative',

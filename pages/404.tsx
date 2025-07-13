@@ -16,11 +16,14 @@ const Custom404 = () => {
       <Box sx={{ mb: 4 }}>
         <Image src="/fluffy-circle.PNG" alt="Fluffy Pet Wash Logo" width={150} height={150} />
       </Box>
-      <Typography variant="h3" fontWeight="bold" color="#067C92" gutterBottom>
+      <Typography variant="h1" fontWeight="bold" color="#067C92" gutterBottom>
         404 - Page Not Found
       </Typography>
       <Typography variant="body1" color="textSecondary" mb={4}>
-        The page you are looking for might have been removed or is temporarily unavailable.
+        The page you are looking for might have been removed or is temporarily unavailable. Double-check the address or return to our homepage below.
+      </Typography>
+      <Typography variant="body1" color="textSecondary" mb={2}>
+        If you believe this is an error, please let us know through our contact page.
       </Typography>
       <Link href="/" passHref legacyBehavior>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>

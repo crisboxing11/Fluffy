@@ -104,7 +104,7 @@ export const posted: BlogPost[] = [
   },
   {
     slug: 'why-we-dont-shave',
-    title: 'Why We Don’t Shave Dogs And Why You Shouldn’t Either',
+    title: 'Why We Don’t Shave Dogs',
     excerpt: 'Thinking about shaving your dog to keep them cool? Here’s why that can actually harm their coat, their skin, and even their health.',
     image: '/No Shave.jpeg',
     date: '2024-07-25',
