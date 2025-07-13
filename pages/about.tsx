@@ -149,6 +149,9 @@ const AboutUs = () => {
                 At <b>Fluffy Pet Wash</b>, we believe grooming should be a <b>stress-free, pampering experience</b> for your pets.
                 Our professional team provides <b>high-quality, safe, and gentle</b> mobile pet grooming at your convenience.
               </Typography>
+              <Typography variant="body1" color="textSecondary" mb={3} ml={3}>
+                We treat your furry friend like family, delivering full service care that leaves your dog groomed from nose to tail.
+              </Typography>
             </Grid>
           </Grid>
         </Box>
@@ -165,6 +168,9 @@ const AboutUs = () => {
               <Typography variant="body1" color="textSecondary" mb={3} ml={2}>
                 Unlike traditional grooming salons, <b>Fluffy Pet Wash</b> brings the salon experience <b>right to your home</b>.
                 Our mobile grooming service reduces <b>stress and anxiety</b> for pets while offering unmatched convenience for owners.
+              </Typography>
+              <Typography variant="body1" color="textSecondary" mb={3} ml={2}>
+                We create a stress free environment inside our grooming van so your pet can relax.
               </Typography>
             </Grid>
 
