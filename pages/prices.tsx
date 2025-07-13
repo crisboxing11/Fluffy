@@ -48,7 +48,7 @@ const PricesPage = () => {
     <Box>
        {/* 🔥 SEO & Metadata */}
       <Head>
-        <title>Pet Grooming Prices | Fluffy Pet Wash</title>
+        <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta name="description" content="Affordable and transparent pricing for luxury mobile pet grooming services. Check our pricing tiers and all-inclusive package." />
         <meta
           name="keywords"
@@ -60,7 +60,7 @@ const PricesPage = () => {
         <link rel="canonical" href="https://fluffypetwash.com/prices" />
          <link rel="icon" href="/favicon.ico" />
         {/* ✅ Open Graph */}
-        <meta property="og:title" content="Pet Grooming Prices | Fluffy Pet Wash" />
+        <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta property="og:description" content="Check transparent, all-inclusive pricing tiers for mobile grooming services by Fluffy Pet Wash." />
         <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
         <meta property="og:image:alt" content="Fluffy Pet Wash Prices" />
@@ -71,7 +71,7 @@ const PricesPage = () => {
 
         {/* ✅ Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pet Grooming Prices | Fluffy Pet Wash" />
+        <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta name="twitter:description" content="Check transparent, all-inclusive pricing tiers for mobile grooming services by Fluffy Pet Wash." />
         <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Prices" />
