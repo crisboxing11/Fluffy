@@ -90,7 +90,7 @@ const PrivacyPolicyPage = () => {
         <strong>Fluffy Pet Wash</strong><br />
         Email: <a href="mailto:support@fluffypetwash.com">support@fluffypetwash.com</a><br />
         Phone: 888-998-8381<br />
-        Website: <a href="https://www.fluffypetwash.com" target="_blank" rel="noopener noreferrer">https://www.fluffypetwash.com</a>
+        Website: <a href="https://www.fluffypetwash.com" target="_blank" rel="noopener noreferrer">Fluffy Pet Wash website</a>
       </Typography>
     </Box>
   );
