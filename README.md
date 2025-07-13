@@ -56,3 +56,12 @@ Any slugs printed by the script are considered orphaned. For each slug you can e
 1. **Delete the page** and list the slug in `data/semrush-exclude.json` so it is removed from the sitemap.
 2. **Add internal links** from relevant blog posts or location pages to keep the page indexed.
 
+## Force HSTS on Assets Subdomain
+
+To ensure all static files are requested over HTTPS, add the following header to the CDN or server configuration for `static.fluffypetwash.com`:
+
+```
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+```
+
+After deployment, confirm the domain passes validation at [hstspreload.org](https://hstspreload.org).
