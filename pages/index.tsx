@@ -28,31 +28,9 @@ const HomePage = () => {
     };
   }, [router.events]);
 
-  useEffect(() => {
-    const checkLocation = async () => {
-      try {
-        const res = await fetch('https://ipapi.co/json/');
-        if (!res.ok) return;
-        const data = await res.json();
-        const lat = parseFloat(data.latitude);
-        const lon = parseFloat(data.longitude);
-        const inOrlandoArea =
-          data.region_code === 'FL' &&
-          !isNaN(lat) &&
-          !isNaN(lon) &&
-          lat >= 28 &&
-          lat <= 29.2 &&
-          lon >= -82 &&
-          lon <= -80.5;
-        if (inOrlandoArea && router.pathname !== '/orlando') {
-          router.replace('/orlando');
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    checkLocation();
-  }, [router]);
+  // Previously redirected users in the Orlando area to a dedicated page.
+  // The additional request caused a brief title change on page load.
+  // Removing the geolocation check keeps the title consistent.
 
   return (
     <Box>
