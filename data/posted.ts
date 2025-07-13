@@ -150,7 +150,7 @@ export const posted: BlogPost[] = [
     slug: 'orlando-grand-opening',
     title: 'Fluffy Pet Wash Expands to Orlando!',
     excerpt: 'The most loved mobile pet grooming service in Las Vegas is now grooming pups across Orlando.',
-    image: '/Orlando Van .png',
+    image: '/orlando-van.png',
     date: '2024-07-12',
     content: `
       <p>🎉 <strong>Orlando, welcome to the Fluffy family!</strong> After years of delighting pets and their parents in Las Vegas, <strong>Fluffy Pet Wash</strong> has officially launched in sunny Orlando—and we're ready to make every pup in town look (and smell) amazing.</p>
