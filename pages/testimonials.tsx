@@ -99,7 +99,7 @@ const TestimonialsPage = () => (
           fontWeight="bold"
           sx={{ position: 'relative', zIndex: 2, textShadow: '2px 2px 6px rgba(0,0,0,0.6)', fontSize: { xs: '2rem', md: '3.5rem' } }}
         >
-          Happy Paws, Happy Parents
+          Happy Paws, Happy Pet Parents
         </Typography>
       </Box>
     </motion.div>

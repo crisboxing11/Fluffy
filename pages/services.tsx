@@ -33,11 +33,11 @@ const services = [
   { text: 'Professional Brush Out', icon: BrushIcon },
   { text: 'Professional Hypoallergenic Wash + Organic Conditioner & Moisturizer', icon: SpaIcon },
   { text: 'Towel & Blow Out Dryer', icon: DryCleaningIcon },
-  { text: 'Nails Trimming & Filing', icon: ContentCutIcon },
+  { text: 'Nail Trimming & Filing', icon: ContentCutIcon },
   { text: 'Ears Cleaning', icon: HealingIcon },
   { text: 'Mouth Wash & Teeth Brushing', icon: CleanHandsIcon },
   { text: 'Expressed Glands (Optional)', icon: PetsIcon },
-  { text: 'Professional DeShedding (Undercoat Removal) If Needed', icon: WavesIcon },
+  { text: 'Professional De-Shedding (Undercoat Removal) If Needed', icon: WavesIcon },
   { text: 'Paws Cleaning & Paws Trimming If Needed', icon: FavoriteIcon },
   { text: 'Sanitary/Backside/Ears Trimming If Needed (“Dog Tidy”)', icon: StarIcon },
   { text: 'Facial + Fresh & Clean Treatment', icon: FaceRetouchingNaturalIcon },
@@ -196,13 +196,16 @@ const ServicesPage = () => {
               </Grid>
             ))}
           </Grid>
+          <Typography variant="body1" textAlign="center" mt={2} color="#067C92">
+            From de shedding to nail trimming, this full groom package is a full service option for busy pet parents.
+          </Typography>
 
           {/* From Nose to Tail Text */}
           <Typography variant="h5" textAlign="center" fontWeight="bold" mt={4} color="#067C92">
             From Nose to Tail, We Never Fail! 🐾
           </Typography>
          <Typography variant="body1" textAlign="center" mt={4} color="#067C92">
-  We offer a stress-free, luxury mobile grooming experience. See our{' '}
+  We offer a stress free environment and luxury mobile grooming experience. See our{' '}
   <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>
     transparent pricing
   </Link>{' '}

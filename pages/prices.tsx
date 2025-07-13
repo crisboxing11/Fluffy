@@ -175,6 +175,9 @@ const PricesPage = () => {
     >
       No hidden fees. One all-inclusive package tailored to your pet&apos;s needs.
     </Typography>
+    <Typography variant="body1" sx={{ maxWidth: 700, mx: 'auto', mt: 1 }}>
+      Each full groom includes nail trimming, de shedding and everything you expect from premium mobile pet grooming services.
+    </Typography>
   </Box>
 </Box>
       </motion.div>

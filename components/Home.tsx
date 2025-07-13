@@ -108,6 +108,10 @@ const Home = () => {
             <Typography variant="h5" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
               Bringing stress-free, professional pet grooming straight to your doorstep.
             </Typography>
+            <Typography variant="body1" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
+              Our full service mobile dog grooming keeps your furry friend
+              perfectly dog groomed in a stress free environment.
+            </Typography>
            
               <Link href="/prebook" passHref legacyBehavior>
                 <Button
