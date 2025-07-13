@@ -161,7 +161,7 @@ const FAQPage = () => {
 
       {/* Title */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-        <Typography variant="h3" fontWeight="bold" color="#067C92" mb={3}>
+        <Typography variant="h1" fontWeight="bold" color="#067C92" mb={3}>
           Frequently Asked Questions
         </Typography>
         <Typography variant="body1" color="textSecondary" mb={4}>

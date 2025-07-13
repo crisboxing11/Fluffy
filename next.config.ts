@@ -5,11 +5,12 @@ const nextConfig = withBundleAnalyzer({
 })({
   reactStrictMode: true,
 
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/mobile-grooming-prices',
-        destination: '/prices', // Redirect /mobile-grooming-prices to /prices
+        destination: '/prices',
+        permanent: true,
       },
     ];
   },

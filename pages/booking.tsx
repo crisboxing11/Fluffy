@@ -29,6 +29,12 @@ const BookingPage = () => {
         <title>Book Now | Fluffy Pet Wash</title>
         <meta name="description" content="Schedule your mobile grooming appointment online." />
       </Head>
+      <Typography variant="h1" fontWeight="bold" textAlign="center" mt={4} mb={2}>
+        Book Your Appointment
+      </Typography>
+      <Typography variant="body1" color="textSecondary" textAlign="center" mb={4}>
+        Select your location below to continue to our secure booking form.
+      </Typography>
       <Box sx={{ display: { xs: 'block', md: 'flex' }, gap: 4, py: 6, px: 3 }}>
         <Box sx={{ flex: 1 }}>
           <iframe

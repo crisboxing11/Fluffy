@@ -155,7 +155,7 @@ const PricesPage = () => {
   {/* Text Content */}
   <Box sx={{ position: 'relative', zIndex: 2, px: 3 }}>
     <Typography
-      variant="h2"
+      variant="h1"
       fontWeight="bold"
       sx={{
         fontSize: { xs: '2rem', md: '3.5rem' },

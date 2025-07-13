@@ -27,10 +27,22 @@ const Footer = () => {
             alignItems="center"
             flexWrap="wrap"
           >
-            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact"].map((item, index) => (
+            {["Home", "About", "Services", "Prices", "Blog", "Testimonials", "FAQ", "Contact", "Booking", "Prebook", "Privacy Policy", "Orlando"].map((item, index) => (
               <Link
                 key={index}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                href={
+                  item === "Home"
+                    ? "/"
+                    : item === "Orlando"
+                    ? "/orlando"
+                    : item === "Booking"
+                    ? "/booking"
+                    : item === "Prebook"
+                    ? "/prebook"
+                    : item === "Privacy Policy"
+                    ? "/privacy-policy"
+                    : `/${item.toLowerCase()}`
+                }
                 color="inherit"
                 underline="none"
                 sx={{ fontSize: '0.9rem', fontWeight: 'bold', transition: 'color 0.2s', '&:hover': { color: '#A1E0E3' } }}

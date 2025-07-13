@@ -124,7 +124,7 @@ const BlogPostPage = ({ post }: Props) => {
         <Box
           sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }}
         />
-        <Typography variant="h2" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
+        <Typography variant="h1" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
           {post.title}
         </Typography>
       </Box>

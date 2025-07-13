@@ -95,7 +95,7 @@ const TestimonialsPage = () => (
         <Image src={HeroImage} alt="Happy dog after grooming" layout="fill" objectFit="cover" priority sizes="100vw" />
         <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }} />
         <Typography
-          variant="h2"
+          variant="h1"
           fontWeight="bold"
           sx={{ position: 'relative', zIndex: 2, textShadow: '2px 2px 6px rgba(0,0,0,0.6)', fontSize: { xs: '2rem', md: '3.5rem' } }}
         >
@@ -104,6 +104,10 @@ const TestimonialsPage = () => (
       </Box>
     </motion.div>
 
+    <Typography variant="body1" textAlign="center" mt={4} mb={4}>
+      Our clients love the convenience of our mobile service and the gentle care
+      we provide for every pet. Read a few of their stories below.
+    </Typography>
     <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center' }}>
       <Typography variant="h4" fontWeight="bold" color="#067C92" mb={4}>
         What Our Customers Say
