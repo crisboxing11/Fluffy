@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 const Custom404 = () => {
   return (
-    <Box sx={{ textAlign: 'center', py: 10 }}>
+    <Box sx={{ textAlign: 'center', py: 10, px: { xs: 3, md: 6 }, maxWidth: 800, mx: 'auto' }}>
       <Head>
         <title>Page Not Found | Fluffy Pet Wash</title>
-        <meta name="description" content="Oops! The page you're looking for does not exist." />
+        <meta name="description" content="Oops! The page you&apos;re looking for does not exist." />
         <meta name="robots" content="noindex" />
         <link rel="canonical" href="https://fluffypetwash.com/404" />
       </Head>
@@ -19,11 +19,14 @@ const Custom404 = () => {
       <Typography variant="h1" fontWeight="bold" color="#067C92" gutterBottom>
         404 - Page Not Found
       </Typography>
-      <Typography variant="body1" color="textSecondary" mb={4}>
-        The page you are looking for might have been removed or is temporarily unavailable. Double-check the address or return to our homepage below.
+      <Typography variant="body1" color="textSecondary" mb={2}>
+        The link you followed might be broken or the page may have moved. While you&apos;re here, feel free to browse some of our popular resources below.
       </Typography>
       <Typography variant="body1" color="textSecondary" mb={2}>
-        If you believe this is an error, please let us know through our contact page.
+        Visit our <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>services page</Link> to learn about full-groom packages, or check our <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>current pricing</Link> before booking. We also share helpful tips on our <Link href="/blog" style={{ color: '#038B95', fontWeight: 'bold' }}>blog</Link>.
+      </Typography>
+      <Typography variant="body1" color="textSecondary" mb={4}>
+        If you still can&apos;t find what you need, our <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }}>contact page</Link> is the fastest way to get in touch. We&apos;ll be happy to point you in the right direction.
       </Typography>
       <Link href="/" passHref legacyBehavior>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
