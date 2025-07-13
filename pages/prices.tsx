@@ -160,6 +160,7 @@ const PricesPage = () => {
       sx={{
         fontSize: { xs: '2rem', md: '3.5rem' },
         textShadow: '2px 2px 6px rgba(0, 0, 0, 0.6)', // ✅ Adds text shadow for better contrast
+        color: '#A1E0E3', // ✅ Lighter color for better visibility
       }}
     >
       Transparent & Affordable Pricing
@@ -174,6 +175,9 @@ const PricesPage = () => {
       }}
     >
       No hidden fees. One all-inclusive package tailored to your pet&apos;s needs.
+    </Typography>
+    <Typography variant="body1" sx={{ maxWidth: 700, mx: 'auto', mt: 1, color: '#A1E0E3', textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)' }}>
+      Each full groom includes nail trimming, de shedding and everything you expect from premium mobile pet grooming services.
     </Typography>
   </Box>
 </Box>
