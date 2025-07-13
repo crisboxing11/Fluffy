@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "export-sitemap": "next-sitemap",
+    "sitemap-lint": "node scripts/sitemap-lint.js dist/sitemap.xml"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
