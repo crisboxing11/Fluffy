@@ -1,9 +1,3 @@
-# *
 User-agent: *
 Allow: /
-
-# Host
-Host: https://fluffypetwash.com
-
-# Sitemaps
 Sitemap: https://fluffypetwash.com/sitemap.xml
