@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, Typography, Rating, IconButton } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  Rating,
+  IconButton,
+} from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import PetsIcon from '@mui/icons-material/Pets';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -7,7 +14,13 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const reviews = [
+interface Review {
+  name: string;
+  rating: number;
+  quote: string;
+}
+
+const reviews: Review[] = [
   {
     name: 'Katie Jones',
     rating: 5,
@@ -68,23 +81,27 @@ const sliderSettings = {
   prevArrow: <Arrow direction="prev" />,
 };
 
+const TestimonialCard = ({ review }: { review: Review }) => (
+  <Card sx={{ p: 4, m: 2, bgcolor: '#F8F9FA', borderRadius: '20px', position: 'relative' }}>
+    <PetsIcon sx={{ position: 'absolute', top: -20, left: 'calc(50% - 16px)', fontSize: 32, color: '#00ADCD' }} />
+    <CardContent sx={{ textAlign: 'center', mt: 2 }}>
+      <FormatQuoteIcon sx={{ fontSize: 40, color: '#038B95', mb: 1 }} />
+      <Typography variant="body1" color="text.secondary" mb={2}>
+        “{review.quote}”
+      </Typography>
+      <Rating value={review.rating} readOnly sx={{ color: '#FFC107' }} />
+      <Typography variant="subtitle2" color="#067C92" mt={1} fontWeight="bold">
+        - {review.name}
+      </Typography>
+    </CardContent>
+  </Card>
+);
+
 const TestimonialsCarousel = () => (
   <Box sx={{ maxWidth: 600, mx: 'auto' }}>
     <Slider {...sliderSettings}>
-      {reviews.map((review, idx) => (
-        <Card key={idx} sx={{ p: 4, m: 2, bgcolor: '#F8F9FA', borderRadius: '20px', position: 'relative' }}>
-          <PetsIcon sx={{ position: 'absolute', top: -20, left: 'calc(50% - 16px)', fontSize: 32, color: '#00ADCD' }} />
-          <CardContent sx={{ textAlign: 'center', mt: 2 }}>
-            <FormatQuoteIcon sx={{ fontSize: 40, color: '#038B95', mb: 1 }} />
-            <Typography variant="body1" color="text.secondary" mb={2}>
-              “{review.quote}”
-            </Typography>
-            <Rating value={review.rating} readOnly sx={{ color: '#FFC107' }} />
-            <Typography variant="subtitle2" color="#067C92" mt={1} fontWeight="bold">
-              - {review.name}
-            </Typography>
-          </CardContent>
-        </Card>
+      {reviews.map((review) => (
+        <TestimonialCard key={review.name} review={review} />
       ))}
     </Slider>
   </Box>
