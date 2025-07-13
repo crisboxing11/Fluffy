@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import Home from '../components/Home';
+import SeoContent from '../components/SeoContent';
 
 // Dynamically load the heavy booking form to keep the initial bundle small
 const PreBookingForm = dynamic(() => import('../components/PreBookingForm'), {
@@ -198,7 +199,9 @@ const HomePage = () => {
           Before proceeding to booking, confirm your dog&apos;s eligibility for our services.
         </Typography>
         <PreBookingForm />
-        
+
+        <SeoContent />
+
       </Box>
     </Box>
   );

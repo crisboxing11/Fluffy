@@ -16,6 +16,7 @@ import { motion } from 'framer-motion'; // ✅ Import Framer Motion for animatio
 import HeroImage from '../public/Dog1.png'; // Ensure this is inside public/
 import Head from 'next/head';
 import Link from 'next/link'
+import SeoContent from '../components/SeoContent';
 
 // **Animations**
 const fadeInUp = {
@@ -236,6 +237,9 @@ const ServicesPage = () => {
           
         </Box>
       </motion.div>
+
+      {/* SEO Content */}
+      <SeoContent />
     </Box>
   );
 };

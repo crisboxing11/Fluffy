@@ -5,6 +5,7 @@ import Link from 'next/link';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import Head from 'next/head';
+import SeoContent from '../components/SeoContent';
 
 // **Animations**
 const fadeInUp = {
@@ -241,6 +242,7 @@ const ContactPage = () => {
           </motion.div>
         </Box>
       </motion.div>
+      <SeoContent />
     </Box>
   );
 };
