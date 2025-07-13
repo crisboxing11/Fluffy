@@ -1,0 +1,20 @@
+name: Sitemap Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: mkdir -p .next/export && cp public/sitemap.xml .next/export/sitemap.xml
+      - run: node scripts/sitemap-lint.js .next/export/sitemap.xml --no-redirects --status=200
