@@ -181,6 +181,9 @@ const HomePage = () => {
         />
       </Head>
 
+      {/* Screen-reader accessible primary heading */}
+      <h1 className="sr-only">Mobile Dog Grooming Services</h1>
+
       <Home />
 
       {/* 🏆 Improved Booking Section */}
