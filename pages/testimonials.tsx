@@ -35,7 +35,7 @@ const TestimonialsPage = () => (
       <meta name="author" content="Fluffy Pet Wash" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index,follow" />
-      <link rel="canonical" href="https://fluffypetwash.com/testimonials" />
+      <link rel="canonical" href="https://www.fluffypetwash.com/testimonials" />
       <meta property="og:title" content="Customer Testimonials | Fluffy Pet Wash" />
       <meta
         property="og:description"

@@ -112,7 +112,7 @@ const FAQPage = () => {
   <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
-  <link rel="canonical" href="https://fluffypetwash.com/faq" />
+  <link rel="canonical" href="https://www.fluffypetwash.com/faq" />
 
   {/* Favicon */}
   <link rel="icon" href="/favicon.ico" />

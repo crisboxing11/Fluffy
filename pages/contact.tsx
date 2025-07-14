@@ -66,7 +66,7 @@ const ContactPage = () => {
   <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
-  <link rel="canonical" href="https://fluffypetwash.com/contact" />
+  <link rel="canonical" href="https://www.fluffypetwash.com/contact" />
 
   {/* Favicon */}
   <link rel="icon" href="/favicon.ico" />
