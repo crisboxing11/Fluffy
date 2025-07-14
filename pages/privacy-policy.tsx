@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import Head from 'next/head';
-
+// import Link from 'next/link';
 const PrivacyPolicyPage = () => {
   const lastUpdated = new Date().toLocaleDateString('en-US', {
     month: 'long',
