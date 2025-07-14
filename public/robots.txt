@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.fluffypetwash.com/sitemap.xml
+Sitemap: https://fluffypetwash.com/sitemap.xml
