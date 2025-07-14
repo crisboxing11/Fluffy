@@ -42,7 +42,7 @@ const BlogPostPage = ({ post }: Props) => {
         <meta property="og:locale" content="en_US" />
         <link
           rel="canonical"
-          href={`https://fluffypetwash.com/blog/${post.slug}`}
+          href={`https://www.fluffypetwash.com/blog/${post.slug}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
