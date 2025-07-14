@@ -72,8 +72,8 @@ const BlogPage = () => {
                 '@type': 'BlogPosting',
                 headline: p.title,
                 description: p.excerpt,
-                image: `https://www.fluffypetwash.com${p.image}`,
-                url: `https://www.fluffypetwash.com/blog/${p.slug}`,
+                image: `https://fluffypetwash.com${p.image}`,
+                url: `https://fluffypetwash.com/blog/${p.slug}`,
                 datePublished: p.date,
                 author: {
                   '@type': 'Organization',
