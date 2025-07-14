@@ -197,7 +197,8 @@ const ContactPage = () => {
               <PhoneIcon sx={{ fontSize: 40, color: '#038B95' }} />
             </IconButton>
             <Typography variant="h6" fontWeight="bold">Call Us</Typography>
-            <Typography variant="body1" color="textSecondary">(702) 508-6248</Typography>
+            <Typography variant="body1" color="textSecondary">(702) 508-6248 for Las Vegas</Typography>
+            <Typography variant="body1" color="textSecondary">(407) 513-2935 for Orlando</Typography>
           </Grid>
           <Grid item xs={12} sm={6} textAlign="center">
             <IconButton color="primary" aria-label="Email Fluffy Pet Wash">
