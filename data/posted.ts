@@ -1,6 +1,11 @@
 export type BlogPost = {
   slug: string;
   title: string;
+  /**
+   * Custom meta title used for the HTML <title> tag. If omitted the
+   * page title will be used instead.
+   */
+  metaTitle?: string;
   excerpt: string;
   image: string;
   imageAlt: string;
@@ -12,6 +17,7 @@ export const posted: BlogPost[] = [
   {
     slug: 'stress-free-grooming',
     title: '5 Tips for Stress-Free Grooming',
+    metaTitle: 'Stress-Free Grooming: 5 Expert Tips | Fluffy Pet Wash',
     excerpt: 'Transform your dog’s grooming routine into a calm, happy experience with these expert tips from Fluffy Pet Wash.',
     image: '/Blow Dry Dog.jpeg',
     imageAlt: 'Dog being blow dried',
@@ -43,6 +49,7 @@ export const posted: BlogPost[] = [
   {
     slug: 'why-mobile-grooming-works',
     title: 'Why Mobile Grooming Works',
+    metaTitle: 'Why Mobile Grooming Works: Convenience & Care | Fluffy Pet Wash',
     excerpt: 'Skip the stress and book a mobile dog grooming appointment with Fluffy Pet Wash for a happier, healthier pet.',
     image: '/White Happy Dog.jpeg',
     imageAlt: 'Happy white dog with tongue out',
@@ -73,6 +80,7 @@ export const posted: BlogPost[] = [
   {
     slug: 'choosing-the-right-shampoo',
     title: 'Choosing the Right Shampoo for Your Dog',
+    metaTitle: 'Choosing the Best Dog Shampoo | Fluffy Pet Wash Advice',
     excerpt: 'Not all pet shampoos are created equal. Discover how to choose the best formula for your dog’s unique coat and skin.',
     image: '/Black Happy Dog.jpeg',
     imageAlt: 'Black dog smiling after bath',
@@ -105,6 +113,7 @@ export const posted: BlogPost[] = [
   {
     slug: 'why-we-dont-shave',
     title: 'Why We Don’t Shave Dogs',
+    metaTitle: 'Why We Don\u2019t Shave Dogs | Fluffy Pet Wash Advice',
     excerpt: 'Thinking about shaving your dog to keep them cool? Here’s why that can actually harm their coat, their skin, and even their health.',
     image: '/No Shave.jpeg',
     date: '2024-07-25',
@@ -149,6 +158,7 @@ export const posted: BlogPost[] = [
   {
     slug: 'orlando-grand-opening',
     title: 'Fluffy Pet Wash Expands to Orlando!',
+    metaTitle: 'Fluffy Pet Wash Expands to Orlando! | Grand Opening News',
     excerpt: 'The most loved mobile pet grooming service in Las Vegas is now grooming pups across Orlando.',
     image: '/Orlando Van .png',
     date: '2024-07-12',

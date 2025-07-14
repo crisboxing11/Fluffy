@@ -15,14 +15,19 @@ const BlogPostPage = ({ post }: Props) => {
   return (
     <>
       <Head>
-        <title>{post.title} | Fluffy Pet Wash Blog</title>
+        <title>
+          {post.metaTitle ? post.metaTitle : `${post.title} | Fluffy Pet Wash`}
+        </title>
         <meta name="description" content={post.excerpt} />
         <meta
           name="keywords"
           content="dog grooming tips, mobile pet grooming, pet care advice, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas, dog groomer near me"
         />
         <meta name="robots" content="index,follow" />
-        <meta property="og:title" content={post.title} />
+        <meta
+          property="og:title"
+          content={post.metaTitle ? post.metaTitle : post.title}
+        />
         <meta property="og:description" content={post.excerpt} />
         <meta
           property="og:image"
@@ -40,7 +45,10 @@ const BlogPostPage = ({ post }: Props) => {
           href={`https://fluffypetwash.com/blog/${post.slug}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
+        <meta
+          name="twitter:title"
+          content={post.metaTitle ? post.metaTitle : post.title}
+        />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={`https://fluffypetwash.com${post.image}`} />
         <meta name="twitter:image:alt" content={post.imageAlt || post.title} />
