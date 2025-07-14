@@ -19,7 +19,7 @@ const PrebookPage = () => (
     <Head>
       <title>Pre-Book | Fluffy Pet Wash</title>
       <meta name="description" content="Select your service area to start booking mobile grooming services." />
-      <link rel="canonical" href="https://fluffypetwash.com/prebook" />
+      <link rel="canonical" href="https://www.fluffypetwash.com/prebook" />
     </Head>
     <Box sx={{ py: 6, px: { xs: 3, md: 6 }, maxWidth: 900, mx: 'auto' }}>
       <Typography variant="h1" fontWeight="bold" textAlign="center" mb={4} color="#067C92">

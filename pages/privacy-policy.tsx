@@ -17,7 +17,7 @@ const PrivacyPolicyPage = () => {
           content="Learn how Fluffy Pet Wash collects and protects your personal information."
         />
         <meta name="robots" content="index,follow" />
-        <link rel="canonical" href="https://fluffypetwash.com/privacy-policy" />
+        <link rel="canonical" href="https://www.fluffypetwash.com/privacy-policy" />
       </Head>
 
       <Typography component="h1" variant="h3" fontWeight="bold" color="#067C92" textAlign="center" mb={2}>

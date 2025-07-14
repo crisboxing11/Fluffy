@@ -38,7 +38,7 @@ const BlogPage = () => {
           content="pet grooming blog, dog grooming tips, mobile pet grooming articles"
         />
         <meta name="robots" content="index,follow" />
-        <link rel="canonical" href="https://fluffypetwash.com/blog" />
+        <link rel="canonical" href="https://www.fluffypetwash.com/blog" />
         <meta property="og:title" content="Fluffy Pet Wash Blog" />
         <meta
           property="og:description"
@@ -72,8 +72,8 @@ const BlogPage = () => {
                 '@type': 'BlogPosting',
                 headline: p.title,
                 description: p.excerpt,
-                image: `https://fluffypetwash.com${p.image}`,
-                url: `https://fluffypetwash.com/blog/${p.slug}`,
+                image: `https://www.fluffypetwash.com${p.image}`,
+                url: `https://www.fluffypetwash.com/blog/${p.slug}`,
                 datePublished: p.date,
                 author: {
                   '@type': 'Organization',
