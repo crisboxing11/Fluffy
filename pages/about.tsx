@@ -37,7 +37,7 @@ const AboutUs = () => {
   <meta name="robots" content="index,follow" />
 
   {/* Canonical URL */}
-  <link rel="canonical" href="https://fluffypetwash.com/about" />
+  <link rel="canonical" href="https://www.fluffypetwash.com/about" />
 
   {/* Favicon */}
   <link rel="icon" href="/favicon.ico" />
