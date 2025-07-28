@@ -1,5 +1,15 @@
 import { useState } from 'react';
-import { Box, Typography, TextField, Button, MenuItem } from '@mui/material';
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  MenuItem,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from '@mui/material';
 import { useRouter } from 'next/router';
 import territories from '../data/territories';
 
@@ -7,6 +17,7 @@ const PreBookingForm = () => {
   const router = useRouter();
   const [location, setLocation] = useState('');
   const [error, setError] = useState('');
+  const [showOffer, setShowOffer] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);
@@ -20,10 +31,18 @@ const PreBookingForm = () => {
       return;
     }
 
+    if (location === 'Orlando, Florida') {
+      setShowOffer(true);
+      return;
+    }
+
+    proceedToBooking();
+  };
+
+  const proceedToBooking = () => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('bookingInfo', JSON.stringify({ location }));
     }
-
     router.push('/booking');
   };
 
@@ -93,6 +112,37 @@ const PreBookingForm = () => {
       >
         Continue to Booking
       </Button>
+      <Dialog open={showOffer} onClose={() => setShowOffer(false)}>
+        <DialogTitle sx={{
+          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
+          color: '#fff',
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>
+          Special Orlando Offer
+        </DialogTitle>
+        <DialogContent sx={{ textAlign: 'center', p: 3 }}>
+          <Typography variant="h6" fontWeight="bold" mb={2}>
+            10% Off All August Bookings! Use Code: FLUFFY10 before submitting your booking. 
+
+          </Typography>
+          <Typography variant="body1">
+            Join the Fluffy Preferred Program after your first appointment and keep your membership active to enjoy lifetime perks. Spots are limited, so book now to secure your discount and exclusive benefits!
+          </Typography>
+        </DialogContent>
+        <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
+          <Button onClick={() => setShowOffer(false)} color="secondary">
+            Close
+          </Button>
+          <Button
+            onClick={proceedToBooking}
+            variant="contained"
+            sx={{ background: 'linear-gradient(90deg, #00ADCD, #038B95)' }}
+          >
+            Continue to Booking
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
