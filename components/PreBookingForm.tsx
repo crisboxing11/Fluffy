@@ -123,10 +123,11 @@ const PreBookingForm = () => {
         </DialogTitle>
         <DialogContent sx={{ textAlign: 'center', p: 3 }}>
           <Typography variant="h6" fontWeight="bold" mb={2}>
-            10% Off All August Bookings!
+            10% Off All August Bookings! Use Code: FLUFFY10 before submitting your booking. 
+
           </Typography>
           <Typography variant="body1">
-            Join the Fluffy Preferred Program in August and keep your membership active to enjoy lifetime perks.
+            Join the Fluffy Preferred Program after your first appointment and keep your membership active to enjoy lifetime perks. Spots are limited, so book now to secure your discount and exclusive benefits!
           </Typography>
         </DialogContent>
         <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
