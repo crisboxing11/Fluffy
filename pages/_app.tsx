@@ -56,7 +56,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('config', 'AW-XXXXXXX'); // Replace with your Google Ads Conversion ID
+              gtag('config', 'AW-17319676855');
             `,
           }}
         />
