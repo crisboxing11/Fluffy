@@ -60,12 +60,12 @@ const testimonialSettings = {
 const testimonials = [
   {
     name: "Katie Jones, Las Vegas",
-    text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It's the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶",
+    text: "Fluffy pet wash makes my life super easy! No more driving to groomers with my anxious frenchie. They're done in 20-30 mins and he always smells amazing. Very friendly staff - highly recommend! 🐾🐶",
     image: ReviewDog1,
   },
   {
     name: "Toni Robinson, Las Vegas",
-    text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I'm so grateful and will definitely use them again!",
+    text: "Amazing service! They were so patient with my grand dog's first professional grooming. Kept me updated throughout and calmed her nerves perfectly. Will definitely use again!",
     image: ReviewDog2,
   },
   {
@@ -75,12 +75,12 @@ const testimonials = [
   },
   {
     name: "Linda Creelman, North Las Vegas",
-    text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊",
+    text: "Amazing groomers! Vicente cared lovingly for my 12 year old shepherd Chloe. Quality service! ♥️🐕😊",
     image: ReviewDog5,
   },
   {
     name: "Christie Gribben, Las Vegas",
-    text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.",
+    text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Highly recommend.",
     image: ReviewDog6,
   },
   {
@@ -423,18 +423,22 @@ TestimonialCard.displayName = "TestimonialCard";
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
   const [objectPosition, setObjectPosition] = useState("center center");
+  const [objectFit, setObjectFit] = useState<"cover" | "contain">("contain");
 
   const handleResize = useCallback(() => {
     const width = window.innerWidth;
     if (width < 600) {
       setOpacity(0.25);
       setObjectPosition("30% center"); // Show more of the left side on mobile
+      setObjectFit("cover");
     } else if (width < 900) {
       setOpacity(0.35);
       setObjectPosition("40% center"); // Show more of the left side on tablet
+      setObjectFit("cover");
     } else {
-      setOpacity(0.9);
-      setObjectPosition("center center"); // Center on desktop
+      setOpacity(0.7); // Reduced opacity for desktop
+      setObjectPosition("center bottom"); // Position towards bottom on desktop
+      setObjectFit("contain"); // Use contain for desktop to make image smaller
     }
   }, []);
 
@@ -545,7 +549,7 @@ const Home = () => {
               quality={80}
               placeholder="blur"
               style={{
-                objectFit: "cover",
+                objectFit: objectFit,
                 objectPosition: objectPosition,
                 opacity: opacity,
                 pointerEvents: "none",
