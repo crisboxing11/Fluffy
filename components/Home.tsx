@@ -1,233 +1,1065 @@
-import { Box, Typography, Button, Grid, Card, CardContent } from '@mui/material';
-import Image from 'next/image';
-import PetsIcon from '@mui/icons-material/Pets';
-import StarIcon from '@mui/icons-material/Star';
-import SpaIcon from '@mui/icons-material/Spa';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+/* eslint-disable react/jsx-no-duplicate-props */
+import {
+  Box,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardContent,
+  Container,
+} from "@mui/material";
+import Image from "next/image";
+import PetsIcon from "@mui/icons-material/Pets";
+import StarIcon from "@mui/icons-material/Star";
+import SpaIcon from "@mui/icons-material/Spa";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { motion } from 'framer-motion';
-import DogImage from '../public/Dog2.png';
-import { useEffect, useState } from 'react';
-import ReviewDog1 from '../public/ReviewDog1.jpg';
-import ReviewDog2 from '../public/ReviewDog2.jpg';
-import ReviewDog5 from '../public/ReviewDog5.jpg';
-import ReviewDog6 from '../public/ReviewDog6.jpg';
-import ReviewDog4 from '../public/ReviewDog4.jpg';
-import ReviewDog7 from '../public/ReviewDog7.jpg';
-import Link from 'next/link'
+import { motion } from "framer-motion";
+import DogImage from "../public/Dog2.png";
+import { useEffect, useState, useMemo, useCallback } from "react";
+import ReviewDog1 from "../public/ReviewDog1.jpg";
+import ReviewDog2 from "../public/ReviewDog2.jpg";
+import ReviewDog5 from "../public/ReviewDog5.jpg";
+import ReviewDog6 from "../public/ReviewDog6.jpg";
+import ReviewDog4 from "../public/ReviewDog4.jpg";
+import ReviewDog7 from "../public/ReviewDog7.jpg";
+import Link from "next/link";
 
-
-// Testimonial Carousel Settings
+// Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
   dots: true,
   infinite: true,
-  speed: 800,
+  speed: 600,
   slidesToShow: 1,
   slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 5000,
+  autoplay: true,
+  autoplaySpeed: 6000,
   adaptiveHeight: true,
+  pauseOnHover: true,
+  fade: true,
+  cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
+  lazyLoad: "ondemand" as const,
 };
 
 const testimonials = [
-  { name: "Katie Jones, Las Vegas", text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It’s the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶"
-, image: ReviewDog1 },
-  { name: "Toni Robinson, Las Vegas", text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I’m so grateful and will definitely use them again!", image: ReviewDog2 },
-  { name: "David P., North Las Vegas", text: "Highly recommended! Fantastic service, and my dog looked perfect!", image: ReviewDog4 },
-   { name: "Linda Creelman, North Las Vegas", text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊", image: ReviewDog5 },
-    { name: "Christie Gribben, Las Vegas", text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.", image: ReviewDog6 },
-       { name: "Chelsea Ortiz, Las Vegas", text: "Always does an amazing job for my husky. Highly recommend!", image: ReviewDog7 },
-       
+  {
+    name: "Katie Jones, Las Vegas",
+    text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It's the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶",
+    image: ReviewDog1,
+  },
+  {
+    name: "Toni Robinson, Las Vegas",
+    text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I'm so grateful and will definitely use them again!",
+    image: ReviewDog2,
+  },
+  {
+    name: "David P., North Las Vegas",
+    text: "Highly recommended! Fantastic service, and my dog looked perfect!",
+    image: ReviewDog4,
+  },
+  {
+    name: "Linda Creelman, North Las Vegas",
+    text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊",
+    image: ReviewDog5,
+  },
+  {
+    name: "Christie Gribben, Las Vegas",
+    text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.",
+    image: ReviewDog6,
+  },
+  {
+    name: "Chelsea Ortiz, Las Vegas",
+    text: "Always does an amazing job for my husky. Highly recommend!",
+    image: ReviewDog7,
+  },
 ];
 
-// Animations
+// Enhanced Animations
 const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
 };
 
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
+  const [objectPosition, setObjectPosition] = useState("center center");
+
+  const handleResize = useCallback(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+      setOpacity(0.25);
+      setObjectPosition("30% center"); // Show more of the left side on mobile
+    } else if (width < 900) {
+      setOpacity(0.35);
+      setObjectPosition("40% center"); // Show more of the left side on tablet
+    } else {
+      setOpacity(0.9);
+      setObjectPosition("center center"); // Center on desktop
+    }
+  }, []);
 
   useEffect(() => {
-    const handleResize = () => {
-      setOpacity(window.innerWidth < 900 ? 0.3 : 0.9); // ✅ Adjust opacity based on screen width
-    };
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
-    handleResize(); // ✅ Set initial state
-    window.addEventListener('resize', handleResize);
+  // Memoize feature data to prevent re-creation on every render
+  const features = useMemo(
+    () => [
+      {
+        title: "Stress-Free Experience",
+        icon: SpaIcon,
+        desc: "No crowded salons or anxious waiting rooms—just a gentle, personalized one-on-one grooming experience in familiar surroundings.",
+        color: "#0AC3E6",
+      },
+      {
+        title: "Premium Care & Products",
+        icon: StarIcon,
+        desc: "We use only the finest hypoallergenic, organic shampoos and conditioners to keep your pet's coat healthy, shiny, and beautiful.",
+        color: "#00ADCD",
+      },
+      {
+        title: "Ultimate Convenience",
+        icon: PetsIcon,
+        desc: "We come directly to you, saving precious time while ensuring your pet stays comfortable in their own environment.",
+        color: "#038B95",
+      },
+    ],
+    [],
+  );
 
-    return () => window.removeEventListener('resize', handleResize); // ✅ Cleanup on unmount
-  }, []);
+  // Memoize trust indicators
+  const trustIndicators = useMemo(
+    () => [
+      {
+        icon: VerifiedIcon,
+        text: "Licensed & Insured",
+        color: "#00ADCD",
+      },
+      {
+        icon: StarIcon,
+        text: "5 Star Reviews",
+        color: "#0AC3E6",
+      },
+      {
+        icon: PetsIcon,
+        text: "Mobile Convenience",
+        color: "#038B95",
+      },
+    ],
+    [],
+  );
   return (
-
-
-    
-    <Box>
-      {/* Hero Section with Mobile Image Adjustment */}
+    <Box sx={{ bgcolor: "#FAFAFA", minHeight: "100vh" }}>
+      {/* Revolutionary Hero Section */}
       <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
           sx={{
-            position: 'relative',
-            width: '100%',
-            height: { xs: '75vh', md: '80vh' },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
-            bgcolor: '#FAFAFA',
-            textAlign: 'center',
+            position: "relative",
+            width: "100%",
+            minHeight: { xs: "70vh", md: "100vh" },
+            display: "flex",
+            alignItems: { xs: "center", md: "center" },
+            justifyContent: "center",
+            overflow: "hidden",
+            pt: { xs: "70px", sm: "80px", md: "100px" },
+            pb: { xs: 2, sm: 3, md: 0 },
           }}
         >
-          <Image
-            src={DogImage}
-            alt="Happy dog after Fluffy Pet Wash grooming"
-            layout="fill"
-            objectFit="cover"
-            priority
-            sizes="100vw"
-            style={{
-              opacity: opacity, // ✅ Adjusted opacity based on screen width
-              objectPosition: 'center left', // Default Centered
-              pointerEvents: 'none', // Ensure background doesn't block clicks
+          {/* Dynamic Gradient Background */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: {
+                xs: "linear-gradient(135deg, rgba(147, 237, 240, 0.95) 0%, rgba(147, 237, 240, 0.85) 25%, rgba(255, 255, 255, 0.92) 60%, rgba(250, 250, 250, 0.98) 100%)",
+                sm: "linear-gradient(135deg, rgba(147, 237, 240, 0.9) 0%, rgba(147, 237, 240, 0.75) 30%, rgba(255, 255, 255, 0.85) 65%, rgba(250, 250, 250, 0.95) 100%)",
+                md: "linear-gradient(135deg, #93EDF0 0%, rgba(147, 237, 240, 0.6) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(220, 220, 220, 0.3) 75%, #FAFAFA 100%)",
+              },
+              zIndex: 1,
             }}
           />
-          <Box sx={{ position: 'relative', zIndex: 2, px: { xs: 3, md: 10 },textAlign: { xs: 'center', md: 'center' },ml: { xs: 0, md: 'auto' }, }}>
-            <Typography
-              variant="h1"
-              fontWeight="bold"
+
+          {/* Enhanced Dog Image with Creative Positioning */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1,
+              overflow: "hidden",
+            }}
+          >
+            <Image
+              src={DogImage}
+              alt="Happy dog after Fluffy Pet Wash grooming"
+              fill
+              sizes="100vw"
+              priority
+              quality={85}
+              style={{
+                objectFit: "cover",
+                objectPosition: objectPosition,
+                opacity: opacity,
+                pointerEvents: "none",
+                filter: "brightness(1.05) contrast(1.02)",
+              }}
+            />
+          </Box>
+
+          {/* Content Container with Asymmetric Layout */}
+          <Container
+            maxWidth="xl"
+            sx={{
+              position: "relative",
+              zIndex: 3,
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: { xs: "center", md: "flex-end" },
+              px: { xs: 1.5, sm: 2, md: 4, lg: 8 },
+              py: { xs: 1, sm: 2, md: 0 },
+            }}
+          >
+            <Box
               sx={{
-                fontSize: { xs: '2rem', md: '3.5rem' },
-                color: '#067C92',
-                textAlign: 'center',
+                maxWidth: { xs: "92%", sm: "88%", md: "600px" },
+                textAlign: { xs: "center", md: "left" },
+                width: "100%",
+                maxHeight: {
+                  xs: "calc(100svh - 140px)",
+                  sm: "calc(100vh - 160px)",
+                  md: "none",
+                },
+                overflow: { xs: "visible", md: "visible" },
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                px: { xs: 1, sm: 0 },
               }}
             >
-              Luxury Mobile Pet Grooming
-            </Typography>
-            <Typography variant="h5" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
-              Bringing stress-free, professional pet grooming straight to your doorstep.
-            </Typography>
-            <Typography variant="body1" sx={{ maxWidth: 600, mx: 'auto', mt: 2, color: '#333' }}>
-            Our full-service mobile dog grooming pampers your pup in a calm, stress-free spa on wheels.
-            </Typography>
-           
-              <Link href="/prebook" passHref legacyBehavior>
-                <Button
-                  component="a"
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                  aria-label="Book a grooming appointment"
-                  sx={{
-                    mt: 3,
-                    px: 4,
-                    py: 1.5,
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    textTransform: 'none',
-                    background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-                    '&:hover': { background: 'linear-gradient(90deg, #038B95, #00ADCD)' },
-                  }}
-                >
-                  Book an Appointment
-                </Button>
-              </Link>
-           
-          </Box>
-        </Box>
-      </motion.div>
-      
-
-      {/* Why Choose Us Section */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center', bgcolor: '#F8F9FA' }}>
-          <Typography variant="h4" fontWeight="bold" mb={4} color="#067C92">
-            Why Choose Fluffy Pet Wash?
-          </Typography>
-          <Typography variant="body1" textAlign="center" mt={-2} mb={2}>
-  We provide{' '}
-  <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>
-    premium mobile grooming services
-  </Link>{' '}
-  directly to your home.
-</Typography>
-          <Grid container spacing={3} justifyContent="center">
-            {[
-              { title: "Stress-Free Experience", icon: SpaIcon, desc: "No crowded salons—just a gentle, one-on-one grooming experience." },
-              { title: "Top-Tier Grooming", icon: StarIcon, desc: "We use hypoallergenic, organic shampoos to keep your pet’s coat healthy." },
-              { title: "Convenient Mobile Service", icon: PetsIcon, desc: "We come to you, saving you time and ensuring your pet’s comfort." },
-            ].map((feature, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-                  <Card sx={{ boxShadow: 3, padding: 3, borderRadius: '15px', bgcolor: 'white', height: '100%' }}>
-                    <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      <feature.icon sx={{ color: '#038B95', fontSize: 50, mb: 2 }} />
-                      <Typography variant="h6" fontWeight="bold">{feature.title}</Typography>
-                      <Typography variant="body2" color="textSecondary" textAlign="center" mt={1}>{feature.desc}</Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      </motion.div>
-
-      {/* Testimonials with Carousel */}
-      <motion.div initial="hidden" whileInView="visible" variants={fadeInUp} viewport={{ once: true }}>
-        <Box sx={{ py: 8, px: { xs: 3, md: 6 }, textAlign: 'center' }}>
-          <Typography variant="h4" fontWeight="bold" mb={4} color="#067C92">
-            What Pet Owners Are Saying
-          </Typography>
-          
-         <Slider {...testimonialSettings} aria-label="Testimonials carousel">
-            {testimonials.map((review, index) => (
-              <Card 
-                key={index} 
-                sx={{ 
-                  boxShadow: 3, 
-                  padding: 3, 
-                  borderRadius: '15px', 
-                  bgcolor: 'white', 
-                  maxWidth: 600, 
-                  mx: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
+              {/* Hero Title with Creative Typography */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.4,
+                  ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                  <CardContent sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  {/* ✅ Dynamic Testimonial Image */}
-                   <Box  sx={{
-                      width: 200,
-                      height: 200,
-                      borderRadius: '15px', // Slightly rounded edges
-                      overflow: 'hidden',
-                      boxShadow: '0px 4px 10px rgba(0,0,0,0.2)', // Soft shadow effect
-                      mb: 2, // Space below image
-                    }}>
-                    <Image 
-                      src={review.image} 
-                      alt={review.name} 
-                      layout="intrinsic" 
-                      width={200} 
-                      height={200} 
-                      objectFit="cover" // Ensures the image fills the frame properly
-                    />
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontSize: {
+                      xs: "1.75rem",
+                      sm: "2.4rem",
+                      md: "4.5rem",
+                      lg: "5.8rem",
+                    },
+                    fontWeight: 900,
+                    lineHeight: { xs: 1.08, sm: 1.12, md: 1.05 },
+                    mb: { xs: 1.2, sm: 1.8, md: 3 },
+                    background:
+                      "linear-gradient(135deg, #067C92 0%, #00ADCD 30%, #0AC3E6 60%, #93EDF0 100%)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow: "0 4px 20px rgba(6, 124, 146, 0.3)",
+                    position: "relative",
+                    letterSpacing: { xs: "-0.02em", md: "-0.01em" },
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      bottom: { xs: -6, sm: -7, md: -8 },
+                      left: { xs: "50%", md: 0 },
+                      transform: { xs: "translateX(-50%)", md: "none" },
+                      width: { xs: 90, sm: 130, md: 150 },
+                      height: { xs: 3, sm: 3.5, md: 4 },
+                      background:
+                        "linear-gradient(90deg, #00ADCD, #0AC3E6, #93EDF0)",
+                      borderRadius: "2px",
+                      boxShadow: "0 2px 8px rgba(0, 173, 205, 0.4)",
+                    },
+                  }}
+                >
+                  Luxury Mobile
+                  <br />
+                  <Box
+                    component="span"
+                    sx={{
+                      position: "relative",
+                      "&::before": {
+                        content: '"Pet Grooming"',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        background:
+                          "linear-gradient(135deg, #038B95 0%, #067C92 100%)",
+                        backgroundClip: "text",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        filter: "drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1))",
+                      },
+                    }}
+                  >
+                    Pet Grooming
                   </Box>
+                </Typography>
+              </motion.div>
 
-                  
-                  <Typography variant="body1" textAlign="center" color="textSecondary">
-                    &quot;{review.text}&quot;
+              {/* Enhanced Value Proposition */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.6,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                <Box
+                  sx={{
+                    background: {
+                      xs: "linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))",
+                      md: "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))",
+                    },
+                    backdropFilter: "blur(25px)",
+                    borderRadius: { xs: "18px", sm: "22px", md: "28px" },
+                    p: { xs: 2, sm: 3, md: 5 },
+                    mb: { xs: 2, sm: 3, md: 5 },
+                    mx: { xs: 0, sm: 0 },
+                    border: "1px solid rgba(147, 237, 240, 0.4)",
+                    boxShadow: {
+                      xs: "0 8px 32px rgba(6, 124, 146, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4)",
+                      md: "0 12px 40px rgba(6, 124, 146, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
+                    },
+                    position: "relative",
+                    overflow: "hidden",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: "2px",
+                      background:
+                        "linear-gradient(90deg, #00ADCD, #0AC3E6, #93EDF0)",
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      mb: { xs: 1.8, sm: 2.2, md: 3 },
+                      color: "#067C92",
+                      fontWeight: 800,
+                      fontSize: { xs: "1rem", sm: "1.2rem", md: "1.8rem" },
+                      lineHeight: { xs: 1.25, sm: 1.28, md: 1.3 },
+                      textAlign: { xs: "center", md: "left" },
+                      letterSpacing: { xs: "-0.01em", md: "normal" },
+                    }}
+                  >
+                    Bringing stress-free, professional pet grooming{" "}
+                    <Box
+                      component="span"
+                      sx={{
+                        background: "linear-gradient(135deg, #00ADCD, #0AC3E6)",
+                        backgroundClip: "text",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        fontWeight: 900,
+                      }}
+                    >
+                      straight to your doorstep
+                    </Box>
                   </Typography>
-                  <Typography variant="subtitle2" fontWeight="bold" color="#067C92" mt={2}>
-                    - {review.name}
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#038B95",
+                      fontSize: { xs: "0.88rem", sm: "1rem", md: "1.25rem" },
+                      lineHeight: { xs: 1.5, sm: 1.55, md: 1.6 },
+                      textAlign: { xs: "center", md: "left" },
+                      fontWeight: 500,
+                      opacity: 0.95,
+                      letterSpacing: { xs: "0.01em", md: "normal" },
+                    }}
+                  >
+                    Our full-service mobile spa pampers your pup in a calm,
+                    stress-free environment on wheels — no travel, no waiting,
+                    just pure comfort.
                   </Typography>
-                </CardContent>
-              </Card>
-            ))}
-          </Slider>
+                </Box>
+              </motion.div>
+
+              {/* Enhanced CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                <Box sx={{ mb: { xs: 2.5, sm: 3.5, md: 5 } }}>
+                  <Link href="/prebook" passHref legacyBehavior>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      size="large"
+                      aria-label="Book a grooming appointment"
+                      sx={{
+                        px: { xs: 4, sm: 5, md: 8 },
+                        py: { xs: 2.2, sm: 2.8, md: 3 },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.4rem" },
+                        fontWeight: 800,
+                        textTransform: "none",
+                        borderRadius: "50px",
+                        background:
+                          "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                        boxShadow:
+                          "0 12px 40px rgba(0, 173, 205, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        position: "relative",
+                        overflow: "hidden",
+                        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        width: { xs: "100%", sm: "auto" },
+                        maxWidth: { xs: "280px", sm: "none" },
+                        mx: { xs: "auto", md: 0 },
+                        minHeight: { xs: "52px", sm: "56px" },
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: "-100%",
+                          width: "100%",
+                          height: "100%",
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                          transition: "left 0.6s ease",
+                        },
+                        "&:hover": {
+                          background:
+                            "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                          transform: "translateY(-3px) scale(1.02)",
+                          boxShadow:
+                            "0 16px 50px rgba(0, 173, 205, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
+                          "&::before": {
+                            left: "100%",
+                          },
+                        },
+                      }}
+                    >
+                      Book Your Appointment
+                    </Button>
+                  </Link>
+                </Box>
+              </motion.div>
+
+              {/* Redesigned Trust Indicators */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                <Grid
+                  container
+                  spacing={{ xs: 0.5, sm: 1, md: 2 }}
+                  justifyContent={{ xs: "center", md: "flex-start" }}
+                >
+                  {trustIndicators.map((item, index) => (
+                    <Grid item xs={4} sm={4} md={12} lg={4} key={index}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: { xs: "column", sm: "row", md: "row" },
+                          alignItems: "center",
+                          justifyContent: { xs: "center", md: "flex-start" },
+                          gap: { xs: 0.5, sm: 1, md: 2 },
+                          background:
+                            "linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8))",
+                          backdropFilter: "blur(15px)",
+                          px: { xs: 1, sm: 2, md: 3 },
+                          py: { xs: 1.5, sm: 2, md: 2.5 },
+                          borderRadius: { xs: "12px", sm: "16px", md: "20px" },
+                          border: `1px solid ${item.color}30`,
+                          boxShadow: `0 6px 20px ${item.color}15`,
+                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                          mx: { xs: 0.5, sm: 0 },
+                          minHeight: { xs: "auto", sm: "auto" },
+                          "&:hover": {
+                            transform: "translateY(-2px)",
+                            boxShadow: `0 8px 25px ${item.color}25`,
+                            borderColor: `${item.color}50`,
+                          },
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: { xs: 24, sm: 28, md: 36 },
+                            height: { xs: 24, sm: 28, md: 36 },
+                            borderRadius: "50%",
+                            background: `linear-gradient(135deg, ${item.color}, ${item.color}CC)`,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            boxShadow: `0 4px 12px ${item.color}30`,
+                            flexShrink: 0,
+                          }}
+                        >
+                          <item.icon
+                            sx={{
+                              color: "white",
+                              fontSize: { xs: 14, sm: 16, md: 20 },
+                            }}
+                          />
+                        </Box>
+                        <Typography
+                          sx={{
+                            color: "#067C92",
+                            fontWeight: 700,
+                            fontSize: {
+                              xs: "0.65rem",
+                              sm: "0.8rem",
+                              md: "1rem",
+                            },
+                            letterSpacing: "0.3px",
+                            textAlign: "center",
+                            lineHeight: 1.2,
+                          }}
+                        >
+                          {item.text}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  ))}
+                </Grid>
+              </motion.div>
+            </Box>
+          </Container>
+        </Box>
+      </motion.div>
+
+      {/* Enhanced Why Choose Us Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={staggerContainer}
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        <Box
+          sx={{
+            py: { xs: 4, sm: 6, md: 12 },
+            px: { xs: 2, sm: 3, md: 6 },
+            textAlign: "center",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Decorative Background Elements */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: -50,
+              right: -50,
+              width: 200,
+              height: 200,
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(147, 237, 240, 0.3) 0%, transparent 70%)",
+              zIndex: 0,
+            }}
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: -100,
+              left: -100,
+              width: 300,
+              height: 300,
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(0, 173, 205, 0.2) 0%, transparent 70%)",
+              zIndex: 0,
+            }}
+          />
+
+          <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+            <motion.div variants={fadeInUp}>
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: 800,
+                  mb: { xs: 1.5, sm: 2 },
+                  color: "#067C92",
+                  fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.8rem" },
+                  lineHeight: 1.2,
+                  px: { xs: 1, sm: 0 },
+                }}
+              >
+                Why Choose Fluffy Pet Wash?
+              </Typography>
+
+              <Box
+                sx={{
+                  maxWidth: { xs: "95%", sm: 800 },
+                  mx: "auto",
+                  mb: { xs: 3, sm: 4, md: 6 },
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(15px)",
+                  borderRadius: { xs: "12px", sm: "16px", md: "20px" },
+                  p: { xs: 2, sm: 2.5, md: 4 },
+                  border: "1px solid rgba(147, 237, 240, 0.3)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "#067C92",
+                    fontWeight: 600,
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.3rem" },
+                    lineHeight: 1.5,
+                    textAlign: "center",
+                  }}
+                >
+                  We provide{" "}
+                  <Link
+                    href="/services"
+                    style={{
+                      color: "#00ADCD",
+                      fontWeight: 700,
+                      textDecoration: "none",
+                      borderBottom: "3px solid #93EDF0",
+                      transition: "all 0.3s ease",
+                      padding: "2px 4px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    premium mobile grooming services
+                  </Link>{" "}
+                  directly to your home with unmatched care and convenience.
+                </Typography>
+              </Box>
+            </motion.div>
+
+            <Grid
+              container
+              spacing={{ xs: 1.5, sm: 2, md: 4 }}
+              justifyContent="center"
+            >
+              {features.map((feature, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{
+                      y: -8,
+                      transition: { duration: 0.3, ease: "easeOut" },
+                    }}
+                  >
+                    <Card
+                      sx={{
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+                        p: { xs: 2, sm: 3, md: 4 },
+                        borderRadius: { xs: "16px", sm: "20px", md: "24px" },
+                        bgcolor: "white",
+                        height: "100%",
+                        border: "1px solid rgba(147, 237, 240, 0.3)",
+                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                        mx: { xs: 0.5, sm: 0 },
+                        "&:hover": {
+                          boxShadow: "0 16px 48px rgba(0, 173, 205, 0.15)",
+                          borderColor: feature.color,
+                        },
+                      }}
+                    >
+                      <CardContent
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          textAlign: "center",
+                          p: 0,
+                          "&:last-child": { pb: 0 },
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: { xs: 50, sm: 60, md: 80 },
+                            height: { xs: 50, sm: 60, md: 80 },
+                            borderRadius: "50%",
+                            background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}10)`,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            mb: { xs: 1.5, sm: 2, md: 3 },
+                            border: `2px solid ${feature.color}30`,
+                          }}
+                        >
+                          <feature.icon
+                            sx={{
+                              color: feature.color,
+                              fontSize: { xs: 24, sm: 28, md: 36 },
+                            }}
+                          />
+                        </Box>
+
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 800,
+                            mb: { xs: 1, sm: 1.5, md: 2 },
+                            color: "#067C92",
+                            fontSize: {
+                              xs: "1rem",
+                              sm: "1.1rem",
+                              md: "1.4rem",
+                            },
+                            textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {feature.title}
+                        </Typography>
+
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: "#067C92",
+                            lineHeight: 1.6,
+                            fontSize: {
+                              xs: "0.85rem",
+                              sm: "0.9rem",
+                              md: "1.05rem",
+                            },
+                            fontWeight: 500,
+                            opacity: 0.9,
+                          }}
+                        >
+                          {feature.desc}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </Box>
+      </motion.div>
+
+      {/* Enhanced Testimonials Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInUp}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Box
+          sx={{
+            py: { xs: 4, sm: 6, md: 12 },
+            px: { xs: 2, sm: 3, md: 6 },
+            textAlign: "center",
+            background: "linear-gradient(135deg, #FAFAFA 0%, #F0F8FF 100%)",
+            position: "relative",
+          }}
+        >
+          {/* Background Pattern */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage:
+                "radial-gradient(circle at 20% 80%, rgba(0, 173, 205, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(58, 139, 149, 0.05) 0%, transparent 50%)",
+              zIndex: 0,
+            }}
+          />
+
+          <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: 800,
+                  mb: { xs: 1.5, sm: 2 },
+                  color: "#067C92",
+                  fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.8rem" },
+                  lineHeight: 1.2,
+                  px: { xs: 1, sm: 0 },
+                }}
+              >
+                What Pet Owners Are Saying
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 1,
+                  mb: 6,
+                }}
+              >
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} sx={{ color: "#FFD700", fontSize: 24 }} />
+                ))}
+              </Box>
+            </motion.div>
+
+            <Box
+              sx={{
+                maxWidth: { xs: "95%", sm: 900 },
+                mx: "auto",
+                mt: { xs: 2, sm: 3, md: 4 },
+              }}
+            >
+              <Slider
+                {...testimonialSettings}
+                aria-label="Testimonials carousel"
+              >
+                {testimonials.map((review, index) => (
+                  <Box key={index} sx={{ px: 2 }}>
+                    <Card
+                      sx={{
+                        boxShadow: "0 12px 40px rgba(0, 0, 0, 0.1)",
+                        p: { xs: 2.5, sm: 3, md: 6 },
+                        borderRadius: { xs: "20px", sm: "24px", md: "32px" },
+                        bgcolor: "white",
+                        mx: { xs: 0.5, sm: "auto" },
+                        border: "1px solid rgba(147, 237, 240, 0.3)",
+                        background:
+                          "linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%)",
+                      }}
+                    >
+                      <CardContent
+                        sx={{
+                          textAlign: "center",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          p: 0,
+                          "&:last-child": { pb: 0 },
+                        }}
+                      >
+                        {/* Enhanced Pet Image */}
+                        <Box
+                          sx={{
+                            position: "relative",
+                            mb: { xs: 2.5, sm: 3, md: 4 },
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              width: { xs: 80, sm: 100, md: 150 },
+                              height: { xs: 80, sm: 100, md: 150 },
+                              borderRadius: "50%",
+                              overflow: "hidden",
+                              border: {
+                                xs: "2px solid #93EDF0",
+                                sm: "3px solid #93EDF0",
+                                md: "4px solid #93EDF0",
+                              },
+                              boxShadow: "0 8px 32px rgba(0, 173, 205, 0.2)",
+                              position: "relative",
+                            }}
+                          >
+                            <Image
+                              src={review.image}
+                              alt={`Happy pet from ${review.name}`}
+                              fill
+                              style={{ objectFit: "cover", filter:
+                                "brightness(1.1) contrast(1.05) saturate(1.1)", }}
+                              quality={75}
+                              loading="lazy"
+                           
+                            />
+                          </Box>
+
+                          {/* Heart Icon Overlay */}
+                          <Box
+                            sx={{
+                              position: "absolute",
+                              bottom: { xs: -4, sm: -6, md: -8 },
+                              right: { xs: -4, sm: -6, md: -8 },
+                              width: { xs: 24, sm: 28, md: 40 },
+                              height: { xs: 24, sm: 28, md: 40 },
+                              borderRadius: "50%",
+                              bgcolor: "#00ADCD",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              boxShadow: "0 4px 16px rgba(0, 173, 205, 0.4)",
+                            }}
+                          >
+                            <FavoriteIcon
+                              sx={{
+                                color: "white",
+                                fontSize: { xs: 12, sm: 14, md: 20 },
+                              }}
+                            />
+                          </Box>
+                        </Box>
+
+                        {/* Star Rating */}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            gap: 0.5,
+                            mb: { xs: 2, sm: 2.5, md: 3 },
+                          }}
+                        >
+                          {[...Array(5)].map((_, i) => (
+                            <StarIcon
+                              key={i}
+                              sx={{
+                                color: "#FFD700",
+                                fontSize: { xs: 16, sm: 18, md: 20 },
+                              }}
+                            />
+                          ))}
+                        </Box>
+
+                        {/* Review Text */}
+                        <Box
+                          sx={{
+                            background:
+                              "linear-gradient(135deg, rgba(147, 237, 240, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%)",
+                            borderRadius: {
+                              xs: "10px",
+                              sm: "12px",
+                              md: "16px",
+                            },
+                            p: { xs: 2, sm: 2.5, md: 3 },
+                            mb: { xs: 1.5, sm: 2, md: 3 },
+                            border: "1px solid rgba(147, 237, 240, 0.3)",
+                            position: "relative",
+                            maxWidth: { xs: "100%", sm: 650 },
+                          }}
+                        >
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              color: "#067C92",
+                              lineHeight: 1.6,
+                              fontSize: {
+                                xs: "0.8rem",
+                                sm: "0.9rem",
+                                md: "1.15rem",
+                              },
+                              fontWeight: 500,
+                              fontStyle: "italic",
+                              position: "relative",
+                              "&::before": {
+                                content: '""',
+                                fontSize: {
+                                  xs: "1.5rem",
+                                  sm: "2rem",
+                                  md: "3rem",
+                                },
+                                color: "#93EDF0",
+                                position: "absolute",
+                                top: { xs: -8, sm: -10, md: -15 },
+                                left: { xs: -8, sm: -10, md: -15 },
+                                fontFamily: "serif",
+                                lineHeight: 1,
+                                opacity: 0.7,
+                              },
+                            }}
+                          >
+                            {review.text}
+                          </Typography>
+                        </Box>
+
+                        {/* Customer Name */}
+                        <Box
+                          sx={{
+                            background:
+                              "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
+                            borderRadius: { xs: "8px", sm: "10px", md: "12px" },
+                            px: { xs: 2, sm: 2.5, md: 3 },
+                            py: { xs: 0.8, sm: 1 },
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              fontWeight: 700,
+                              color: "#FFFFFF",
+                              fontSize: {
+                                xs: "0.85rem",
+                                sm: "0.95rem",
+                                md: "1.1rem",
+                              },
+                              textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
+                              lineHeight: 1.2,
+                            }}
+                          >
+                            {review.name}
+                          </Typography>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                ))}
+              </Slider>
+            </Box>
+          </Container>
         </Box>
       </motion.div>
     </Box>
