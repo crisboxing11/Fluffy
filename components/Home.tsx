@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import {
   Box,
   Typography,
@@ -14,12 +13,12 @@ import StarIcon from "@mui/icons-material/Star";
 import SpaIcon from "@mui/icons-material/Spa";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import Slider from "react-slick";
+import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import DogImage from "../public/Dog2.png";
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, memo } from "react";
 import ReviewDog1 from "../public/ReviewDog1.jpg";
 import ReviewDog2 from "../public/ReviewDog2.jpg";
 import ReviewDog5 from "../public/ReviewDog5.jpg";
@@ -28,22 +27,36 @@ import ReviewDog4 from "../public/ReviewDog4.jpg";
 import ReviewDog7 from "../public/ReviewDog7.jpg";
 import Link from "next/link";
 
-// Testimonial Carousel Settings - Memoized for performance
+// Lazy load the Slider component to reduce initial bundle size
+const Slider = dynamic(() => import("react-slick"), {
+  loading: () => (
+    <Box sx={{ textAlign: "center", py: 4 }}>
+      <Typography>Loading testimonials...</Typography>
+    </Box>
+  ),
+  ssr: false,
+});
+
+// Testimonial Carousel Settings - Optimized for performance
 const testimonialSettings = {
   dots: true,
   infinite: true,
-  speed: 600,
+  speed: 500, // Reduced for smoother transitions
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 6000,
-  adaptiveHeight: true,
+  autoplaySpeed: 5000, // Slightly faster for better engagement
+  adaptiveHeight: false, // Disabled to prevent layout shifts
   pauseOnHover: true,
   fade: true,
   cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
   lazyLoad: "ondemand" as const,
+  useCSS: true, // Enable CSS transitions for better performance
+  useTransform: true, // Use CSS transforms for hardware acceleration
+  waitForAnimate: false, // Don't wait for animations to complete
 };
 
+// Memoized testimonials data to prevent re-creation
 const testimonials = [
   {
     name: "Katie Jones, Las Vegas",
@@ -75,7 +88,7 @@ const testimonials = [
     text: "Always does an amazing job for my husky. Highly recommend!",
     image: ReviewDog7,
   },
-];
+] as const;
 
 // Enhanced Animations
 const fadeInUp = {
@@ -113,6 +126,300 @@ const scaleIn = {
   },
 };
 
+// Memoized feature card component for better performance
+const FeatureCard = memo(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ({ feature, index }: { feature: any; index: number }) => (
+    <Grid item xs={12} sm={6} md={4} key={index}>
+      <motion.div
+        variants={scaleIn}
+        whileHover={{
+          y: -8,
+          transition: { duration: 0.3, ease: "easeOut" },
+        }}
+      >
+        <Card
+          sx={{
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+            p: { xs: 2, sm: 3, md: 4 },
+            borderRadius: { xs: "16px", sm: "20px", md: "24px" },
+            bgcolor: "white",
+            height: "100%",
+            border: "1px solid rgba(147, 237, 240, 0.3)",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            mx: { xs: 0.5, sm: 0 },
+            "&:hover": {
+              boxShadow: "0 16px 48px rgba(0, 173, 205, 0.15)",
+              borderColor: feature.color,
+            },
+          }}
+        >
+          <CardContent
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              p: 0,
+              "&:last-child": { pb: 0 },
+            }}
+          >
+            <Box
+              sx={{
+                width: { xs: 50, sm: 60, md: 80 },
+                height: { xs: 50, sm: 60, md: 80 },
+                borderRadius: "50%",
+                background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}10)`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                mb: { xs: 1.5, sm: 2, md: 3 },
+                border: `2px solid ${feature.color}30`,
+              }}
+            >
+              <feature.icon
+                sx={{
+                  color: feature.color,
+                  fontSize: { xs: 24, sm: 28, md: 36 },
+                }}
+              />
+            </Box>
+
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 800,
+                mb: { xs: 1, sm: 1.5, md: 2 },
+                color: "#067C92",
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.1rem",
+                  md: "1.4rem",
+                },
+                textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+                lineHeight: 1.3,
+              }}
+            >
+              {feature.title}
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#067C92",
+                lineHeight: 1.6,
+                fontSize: {
+                  xs: "0.85rem",
+                  sm: "0.9rem",
+                  md: "1.05rem",
+                },
+                fontWeight: 500,
+                opacity: 0.9,
+              }}
+            >
+              {feature.desc}
+            </Typography>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </Grid>
+  ),
+);
+
+FeatureCard.displayName = "FeatureCard";
+
+// Memoized testimonial card component
+const TestimonialCard = memo(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ({ review, index }: { review: any; index: number }) => (
+    <Box key={index} sx={{ px: 2 }}>
+      <Card
+        sx={{
+          boxShadow: "0 12px 40px rgba(0, 0, 0, 0.1)",
+          p: { xs: 2.5, sm: 3, md: 6 },
+          borderRadius: { xs: "20px", sm: "24px", md: "32px" },
+          bgcolor: "white",
+          mx: { xs: 0.5, sm: "auto" },
+          border: "1px solid rgba(147, 237, 240, 0.3)",
+          background: "linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%)",
+        }}
+      >
+        <CardContent
+          sx={{
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            p: 0,
+            "&:last-child": { pb: 0 },
+          }}
+        >
+          {/* Enhanced Pet Image */}
+          <Box
+            sx={{
+              position: "relative",
+              mb: { xs: 2.5, sm: 3, md: 4 },
+            }}
+          >
+            <Box
+              sx={{
+                width: { xs: 80, sm: 100, md: 150 },
+                height: { xs: 80, sm: 100, md: 150 },
+                borderRadius: "50%",
+                overflow: "hidden",
+                border: {
+                  xs: "2px solid #93EDF0",
+                  sm: "3px solid #93EDF0",
+                  md: "4px solid #93EDF0",
+                },
+                boxShadow: "0 8px 32px rgba(0, 173, 205, 0.2)",
+                position: "relative",
+              }}
+            >
+              <Image
+                src={review.image}
+                alt={`Happy pet from ${review.name}`}
+                fill
+                sizes="(max-width: 600px) 80px, (max-width: 900px) 100px, 150px"
+                quality={75}
+                loading="lazy"
+                style={{
+                  objectFit: "cover",
+                  filter: "brightness(1.1) contrast(1.05) saturate(1.1)",
+                }}
+              />
+            </Box>
+
+            {/* Heart Icon Overlay */}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: { xs: -4, sm: -6, md: -8 },
+                right: { xs: -4, sm: -6, md: -8 },
+                width: { xs: 24, sm: 28, md: 40 },
+                height: { xs: 24, sm: 28, md: 40 },
+                borderRadius: "50%",
+                bgcolor: "#00ADCD",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 16px rgba(0, 173, 205, 0.4)",
+              }}
+            >
+              <FavoriteIcon
+                sx={{
+                  color: "white",
+                  fontSize: { xs: 12, sm: 14, md: 20 },
+                }}
+              />
+            </Box>
+          </Box>
+
+          {/* Star Rating */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 0.5,
+              mb: { xs: 2, sm: 2.5, md: 3 },
+            }}
+          >
+            {[...Array(5)].map((_, i) => (
+              <StarIcon
+                key={i}
+                sx={{
+                  color: "#FFD700",
+                  fontSize: { xs: 16, sm: 18, md: 20 },
+                }}
+              />
+            ))}
+          </Box>
+
+          {/* Review Text */}
+          <Box
+            sx={{
+              background:
+                "linear-gradient(135deg, rgba(147, 237, 240, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%)",
+              borderRadius: {
+                xs: "10px",
+                sm: "12px",
+                md: "16px",
+              },
+              p: { xs: 2, sm: 2.5, md: 3 },
+              mb: { xs: 1.5, sm: 2, md: 3 },
+              border: "1px solid rgba(147, 237, 240, 0.3)",
+              position: "relative",
+              maxWidth: { xs: "100%", sm: 650 },
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#067C92",
+                lineHeight: 1.6,
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1.15rem",
+                },
+                fontWeight: 500,
+                fontStyle: "italic",
+                position: "relative",
+                "&::before": {
+                  content: '""',
+                  fontSize: {
+                    xs: "1.5rem",
+                    sm: "2rem",
+                    md: "3rem",
+                  },
+                  color: "#93EDF0",
+                  position: "absolute",
+                  top: { xs: -8, sm: -10, md: -15 },
+                  left: { xs: -8, sm: -10, md: -15 },
+                  fontFamily: "serif",
+                  lineHeight: 1,
+                  opacity: 0.7,
+                },
+              }}
+            >
+              {review.text}
+            </Typography>
+          </Box>
+
+          {/* Customer Name */}
+          <Box
+            sx={{
+              background: "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
+              borderRadius: { xs: "8px", sm: "10px", md: "12px" },
+              px: { xs: 2, sm: 2.5, md: 3 },
+              py: { xs: 0.8, sm: 1 },
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 700,
+                color: "#FFFFFF",
+                fontSize: {
+                  xs: "0.85rem",
+                  sm: "0.95rem",
+                  md: "1.1rem",
+                },
+                textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
+                lineHeight: 1.2,
+              }}
+            >
+              {review.name}
+            </Typography>
+          </Box>
+        </CardContent>
+      </Card>
+    </Box>
+  ),
+);
+
+TestimonialCard.displayName = "TestimonialCard";
+
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
   const [objectPosition, setObjectPosition] = useState("center center");
@@ -133,7 +440,7 @@ const Home = () => {
 
   useEffect(() => {
     handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
@@ -233,15 +540,17 @@ const Home = () => {
               src={DogImage}
               alt="Happy dog after Fluffy Pet Wash grooming"
               fill
-              sizes="100vw"
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 100vw, 100vw"
               priority
-              quality={85}
+              quality={80}
+              placeholder="blur"
               style={{
                 objectFit: "cover",
                 objectPosition: objectPosition,
                 opacity: opacity,
                 pointerEvents: "none",
                 filter: "brightness(1.05) contrast(1.02)",
+                willChange: "opacity",
               }}
             />
           </Box>
@@ -696,99 +1005,7 @@ const Home = () => {
               justifyContent="center"
             >
               {features.map((feature, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <motion.div
-                    variants={scaleIn}
-                    whileHover={{
-                      y: -8,
-                      transition: { duration: 0.3, ease: "easeOut" },
-                    }}
-                  >
-                    <Card
-                      sx={{
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
-                        p: { xs: 2, sm: 3, md: 4 },
-                        borderRadius: { xs: "16px", sm: "20px", md: "24px" },
-                        bgcolor: "white",
-                        height: "100%",
-                        border: "1px solid rgba(147, 237, 240, 0.3)",
-                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        mx: { xs: 0.5, sm: 0 },
-                        "&:hover": {
-                          boxShadow: "0 16px 48px rgba(0, 173, 205, 0.15)",
-                          borderColor: feature.color,
-                        },
-                      }}
-                    >
-                      <CardContent
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          textAlign: "center",
-                          p: 0,
-                          "&:last-child": { pb: 0 },
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            width: { xs: 50, sm: 60, md: 80 },
-                            height: { xs: 50, sm: 60, md: 80 },
-                            borderRadius: "50%",
-                            background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}10)`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            mb: { xs: 1.5, sm: 2, md: 3 },
-                            border: `2px solid ${feature.color}30`,
-                          }}
-                        >
-                          <feature.icon
-                            sx={{
-                              color: feature.color,
-                              fontSize: { xs: 24, sm: 28, md: 36 },
-                            }}
-                          />
-                        </Box>
-
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            fontWeight: 800,
-                            mb: { xs: 1, sm: 1.5, md: 2 },
-                            color: "#067C92",
-                            fontSize: {
-                              xs: "1rem",
-                              sm: "1.1rem",
-                              md: "1.4rem",
-                            },
-                            textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
-                            lineHeight: 1.3,
-                          }}
-                        >
-                          {feature.title}
-                        </Typography>
-
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            color: "#067C92",
-                            lineHeight: 1.6,
-                            fontSize: {
-                              xs: "0.85rem",
-                              sm: "0.9rem",
-                              md: "1.05rem",
-                            },
-                            fontWeight: 500,
-                            opacity: 0.9,
-                          }}
-                        >
-                          {feature.desc}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </Grid>
+                <FeatureCard key={index} feature={feature} index={index} />
               ))}
             </Grid>
           </Container>
@@ -873,189 +1090,7 @@ const Home = () => {
                 aria-label="Testimonials carousel"
               >
                 {testimonials.map((review, index) => (
-                  <Box key={index} sx={{ px: 2 }}>
-                    <Card
-                      sx={{
-                        boxShadow: "0 12px 40px rgba(0, 0, 0, 0.1)",
-                        p: { xs: 2.5, sm: 3, md: 6 },
-                        borderRadius: { xs: "20px", sm: "24px", md: "32px" },
-                        bgcolor: "white",
-                        mx: { xs: 0.5, sm: "auto" },
-                        border: "1px solid rgba(147, 237, 240, 0.3)",
-                        background:
-                          "linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%)",
-                      }}
-                    >
-                      <CardContent
-                        sx={{
-                          textAlign: "center",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          p: 0,
-                          "&:last-child": { pb: 0 },
-                        }}
-                      >
-                        {/* Enhanced Pet Image */}
-                        <Box
-                          sx={{
-                            position: "relative",
-                            mb: { xs: 2.5, sm: 3, md: 4 },
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              width: { xs: 80, sm: 100, md: 150 },
-                              height: { xs: 80, sm: 100, md: 150 },
-                              borderRadius: "50%",
-                              overflow: "hidden",
-                              border: {
-                                xs: "2px solid #93EDF0",
-                                sm: "3px solid #93EDF0",
-                                md: "4px solid #93EDF0",
-                              },
-                              boxShadow: "0 8px 32px rgba(0, 173, 205, 0.2)",
-                              position: "relative",
-                            }}
-                          >
-                            <Image
-                              src={review.image}
-                              alt={`Happy pet from ${review.name}`}
-                              fill
-                              style={{ objectFit: "cover", filter:
-                                "brightness(1.1) contrast(1.05) saturate(1.1)", }}
-                              quality={75}
-                              loading="lazy"
-                           
-                            />
-                          </Box>
-
-                          {/* Heart Icon Overlay */}
-                          <Box
-                            sx={{
-                              position: "absolute",
-                              bottom: { xs: -4, sm: -6, md: -8 },
-                              right: { xs: -4, sm: -6, md: -8 },
-                              width: { xs: 24, sm: 28, md: 40 },
-                              height: { xs: 24, sm: 28, md: 40 },
-                              borderRadius: "50%",
-                              bgcolor: "#00ADCD",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              boxShadow: "0 4px 16px rgba(0, 173, 205, 0.4)",
-                            }}
-                          >
-                            <FavoriteIcon
-                              sx={{
-                                color: "white",
-                                fontSize: { xs: 12, sm: 14, md: 20 },
-                              }}
-                            />
-                          </Box>
-                        </Box>
-
-                        {/* Star Rating */}
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            gap: 0.5,
-                            mb: { xs: 2, sm: 2.5, md: 3 },
-                          }}
-                        >
-                          {[...Array(5)].map((_, i) => (
-                            <StarIcon
-                              key={i}
-                              sx={{
-                                color: "#FFD700",
-                                fontSize: { xs: 16, sm: 18, md: 20 },
-                              }}
-                            />
-                          ))}
-                        </Box>
-
-                        {/* Review Text */}
-                        <Box
-                          sx={{
-                            background:
-                              "linear-gradient(135deg, rgba(147, 237, 240, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%)",
-                            borderRadius: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "16px",
-                            },
-                            p: { xs: 2, sm: 2.5, md: 3 },
-                            mb: { xs: 1.5, sm: 2, md: 3 },
-                            border: "1px solid rgba(147, 237, 240, 0.3)",
-                            position: "relative",
-                            maxWidth: { xs: "100%", sm: 650 },
-                          }}
-                        >
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              color: "#067C92",
-                              lineHeight: 1.6,
-                              fontSize: {
-                                xs: "0.8rem",
-                                sm: "0.9rem",
-                                md: "1.15rem",
-                              },
-                              fontWeight: 500,
-                              fontStyle: "italic",
-                              position: "relative",
-                              "&::before": {
-                                content: '""',
-                                fontSize: {
-                                  xs: "1.5rem",
-                                  sm: "2rem",
-                                  md: "3rem",
-                                },
-                                color: "#93EDF0",
-                                position: "absolute",
-                                top: { xs: -8, sm: -10, md: -15 },
-                                left: { xs: -8, sm: -10, md: -15 },
-                                fontFamily: "serif",
-                                lineHeight: 1,
-                                opacity: 0.7,
-                              },
-                            }}
-                          >
-                            {review.text}
-                          </Typography>
-                        </Box>
-
-                        {/* Customer Name */}
-                        <Box
-                          sx={{
-                            background:
-                              "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
-                            borderRadius: { xs: "8px", sm: "10px", md: "12px" },
-                            px: { xs: 2, sm: 2.5, md: 3 },
-                            py: { xs: 0.8, sm: 1 },
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              fontWeight: 700,
-                              color: "#FFFFFF",
-                              fontSize: {
-                                xs: "0.85rem",
-                                sm: "0.95rem",
-                                md: "1.1rem",
-                              },
-                              textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
-                              lineHeight: 1.2,
-                            }}
-                          >
-                            {review.name}
-                          </Typography>
-                        </Box>
-                      </CardContent>
-                    </Card>
-                  </Box>
+                  <TestimonialCard key={index} review={review} index={index} />
                 ))}
               </Slider>
             </Box>
