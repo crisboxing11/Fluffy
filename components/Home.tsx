@@ -115,24 +115,27 @@ const scaleIn = {
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
   const [objectPosition, setObjectPosition] = useState("center center");
-
+  const [objectFit, setObjectFit] = useState<"cover" | "contain">("contain");
   const handleResize = useCallback(() => {
     const width = window.innerWidth;
     if (width < 600) {
       setOpacity(0.25);
       setObjectPosition("30% center"); // Show more of the left side on mobile
+      setObjectFit("cover");
     } else if (width < 900) {
       setOpacity(0.35);
       setObjectPosition("40% center"); // Show more of the left side on tablet
+      setObjectFit("cover");
     } else {
-      setOpacity(0.9);
-      setObjectPosition("center center"); // Center on desktop
+      setOpacity(0.7); // Reduced opacity for desktop
+      setObjectPosition("center bottom"); // Position towards bottom on desktop
+      setObjectFit("contain"); // Use contain for desktop to make image smaller
     }
   }, []);
 
   useEffect(() => {
     handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
@@ -232,15 +235,17 @@ const Home = () => {
               src={DogImage}
               alt="Happy dog after Fluffy Pet Wash grooming"
               fill
-              sizes="100vw"
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 100vw, 100vw"
               priority
-              quality={85}
+              quality={80}
+              placeholder="blur"
               style={{
-                objectFit: "cover",
+                objectFit: objectFit,
                 objectPosition: objectPosition,
                 opacity: opacity,
                 pointerEvents: "none",
                 filter: "brightness(1.05) contrast(1.02)",
+                willChange: "opacity",
               }}
             />
           </Box>
@@ -584,6 +589,7 @@ const Home = () => {
           </Container>
         </Box>
       </motion.div>
+
 
       {/* Enhanced Why Choose Us Section */}
       <motion.div
