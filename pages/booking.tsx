@@ -28,6 +28,11 @@ const BookingPage = () => {
       <Head>
         <title>Book Now | Fluffy Pet Wash</title>
         <meta name="description" content="Schedule your mobile grooming appointment online." />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `gtag('event', 'ads_conversion_Book_appointment_1');`,
+          }}
+        />
       </Head>
       <Typography variant="h1" fontWeight="bold" textAlign="center" mt={4} mb={2}>
         Book Your Appointment
