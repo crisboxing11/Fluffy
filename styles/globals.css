@@ -5,10 +5,11 @@
 /* Custom global styles */
 /* General */
 body {
-  font-family: 'Inter','Arial', sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   margin: 0;
   background-color: #f9f9f9;
   color: #333333;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -35,7 +36,7 @@ a:hover {
 
 /* Buttons */
 button {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -110,19 +111,19 @@ select:focus {
 
 .slick-prev:before,
 .slick-next:before {
-  color: #067C92 !important;
+  color: #067c92 !important;
   /* Adjust arrow color */
   font-size: 20px !important;
 }
 
 .slick-dots li button:before {
-  color: #067C92 !important;
+  color: #067c92 !important;
   /* Dot color */
   font-size: 12px;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #038B95 !important;
+  color: #038b95 !important;
   /* Active dot color */
 }
 
@@ -131,6 +132,17 @@ select:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Navbar Enhancements */
+.navbar-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Mobile Optimization */
@@ -146,4 +158,17 @@ select:focus {
     bottom: -10px;
     /* Adjust positioning */
   }
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #00adcd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Prevent layout shift during loading */
+.navbar-container {
+  contain: layout style paint;
 }
