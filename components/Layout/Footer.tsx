@@ -338,6 +338,6 @@ const Footer = () => {
       </Container>
     </Box>
   );
-};
+};//footer
 
 export default Footer;
