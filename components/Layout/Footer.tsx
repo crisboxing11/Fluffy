@@ -29,7 +29,6 @@ const Footer = () => {
       { name: "FAQ", href: "/faq" },
     ],
     Booking: [
-      { name: "Book Now", href: "/booking" },
       { name: "Pre-Book", href: "/prebook" },
       { name: "Pricing", href: "/prices" },
       { name: "Orlando Service", href: "/orlando" },
