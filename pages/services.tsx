@@ -12,7 +12,6 @@ import {
   Chip,
   Paper,
   Stack,
-
   Avatar,
   List,
   ListItem,
@@ -36,7 +35,6 @@ import {
   Schedule as ScheduleIcon,
   LocalShipping as LocalShippingIcon,
   VerifiedUser as VerifiedUserIcon,
-
   LocationOn as LocationOnIcon,
   FormatQuote as FormatQuoteIcon,
 } from "@mui/icons-material";
@@ -231,7 +229,6 @@ const faqs = [
 
 const ServicesPage = () => {
   const [expandedFaq, setExpandedFaq] = useState<string | false>(false);
-  
 
   const handleFaqChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -1252,6 +1249,7 @@ const ServicesPage = () => {
                         >
                           <Avatar
                             src={review.avatar}
+                            alt={`${review.name} with pet ${review.petName}`}
                             sx={{
                               width: 60,
                               height: 60,

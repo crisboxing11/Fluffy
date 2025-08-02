@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider,
   Fade,
   Slide,
   useScrollTrigger,
@@ -281,11 +280,14 @@ const Navbar = () => {
                 "& .MuiDrawer-paper": {
                   width: { xs: "85vw", sm: "400px" },
                   maxWidth: "400px",
+                  height: "100vh",
                   color: "#067C92",
                   padding: 0,
                   borderRadius: "20px 0 0 20px",
                   boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.1)",
                   overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
                 },
               }}
               transitionDuration={300}
@@ -322,125 +324,149 @@ const Navbar = () => {
                 </IconButton>
               </Box>
 
-              <List sx={{ px: 2, py: 3 }}>
-                {[
-                  "Home",
-                  "About",
-                  "Services",
-                  "Prices",
-                  "Blog",
-                  "Testimonials",
-                  "FAQ",
-                  "Contact",
-                ].map((item, index) => (
-                  <Fade in={mobileOpen} timeout={300 + index * 50} key={index}>
-                    <ListItem
-                      sx={{
-                        py: 1,
-                        px: 2,
-                        mb: 1,
-                        borderRadius: "12px",
-                        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-                        "&:hover": {
-                          bgcolor: "rgba(0, 173, 205, 0.08)",
-                          transform: "translateX(8px)",
-                          boxShadow: "0 4px 12px rgba(0, 173, 205, 0.15)",
-                        },
-                      }}
+              <Box
+                sx={{
+                  flex: 1,
+                  overflow: "auto",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <List sx={{ px: 2, py: 2, flex: 1 }}>
+                  {[
+                    "Home",
+                    "About",
+                    "Services",
+                    "Prices",
+                    "Blog",
+                    "Testimonials",
+                    "FAQ",
+                    "Contact",
+                  ].map((item, index) => (
+                    <Fade
+                      in={mobileOpen}
+                      timeout={300 + index * 50}
+                      key={index}
                     >
-                      <Link
-                        href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                        style={{
-                          textDecoration: "none",
-                          color: "#067C92",
-                          fontWeight: "600",
-                          width: "100%",
-                          display: "block",
-                          fontSize: "1.1rem",
+                      <ListItem
+                        sx={{
+                          py: 1,
+                          px: 2,
+                          mb: 1,
+                          borderRadius: "12px",
+                          transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&:hover": {
+                            bgcolor: "rgba(0, 173, 205, 0.08)",
+                            transform: "translateX(8px)",
+                            boxShadow: "0 4px 12px rgba(0, 173, 205, 0.15)",
+                          },
                         }}
-                        onClick={handleDrawerClose}
                       >
-                        <ListItemText
-                          primary={item}
-                          sx={{
-                            textAlign: "left",
-                            "& .MuiListItemText-primary": {
-                              fontWeight: 600,
-                              fontSize: "1.1rem",
-                            },
+                        <Link
+                          href={
+                            item === "Home" ? "/" : `/${item.toLowerCase()}`
+                          }
+                          style={{
+                            textDecoration: "none",
+                            color: "#067C92",
+                            fontWeight: "600",
+                            width: "100%",
+                            display: "block",
+                            fontSize: "1.1rem",
                           }}
-                        />
-                      </Link>
-                    </ListItem>
-                  </Fade>
-                ))}
-                <Divider sx={{ my: 3, bgcolor: "rgba(6, 124, 146, 0.1)" }} />
+                          onClick={handleDrawerClose}
+                        >
+                          <ListItemText
+                            primary={item}
+                            sx={{
+                              textAlign: "left",
+                              "& .MuiListItemText-primary": {
+                                fontWeight: 600,
+                                fontSize: "1.1rem",
+                              },
+                            }}
+                          />
+                        </Link>
+                      </ListItem>
+                    </Fade>
+                  ))}
+                </List>
 
-                <Fade in={mobileOpen} timeout={600}>
-                  <ListItem sx={{ px: 2, mb: 2 }}>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      href="/prebook"
-                      aria-label="Book grooming appointment"
-                      onClick={handleDrawerClose}
-                      sx={{
-                        background:
-                          "linear-gradient(135deg, #00ADCD 0%, #038B95 100%)",
-                        color: "#fff",
-                        fontWeight: 700,
-                        borderRadius: "16px",
-                        py: 1.8,
-                        fontSize: "1.1rem",
-                        textTransform: "none",
-                        boxShadow: "0 6px 20px rgba(0, 173, 205, 0.3)",
-                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        "&:hover": {
+                <Box
+                  sx={{
+                    px: 2,
+                    pb: 3,
+                    pt: 1,
+                    borderTop: "1px solid rgba(6, 124, 146, 0.1)",
+                    backgroundColor: "rgba(248, 249, 250, 0.5)",
+                  }}
+                >
+                  <Fade in={mobileOpen} timeout={600}>
+                    <Box sx={{ mb: 2 }}>
+                      <Button
+                        fullWidth
+                        variant="contained"
+                        href="/prebook"
+                        aria-label="Book grooming appointment"
+                        onClick={handleDrawerClose}
+                        sx={{
                           background:
-                            "linear-gradient(135deg, #038B95 0%, #00ADCD 100%)",
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 8px 25px rgba(0, 173, 205, 0.4)",
-                        },
-                      }}
-                    >
-                      Book Now
-                    </Button>
-                  </ListItem>
-                </Fade>
+                            "linear-gradient(135deg, #00ADCD 0%, #038B95 100%)",
+                          color: "#fff",
+                          fontWeight: 700,
+                          borderRadius: "16px",
+                          py: 1.5,
+                          fontSize: "1rem",
+                          textTransform: "none",
+                          boxShadow: "0 6px 20px rgba(0, 173, 205, 0.3)",
+                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&:hover": {
+                            background:
+                              "linear-gradient(135deg, #038B95 0%, #00ADCD 100%)",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 8px 25px rgba(0, 173, 205, 0.4)",
+                          },
+                        }}
+                      >
+                        Book Now
+                      </Button>
+                    </Box>
+                  </Fade>
 
-                <Fade in={mobileOpen} timeout={700}>
-                  <ListItem sx={{ px: 2 }}>
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      href="https://franchise.fluffypetwash.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Franchise with Fluffy Pet Wash"
-                      onClick={handleDrawerClose}
-                      sx={{
-                        borderColor: "#00ADCD",
-                        color: "#00ADCD",
-                        fontWeight: 600,
-                        borderRadius: "16px",
-                        py: 1.8,
-                        fontSize: "1.1rem",
-                        textTransform: "none",
-                        borderWidth: "2px",
-                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        "&:hover": {
-                          borderColor: "#038B95",
-                          backgroundColor: "rgba(0, 173, 205, 0.1)",
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 6px 20px rgba(0, 173, 205, 0.2)",
-                        },
-                      }}
-                    >
-                      Franchise With Us!
-                    </Button>
-                  </ListItem>
-                </Fade>
-              </List>
+                  <Fade in={mobileOpen} timeout={700}>
+                    <Box>
+                      <Button
+                        fullWidth
+                        variant="outlined"
+                        href="https://franchise.fluffypetwash.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Franchise with Fluffy Pet Wash"
+                        onClick={handleDrawerClose}
+                        sx={{
+                          borderColor: "#00ADCD",
+                          color: "#00ADCD",
+                          fontWeight: 600,
+                          borderRadius: "16px",
+                          py: 1.5,
+                          fontSize: "1rem",
+                          textTransform: "none",
+                          borderWidth: "2px",
+                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&:hover": {
+                            borderColor: "#038B95",
+                            backgroundColor: "rgba(0, 173, 205, 0.1)",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 6px 20px rgba(0, 173, 205, 0.2)",
+                          },
+                        }}
+                      >
+                        Franchise With Us!
+                      </Button>
+                    </Box>
+                  </Fade>
+                </Box>
+              </Box>
             </Drawer>
           </Box>
         </Toolbar>
