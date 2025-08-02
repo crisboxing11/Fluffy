@@ -21,11 +21,7 @@ const PrebookPage = () => {
   };
 
   return (
-    <Box
-      sx={{ bgcolor: "#ffffff" }}
-      role="main"
-      aria-label="Book appointment page"
-    >
+    <Box sx={{ bgcolor: "#ffffff" }} role="main" aria-label="Book appointment page">
       <Head>
         <title>Book Mobile Pet Grooming Appointment | Fluffy Pet Wash</title>
         <meta
@@ -42,10 +38,7 @@ const PrebookPage = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.fluffypetwash.com/prebook"
-        />
+        <meta property="og:url" content="https://www.fluffypetwash.com/prebook" />
         <meta
           property="og:title"
           content="Book Mobile Pet Grooming Appointment | Fluffy Pet Wash"
@@ -69,10 +62,7 @@ const PrebookPage = () => {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:url"
-          content="https://www.fluffypetwash.com/prebook"
-        />
+        <meta name="twitter:url" content="https://www.fluffypetwash.com/prebook" />
         <meta
           name="twitter:title"
           content="Book Mobile Pet Grooming Appointment | Fluffy Pet Wash"
@@ -100,13 +90,9 @@ const PrebookPage = () => {
 
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Structured Data - LocalBusiness */}
+        {/* Structured Data - LocalBusiness (mobile business) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,12 +104,16 @@ const PrebookPage = () => {
               description:
                 "Premium mobile pet grooming service that comes to your location. Professional dog grooming with licensed and insured groomers.",
               url: "https://www.fluffypetwash.com",
-              telephone: "+1-XXX-XXX-XXXX",
+              telephone: "+1-407-513-2935",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Orlando",
                 addressRegion: "FL",
                 addressCountry: "US",
+              },
+              areaServed: {
+                "@type": "City",
+                name: "Orlando",
               },
               geo: {
                 "@type": "GeoCoordinates",
@@ -167,7 +157,7 @@ const PrebookPage = () => {
           }}
         />
 
-        {/* Structured Data - WebPage */}
+        {/* Structured Data - WebPage (provider changed to Organization to avoid address requirement) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -195,8 +185,12 @@ const PrebookPage = () => {
                 "@type": "Service",
                 name: "Mobile Pet Grooming",
                 provider: {
-                  "@type": "LocalBusiness",
+                  "@type": "Organization",
+                  "@id": "https://www.fluffypetwash.com/#org",
                   name: "Fluffy Pet Wash",
+                  url: "https://www.fluffypetwash.com",
+                  logo:
+                    "https://www.fluffypetwash.com/Fluffy%20Pet%20Wash%20LOGO%20V3.jpg",
                 },
               },
             }),
@@ -234,8 +228,7 @@ const PrebookPage = () => {
         component="section"
         aria-labelledby="hero-heading"
         sx={{
-          background:
-            "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+          background: "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
           py: { xs: 4, md: 6 },
           px: { xs: 3, md: 6 },
           pt: { xs: 6, md: 8 },
@@ -312,17 +305,10 @@ const PrebookPage = () => {
       </Box>
 
       {/* Simplified Content Section */}
-      <Box
-        component="section"
-        sx={{ py: { xs: 4, md: 6 }, px: { xs: 3, md: 6 } }}
-      >
+      <Box component="section" sx={{ py: { xs: 4, md: 6 }, px: { xs: 3, md: 6 } }}>
         <Box sx={{ maxWidth: 900, mx: "auto" }}>
           {/* Quick Benefits - Above the fold */}
-          <Box
-            component="section"
-            aria-labelledby="benefits-heading"
-            sx={{ mb: 6, textAlign: "center" }}
-          >
+          <Box component="section" aria-labelledby="benefits-heading" sx={{ mb: 6, textAlign: "center" }}>
             <Typography
               id="benefits-heading"
               variant="h2"
@@ -349,21 +335,9 @@ const PrebookPage = () => {
               }}
             >
               {[
-                {
-                  icon: "📅",
-                  title: "Guaranteed Times",
-                  desc: "Book your preferred time slot",
-                },
-                {
-                  icon: "🚐",
-                  title: "We Come to You",
-                  desc: "No travel, no waiting rooms",
-                },
-                {
-                  icon: "⭐",
-                  title: "5-Star Service",
-                  desc: "Licensed, insured professionals",
-                },
+                { icon: "📅", title: "Guaranteed Times", desc: "Book your preferred time slot" },
+                { icon: "🚐", title: "We Come to You", desc: "No travel, no waiting rooms" },
+                { icon: "⭐", title: "5-Star Service", desc: "Licensed, insured professionals" },
               ].map((benefit, index) => (
                 <Box
                   key={index}
@@ -380,27 +354,11 @@ const PrebookPage = () => {
                     },
                   }}
                 >
-                  <Typography sx={{ fontSize: "2.5rem", mb: 1 }}>
-                    {benefit.icon}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      color: "#067C92",
-                      mb: 1,
-                    }}
-                  >
+                  <Typography sx={{ fontSize: "2.5rem", mb: 1 }}>{benefit.icon}</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 600, color: "#067C92", mb: 1 }}>
                     {benefit.title}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "0.95rem",
-                      color: "#666",
-                    }}
-                  >
-                    {benefit.desc}
-                  </Typography>
+                  <Typography sx={{ fontSize: "0.95rem", color: "#666" }}>{benefit.desc}</Typography>
                 </Box>
               ))}
             </Box>
@@ -462,12 +420,7 @@ const PrebookPage = () => {
           </Box>
 
           {/* Booking Form - Main Focus */}
-          <Box
-            component="section"
-            id="booking-form"
-            aria-labelledby="booking-heading"
-            sx={{ mb: 6 }}
-          >
+          <Box component="section" id="booking-form" aria-labelledby="booking-heading" sx={{ mb: 6 }}>
             <Box sx={{ textAlign: "center", mb: 4 }}>
               <Typography
                 id="booking-heading"
@@ -476,8 +429,7 @@ const PrebookPage = () => {
                 sx={{
                   fontSize: { xs: "1.8rem", md: "2.4rem" },
                   fontWeight: 700,
-                  background:
-                    "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
+                  background: "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -488,12 +440,7 @@ const PrebookPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{
-                  fontSize: { xs: "1rem", md: "1.1rem" },
-                  color: "#067C92",
-                  maxWidth: 500,
-                  mx: "auto",
-                }}
+                sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#067C92", maxWidth: 500, mx: "auto" }}
               >
                 Choose your area to see available appointment times
               </Typography>
@@ -537,47 +484,19 @@ const PrebookPage = () => {
               }}
             >
               Check our{" "}
-              <Link
-                href="/services"
-                style={{
-                  color: "#038B95",
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                }}
-              >
+              <Link href="/services" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 services
               </Link>
               ,{" "}
-              <Link
-                href="/prices"
-                style={{
-                  color: "#038B95",
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                }}
-              >
+              <Link href="/prices" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 pricing
               </Link>
               , or{" "}
-              <Link
-                href="/faq"
-                style={{
-                  color: "#038B95",
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                }}
-              >
+              <Link href="/faq" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 FAQ
               </Link>{" "}
               pages for details, or{" "}
-              <Link
-                href="/contact"
-                style={{
-                  color: "#038B95",
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                }}
-              >
+              <Link href="/contact" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 contact us
               </Link>{" "}
               directly.
