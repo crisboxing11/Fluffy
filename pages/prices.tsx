@@ -930,10 +930,10 @@ const PricesPage = () => {
 
                   <Box textAlign="center">
                     <Typography variant="h4" fontWeight="800" color="#038B95">
-                      100%
+                     500+ 
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Happy Pets
+                     Satisfied Clients
                     </Typography>
                   </Box>
                 </Paper>
