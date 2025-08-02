@@ -312,7 +312,7 @@ const ServicesPage = () => {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "80vh", md: "90vh" },
+          height: { xs: "82vh", md: "92vh" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
