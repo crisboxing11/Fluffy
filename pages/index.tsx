@@ -11,6 +11,7 @@ const PreBookingForm = dynamic(() => import("../components/PreBookingForm"), {
   ),
   ssr: false,
 });
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
@@ -231,23 +232,299 @@ const HomePage = () => {
 
       <Home />
 
-      {/* 🏆 Improved Booking Section */}
+      {/* 🏆 Redesigned Hero Booking Section */}
       <Box id="booking" sx={{ py: 6, px: 3, bgcolor: "#f9f9f9" }} key={key}>
-        <Typography variant="h2" fontWeight="bold" textAlign="center" mb={4}>
-          Fluffy Pet Wash Mobile Pet Grooming & Spa
-        </Typography>
-        <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
-          Book Your Appointment
-        </Typography>
-        <Typography
-          variant="body1"
-          color="textSecondary"
-          textAlign="center"
-          mb={4}
+        {/* Hero Header Section */}
+        <Box
+          sx={{
+            background:
+              "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+            borderRadius: 4,
+            p: { xs: 4, md: 6 },
+            mb: 6,
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 20px 40px rgba(0, 173, 205, 0.15)",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background:
+                "url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22paw%22 x=%220%22 y=%220%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2210%22 cy=%2210%22 r=%221%22 fill=%22rgba(255,255,255,0.1)%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23paw)%22/></svg>') repeat",
+              opacity: 0.3,
+            },
+          }}
         >
-          Before proceeding to booking, confirm your dog&apos;s eligibility for
-          our services.
-        </Typography>
+          <Box sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+            {/* Main Title with Enhanced Typography */}
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: "2.2rem", md: "3.5rem" },
+                fontWeight: 800,
+                color: "#FFFFFF",
+                mb: 2,
+                textShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.1,
+              }}
+            >
+              Fluffy Pet Wash
+            </Typography>
+
+            {/* Subtitle with Icon */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                mb: 3,
+              }}
+            >
+              <Box
+                sx={{
+                  width: { xs: 40, md: 50 },
+                  height: 2,
+                  bgcolor: "rgba(255,255,255,0.6)",
+                  mr: 2,
+                }}
+              />
+              <Typography
+                variant="h5"
+                sx={{
+                  fontSize: { xs: "1.1rem", md: "1.4rem" },
+                  fontWeight: 500,
+                  color: "rgba(255,255,255,0.95)",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Mobile Pet Grooming & Spa
+              </Typography>
+              <Box
+                sx={{
+                  width: { xs: 40, md: 50 },
+                  height: 2,
+                  bgcolor: "rgba(255,255,255,0.6)",
+                  ml: 2,
+                }}
+              />
+            </Box>
+
+            {/* Feature Pills */}
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 1.5,
+                justifyContent: "center",
+                mb: 4,
+              }}
+            >
+              {[
+                { icon: "🚐", text: "We Come To You" },
+                { icon: "🏆", text: "Licensed & Insured" },
+                { icon: "⭐", text: "5-Star Rated" },
+                { icon: "🐕", text: "Dog Specialists" },
+              ].map((feature, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    bgcolor: "rgba(255,255,255,0.2)",
+                    backdropFilter: "blur(10px)",
+                    px: 2,
+                    py: 1,
+                    borderRadius: 20,
+                    border: "1px solid rgba(255,255,255,0.3)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "1.2rem" }}>
+                    {feature.icon}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontWeight: 600,
+                      fontSize: { xs: "0.8rem", md: "0.9rem" },
+                    }}
+                  >
+                    {feature.text}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+
+        {/* Booking CTA Section */}
+        <Box
+          sx={{
+            textAlign: "center",
+            mb: 4,
+            position: "relative",
+          }}
+        >
+          {/* Main CTA Title */}
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: { xs: "1.8rem", md: "2.4rem" },
+              fontWeight: 700,
+              background: "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              mb: 2,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Book Your Appointment
+          </Typography>
+
+          {/* Enhanced Description */}
+          <Box
+            sx={{
+              maxWidth: 600,
+              mx: "auto",
+              mb: 4,
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                color: "#067C92",
+                lineHeight: 1.6,
+                mb: 2,
+              }}
+            >
+              Start by confirming your dog&apos;s eligibility for our premium mobile
+              grooming services.
+            </Typography>
+
+            {/* Process Steps */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                gap: { xs: 2, md: 4 },
+                justifyContent: "center",
+                alignItems: "center",
+                mt: 3,
+              }}
+            >
+              {[
+                { step: "1", text: "Select Location", icon: "📍" },
+                { step: "2", text: "Choose Service", icon: "✨" },
+                { step: "3", text: "Pick Time Slot", icon: "📅" },
+              ].map((item, index) => (
+                <Box
+                  key={index}
+                  sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                >
+                  <Box
+                    sx={{
+                      width: 32,
+                      height: 32,
+                      borderRadius: "50%",
+                      bgcolor: "#00ADCD",
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    {item.step}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                      color: "#038B95",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {item.icon} {item.text}
+                  </Typography>
+                  {index < 2 && (
+                    <Typography
+                      sx={{
+                        mx: { xs: 0, md: 2 },
+                        color: "#00ADCD",
+                        fontSize: "1.2rem",
+                        display: { xs: "none", md: "block" },
+                      }}
+                    >
+                      →
+                    </Typography>
+                  )}
+                </Box>
+              ))}
+            </Box>
+          </Box>
+
+          {/* Trust Indicators */}
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 2,
+              justifyContent: "center",
+              mb: 4,
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                bgcolor: "#E8F5E8",
+                px: 2,
+                py: 1,
+                borderRadius: 2,
+                border: "1px solid #4CAF50",
+              }}
+            >
+              <Typography sx={{ color: "#2E7D32", fontSize: "1.1rem" }}>
+                ✓
+              </Typography>
+              <Typography
+                sx={{ color: "#2E7D32", fontWeight: 600, fontSize: "0.9rem" }}
+              >
+                No Upfront Payment
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                bgcolor: "#E3F2FD",
+                px: 2,
+                py: 1,
+                borderRadius: 2,
+                border: "1px solid #2196F3",
+              }}
+            >
+              <Typography sx={{ color: "#1976D2", fontSize: "1.1rem" }}>
+                🛡️
+              </Typography>
+              <Typography
+                sx={{ color: "#1976D2", fontWeight: 600, fontSize: "0.9rem" }}
+              >
+                Fully Insured
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+
         <PreBookingForm />
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -8,16 +8,40 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import territories from '../data/territories';
+  Chip,
+  Alert,
+  Stepper,
+  Step,
+  StepLabel,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { useRouter } from "next/router";
+import territories from "../data/territories";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PetsIcon from "@mui/icons-material/Pets";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const PreBookingForm = () => {
   const router = useRouter();
-  const [location, setLocation] = useState('');
-  const [error, setError] = useState('');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [location, setLocation] = useState("");
+  const [error, setError] = useState("");
   const [showOffer, setShowOffer] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const steps = ["Select Location", "Confirm Details", "Book Appointment"];
+
+  // Reset state when component mounts to handle navigation back to homepage
+  useEffect(() => {
+    setCurrentStep(0);
+    setIsLoading(false);
+    setError("");
+    setShowOffer(false);
+    setLocation("");
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);
@@ -27,23 +51,30 @@ const PreBookingForm = () => {
     if (e) e.preventDefault();
 
     if (!location) {
-      setError('Please select a service area.');
+      setError("Please select a service area to continue.");
       return;
     }
 
-    if (location === 'Orlando, Florida') {
-      setShowOffer(true);
-      return;
-    }
+    setError("");
+    setIsLoading(true);
+    setCurrentStep(1);
 
-    proceedToBooking();
+    // Simulate brief loading for better UX
+    setTimeout(() => {
+      if (location === "Orlando, Florida") {
+        setShowOffer(true);
+        setIsLoading(false);
+        return;
+      }
+      proceedToBooking();
+    }, 800);
   };
 
   const proceedToBooking = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('bookingInfo', JSON.stringify({ location }));
-    }
-    router.push('/booking');
+    setCurrentStep(2);
+    // Use URL parameter instead of localStorage for better UX
+    const encodedLocation = encodeURIComponent(location);
+    router.push(`/booking?location=${encodedLocation}`);
   };
 
   return (
@@ -52,96 +83,432 @@ const PreBookingForm = () => {
       aria-label="Pre-booking form"
       onSubmit={handleSubmit}
       sx={{
-        py: 6,
-        px: 3,
-        textAlign: 'center',
-        bgcolor: '#ffffff',
-        boxShadow: 2,
-        borderRadius: 2,
-        maxWidth: 600,
-        mx: 'auto',
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, md: 3 },
+        textAlign: "center",
+        bgcolor: "#ffffff",
+        boxShadow: { xs: 1, md: 2 },
+        borderRadius: { xs: 3, md: 2 },
+        maxWidth: { xs: "100%", md: 600 },
+        mx: "auto",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <Typography variant="h4" fontWeight="bold" mb={3}>
-        Start Your Booking
+      {/* Progress Indicator for Mobile */}
+      {isMobile && (
+        <Box sx={{ mb: 3 }}>
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            sx={{ mb: 1, display: "block" }}
+          >
+            Step {currentStep + 1} of 3
+          </Typography>
+          <Box sx={{ display: "flex", gap: 1, justifyContent: "center" }}>
+            {steps.map((_, index) => (
+              <Box
+                key={index}
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  bgcolor: index <= currentStep ? "#00ADCD" : "#E0E0E0",
+                  transition: "all 0.3s ease",
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
+      )}
+
+      {/* Desktop Stepper */}
+      {!isMobile && (
+        <Stepper activeStep={currentStep} sx={{ mb: 4 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      )}
+
+      <Typography
+        variant={isMobile ? "h5" : "h4"}
+        fontWeight="bold"
+        mb={2}
+        sx={{
+          background: "linear-gradient(135deg, #067C92 0%, #00ADCD 100%)",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
+        {currentStep === 0
+          ? "Select Your Service Area"
+          : currentStep === 1
+            ? "Ready to Book!"
+            : "Redirecting to Booking..."}
       </Typography>
 
-      {error && (
-        <Typography color="error" mb={2} aria-live="assertive">
-          {error}
+      {currentStep === 0 && (
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          mb={3}
+          sx={{ px: { xs: 1, md: 0 } }}
+        >
+          Choose your location to see available appointment times and services
         </Typography>
       )}
 
-      <TextField
-        select
-        label="Service Area"
-        name="location"
-        value={location}
-        onChange={handleChange}
+      {currentStep === 1 && (
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          mb={3}
+          sx={{ px: { xs: 1, md: 0 } }}
+        >
+          Your location has been confirmed. Click below to access your
+          personalized booking calendar.
+        </Typography>
+      )}
+
+      {error && (
+        <Alert
+          severity="error"
+          sx={{
+            mb: 3,
+            textAlign: "left",
+            borderRadius: 2,
+            "& .MuiAlert-message": {
+              fontSize: { xs: "0.875rem", md: "1rem" },
+            },
+          }}
+          aria-live="assertive"
+        >
+          {error}
+        </Alert>
+      )}
+
+      {currentStep === 0 && (
+        <>
+          <TextField
+            select
+            label="Service Area"
+            name="location"
+            value={location}
+            onChange={handleChange}
+            fullWidth
+            required
+            sx={{
+              mb: 3,
+              "& .MuiOutlinedInput-root": {
+                borderRadius: 2,
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                minHeight: { xs: 56, md: 64 },
+              },
+              "& .MuiInputLabel-root": {
+                fontSize: { xs: "1rem", md: "1.1rem" },
+              },
+            }}
+            SelectProps={{
+              MenuProps: {
+                PaperProps: {
+                  sx: {
+                    maxHeight: { xs: 200, md: 300 },
+                    "& .MuiMenuItem-root": {
+                      fontSize: { xs: "1rem", md: "1.1rem" },
+                      py: { xs: 1.5, md: 1 },
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            {territories.map((territory, index) => (
+              <MenuItem key={index} value={territory.name}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <LocationOnIcon
+                    sx={{ color: "#00ADCD", fontSize: "1.2rem" }}
+                  />
+                  {territory.name}
+                </Box>
+              </MenuItem>
+            ))}
+          </TextField>
+
+          {/* Service Highlights */}
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="body2" color="textSecondary" mb={2}>
+              What to expect:
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 1,
+                justifyContent: "center",
+              }}
+            >
+              <Chip
+                icon={<PetsIcon />}
+                label="Dogs Only"
+                size={isMobile ? "small" : "medium"}
+                sx={{ bgcolor: "#E3F2FD", color: "#1976D2" }}
+              />
+              <Chip
+                icon={<CheckCircleIcon />}
+                label="Licensed & Insured"
+                size={isMobile ? "small" : "medium"}
+                sx={{ bgcolor: "#E8F5E8", color: "#2E7D32" }}
+              />
+              <Chip
+                label="Mobile Service"
+                size={isMobile ? "small" : "medium"}
+                sx={{ bgcolor: "#FFF3E0", color: "#F57C00" }}
+              />
+            </Box>
+          </Box>
+        </>
+      )}
+
+      {currentStep === 1 && location && (
+        <Box sx={{ py: 3 }}>
+          <Chip
+            icon={<LocationOnIcon />}
+            label={`Selected: ${location}`}
+            sx={{
+              background: "linear-gradient(135deg, #00ADCD, #0AC3E6)",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: { xs: "0.875rem", md: "1rem" },
+              px: 2,
+              py: 1,
+              height: "auto",
+              mb: 3,
+              "& .MuiChip-icon": {
+                color: "white",
+              },
+            }}
+          />
+          <Typography variant="body2" color="textSecondary" sx={{ mb: 3 }}>
+            Setting up your personalized booking experience...
+          </Typography>
+
+          {/* Loading spinner */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mb: 3,
+            }}
+          >
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                border: "4px solid #E0E0E0",
+                borderTop: "4px solid #00ADCD",
+                borderRadius: "50%",
+                animation: "spin 1s linear infinite",
+                "@keyframes spin": {
+                  "0%": { transform: "rotate(0deg)" },
+                  "100%": { transform: "rotate(360deg)" },
+                },
+              }}
+            />
+          </Box>
+
+          {/* Action button for step 1 */}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={proceedToBooking}
+            size={isMobile ? "large" : "large"}
+            fullWidth={isMobile}
+            sx={{
+              textTransform: "none",
+              background: "linear-gradient(90deg, #00ADCD, #038B95)",
+              px: { xs: 3, md: 4 },
+              py: { xs: 1.5, md: 1.5 },
+              fontSize: { xs: "1rem", md: "1.1rem" },
+              fontWeight: "bold",
+              borderRadius: 2,
+              minHeight: { xs: 48, md: 56 },
+              "&:hover": {
+                background: "linear-gradient(90deg, #038B95, #00ADCD)",
+                transform: "scale(1.02)",
+                transition: "all 0.3s ease-in-out",
+              },
+            }}
+          >
+            Continue to Booking →
+          </Button>
+        </Box>
+      )}
+
+      {currentStep === 0 && (
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          disabled={isLoading}
+          aria-label="Continue to booking"
+          size={isMobile ? "large" : "large"}
+          fullWidth={isMobile}
+          sx={{
+            textTransform: "none",
+            background: isLoading
+              ? "#CCCCCC"
+              : "linear-gradient(90deg, #00ADCD, #038B95)",
+            px: { xs: 3, md: 4 },
+            py: { xs: 1.5, md: 1.5 },
+            fontSize: { xs: "1rem", md: "1.1rem" },
+            fontWeight: "bold",
+            borderRadius: 2,
+            minHeight: { xs: 48, md: 56 },
+            "&:hover": {
+              background: isLoading
+                ? "#CCCCCC"
+                : "linear-gradient(90deg, #038B95, #00ADCD)",
+              transform: isLoading ? "none" : "scale(1.02)",
+              transition: "all 0.3s ease-in-out",
+            },
+            "&:disabled": {
+              color: "#666666",
+            },
+          }}
+        >
+          {isLoading ? "Preparing..." : "Continue to Booking →"}
+        </Button>
+      )}
+
+      {/* Mobile-optimized important info */}
+      {isMobile && currentStep === 0 && (
+        <Alert
+          severity="info"
+          sx={{
+            mt: 3,
+            textAlign: "left",
+            borderRadius: 2,
+            bgcolor: "#E3F2FD",
+            "& .MuiAlert-message": {
+              fontSize: "0.875rem",
+            },
+          }}
+        >
+          <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
+            Before booking, please note:
+          </Typography>
+          <Typography variant="body2">
+            • Dogs only (no cats)
+            <br />
+            • Breed restrictions apply
+            <br />• No shave downs on double-coated breeds
+          </Typography>
+        </Alert>
+      )}
+      <Dialog
+        open={showOffer}
+        onClose={() => setShowOffer(false)}
+        fullScreen={isMobile}
+        maxWidth="sm"
         fullWidth
-        required
-        sx={{ mb: 3 }}
-      >
-        {territories.map((territory, index) => (
-          <MenuItem key={index} value={territory.name}>
-            {territory.name}
-          </MenuItem>
-        ))}
-      </TextField>
-
-      {/* Additional booking details are collected in the MoeGo form */}
-
-      <Button
-        variant="contained"
-        color="primary"
-        type="submit"
-        aria-label="Continue to booking"
-        size="large"
-        sx={{
-          textTransform: 'none',
-          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-          px: 4,
-          py: 1.5,
-          fontWeight: 'bold',
-          '&:hover': {
-            background: 'linear-gradient(90deg, #038B95, #00ADCD)',
-            transform: 'scale(1.05)',
-            transition: 'all 0.3s ease-in-out',
+        PaperProps={{
+          sx: {
+            borderRadius: isMobile ? 0 : 3,
+            m: isMobile ? 0 : 2,
           },
         }}
       >
-        Continue to Booking
-      </Button>
-      <Dialog open={showOffer} onClose={() => setShowOffer(false)}>
-        <DialogTitle sx={{
-          background: 'linear-gradient(90deg, #00ADCD, #038B95)',
-          color: '#fff',
-          fontWeight: 'bold',
-          textAlign: 'center',
-        }}>
-          Special Orlando Offer
+        <DialogTitle
+          sx={{
+            background: "linear-gradient(90deg, #00ADCD, #038B95)",
+            color: "#fff",
+            fontWeight: "bold",
+            textAlign: "center",
+            fontSize: { xs: "1.25rem", md: "1.5rem" },
+            py: { xs: 2, md: 3 },
+          }}
+        >
+          🎉 Special Orlando Offer!
         </DialogTitle>
-        <DialogContent sx={{ textAlign: 'center', p: 3 }}>
-          <Typography variant="h6" fontWeight="bold" mb={2}>
-            10% Off All August Bookings! Use Code: FLUFFY10 before submitting your booking. 
+        <DialogContent sx={{ textAlign: "center", p: { xs: 2, md: 3 } }}>
+          <Box sx={{ mb: 3 }}>
+            <Typography
+              variant={isMobile ? "h6" : "h5"}
+              fontWeight="bold"
+              mb={2}
+              sx={{
+                background: "linear-gradient(135deg, #FF6B35, #F7931E)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              10% Off All August Bookings!
+            </Typography>
+            <Chip
+              label="Use Code: FLUFFY10"
+              sx={{
+                bgcolor: "#FFE0B2",
+                color: "#E65100",
+                fontWeight: "bold",
+                fontSize: { xs: "0.875rem", md: "1rem" },
+                px: 1,
+                mb: 3,
+              }}
+            />
+          </Box>
 
-          </Typography>
-          <Typography variant="body1">
-            Join the Fluffy Preferred Program after your first appointment and keep your membership active to enjoy lifetime perks. Spots are limited, so book now to secure your discount and exclusive benefits!
-          </Typography>
-        </DialogContent>
-        <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
-          <Button onClick={() => setShowOffer(false)} color="secondary">
-            Close
-          </Button>
+          {/* Primary CTA Button - Moved up for better visibility */}
           <Button
             onClick={proceedToBooking}
             variant="contained"
-            sx={{ background: 'linear-gradient(90deg, #00ADCD, #038B95)' }}
+            size="large"
+            fullWidth
+            sx={{
+              background: "linear-gradient(90deg, #00ADCD, #038B95)",
+              mb: 3,
+              py: { xs: 1.5, md: 2 },
+              fontSize: { xs: "1.1rem", md: "1.2rem" },
+              fontWeight: "bold",
+              borderRadius: 2,
+              textTransform: "none",
+              "&:hover": {
+                background: "linear-gradient(90deg, #038B95, #00ADCD)",
+                transform: "scale(1.02)",
+                transition: "all 0.3s ease-in-out",
+              },
+            }}
           >
-            Continue to Booking
+            Continue to Booking →
           </Button>
-        </DialogActions>
+
+          <Typography
+            variant="body2"
+            sx={{ mb: 3, lineHeight: 1.6, color: "text.secondary" }}
+          >
+            Join the Fluffy Preferred Program after your first appointment and
+            keep your membership active to enjoy lifetime perks.
+          </Typography>
+          <Alert
+            severity="success"
+            sx={{
+              textAlign: "left",
+              borderRadius: 2,
+              bgcolor: "#E8F5E8",
+              border: "1px solid #4CAF50",
+              mb: 2,
+            }}
+          >
+            <Typography variant="body2" fontWeight={600}>
+              🎯 Limited Time Offer - Secure your 10% discount now!
+            </Typography>
+          </Alert>
+        </DialogContent>
       </Dialog>
     </Box>
   );
