@@ -318,7 +318,8 @@ const ServicesPage = () => {
           justifyContent: "center",
           overflow: "hidden",
           background:
-            "linear-gradient(135deg, #00ADCD 0%, #038B95 50%, #067C92 100%)",
+          "linear-gradient(135deg, #00ADCD 0%, #038B95 50%, #067C92 100%)",
+        pt: { xs: "80px", md: "90px" },
         }}
       >
         <Image
