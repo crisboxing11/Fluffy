@@ -255,15 +255,7 @@ const PricesPage = () => {
                   fontSize: { xs: "0.8rem", md: "0.9rem" },
                 }}
               />
-              <Chip
-                label="1000+ Happy Pets Served"
-                sx={{
-                  bgcolor: "rgba(255,255,255,0.2)",
-                  color: "white",
-                  fontWeight: 600,
-                  fontSize: { xs: "0.8rem", md: "0.9rem" },
-                }}
-              />
+             
             </Stack>
           </motion.div>
         </Container>
