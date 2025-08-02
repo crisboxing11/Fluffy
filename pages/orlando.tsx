@@ -76,7 +76,7 @@ const OrlandoPage = () => {
     {
       icon: PetsIcon,
       title: "Large Breed Friendly",
-      description: "Our spacious van accommodates dogs up to 120 pounds",
+      description: "Our spacious van accommodates dogs of all sizes",
       color: "#00ADCD",
     },
     {
