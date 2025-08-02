@@ -405,7 +405,7 @@ const PrebookPage = () => {
             />
             <Chip
               icon={<Typography sx={{ fontSize: "1.1rem" }}>⚡</Typography>}
-              label="Same Day Available"
+              label="Same Day Available (Limited Slots - Call to Confirm)"
               sx={{
                 bgcolor: "#FFF3E0",
                 color: "#F57C00",
