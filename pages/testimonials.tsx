@@ -242,11 +242,13 @@ const TestimonialsPage = () => {
           sx={{
             position: "relative",
             width: "100%",
-            height: { xs: "60vh", md: "80vh" },
+            minHeight: { xs: "100vh", sm: "80vh", md: "80vh" },
+            height: "auto",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
+            py: { xs: 4, sm: 6, md: 8 },
             "&::before": {
               content: '""',
               position: "absolute",
@@ -289,12 +291,17 @@ const TestimonialsPage = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.5rem", md: "4rem", lg: "5rem" },
+                  fontSize: {
+                    xs: "2rem",
+                    sm: "2.5rem",
+                    md: "4rem",
+                    lg: "5rem",
+                  },
                   fontWeight: 900,
-                  mb: 3,
+                  mb: { xs: 2, sm: 3 },
                   textShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
                   letterSpacing: "-0.02em",
-                  lineHeight: 1.1,
+                  lineHeight: { xs: 1.2, md: 1.1 },
                 }}
               >
                 Happy Paws, Happy Hearts
@@ -302,24 +309,24 @@ const TestimonialsPage = () => {
 
               <Box
                 sx={{
-                  maxWidth: 700,
+                  maxWidth: { xs: "90%", sm: 600, md: 700 },
                   mx: "auto",
-                  mb: 4,
+                  mb: { xs: 3, sm: 4 },
                   background: "rgba(255, 255, 255, 0.1)",
                   backdropFilter: "blur(20px)",
                   borderRadius: "20px",
-                  p: { xs: 3, md: 4 },
+                  p: { xs: 2, sm: 3, md: 4 },
                   border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
-                    fontSize: { xs: "1.2rem", md: "1.5rem" },
+                    fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.5rem" },
                     fontWeight: 600,
                     lineHeight: 1.4,
                     textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-                    mb: 2,
+                    mb: { xs: 1.5, sm: 2 },
                   }}
                 >
                   Real Stories from Real Pet Parents
@@ -327,7 +334,7 @@ const TestimonialsPage = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: { xs: "1rem", md: "1.1rem" },
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                     opacity: 0.95,
                     lineHeight: 1.6,
                   }}
@@ -345,7 +352,8 @@ const TestimonialsPage = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: 1,
-                  mb: 3,
+                  mb: { xs: 2, sm: 3 },
+                  flexWrap: "wrap",
                 }}
               >
                 {[...Array(5)].map((_, i) => (
@@ -372,9 +380,10 @@ const TestimonialsPage = () => {
 
               <Stack
                 direction={{ xs: "column", sm: "row" }}
-                spacing={2}
+                spacing={{ xs: 1.5, sm: 2 }}
                 justifyContent="center"
                 alignItems="center"
+                sx={{ mt: { xs: 2, sm: 0 } }}
               >
                 <Chip
                   icon={<VerifiedIcon />}
@@ -555,8 +564,8 @@ const TestimonialsPage = () => {
                   }}
                 >
                   Every review tells a story of trust, care, and exceptional
-                  service. Here&apos;s what makes our customers choose us again and
-                  again.
+                  service. Here&apos;s what makes our customers choose us again
+                  and again.
                 </Typography>
               </Box>
             </motion.div>
