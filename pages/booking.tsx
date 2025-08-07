@@ -910,6 +910,63 @@ const BookingPage = () => {
 
             <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
 
+            {/* Pricing Information */}
+            <Box sx={{ mb: 4 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "#067C92",
+                  fontWeight: 700,
+                  mb: 2.5,
+                  fontSize: { xs: "1.1rem", md: "1.2rem" },
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    bgcolor: "#00ADCD",
+                    mr: 2,
+                  }}
+                />
+                Pricing Information
+              </Typography>
+
+              <Box sx={{ pl: 3, mb: 3 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    p: 2,
+                    background: "rgba(0, 173, 205, 0.08)",
+                    borderRadius: 3,
+                    border: "1px solid rgba(0, 173, 205, 0.15)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
+                    💰
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#067C92",
+                      fontWeight: 500,
+                      lineHeight: 1.6,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>Pricing is automatically calculated</strong> during
+                    the booking process based on your dog&apos;s breed and size
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+
+            <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
+
             {/* What We Do Provide */}
             <Box sx={{ mb: 4 }}>
               <Typography

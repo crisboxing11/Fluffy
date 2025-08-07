@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import StarIcon from "@mui/icons-material/Star";
-import PetsIcon from "@mui/icons-material/Pets";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -31,64 +30,8 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-};
 
 // **Price Tiers**
-const pricing = [
-  {
-    size: "Small Dog",
-    price: "$85",
-    originalPrice: null,
-    desc: "Up to 25 lbs",
-    features: [
-      "Full grooming service",
-      "Nail trimming",
-      "Ear cleaning",
-      "Teeth brushing",
-    ],
-  },
-  {
-    size: "Medium Dog",
-    price: "$95-$125",
-    originalPrice: null,
-    desc: "26-60 lbs",
-    features: [
-      "Full grooming service",
-      "De-shedding treatment",
-      "Nail trimming",
-      "Ear cleaning",
-      "Teeth brushing",
-    ],
-  },
-  {
-    size: "Large Dog",
-    price: "$140-$185",
-    originalPrice: null,
-    desc: "Up to 120 lbs",
-    features: [
-      "Full grooming service",
-      "Premium de-shedding",
-      "Nail trimming",
-      "Ear cleaning",
-      "Teeth brushing",
-    ],
-  },
-  {
-    size: "Extra Large Dog",
-    price: "$200+",
-    originalPrice: null,
-    desc: "Over 120 lbs",
-    features: [
-      "Full grooming service",
-      "Premium care",
-      "Extended session",
-      "All standard services",
-    ],
-  },
-];
 
 // **Fluffy Preferred Membership Pricing**
 const preferredPricing = [
@@ -255,13 +198,12 @@ const PricesPage = () => {
                   fontSize: { xs: "0.8rem", md: "0.9rem" },
                 }}
               />
-             
             </Stack>
           </motion.div>
         </Container>
       </Box>
 
-      {/* Standard Pricing Section */}
+      {/* Pricing Overview Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <motion.div
           initial="hidden"
@@ -269,286 +211,536 @@ const PricesPage = () => {
           variants={fadeInUp}
           viewport={{ once: true }}
         >
-          <Box textAlign="center" mb={6}>
+          <Box textAlign="center" mb={8}>
             <Typography variant="h2" fontWeight="bold" color="#067C92" mb={2}>
-              Standard Pricing
+              Pricing Overview
             </Typography>
             <Typography
               variant="h6"
               color="text.secondary"
-              maxWidth={600}
+              maxWidth={700}
               mx="auto"
+              mb={6}
             >
-              All-inclusive grooming packages tailored to your pet&apos;s size and
-              needs
+              Your exact price is automatically calculated during booking based
+              on your dog&apos;s breed and specific needs
             </Typography>
           </Box>
 
-          <Grid container spacing={3} justifyContent="center">
-            {pricing.map((tier, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={scaleIn}
-                  viewport={{ once: true }}
+          {/* Pricing Categories */}
+          <Paper
+            elevation={8}
+            sx={{
+              p: { xs: 3, md: 6 },
+              borderRadius: "30px",
+              background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
+              border: "1px solid rgba(3,139,149,0.1)",
+              mb: 2,
+            }}
+          >
+            <Grid container spacing={4} alignItems="center">
+              {[
+                {
+                  size: "Small Dogs",
+                  weight: "0-25 lbs",
+                  price: "$85",
+                  examples: [
+                    "Chihuahua (Short-Haired)",
+                    "Boston Terrier",
+                    "French Bulldog",
+                    "Pug",
+                    "Miniature Pinscher",
+                    "Italian Greyhound",
+                  ],
+                  icon: "🐕",
+                  color: "#4CAF50",
+                },
+                {
+                  size: "Medium Dogs",
+                  weight: "26-60 lbs or Short Coat",
+                  price: "$95-$125",
+                  examples: [
+                    "Beagle",
+                    "Boxer",
+                    "Great Dane (Short Coat)",
+                    "Doberman",
+                    "Basset Hound",
+                    "Bulldog",
+                  ],
+                  icon: "🐶",
+                  color: "#FF9800",
+                },
+                {
+                  size: "Large Dogs",
+                  weight: "61-120 lbs with Long/Double Coat",
+                  price: "$140-$185",
+                  examples: [
+                    "Border Collie (No Shave Down)",
+                    "Golden Retriever (No Shave Down)",
+                    "German Shepherd (No Shave Down)",
+                    "Labrador Retriever",
+                    "Siberian Husky (No Shave Down)",
+                    "Australian Shepherd (No Shave Down)",
+                  ],
+                  icon: "🦮",
+                  color: "#2196F3",
+                },
+                {
+                  size: "Extra Large Dogs",
+                  weight: "120+ lbs",
+                  price: "$200+",
+                  examples: [
+                    "English Mastiff",
+                    "St Bernard",
+                    "Great Pyrenees (No Shave Down)",
+                    "Mastiff (Including Neapolitan and Bullmastiff)",
+                    "Bernese Mountain Dog",
+                    "Newfoundland",
+                  ],
+                  icon: "🐕‍🦺",
+                  color: "#9C27B0",
+                },
+              ].map((category, index) => (
+                <Grid item xs={12} sm={6} md={3} key={index}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <Card
+                      sx={{
+                        height: "100%",
+                        textAlign: "center",
+                        borderRadius: "20px",
+                        border: `2px solid ${category.color}`,
+                        background: "white",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          transform: "translateY(-8px)",
+                          boxShadow: `0 15px 30px ${category.color}30`,
+                        },
+                      }}
+                    >
+                      <CardContent sx={{ p: 3 }}>
+                        {/* Pet Icon */}
+                        <Box
+                          sx={{
+                            fontSize: "3rem",
+                            mb: 2,
+                            height: 80,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          {category.icon}
+                        </Box>
+
+                        {/* Size Category */}
+                        <Typography
+                          variant="h5"
+                          fontWeight="bold"
+                          sx={{ color: category.color, mb: 1 }}
+                        >
+                          {category.size}
+                        </Typography>
+
+                        {/* Weight Range */}
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          fontWeight="600"
+                          mb={2}
+                          sx={{ fontSize: "0.9rem", lineHeight: 1.3 }}
+                        >
+                          {category.weight}
+                        </Typography>
+
+                        {/* Price */}
+                        <Typography
+                          variant="h4"
+                          fontWeight="bold"
+                          color="#038B95"
+                          mb={3}
+                        >
+                          {category.price}
+                        </Typography>
+
+                        {/* Breed Examples */}
+                        <Box>
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            fontWeight="600"
+                            mb={1}
+                          >
+                            Example Breeds:
+                          </Typography>
+                          <Box sx={{ textAlign: "left" }}>
+                            {category.examples.map((breed, breedIndex) => (
+                              <Typography
+                                key={breedIndex}
+                                variant="body2"
+                                color="text.secondary"
+                                sx={{
+                                  fontSize: "0.85rem",
+                                  lineHeight: 1.4,
+                                  mb: 0.3,
+                                  "&:before": {
+                                    content: '"•"',
+                                    color: category.color,
+                                    fontWeight: "bold",
+                                    marginRight: "8px",
+                                  },
+                                }}
+                              >
+                                {breed}
+                              </Typography>
+                            ))}
+                          </Box>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
+
+            {/* Automatic Pricing Info */}
+            <Box textAlign="center" mt={6}>
+              <Paper
+                elevation={0}
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 2,
+                  px: 4,
+                  py: 2,
+                  bgcolor: "rgba(76, 175, 80, 0.1)",
+                  borderRadius: "50px",
+                  border: "1px solid rgba(76, 175, 80, 0.3)",
+                }}
+              >
+                <Typography variant="body1" color="#4CAF50" fontWeight="600">
+                  💡 Your exact price is automatically calculated when you book
+                  based on your dog&apos;s breed!
+                </Typography>
+              </Paper>
+            </Box>
+
+            {/* Important Pricing Disclaimers */}
+            <Box mt={6}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={4}>
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      p: 3,
+                      borderRadius: "16px",
+                      background: "rgba(255, 193, 7, 0.1)",
+                      border: "1px solid rgba(255, 193, 7, 0.3)",
+                      height: "100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="#F57C00"
+                      mb={2}
+                      sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                    >
+                      ⚠️ Breed Restrictions Apply
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={2}>
+                      We only service breeds on our approved list. Your breed
+                      will be verified during the booking process.
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="#067C92"
+                      fontWeight="600"
+                    >
+                      Note: Breeds marked &quot;(No Shave Down)&quot; cannot receive full
+                      shave services to protect their coat health.
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      p: 3,
+                      borderRadius: "16px",
+                      background: "rgba(33, 150, 243, 0.1)",
+                      border: "1px solid rgba(33, 150, 243, 0.3)",
+                      height: "100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="#1976D2"
+                      mb={2}
+                      sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                    >
+                      💳 Payment Information
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • 3.4% service charge applies to credit/debit cards
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • Cash payments accepted with no additional fees
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="#067C92"
+                      fontWeight="600"
+                    >
+                      • No travel fees ever - mobile service included
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      p: 3,
+                      borderRadius: "16px",
+                      background: "rgba(156, 39, 176, 0.1)",
+                      border: "1px solid rgba(156, 39, 176, 0.3)",
+                      height: "100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="#9C27B0"
+                      mb={2}
+                      sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                    >
+                      🎯 Pricing Factors
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • Dog size and coat type
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • Coat condition and matting
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="#067C92"
+                      fontWeight="600"
+                    >
+                      • Additional services requested
+                    </Typography>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Box>
+          </Paper>
+        </motion.div>
+      </Container>
+
+      {/* Fluffy Preferred Membership - Premium Section */}
+      <Container maxWidth="lg" sx={{ py: 2 }}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          viewport={{ once: true }}
+        >
+          <Paper
+            elevation={8}
+            sx={{
+              p: 6,
+              borderRadius: "30px",
+              background: "linear-gradient(135deg, #038B95 0%, #026B73 100%)",
+              color: "white",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            {/* Background Pattern */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: -50,
+                right: -50,
+                width: 200,
+                height: 200,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.1)",
+              }}
+            />
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: -30,
+                left: -30,
+                width: 150,
+                height: 150,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.05)",
+              }}
+            />
+
+            <Box textAlign="center" mb={6} position="relative" zIndex={1}>
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <Chip
+                  label="LIMITED SPOTS"
+                  sx={{
+                    position: "absolute",
+                    top: { xs: -20, md: -25 },
+                    right: { xs: -10, md: 0 },
+                    bgcolor: "#FFD700",
+                    color: "#000",
+                    fontWeight: "bold",
+                    fontSize: "0.75rem",
+                    px: 2,
+                    borderRadius: "20px",
+                    animation: "pulse 2s infinite",
+                    zIndex: 1,
+                    "@keyframes pulse": {
+                      "0%": { transform: "scale(1)" },
+                      "50%": { transform: "scale(1.05)" },
+                      "100%": { transform: "scale(1)" },
+                    },
+                  }}
+                />
+                <Typography
+                  variant="h2"
+                  fontWeight="bold"
+                  sx={{
+                    fontSize: { xs: "2rem", md: "3rem" },
+                    background: "linear-gradient(45deg, #FFD700, #FFF)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    mb: 2,
+                    pt: { xs: 2, md: 0 },
+                  }}
                 >
+                  Fluffy Preferred Membership
+                </Typography>
+              </Box>
+              <Typography variant="h6" sx={{ color: "#A1E0E3", mb: 2 }}>
+                Exclusive pricing for recurring clients • Save up to $20 per
+                visit
+              </Typography>
+              <Chip
+                icon={<LocalOfferIcon />}
+                label="Only for clients who groom at least every 6 weeks"
+                sx={{
+                  bgcolor: "rgba(255,215,0,0.2)",
+                  color: "#FFD700",
+                  fontWeight: "bold",
+                  border: "1px solid #FFD700",
+                  fontSize: { xs: "0.75rem", md: "0.875rem" },
+                  height: "auto",
+                  "& .MuiChip-label": {
+                    px: { xs: 1, md: 2 },
+                    py: 1,
+                    whiteSpace: "normal",
+                    textAlign: "center",
+                  },
+                }}
+              />
+            </Box>
+
+            <Grid container spacing={3} justifyContent="center">
+              {preferredPricing.map((tier, index) => (
+                <Grid item xs={12} sm={6} md={3} key={index}>
                   <Card
                     sx={{
-                      height: "100%",
-                      position: "relative",
-                      border: "1px solid #e0e0e0",
+                      bgcolor: "rgba(255,255,255,0.95)",
                       borderRadius: "20px",
+                      border: "2px solid #FFD700",
+                      position: "relative",
                       overflow: "visible",
                       transition: "all 0.3s ease",
                       "&:hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow: "0 20px 40px rgba(3, 139, 149, 0.15)",
+                        transform: "translateY(-5px)",
+                        boxShadow: "0 15px 30px rgba(255,215,0,0.3)",
                       },
                     }}
                   >
-                    <CardContent sx={{ p: 4, textAlign: "center" }}>
-                      <PetsIcon
-                        sx={{ fontSize: 40, color: "#038B95", mb: 2 }}
-                      />
+                    <Chip
+                      label={`Save ${tier.savings}`}
+                      sx={{
+                        position: "absolute",
+                        top: -12,
+                        right: 16,
+                        bgcolor: "#FFD700",
+                        color: "#000",
+                        fontWeight: "bold",
+                        fontSize: "0.75rem",
+                      }}
+                    />
+                    <CardContent sx={{ p: 3, textAlign: "center" }}>
                       <Typography
-                        variant="h5"
+                        variant="h6"
                         fontWeight="bold"
                         color="#067C92"
                         mb={1}
                       >
                         {tier.size}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" mb={3}>
+                      <Typography variant="body2" color="text.secondary" mb={2}>
                         {tier.desc}
                       </Typography>
-                      <Typography
-                        variant="h3"
-                        fontWeight="bold"
-                        color="#038B95"
-                        mb={3}
-                        sx={{ fontSize: { xs: "2rem", md: "2.5rem" } }}
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                        spacing={1}
+                        mb={2}
                       >
-                        {tier.price}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-
-          <Box textAlign="center" mt={4}>
-            <Typography variant="body2" color="text.secondary">
-              * 3.4% service charge applies to credit/debit card transactions
-            </Typography>
-          </Box>
-        </motion.div>
-      </Container>
-
-      {/* Fluffy Preferred Membership - Premium Section */}
-      <Box
-        sx={{
-          bgcolor: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
-          py: 8,
-        }}
-      >
-        <Container maxWidth="lg">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true }}
-          >
-            <Paper
-              elevation={8}
-              sx={{
-                p: 6,
-                borderRadius: "30px",
-                background: "linear-gradient(135deg, #038B95 0%, #026B73 100%)",
-                color: "white",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              {/* Background Pattern */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: -50,
-                  right: -50,
-                  width: 200,
-                  height: 200,
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.1)",
-                }}
-              />
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: -30,
-                  left: -30,
-                  width: 150,
-                  height: 150,
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.05)",
-                }}
-              />
-
-              <Box textAlign="center" mb={6} position="relative" zIndex={1}>
-                <Box sx={{ position: "relative", display: "inline-block" }}>
-                  <Chip
-                    label="LIMITED SPOTS"
-                    sx={{
-                      position: "absolute",
-                      top: { xs: -20, md: -25 },
-                      right: { xs: -10, md: 0 },
-                      bgcolor: "#FFD700",
-                      color: "#000",
-                      fontWeight: "bold",
-                      fontSize: "0.75rem",
-                      px: 2,
-                      borderRadius: "20px",
-                      animation: "pulse 2s infinite",
-                      zIndex: 1,
-                      "@keyframes pulse": {
-                        "0%": { transform: "scale(1)" },
-                        "50%": { transform: "scale(1.05)" },
-                        "100%": { transform: "scale(1)" },
-                      },
-                    }}
-                  />
-                  <Typography
-                    variant="h2"
-                    fontWeight="bold"
-                    sx={{
-                      fontSize: { xs: "2rem", md: "3rem" },
-                      background: "linear-gradient(45deg, #FFD700, #FFF)",
-                      backgroundClip: "text",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      mb: 2,
-                      pt: { xs: 2, md: 0 },
-                    }}
-                  >
-                    Fluffy Preferred Membership
-                  </Typography>
-                </Box>
-                <Typography variant="h6" sx={{ color: "#A1E0E3", mb: 2 }}>
-                  Exclusive pricing for recurring clients • Save up to $20 per
-                  visit
-                </Typography>
-                <Chip
-                  icon={<LocalOfferIcon />}
-                  label="Only for clients who groom at least every 6 weeks"
-                  sx={{
-                    bgcolor: "rgba(255,215,0,0.2)",
-                    color: "#FFD700",
-                    fontWeight: "bold",
-                    border: "1px solid #FFD700",
-                    fontSize: { xs: "0.75rem", md: "0.875rem" },
-                    height: "auto",
-                    "& .MuiChip-label": {
-                      px: { xs: 1, md: 2 },
-                      py: 1,
-                      whiteSpace: "normal",
-                      textAlign: "center",
-                    },
-                  }}
-                />
-              </Box>
-
-              <Grid container spacing={3} justifyContent="center">
-                {preferredPricing.map((tier, index) => (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
-                    <Card
-                      sx={{
-                        bgcolor: "rgba(255,255,255,0.95)",
-                        borderRadius: "20px",
-                        border: "2px solid #FFD700",
-                        position: "relative",
-                        overflow: "visible",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-5px)",
-                          boxShadow: "0 15px 30px rgba(255,215,0,0.3)",
-                        },
-                      }}
-                    >
-                      <Chip
-                        label={`Save ${tier.savings}`}
-                        sx={{
-                          position: "absolute",
-                          top: -12,
-                          right: 16,
-                          bgcolor: "#FFD700",
-                          color: "#000",
-                          fontWeight: "bold",
-                          fontSize: "0.75rem",
-                        }}
-                      />
-                      <CardContent sx={{ p: 3, textAlign: "center" }}>
-                        <Typography
-                          variant="h6"
-                          fontWeight="bold"
-                          color="#067C92"
-                          mb={1}
-                        >
-                          {tier.size}
-                        </Typography>
                         <Typography
                           variant="body2"
-                          color="text.secondary"
-                          mb={2}
+                          sx={{
+                            textDecoration: "line-through",
+                            color: "text.disabled",
+                          }}
                         >
-                          {tier.desc}
+                          {tier.originalPrice}
                         </Typography>
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="center"
-                          spacing={1}
-                          mb={2}
+                        <Typography
+                          variant="h4"
+                          fontWeight="bold"
+                          color="#038B95"
                         >
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              textDecoration: "line-through",
-                              color: "text.disabled",
-                            }}
-                          >
-                            {tier.originalPrice}
-                          </Typography>
-                          <Typography
-                            variant="h4"
-                            fontWeight="bold"
-                            color="#038B95"
-                          >
-                            {tier.price}
-                          </Typography>
-                        </Stack>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
+                          {tier.price}
+                        </Typography>
+                      </Stack>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
 
-              <Box textAlign="center" mt={6}>
-                <Typography variant="body1" sx={{ color: "#A1E0E3", mb: 2 }}>
-                  Membership is available after your first appointment
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "rgba(255,255,255,0.8)" }}
-                >
-                  Speak with your groomer or technician to join our exclusive
-                  program
-                </Typography>
-              </Box>
-            </Paper>
-          </motion.div>
-        </Container>
-      </Box>
+            <Box textAlign="center" mt={6}>
+              <Typography variant="body1" sx={{ color: "#A1E0E3", mb: 2 }}>
+                Membership is available after your first appointment
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "rgba(255,255,255,0.8)", mb: 2 }}
+              >
+                Speak with your groomer or technician to join our exclusive
+                program
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "rgba(255,255,255,0.9)", fontWeight: 600 }}
+              >
+                ⚡ Requirements: Groom at least every 6 weeks to maintain
+                membership benefits
+              </Typography>
+            </Box>
+          </Paper>
+        </motion.div>
+      </Container>
 
       {/* What's Included Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -600,6 +792,85 @@ const PricesPage = () => {
               </Paper>
             </Grid>
           </Grid>
+
+          {/* Service Limitations Notice */}
+          <Box mt={6}>
+            <Paper
+              elevation={4}
+              sx={{
+                p: 4,
+                borderRadius: "20px",
+                background:
+                  "linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1))",
+                border: "2px solid rgba(255, 193, 7, 0.3)",
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                color="#F57C00"
+                mb={3}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 1,
+                }}
+              >
+                ⚠️ Important Service Information
+              </Typography>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      color="#067C92"
+                      fontWeight="bold"
+                      mb={1}
+                    >
+                      🚫 No Shave Downs
+                    </Typography>
+                    <Typography variant="body2" color="#067C92">
+                      We don&apos;t provide shave downs on double-coated breeds to
+                      protect their coat health
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      color="#067C92"
+                      fontWeight="bold"
+                      mb={1}
+                    >
+                      🐕 Dogs Only
+                    </Typography>
+                    <Typography variant="body2" color="#067C92">
+                      We specialize in dog grooming and do not service cats
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      color="#067C92"
+                      fontWeight="bold"
+                      mb={1}
+                    >
+                      📋 Breed List Only
+                    </Typography>
+                    <Typography variant="body2" color="#067C92">
+                      Service limited to breeds on our approved list for safety
+                      and expertise
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Box>
 
           <Box textAlign="center" mt={4}>
             <Typography variant="body1" color="text.secondary">
@@ -930,10 +1201,10 @@ const PricesPage = () => {
 
                   <Box textAlign="center">
                     <Typography variant="h4" fontWeight="800" color="#038B95">
-                     500+ 
+                      500+
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                     Satisfied Clients
+                      Satisfied Clients
                     </Typography>
                   </Box>
                 </Paper>
