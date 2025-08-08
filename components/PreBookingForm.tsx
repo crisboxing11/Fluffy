@@ -251,12 +251,14 @@ const PreBookingForm = () => {
                 justifyContent: "center",
               }}
             >
-              <Chip
-                icon={<PetsIcon />}
-                label="Dogs Only"
-                size={isMobile ? "small" : "medium"}
-                sx={{ bgcolor: "#E3F2FD", color: "#1976D2" }}
-              />
+              {location === "Las Vegas, Nevada" && (
+                <Chip
+                  icon={<PetsIcon />}
+                  label="Dogs Only"
+                  size={isMobile ? "small" : "medium"}
+                  sx={{ bgcolor: "#E3F2FD", color: "#1976D2" }}
+                />
+              )}
               <Chip
                 icon={<CheckCircleIcon />}
                 label="Licensed & Insured"
