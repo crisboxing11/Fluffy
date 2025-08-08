@@ -30,7 +30,6 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
-
 // **Price Tiers**
 
 // **Fluffy Preferred Membership Pricing**
@@ -238,7 +237,7 @@ const PricesPage = () => {
               mb: 2,
             }}
           >
-            <Grid container spacing={4} alignItems="center">
+            <Grid container spacing={4} alignItems="stretch">
               {[
                 {
                   size: "Small Dogs",
@@ -300,8 +299,30 @@ const PricesPage = () => {
                   icon: "🐕‍🦺",
                   color: "#9C27B0",
                 },
+                {
+                  size: "Cats",
+                  weight: "ORLANDO ONLY",
+                  price: "$140",
+                  examples: [
+                    "Persian",
+                    "Maine Coon",
+                    "Ragdoll",
+                    "British Shorthair",
+                    "Siamese",
+                    "Domestic Shorthair/Longhair",
+                  ],
+                  icon: "🐱",
+                  color: "#E91E63",
+                  isOrlando: true,
+                },
               ].map((category, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={category.isOrlando ? 12 : 3}
+                  key={index}
+                >
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +335,11 @@ const PricesPage = () => {
                         textAlign: "center",
                         borderRadius: "20px",
                         border: `2px solid ${category.color}`,
-                        background: "white",
+                        background: category.isOrlando
+                          ? "linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(255, 255, 255, 1))"
+                          : "white",
+                        position: "relative",
+                        overflow: "visible",
                         transition: "all 0.3s ease",
                         "&:hover": {
                           transform: "translateY(-8px)",
@@ -322,6 +347,31 @@ const PricesPage = () => {
                         },
                       }}
                     >
+                      {category.isOrlando && (
+                        <Chip
+                          label="ORLANDO ONLY"
+                          sx={{
+                            position: "absolute",
+                            top: -12,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            bgcolor: "#E91E63",
+                            color: "white",
+                            fontWeight: "bold",
+                            fontSize: "0.75rem",
+                            animation: "pulse 2s infinite",
+                            "@keyframes pulse": {
+                              "0%": { transform: "translateX(-50%) scale(1)" },
+                              "50%": {
+                                transform: "translateX(-50%) scale(1.05)",
+                              },
+                              "100%": {
+                                transform: "translateX(-50%) scale(1)",
+                              },
+                            },
+                          }}
+                        />
+                      )}
                       <CardContent sx={{ p: 3 }}>
                         {/* Pet Icon */}
                         <Box
@@ -349,10 +399,21 @@ const PricesPage = () => {
                         {/* Weight Range */}
                         <Typography
                           variant="body1"
-                          color="text.secondary"
-                          fontWeight="600"
+                          color={
+                            category.isOrlando ? "#E91E63" : "text.secondary"
+                          }
+                          fontWeight={category.isOrlando ? "800" : "600"}
                           mb={2}
-                          sx={{ fontSize: "0.9rem", lineHeight: 1.3 }}
+                          sx={{
+                            fontSize: category.isOrlando ? "1rem" : "0.9rem",
+                            lineHeight: 1.3,
+                            textTransform: category.isOrlando
+                              ? "uppercase"
+                              : "none",
+                            letterSpacing: category.isOrlando
+                              ? "0.5px"
+                              : "normal",
+                          }}
                         >
                           {category.weight}
                         </Typography>
@@ -361,11 +422,30 @@ const PricesPage = () => {
                         <Typography
                           variant="h4"
                           fontWeight="bold"
-                          color="#038B95"
-                          mb={3}
+                          color={category.isOrlando ? "#E91E63" : "#038B95"}
+                          mb={category.isOrlando ? 2 : 3}
                         >
                           {category.price}
                         </Typography>
+
+                        {category.isOrlando && (
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: "#E91E63",
+                              fontWeight: 600,
+                              mb: 3,
+                              fontSize: "0.85rem",
+                              background: "rgba(233, 30, 99, 0.1)",
+                              px: 2,
+                              py: 0.5,
+                              borderRadius: "12px",
+                              border: "1px solid rgba(233, 30, 99, 0.2)",
+                            }}
+                          >
+                            Fluffy Preferred: $125
+                          </Typography>
+                        )}
 
                         {/* Breed Examples */}
                         <Box>
@@ -461,8 +541,8 @@ const PricesPage = () => {
                       color="#067C92"
                       fontWeight="600"
                     >
-                      Note: Breeds marked &quot;(No Shave Down)&quot; cannot receive full
-                      shave services to protect their coat health.
+                      Note: Breeds marked &quot;(No Shave Down)&quot; cannot
+                      receive full shave services to protect their coat health.
                     </Typography>
                   </Paper>
                 </Grid>
@@ -537,6 +617,150 @@ const PricesPage = () => {
                   </Paper>
                 </Grid>
               </Grid>
+            </Box>
+
+            {/* Orlando-Specific Services */}
+            <Box mt={6}>
+              <Paper
+                elevation={4}
+                sx={{
+                  p: 4,
+                  borderRadius: "20px",
+                  background:
+                    "linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.1))",
+                  border: "2px solid rgba(255, 152, 0, 0.3)",
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  color="#F57C00"
+                  mb={3}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 1,
+                  }}
+                >
+                  🌟 Orlando Exclusive Services
+                </Typography>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="h6"
+                        color="#067C92"
+                        fontWeight="bold"
+                        mb={2}
+                      >
+                        ✂️ Full Body Haircuts Available
+                      </Typography>
+                      <Typography variant="body2" color="#067C92" mb={2}>
+                        Subject to approval based on coat condition and matting
+                        level
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="#067C92"
+                        fontWeight="600"
+                      >
+                        Up to $50 specialized breed fee may apply
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="h6"
+                        color="#067C92"
+                        fontWeight="bold"
+                        mb={2}
+                        sx={{
+                          background:
+                            "linear-gradient(135deg, #FF6B6B, #FF8E53)",
+                          backgroundClip: "text",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }}
+                      >
+                        🐱 Cat Grooming Services
+                      </Typography>
+                      <Chip
+                        label="ORLANDO ONLY"
+                        sx={{
+                          bgcolor: "#FF6B6B",
+                          color: "white",
+                          fontWeight: "bold",
+                          fontSize: "0.75rem",
+                          mb: 2,
+                          animation: "pulse 2s infinite",
+                          "@keyframes pulse": {
+                            "0%": { transform: "scale(1)" },
+                            "50%": { transform: "scale(1.05)" },
+                            "100%": { transform: "scale(1)" },
+                          },
+                        }}
+                      />
+                      <Typography variant="body2" color="#067C92" mb={2}>
+                        Professional cat grooming starting at $140
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="#067C92"
+                        fontWeight="600"
+                      >
+                        Flat fee of $125 for Fluffy Preferred members
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="h6"
+                        color="#067C92"
+                        fontWeight="bold"
+                        mb={2}
+                      >
+                        💎 Fluffy Preferred Benefits
+                      </Typography>
+                      <Typography variant="body2" color="#067C92" mb={2}>
+                        50% off specialized breed fee for members who groom
+                        every 6 weeks
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="#067C92"
+                        fontWeight="600"
+                      >
+                        First appointment always full price
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="h6"
+                        color="#067C92"
+                        fontWeight="bold"
+                        mb={2}
+                      >
+                        🚫 Las Vegas Services
+                      </Typography>
+                      <Typography variant="body2" color="#067C92" mb={2}>
+                        Dog grooming services only
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="#067C92"
+                        fontWeight="600"
+                      >
+                        Cat grooming not available in Las Vegas
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Paper>
             </Box>
           </Paper>
         </motion.div>
@@ -832,8 +1056,8 @@ const PricesPage = () => {
                       🚫 No Shave Downs
                     </Typography>
                     <Typography variant="body2" color="#067C92">
-                      We don&apos;t provide shave downs on double-coated breeds to
-                      protect their coat health
+                      We don&apos;t provide shave downs on double-coated breeds
+                      to protect their coat health
                     </Typography>
                   </Box>
                 </Grid>

@@ -407,6 +407,41 @@ const PreBookingForm = () => {
             <br />
             • Breed restrictions apply
             <br />• No shave downs on double-coated breeds
+            {location === "Orlando, Florida" && (
+              <>
+                <br />• Extra breeds available in Orlando
+                <br />• Full body haircuts subject to approval
+                <br />• Haircuts subject to final approval based on coat
+                condition
+              </>
+            )}
+          </Typography>
+        </Alert>
+      )}
+
+      {/* Orlando-specific information for desktop */}
+      {!isMobile && currentStep === 0 && location === "Orlando, Florida" && (
+        <Alert
+          severity="success"
+          sx={{
+            mt: 3,
+            textAlign: "left",
+            borderRadius: 2,
+            bgcolor: "#E8F5E8",
+            "& .MuiAlert-message": {
+              fontSize: "0.875rem",
+            },
+          }}
+        >
+          <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
+            Orlando Exclusive Services:
+          </Typography>
+          <Typography variant="body2">
+            • Extra breeds available in our breed list
+            <br />
+            • Full body haircuts available subject to approval
+            <br />• Fluffy Pet Wash reserves the right to deny service if
+            guidelines are not met
           </Typography>
         </Alert>
       )}
@@ -494,6 +529,32 @@ const PreBookingForm = () => {
             Join the Fluffy Preferred Program after your first appointment and
             keep your membership active to enjoy lifetime perks.
           </Typography>
+
+          <Alert
+            severity="warning"
+            sx={{
+              textAlign: "left",
+              borderRadius: 2,
+              bgcolor: "#FFF3E0",
+              border: "1px solid #FF9800",
+              mb: 2,
+            }}
+          >
+            <Typography variant="body2" fontWeight={600} sx={{ mb: 1 }}>
+              ⚠️ Orlando Service Guidelines
+            </Typography>
+            <Typography variant="body2">
+              • Extra breeds available in our breed list
+              <br />
+              • Full body haircuts available subject to approval
+              <br />
+              • Breeds that require haircuts are subject to final approval and
+              may be denied based on how matted the coat is and the overall coat
+              condition
+              <br />• Fluffy Pet Wash reserves the right to deny service if
+              guidelines are not met
+            </Typography>
+          </Alert>
           <Alert
             severity="success"
             sx={{
