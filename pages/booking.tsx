@@ -328,11 +328,11 @@ const BookingPage = () => {
                           p: 2,
                           background: "rgba(255, 107, 107, 0.1)",
                           borderRadius: "12px",
-                          border: "1px solid rgba(255, 107, 107, 0.2)",
+                          border: "1px solid rgba(255, 107, 107, 0.3)",
                         }}
                       >
                         <Typography sx={{ fontSize: "1.2rem", mr: 2 }}>
-                          🚫
+                          🐱
                         </Typography>
                         <Typography
                           variant="body1"
@@ -342,7 +342,8 @@ const BookingPage = () => {
                             lineHeight: 1.5,
                           }}
                         >
-                          We do not groom cats - dogs only
+                          Cat grooming available in Orlando only - starting at
+                          $140
                         </Typography>
                       </Box>
 
@@ -527,12 +528,12 @@ const BookingPage = () => {
                             alignItems: "flex-start",
                             mb: 1.5,
                             p: 1.5,
-                            background: "rgba(255, 107, 107, 0.1)",
+                            background: "rgba(76, 175, 80, 0.1)",
                             borderRadius: 2,
                           }}
                         >
                           <Typography sx={{ fontSize: "1rem", mr: 1.5 }}>
-                            🚫
+                            🐱
                           </Typography>
                           <Typography
                             variant="body2"
@@ -542,7 +543,7 @@ const BookingPage = () => {
                               lineHeight: 1.4,
                             }}
                           >
-                            Dogs only - no cats
+                            Cat grooming available in Orlando only
                           </Typography>
                         </Box>
 
@@ -831,6 +832,36 @@ const BookingPage = () => {
                     alignItems: "flex-start",
                     mb: 2,
                     p: 2,
+                    background: "rgba(255, 107, 107, 0.08)",
+                    borderRadius: 3,
+                    border: "1px solid rgba(255, 107, 107, 0.15)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
+                    🐕
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#067C92",
+                      fontWeight: 500,
+                      lineHeight: 1.6,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>
+                      No shave downs under any circumstances for large breeds
+                    </strong>{" "}
+                    due to health concerns for the dog
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    mb: 2,
+                    p: 2,
                     background: "rgba(255, 193, 7, 0.08)",
                     borderRadius: 3,
                     border: "1px solid rgba(255, 193, 7, 0.15)",
@@ -905,6 +936,34 @@ const BookingPage = () => {
                     <strong>Only breeds on our breed list</strong> are serviced
                   </Typography>
                 </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    p: 2,
+                    background: "rgba(76, 175, 80, 0.08)",
+                    borderRadius: 3,
+                    border: "1px solid rgba(76, 175, 80, 0.15)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
+                    🐱
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#067C92",
+                      fontWeight: 500,
+                      lineHeight: 1.6,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>Cat grooming available in Orlando only</strong> -
+                    starting at $140, flat fee of $125 for Fluffy Preferred
+                    members
+                  </Typography>
+                </Box>
               </Box>
             </Box>
 
@@ -960,6 +1019,67 @@ const BookingPage = () => {
                   >
                     <strong>Pricing is automatically calculated</strong> during
                     the booking process based on your dog&apos;s breed and size
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+
+            <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
+
+            {/* Haircut Approval Disclaimer */}
+            <Box sx={{ mb: 4 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "#067C92",
+                  fontWeight: 700,
+                  mb: 2.5,
+                  fontSize: { xs: "1.1rem", md: "1.2rem" },
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    bgcolor: "#FF9800",
+                    mr: 2,
+                  }}
+                />
+                Haircut Approval Policy
+              </Typography>
+
+              <Box sx={{ pl: 3, mb: 3 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    p: 2,
+                    background: "rgba(255, 152, 0, 0.08)",
+                    borderRadius: 3,
+                    border: "1px solid rgba(255, 152, 0, 0.15)",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
+                    ⚠️
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#067C92",
+                      fontWeight: 500,
+                      lineHeight: 1.6,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>
+                      Breeds that require haircuts are subject to final approval
+                    </strong>{" "}
+                    and may be denied based on how matted the coat is and the
+                    overall coat condition. Fluffy Preferred members receive 50%
+                    off the specialized breed fee.
                   </Typography>
                 </Box>
               </Box>
@@ -1084,8 +1204,8 @@ const BookingPage = () => {
                       fontSize: { xs: "0.95rem", md: "1rem" },
                     }}
                   >
-                    <strong>Expert coat care</strong> to bring out your dog&apos;s
-                    best look
+                    <strong>Expert coat care</strong> to bring out your
+                    dog&apos;s best look
                   </Typography>
                 </Box>
               </Box>
