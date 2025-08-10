@@ -8,24 +8,12 @@ import {
   useMediaQuery,
   useTheme,
   Alert,
-  Fab,
-  Collapse,
-  Dialog,
-  DialogContent,
-  Button,
-  Divider,
 } from "@mui/material";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import territories from "../data/territories";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import InfoIcon from "@mui/icons-material/Info";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import ContentCutIcon from "@mui/icons-material/ContentCut";
-import SpaIcon from "@mui/icons-material/Spa";
-import PetsIcon from "@mui/icons-material/Pets";
 
 import { motion } from "framer-motion";
 
@@ -36,10 +24,8 @@ const BookingPage = () => {
   const [bookingUrl, setBookingUrl] = useState(territories[0].bookingUrl);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [showMobileInfo, setShowMobileInfo] = useState(false);
+
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [showOrlandoPopup, setShowOrlandoPopup] = useState(false);
-  const [orlandoAcknowledged, setOrlandoAcknowledged] = useState(false);
 
   useEffect(() => {
     // Get location from URL parameter
@@ -52,11 +38,6 @@ const BookingPage = () => {
       const territory = territories.find((t) => t.name === decodedLocation);
       if (territory) {
         setBookingUrl(territory.bookingUrl);
-      }
-
-      // Show Orlando popup if location is Orlando and not yet acknowledged
-      if (decodedLocation === "Orlando, Florida" && !orlandoAcknowledged) {
-        setShowOrlandoPopup(true);
       }
     }
 
@@ -452,819 +433,156 @@ const BookingPage = () => {
               </Box>
             )}
 
-            {/* Mobile Floating Info Button */}
-            {isMobile && (
-              <>
-                <Fab
-                  color="primary"
-                  sx={{
-                    position: "fixed",
-                    bottom: 20,
-                    right: 20,
-                    zIndex: 1000,
-                    background: "linear-gradient(135deg, #00ADCD, #0AC3E6)",
-                    "&:hover": {
-                      background: "linear-gradient(135deg, #038B95, #00ADCD)",
-                    },
-                  }}
-                  onClick={() => setShowMobileInfo(!showMobileInfo)}
-                >
-                  <InfoIcon />
-                </Fab>
-
-                <Collapse in={showMobileInfo}>
-                  <Box
-                    sx={{
-                      position: "fixed",
-                      bottom: 90,
-                      right: 20,
-                      left: 20,
-                      zIndex: 999,
-                      maxWidth: 350,
-                      ml: "auto",
-                    }}
-                  >
-                    <Paper
-                      sx={{
-                        p: 3,
-                        background:
-                          "linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))",
-                        backdropFilter: "blur(20px)",
-                        borderRadius: 3,
-                        border: "1px solid rgba(147, 237, 240, 0.4)",
-                        boxShadow: "0 20px 60px rgba(6, 124, 146, 0.25)",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          mb: 2,
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            fontWeight: 800,
-                            color: "#067C92",
-                            fontSize: "1.1rem",
-                          }}
-                        >
-                          Important Guidelines
-                        </Typography>
-                        <Box
-                          onClick={() => setShowMobileInfo(false)}
-                          sx={{ cursor: "pointer", p: 0.5 }}
-                        >
-                          <ExpandLessIcon sx={{ color: "#067C92" }} />
-                        </Box>
-                      </Box>
-
-                      <Box sx={{ space: 1.5 }}>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            mb: 1.5,
-                            p: 1.5,
-                            background: "rgba(76, 175, 80, 0.1)",
-                            borderRadius: 2,
-                          }}
-                        >
-                          <Typography sx={{ fontSize: "1rem", mr: 1.5 }}>
-                            🐱
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#067C92",
-                              fontWeight: 600,
-                              lineHeight: 1.4,
-                            }}
-                          >
-                            Cat grooming available in Orlando only
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            mb: 1.5,
-                            p: 1.5,
-                            background: "rgba(255, 193, 7, 0.1)",
-                            borderRadius: 2,
-                          }}
-                        >
-                          <Typography sx={{ fontSize: "1rem", mr: 1.5 }}>
-                            🧬
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#067C92",
-                              fontWeight: 600,
-                              lineHeight: 1.4,
-                            }}
-                          >
-                            Breed restrictions apply
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            mb: 2,
-                            p: 1.5,
-                            background: "rgba(33, 150, 243, 0.1)",
-                            borderRadius: 2,
-                          }}
-                        >
-                          <Typography sx={{ fontSize: "1rem", mr: 1.5 }}>
-                            ✂️
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#067C92",
-                              fontWeight: 600,
-                              lineHeight: 1.4,
-                            }}
-                          >
-                            No shave downs on double-coated breeds
-                          </Typography>
-                        </Box>
-
-                        <Box sx={{ textAlign: "center" }}>
-                          <MuiLink
-                            href="/blog/why-we-dont-shave"
-                            target="_blank"
-                            rel="noopener"
-                            sx={{
-                              color: "#00ADCD",
-                              fontWeight: 700,
-                              fontSize: "0.875rem",
-                              textDecoration: "none",
-                              borderBottom: "2px solid #93EDF0",
-                              paddingBottom: "2px",
-                              transition: "all 0.3s ease",
-                              "&:hover": {
-                                borderBottomColor: "#00ADCD",
-                                color: "#067C92",
-                              },
-                            }}
-                          >
-                            Why we don&apos;t do shave downs →
-                          </MuiLink>
-                        </Box>
-                      </Box>
-                    </Paper>
-                  </Box>
-                </Collapse>
-              </>
-            )}
-
-            {/* Mobile Bottom Info Bar */}
+            {/* Mobile Service Guidelines - Always Visible */}
             {isMobile && (
               <Box
                 sx={{
-                  position: "fixed",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: "linear-gradient(135deg, #00ADCD, #0AC3E6)",
-                  color: "white",
-                  p: 1,
-                  textAlign: "center",
-                  zIndex: 998,
-                  boxShadow: "0 -4px 20px rgba(0, 173, 205, 0.3)",
+                  mt: 3,
+                  mb: 2,
                 }}
               >
-                <Typography variant="caption" sx={{ fontWeight: 600 }}>
-                  🏆 Licensed & Insured • ⭐ 5-Star Reviews • 🚐 Mobile
-                  Convenience
-                </Typography>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <Paper
+                    sx={{
+                      p: 2.5,
+                      background:
+                        "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))",
+                      backdropFilter: "blur(20px)",
+                      borderRadius: "16px",
+                      border: "1px solid rgba(147, 237, 240, 0.4)",
+                      boxShadow: "0 8px 32px rgba(6, 124, 146, 0.1)",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        mb: 2,
+                        color: "#067C92",
+                        fontSize: "1rem",
+                        textAlign: "center",
+                      }}
+                    >
+                      📋 Service Guidelines
+                    </Typography>
+
+                    <Box sx={{ space: 1.5 }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 1.5,
+                          p: 1.5,
+                          background: "rgba(255, 107, 107, 0.08)",
+                          borderRadius: "10px",
+                          border: "1px solid rgba(255, 107, 107, 0.15)",
+                        }}
+                      >
+                        <Typography sx={{ fontSize: "0.9rem", mr: 1.5 }}>
+                          🐱
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#067C92",
+                            fontWeight: 500,
+                            lineHeight: 1.3,
+                            fontSize: "0.85rem",
+                          }}
+                        >
+                          Cat grooming available in Orlando only
+                        </Typography>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 1.5,
+                          p: 1.5,
+                          background: "rgba(255, 193, 7, 0.08)",
+                          borderRadius: "10px",
+                          border: "1px solid rgba(255, 193, 7, 0.15)",
+                        }}
+                      >
+                        <Typography sx={{ fontSize: "0.9rem", mr: 1.5 }}>
+                          🧬
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#067C92",
+                            fontWeight: 500,
+                            lineHeight: 1.3,
+                            fontSize: "0.85rem",
+                          }}
+                        >
+                          If your dog&apos;s breed isn&apos;t listed, we don&apos;t service
+                          that breed
+                        </Typography>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 1.5,
+                          p: 1.5,
+                          background: "rgba(33, 150, 243, 0.08)",
+                          borderRadius: "10px",
+                          border: "1px solid rgba(33, 150, 243, 0.15)",
+                        }}
+                      >
+                        <Typography sx={{ fontSize: "0.9rem", mr: 1.5 }}>
+                          ✂️
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#067C92",
+                            fontWeight: 500,
+                            lineHeight: 1.3,
+                            fontSize: "0.85rem",
+                          }}
+                        >
+                          No shave downs on double-coated breeds
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ textAlign: "center", mt: 1.5 }}>
+                        <MuiLink
+                          href="/blog/why-we-dont-shave"
+                          target="_blank"
+                          rel="noopener"
+                          sx={{
+                            color: "#00ADCD",
+                            fontWeight: 600,
+                            fontSize: "0.8rem",
+                            textDecoration: "none",
+                            borderBottom: "1px solid #93EDF0",
+                            paddingBottom: "1px",
+                            transition: "all 0.3s ease",
+                            "&:hover": {
+                              borderBottomColor: "#00ADCD",
+                              color: "#067C92",
+                            },
+                          }}
+                        >
+                          Why we don&apos;t do shave downs →
+                        </MuiLink>
+                      </Box>
+                    </Box>
+                  </Paper>
+                </motion.div>
               </Box>
             )}
           </Box>
         </Container>
       </motion.div>
-
-      {/* Orlando Service Guidelines Popup */}
-      <Dialog
-        open={showOrlandoPopup}
-        onClose={() => {}} // Prevent closing without acknowledgment
-        maxWidth="sm"
-        fullWidth
-        fullScreen={isMobile}
-        PaperProps={{
-          sx: {
-            borderRadius: isMobile ? 0 : 4,
-            background:
-              "linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))",
-            backdropFilter: "blur(20px)",
-            border: "1px solid rgba(147, 237, 240, 0.3)",
-            boxShadow: "0 25px 80px rgba(6, 124, 146, 0.25)",
-            overflow: "hidden",
-          },
-        }}
-        BackdropProps={{
-          sx: {
-            backgroundColor: "rgba(6, 124, 146, 0.4)",
-            backdropFilter: "blur(8px)",
-          },
-        }}
-      >
-        <DialogContent sx={{ p: 0 }}>
-          {/* Header */}
-          <Box
-            sx={{
-              background: "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 100%)",
-              color: "white",
-              p: { xs: 3, md: 4 },
-              textAlign: "center",
-              position: "relative",
-              overflow: "hidden",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background:
-                  "url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.1)%22 stroke-width=%222%22/></svg>') repeat",
-                backgroundSize: "60px 60px",
-                opacity: 0.3,
-              },
-            }}
-          >
-            <Box sx={{ position: "relative", zIndex: 1 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  mb: 2,
-                }}
-              >
-                <PetsIcon sx={{ fontSize: { xs: 28, md: 32 }, mr: 1.5 }} />
-                <Typography
-                  variant={isMobile ? "h5" : "h4"}
-                  sx={{
-                    fontWeight: 800,
-                    fontSize: { xs: "1.5rem", md: "1.8rem" },
-                  }}
-                >
-                  Orlando Service Guidelines
-                </Typography>
-              </Box>
-              <Typography
-                variant="body1"
-                sx={{
-                  opacity: 0.95,
-                  fontSize: { xs: "1rem", md: "1.1rem" },
-                  fontWeight: 500,
-                }}
-              >
-                Important information about our Orlando services
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Instructions */}
-          <Box
-            sx={{
-              p: { xs: 2.5, md: 3 },
-              background: "rgba(0, 173, 205, 0.08)",
-              borderBottom: "1px solid rgba(0, 173, 205, 0.15)",
-            }}
-          >
-            <Typography
-              variant="body1"
-              sx={{
-                color: "#067C92",
-                fontWeight: 600,
-                textAlign: "center",
-                fontSize: { xs: "1rem", md: "1.1rem" },
-                lineHeight: 1.5,
-                mb: 1,
-              }}
-            >
-              📋 Please read the following information carefully
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: "#038B95",
-                textAlign: "center",
-                fontSize: { xs: "0.9rem", md: "1rem" },
-                fontWeight: 500,
-                opacity: 0.9,
-              }}
-            >
-              Scroll down to review all details, then click &quot;I Understand &
-              Continue&quot; to proceed
-            </Typography>
-          </Box>
-
-          {/* Content */}
-          <Box sx={{ p: { xs: 3, md: 4 } }}>
-            {/* What We Don't Provide */}
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#067C92",
-                  fontWeight: 700,
-                  mb: 2.5,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    bgcolor: "#FF6B6B",
-                    mr: 2,
-                  }}
-                />
-                Service Limitations
-              </Typography>
-
-              <Box sx={{ pl: 3, space: 2 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(255, 107, 107, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 107, 107, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    🚫
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>No shave downs</strong> or detailed full-body
-                    haircuts
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(255, 107, 107, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 107, 107, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    🐕
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>
-                      No shave downs under any circumstances for large breeds
-                    </strong>{" "}
-                    due to health concerns for the dog
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(255, 193, 7, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 193, 7, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    ⚠️
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    Service may be{" "}
-                    <strong>denied for severely matted dogs</strong>
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(156, 39, 176, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(156, 39, 176, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    ✂️
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Limited styling services</strong> available
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    p: 2,
-                    background: "rgba(33, 150, 243, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(33, 150, 243, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    🐕
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Only breeds on our breed list</strong> are serviced
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    p: 2,
-                    background: "rgba(76, 175, 80, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(76, 175, 80, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    🐱
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Cat grooming available in Orlando only</strong> -
-                    starting at $140, flat fee of $125 for Fluffy Preferred
-                    members
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
-
-            {/* Pricing Information */}
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#067C92",
-                  fontWeight: 700,
-                  mb: 2.5,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    bgcolor: "#00ADCD",
-                    mr: 2,
-                  }}
-                />
-                Pricing Information
-              </Typography>
-
-              <Box sx={{ pl: 3, mb: 3 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    p: 2,
-                    background: "rgba(0, 173, 205, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(0, 173, 205, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    💰
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Pricing is automatically calculated</strong> during
-                    the booking process based on your dog&apos;s breed and size
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
-
-            {/* Haircut Approval Disclaimer */}
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#067C92",
-                  fontWeight: 700,
-                  mb: 2.5,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    bgcolor: "#FF9800",
-                    mr: 2,
-                  }}
-                />
-                Haircut Approval Policy
-              </Typography>
-
-              <Box sx={{ pl: 3, mb: 3 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    p: 2,
-                    background: "rgba(255, 152, 0, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 152, 0, 0.15)",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "1.2rem", mr: 2, mt: 0.2 }}>
-                    ⚠️
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>
-                      Breeds that require haircuts are subject to final approval
-                    </strong>{" "}
-                    and may be denied based on how matted the coat is and the
-                    overall coat condition. Fluffy Preferred members receive 50%
-                    off the specialized breed fee.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            <Divider sx={{ my: 3, bgcolor: "rgba(147, 237, 240, 0.3)" }} />
-
-            {/* What We Do Provide */}
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#067C92",
-                  fontWeight: 700,
-                  mb: 2.5,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    bgcolor: "#4CAF50",
-                    mr: 2,
-                  }}
-                />
-                What We Excel At
-              </Typography>
-
-              <Box sx={{ pl: 3, space: 2 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(76, 175, 80, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(76, 175, 80, 0.15)",
-                  }}
-                >
-                  <ContentCutIcon
-                    sx={{
-                      color: "#4CAF50",
-                      mr: 2,
-                      mt: 0.2,
-                      fontSize: "1.3rem",
-                    }}
-                  />
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Professional trims</strong> and coat maintenance
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    mb: 2,
-                    p: 2,
-                    background: "rgba(0, 173, 205, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(0, 173, 205, 0.15)",
-                  }}
-                >
-                  <SpaIcon
-                    sx={{
-                      color: "#00ADCD",
-                      mr: 2,
-                      mt: 0.2,
-                      fontSize: "1.3rem",
-                    }}
-                  />
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Premium spa experience</strong> with luxury care
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    p: 2,
-                    background: "rgba(255, 152, 0, 0.08)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 152, 0, 0.15)",
-                  }}
-                >
-                  <CheckCircleIcon
-                    sx={{
-                      color: "#FF9800",
-                      mr: 2,
-                      mt: 0.2,
-                      fontSize: "1.3rem",
-                    }}
-                  />
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#067C92",
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                    }}
-                  >
-                    <strong>Expert coat care</strong> to bring out your
-                    dog&apos;s best look
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            {/* Acknowledgment Button */}
-            <Box sx={{ textAlign: "center", pt: 2 }}>
-              <Button
-                onClick={() => {
-                  setOrlandoAcknowledged(true);
-                  setShowOrlandoPopup(false);
-                }}
-                variant="contained"
-                size="large"
-                fullWidth={isMobile}
-                sx={{
-                  background:
-                    "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 100%)",
-                  color: "white",
-                  fontWeight: 700,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  py: { xs: 1.8, md: 2 },
-                  px: { xs: 4, md: 6 },
-                  borderRadius: 3,
-                  textTransform: "none",
-                  boxShadow: "0 8px 32px rgba(0, 173, 205, 0.3)",
-                  minWidth: { xs: "auto", md: 280 },
-                  "&:hover": {
-                    background:
-                      "linear-gradient(135deg, #038B95 0%, #00ADCD 100%)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  },
-                  "&:active": {
-                    transform: "translateY(0px)",
-                  },
-                }}
-              >
-                I Understand & Continue
-              </Button>
-
-              <Typography
-                variant="caption"
-                sx={{
-                  display: "block",
-                  mt: 2,
-                  color: "#038B95",
-                  fontSize: { xs: "0.8rem", md: "0.85rem" },
-                  fontWeight: 500,
-                  opacity: 0.8,
-                }}
-              >
-                By continuing, you acknowledge our service guidelines
-              </Typography>
-            </Box>
-          </Box>
-        </DialogContent>
-      </Dialog>
     </Box>
   );
 };
