@@ -199,7 +199,7 @@ const Navbar = () => {
                 Book Now
               </Button>
 
-              <Button
+              {/* <Button
                 variant="outlined"
                 href="https://franchise.fluffypetwash.com"
                 target="_blank"
@@ -229,7 +229,7 @@ const Navbar = () => {
                 }}
               >
                 Franchise With Us!
-              </Button>
+              </Button> */}
             </Box>
           </Box>
 
@@ -438,7 +438,7 @@ const Navbar = () => {
                       <Button
                         fullWidth
                         variant="outlined"
-                        href="https://franchise.fluffypetwash.com"
+                        href="#"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Franchise with Fluffy Pet Wash"

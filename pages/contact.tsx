@@ -422,7 +422,7 @@ const ContactPage = () => {
                 />
               </Link>
               <Link
-                href="https://franchise.fluffypetwash.com"
+                href="#"
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
