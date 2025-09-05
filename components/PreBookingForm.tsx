@@ -5,9 +5,6 @@ import {
   TextField,
   Button,
   MenuItem,
-  Dialog,
-  DialogTitle,
-  DialogContent,
   Chip,
   Alert,
   Stepper,
@@ -28,7 +25,7 @@ const PreBookingForm = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
-  const [showOffer, setShowOffer] = useState(false);
+
   const [isLoading, setIsLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -39,7 +36,7 @@ const PreBookingForm = () => {
     setCurrentStep(0);
     setIsLoading(false);
     setError("");
-    setShowOffer(false);
+
     setLocation("");
   }, []);
 
@@ -61,11 +58,6 @@ const PreBookingForm = () => {
 
     // Simulate brief loading for better UX
     setTimeout(() => {
-      if (location === "Orlando, Florida") {
-        setShowOffer(true);
-        setIsLoading(false);
-        return;
-      }
       proceedToBooking();
     }, 800);
   };
@@ -447,132 +439,6 @@ const PreBookingForm = () => {
           </Typography>
         </Alert>
       )}
-      <Dialog
-        open={showOffer}
-        onClose={() => setShowOffer(false)}
-        fullScreen={isMobile}
-        maxWidth="sm"
-        fullWidth
-        PaperProps={{
-          sx: {
-            borderRadius: isMobile ? 0 : 3,
-            m: isMobile ? 0 : 2,
-          },
-        }}
-      >
-        <DialogTitle
-          sx={{
-            background: "linear-gradient(90deg, #00ADCD, #038B95)",
-            color: "#fff",
-            fontWeight: "bold",
-            textAlign: "center",
-            fontSize: { xs: "1.25rem", md: "1.5rem" },
-            py: { xs: 2, md: 3 },
-          }}
-        >
-          🎉 Special Orlando Offer!
-        </DialogTitle>
-        <DialogContent sx={{ textAlign: "center", p: { xs: 2, md: 3 } }}>
-          <Box sx={{ mb: 3 }}>
-            <Typography
-              variant={isMobile ? "h6" : "h5"}
-              fontWeight="bold"
-              mb={2}
-              sx={{
-                background: "linear-gradient(135deg, #FF6B35, #F7931E)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              10% Off All August Bookings!
-            </Typography>
-            <Chip
-              label="Use Code: FLUFFY10"
-              sx={{
-                bgcolor: "#FFE0B2",
-                color: "#E65100",
-                fontWeight: "bold",
-                fontSize: { xs: "0.875rem", md: "1rem" },
-                px: 1,
-                mb: 3,
-              }}
-            />
-          </Box>
-
-          {/* Primary CTA Button - Moved up for better visibility */}
-          <Button
-            onClick={proceedToBooking}
-            variant="contained"
-            size="large"
-            fullWidth
-            sx={{
-              background: "linear-gradient(90deg, #00ADCD, #038B95)",
-              mb: 3,
-              py: { xs: 1.5, md: 2 },
-              fontSize: { xs: "1.1rem", md: "1.2rem" },
-              fontWeight: "bold",
-              borderRadius: 2,
-              textTransform: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #038B95, #00ADCD)",
-                transform: "scale(1.02)",
-                transition: "all 0.3s ease-in-out",
-              },
-            }}
-          >
-            Continue to Booking →
-          </Button>
-
-          <Typography
-            variant="body2"
-            sx={{ mb: 3, lineHeight: 1.6, color: "text.secondary" }}
-          >
-            Join the Fluffy Preferred Program after your first appointment and
-            keep your membership active to enjoy lifetime perks.
-          </Typography>
-
-          <Alert
-            severity="warning"
-            sx={{
-              textAlign: "left",
-              borderRadius: 2,
-              bgcolor: "#FFF3E0",
-              border: "1px solid #FF9800",
-              mb: 2,
-            }}
-          >
-            <Typography variant="body2" fontWeight={600} sx={{ mb: 1 }}>
-              ⚠️ Orlando Service Guidelines
-            </Typography>
-            <Typography variant="body2">
-              • Extra breeds available in our breed list
-              <br />
-              • Full body haircuts available subject to approval
-              <br />
-              • Breeds that require haircuts are subject to final approval and
-              may be denied based on how matted the coat is and the overall coat
-              condition
-              <br />• Fluffy Pet Wash reserves the right to deny service if
-              guidelines are not met
-            </Typography>
-          </Alert>
-          <Alert
-            severity="success"
-            sx={{
-              textAlign: "left",
-              borderRadius: 2,
-              bgcolor: "#E8F5E8",
-              border: "1px solid #4CAF50",
-              mb: 2,
-            }}
-          >
-            <Typography variant="body2" fontWeight={600}>
-              🎯 Limited Time Offer - Secure your 10% discount now!
-            </Typography>
-          </Alert>
-        </DialogContent>
-      </Dialog>
     </Box>
   );
 };
