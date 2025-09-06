@@ -34,10 +34,22 @@ const HomePage = () => {
   }, [router.events]);
 
   useEffect(() => {
+    // Only run location check after component has mounted on client
+    if (
+      typeof window === "undefined" ||
+      !router.isReady ||
+      router.pathname !== "/"
+    ) {
+      return;
+    }
+
     const checkLocation = async () => {
       try {
         const res = await fetch("https://ipapi.co/json/");
-        if (!res.ok) return;
+        if (!res.ok) {
+          console.warn("Location service unavailable");
+          return;
+        }
         const data = await res.json();
         const lat = parseFloat(data.latitude);
         const lon = parseFloat(data.longitude);
@@ -52,12 +64,23 @@ const HomePage = () => {
         if (inOrlandoArea && router.pathname !== "/orlando") {
           router.replace("/orlando");
         }
-      } catch (e) {
-        console.error(e);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (e: any) {
+        // Silently handle fetch errors - location detection is optional
+        console.warn(
+          "Location detection failed:",
+          e?.message || "Unknown error",
+        );
       }
     };
-    checkLocation();
-  }, [router]);
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    const frameId = requestAnimationFrame(() => {
+      checkLocation();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [router.isReady, router.pathname, router]);
 
   return (
     <Box>
@@ -404,8 +427,8 @@ const HomePage = () => {
                 mb: 2,
               }}
             >
-              Start by confirming your dog&apos;s eligibility for our premium mobile
-              grooming services.
+              Start by confirming your dog&apos;s eligibility for our premium
+              mobile grooming services.
             </Typography>
 
             {/* Process Steps */}
