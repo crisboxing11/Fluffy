@@ -16,7 +16,6 @@ import {
 import { useRouter } from "next/router";
 import territories from "../data/territories";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PetsIcon from "@mui/icons-material/Pets";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const PreBookingForm = () => {
@@ -243,14 +242,6 @@ const PreBookingForm = () => {
                 justifyContent: "center",
               }}
             >
-              {location === "Las Vegas, Nevada" && (
-                <Chip
-                  icon={<PetsIcon />}
-                  label="Dogs Only"
-                  size={isMobile ? "small" : "medium"}
-                  sx={{ bgcolor: "#E3F2FD", color: "#1976D2" }}
-                />
-              )}
               <Chip
                 icon={<CheckCircleIcon />}
                 label="Licensed & Insured"
@@ -409,33 +400,6 @@ const PreBookingForm = () => {
                 condition
               </>
             )}
-          </Typography>
-        </Alert>
-      )}
-
-      {/* Orlando-specific information for desktop */}
-      {!isMobile && currentStep === 0 && location === "Orlando, Florida" && (
-        <Alert
-          severity="success"
-          sx={{
-            mt: 3,
-            textAlign: "left",
-            borderRadius: 2,
-            bgcolor: "#E8F5E8",
-            "& .MuiAlert-message": {
-              fontSize: "0.875rem",
-            },
-          }}
-        >
-          <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
-            Orlando Exclusive Services:
-          </Typography>
-          <Typography variant="body2">
-            • Extra breeds available in our breed list
-            <br />
-            • Full body haircuts available subject to approval
-            <br />• Fluffy Pet Wash reserves the right to deny service if
-            guidelines are not met
           </Typography>
         </Alert>
       )}
