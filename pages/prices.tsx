@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -62,6 +63,13 @@ const preferredPricing = [
     savings: "$15+",
     desc: "Over 120 lbs",
   },
+  {
+    size: "Cats",
+    price: "$125",
+    originalPrice: "$140",
+    savings: "$15",
+    desc: "All breeds",
+  },
 ];
 
 // **All-Inclusive Services List**
@@ -81,6 +89,28 @@ const services = [
 ];
 
 const PricesPage = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure client-side rendering
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Don't render dynamic content until client-side
+  if (!isClient) {
+    return (
+      <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
+          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
+            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
+              Loading Pricing Information...
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
+    );
+  }
+
   return (
     <Box sx={{ bgcolor: "#ffffff" }}>
       {/* SEO & Metadata */}
@@ -301,7 +331,7 @@ const PricesPage = () => {
                 },
                 {
                   size: "Cats",
-                  weight: "ORLANDO ONLY",
+                  weight: "All Locations",
                   price: "$140",
                   examples: [
                     "Persian",
@@ -313,14 +343,14 @@ const PricesPage = () => {
                   ],
                   icon: "🐱",
                   color: "#E91E63",
-                  isOrlando: true,
+                  isAvailable: true,
                 },
               ].map((category, index) => (
                 <Grid
                   item
                   xs={12}
                   sm={6}
-                  md={category.isOrlando ? 12 : 3}
+                  md={category.isAvailable ? 12 : 3}
                   key={index}
                 >
                   <motion.div
@@ -335,7 +365,7 @@ const PricesPage = () => {
                         textAlign: "center",
                         borderRadius: "20px",
                         border: `2px solid ${category.color}`,
-                        background: category.isOrlando
+                        background: category.isAvailable
                           ? "linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(255, 255, 255, 1))"
                           : "white",
                         position: "relative",
@@ -347,15 +377,15 @@ const PricesPage = () => {
                         },
                       }}
                     >
-                      {category.isOrlando && (
+                      {category.isAvailable && (
                         <Chip
-                          label="ORLANDO ONLY"
+                          label="NOW AVAILABLE"
                           sx={{
                             position: "absolute",
                             top: -12,
                             left: "50%",
                             transform: "translateX(-50%)",
-                            bgcolor: "#E91E63",
+                            bgcolor: "#4CAF50",
                             color: "white",
                             fontWeight: "bold",
                             fontSize: "0.75rem",
@@ -400,17 +430,17 @@ const PricesPage = () => {
                         <Typography
                           variant="body1"
                           color={
-                            category.isOrlando ? "#E91E63" : "text.secondary"
+                            category.isAvailable ? "#4CAF50" : "text.secondary"
                           }
-                          fontWeight={category.isOrlando ? "800" : "600"}
+                          fontWeight={category.isAvailable ? "800" : "600"}
                           mb={2}
                           sx={{
-                            fontSize: category.isOrlando ? "1rem" : "0.9rem",
+                            fontSize: category.isAvailable ? "1rem" : "0.9rem",
                             lineHeight: 1.3,
-                            textTransform: category.isOrlando
+                            textTransform: category.isAvailable
                               ? "uppercase"
                               : "none",
-                            letterSpacing: category.isOrlando
+                            letterSpacing: category.isAvailable
                               ? "0.5px"
                               : "normal",
                           }}
@@ -422,25 +452,25 @@ const PricesPage = () => {
                         <Typography
                           variant="h4"
                           fontWeight="bold"
-                          color={category.isOrlando ? "#E91E63" : "#038B95"}
-                          mb={category.isOrlando ? 2 : 3}
+                          color={category.isAvailable ? "#4CAF50" : "#038B95"}
+                          mb={category.isAvailable ? 2 : 3}
                         >
                           {category.price}
                         </Typography>
 
-                        {category.isOrlando && (
+                        {category.isAvailable && (
                           <Typography
                             variant="body2"
                             sx={{
-                              color: "#E91E63",
+                              color: "#4CAF50",
                               fontWeight: 600,
                               mb: 3,
                               fontSize: "0.85rem",
-                              background: "rgba(233, 30, 99, 0.1)",
+                              background: "rgba(76, 175, 80, 0.1)",
                               px: 2,
                               py: 0.5,
                               borderRadius: "12px",
-                              border: "1px solid rgba(233, 30, 99, 0.2)",
+                              border: "1px solid rgba(76, 175, 80, 0.2)",
                             }}
                           >
                             Fluffy Preferred: $125
@@ -570,7 +600,13 @@ const PricesPage = () => {
                       • 3.4% service charge applies to credit/debit cards
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      • Cash payments accepted with no additional fees
+                      • Cash and Zelle payments accepted with no additional fees
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • $15 health and sanitation fee may apply
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • Surcharge may apply for severe matting and aggressive pets
                     </Typography>
                     <Typography
                       variant="body2"
@@ -607,6 +643,9 @@ const PricesPage = () => {
                     <Typography variant="body2" color="#067C92" mb={1}>
                       • Coat condition and matting
                     </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      • Cat pricing varies based on temperament and coat condition
+                    </Typography>
                     <Typography
                       variant="body2"
                       color="#067C92"
@@ -617,150 +656,6 @@ const PricesPage = () => {
                   </Paper>
                 </Grid>
               </Grid>
-            </Box>
-
-            {/* Orlando-Specific Services */}
-            <Box mt={6}>
-              <Paper
-                elevation={4}
-                sx={{
-                  p: 4,
-                  borderRadius: "20px",
-                  background:
-                    "linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.1))",
-                  border: "2px solid rgba(255, 152, 0, 0.3)",
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  fontWeight="bold"
-                  color="#F57C00"
-                  mb={3}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 1,
-                  }}
-                >
-                  🌟 Orlando Exclusive Services
-                </Typography>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={{ textAlign: "center" }}>
-                      <Typography
-                        variant="h6"
-                        color="#067C92"
-                        fontWeight="bold"
-                        mb={2}
-                      >
-                        ✂️ Full Body Haircuts Available
-                      </Typography>
-                      <Typography variant="body2" color="#067C92" mb={2}>
-                        Subject to approval based on coat condition and matting
-                        level
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="#067C92"
-                        fontWeight="600"
-                      >
-                        Up to $50 specialized breed fee may apply
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={{ textAlign: "center" }}>
-                      <Typography
-                        variant="h6"
-                        color="#067C92"
-                        fontWeight="bold"
-                        mb={2}
-                        sx={{
-                          background:
-                            "linear-gradient(135deg, #FF6B6B, #FF8E53)",
-                          backgroundClip: "text",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                        }}
-                      >
-                        🐱 Cat Grooming Services
-                      </Typography>
-                      <Chip
-                        label="ORLANDO ONLY"
-                        sx={{
-                          bgcolor: "#FF6B6B",
-                          color: "white",
-                          fontWeight: "bold",
-                          fontSize: "0.75rem",
-                          mb: 2,
-                          animation: "pulse 2s infinite",
-                          "@keyframes pulse": {
-                            "0%": { transform: "scale(1)" },
-                            "50%": { transform: "scale(1.05)" },
-                            "100%": { transform: "scale(1)" },
-                          },
-                        }}
-                      />
-                      <Typography variant="body2" color="#067C92" mb={2}>
-                        Professional cat grooming starting at $140
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="#067C92"
-                        fontWeight="600"
-                      >
-                        Flat fee of $125 for Fluffy Preferred members
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={{ textAlign: "center" }}>
-                      <Typography
-                        variant="h6"
-                        color="#067C92"
-                        fontWeight="bold"
-                        mb={2}
-                      >
-                        💎 Fluffy Preferred Benefits
-                      </Typography>
-                      <Typography variant="body2" color="#067C92" mb={2}>
-                        50% off specialized breed fee for members who groom
-                        every 6 weeks
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="#067C92"
-                        fontWeight="600"
-                      >
-                        First appointment always full price
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={{ textAlign: "center" }}>
-                      <Typography
-                        variant="h6"
-                        color="#067C92"
-                        fontWeight="bold"
-                        mb={2}
-                      >
-                        🚫 Las Vegas Services
-                      </Typography>
-                      <Typography variant="body2" color="#067C92" mb={2}>
-                        Dog grooming services only
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="#067C92"
-                        fontWeight="600"
-                      >
-                        Cat grooming not available in Las Vegas
-                      </Typography>
-                    </Box>
-                  </Grid>
-                </Grid>
-              </Paper>
             </Box>
           </Paper>
         </motion.div>
@@ -1053,11 +948,10 @@ const PricesPage = () => {
                       fontWeight="bold"
                       mb={1}
                     >
-                      🚫 No Shave Downs
+                      🐕 Dogs & Cats
                     </Typography>
                     <Typography variant="body2" color="#067C92">
-                      We don&apos;t provide shave downs on double-coated breeds
-                      to protect their coat health
+                      We now service both dogs and cats with professional grooming
                     </Typography>
                   </Box>
                 </Grid>
@@ -1069,10 +963,11 @@ const PricesPage = () => {
                       fontWeight="bold"
                       mb={1}
                     >
-                      🐕 Dogs Only
+                      🚫 No Shave Downs
                     </Typography>
                     <Typography variant="body2" color="#067C92">
-                      We specialize in dog grooming and do not service cats
+                      We don&apos;t provide shave downs on double-coated breeds
+                      to protect their coat health
                     </Typography>
                   </Box>
                 </Grid>
@@ -1109,6 +1004,131 @@ const PricesPage = () => {
           </Box>
         </motion.div>
       </Container>
+
+      {/* Service Information */}
+      <Box mt={6}>
+        <Paper
+          elevation={4}
+          sx={{
+            p: 4,
+            borderRadius: "20px",
+            background:
+              "linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(33, 150, 243, 0.1))",
+            border: "2px solid rgba(76, 175, 80, 0.3)",
+          }}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            color="#4CAF50"
+            mb={3}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 1,
+            }}
+          >
+            🌟 All Services Available at Every Location
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography
+                  variant="h6"
+                  color="#067C92"
+                  fontWeight="bold"
+                  mb={2}
+                >
+                  ✂️ Full Body Haircuts Available
+                </Typography>
+                <Typography variant="body2" color="#067C92" mb={2}>
+                  Subject to approval based on coat condition and matting
+                  level
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="#067C92"
+                  fontWeight="600"
+                >
+                  Up to $50 specialized breed fee may apply
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography
+                  variant="h6"
+                  color="#067C92"
+                  fontWeight="bold"
+                  mb={2}
+                  sx={{
+                    background:
+                      "linear-gradient(135deg, #4CAF50, #66BB6A)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  🐱 Cat Grooming Services
+                </Typography>
+                <Chip
+                  label="NOW AVAILABLE"
+                  sx={{
+                    bgcolor: "#4CAF50",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "0.75rem",
+                    mb: 2,
+                    animation: "pulse 2s infinite",
+                    "@keyframes pulse": {
+                      "0%": { transform: "scale(1)" },
+                      "50%": { transform: "scale(1.05)" },
+                      "100%": { transform: "scale(1)" },
+                    },
+                  }}
+                />
+                <Typography variant="body2" color="#067C92" mb={2}>
+                  Professional cat grooming starting at $140
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="#067C92"
+                  fontWeight="600"
+                >
+                  Flat fee of $125 for Fluffy Preferred members
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography
+                  variant="h6"
+                  color="#067C92"
+                  fontWeight="bold"
+                  mb={2}
+                >
+                  💎 Fluffy Preferred Benefits
+                </Typography>
+                <Typography variant="body2" color="#067C92" mb={2}>
+                  Dogs: 50% off specialized breed fee for members who groom
+                  every 6 weeks
+                </Typography>
+                <Typography variant="body2" color="#067C92" mb={2}>
+                  Cats: Flat fee of $125 for members (save $15+)
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="#067C92"
+                  fontWeight="600"
+                >
+                  First appointment always full price
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Box>
 
       {/* Customer Testimonials - Enhanced Design */}
       <Box
