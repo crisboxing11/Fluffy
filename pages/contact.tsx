@@ -16,7 +16,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -71,6 +71,12 @@ const ContactPage = () => {
   const [successMessage, setSuccessMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure client-side rendering
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -113,6 +119,8 @@ const ContactPage = () => {
   };
 
   const handleCopyEmail = async () => {
+    if (!isClient) return; // Prevent SSR issues
+    
     const emailAddress = "contact@fluffypetwash.com";
 
     // Try modern clipboard API first (only if available and not blocked)
@@ -239,6 +247,21 @@ const ContactPage = () => {
       actionText: "View Orlando Coverage",
     },
   ];
+
+  // Don't render dynamic content until client-side
+  if (!isClient) {
+    return (
+      <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
+          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
+            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
+              Loading Contact Page...
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
@@ -393,6 +416,101 @@ const ContactPage = () => {
               Ready to pamper your pet or explore franchise opportunities? We&apos;re
               here to help make it happen.
             </Typography>
+
+            {/* Important Notice */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                mb: 4,
+                borderRadius: "16px",
+                bgcolor: "rgba(255, 193, 7, 0.1)",
+                border: "2px solid #FFC107",
+                maxWidth: "700px",
+                mx: "auto",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  color: "#F57C00",
+                  mb: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 1,
+                }}
+              >
+                ⚠️ Important Notice
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "#E65100",
+                  fontWeight: 500,
+                  mb: 2,
+                  textAlign: "center",
+                }}
+              >
+                This contact form is NOT for booking appointments or pricing inquiries.
+              </Typography>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Typography variant="body2" color="#BF360C" fontWeight={500}>
+                  For appointments:
+                </Typography>
+                <Link href="/prebook" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    sx={{
+                      bgcolor: "#038B95",
+                      color: "white",
+                      fontWeight: 600,
+                      px: 3,
+                      py: 1,
+                      borderRadius: "20px",
+                      "&:hover": {
+                        bgcolor: "#026B73",
+                        transform: "translateY(-1px)",
+                      },
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    Book Now
+                  </Button>
+                </Link>
+                <Typography variant="body2" color="#BF360C" fontWeight={500}>
+                  For pricing:
+                </Typography>
+                <Link href="/prices" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                      borderColor: "#038B95",
+                      color: "#038B95",
+                      fontWeight: 600,
+                      px: 3,
+                      py: 1,
+                      borderRadius: "20px",
+                      "&:hover": {
+                        bgcolor: "rgba(3, 139, 149, 0.1)",
+                        transform: "translateY(-1px)",
+                      },
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    View Prices
+                  </Button>
+                </Link>
+              </Stack>
+            </Paper>
 
             {/* Quick Action Chips */}
             <Stack
