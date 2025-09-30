@@ -252,6 +252,17 @@ const ContactPage = () => {
   if (!isClient) {
     return (
       <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
+        <Head>
+          <title>Contact Us | Fluffy Pet Wash</title>
+          <meta
+            name="description"
+            content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form."
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="robots" content="index,follow" />
+          <link rel="canonical" href="https://www.fluffypetwash.com/contact" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
           <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
             <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>

@@ -100,6 +100,13 @@ const PricesPage = () => {
   if (!isClient) {
     return (
       <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
+        <Head>
+          <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
+          <meta
+            name="description"
+            content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees. Limited Fluffy Preferred membership spots available."
+          />
+        </Head>
         <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
           <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
             <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
@@ -124,7 +131,37 @@ const PricesPage = () => {
           name="keywords"
           content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile dog grooming orlando, mobile pet grooming las vegas"
         />
+        <meta name="author" content="Fluffy Pet Wash" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://www.fluffypetwash.com/prices" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
+        <meta
+          property="og:description"
+          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+        />
+        <meta
+          property="og:image"
+          content="https://fluffypetwash.com/fluffy-circle.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://fluffypetwash.com/prices" />
+        <meta property="og:site_name" content="Fluffy Pet Wash" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
+        <meta
+          name="twitter:description"
+          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+        />
+        <meta
+          name="twitter:image"
+          content="https://fluffypetwash.com/fluffy-circle.png"
+        />
+        <meta name="twitter:image:alt" content="Fluffy Pet Wash Pricing" />
+        <meta name="twitter:site" content="@fluffypetwash" />
+        <meta name="twitter:creator" content="@fluffypetwash" />
       </Head>
 
       {/* Hero Section */}
