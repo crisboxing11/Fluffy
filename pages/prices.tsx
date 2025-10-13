@@ -1126,7 +1126,7 @@ const PricesPage = () => {
                   }}
                 />
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Professional cat grooming starting at $140
+                  Professional cat grooming starting at $120
                 </Typography>
                 <Typography
                   variant="body2"

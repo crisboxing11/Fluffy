@@ -323,8 +323,8 @@ const BookingPage = () => {
                             lineHeight: 1.5,
                           }}
                         >
-                          Cat grooming available in Orlando only - starting at
-                          $140
+                          Cat grooming available in Las Vegas only - starting at
+                          $120
                         </Typography>
                       </Box>
 
@@ -494,7 +494,7 @@ const BookingPage = () => {
                             fontSize: "0.85rem",
                           }}
                         >
-                          Cat grooming available in Orlando only
+                          Cat grooming available in Las Vegas only
                         </Typography>
                       </Box>
 
