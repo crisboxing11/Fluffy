@@ -65,8 +65,8 @@ const preferredPricing = [
   },
   {
     size: "Cats",
-    price: "$125",
-    originalPrice: "$140",
+    price: "$105",
+    originalPrice: "$120",
     savings: "$15",
     desc: "All breeds",
   },
@@ -286,11 +286,55 @@ const PricesPage = () => {
               color="text.secondary"
               maxWidth={700}
               mx="auto"
-              mb={6}
+              mb={3}
             >
               Your exact price is automatically calculated during booking based
               on your dog&apos;s breed and specific needs
             </Typography>
+            
+            {/* Clear Pricing Structure Notice */}
+            <Paper
+              elevation={3}
+              sx={{
+                maxWidth: 800,
+                mx: "auto",
+                p: 3,
+                mb: 4,
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, rgba(3,139,149,0.1), rgba(0,173,205,0.1))",
+                border: "2px solid #038B95",
+              }}
+            >
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                color="#067C92"
+                mb={2}
+                sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}
+              >
+                💡 Important Pricing Information
+              </Typography>
+              <Typography variant="body1" color="#067C92" mb={2} fontWeight="600">
+                The prices listed below are for our{" "}
+                <Link href="/services" style={{ color: "#038B95", textDecoration: "underline", fontWeight: "bold" }}>
+                  All-Inclusive Dog Wash Service
+                </Link>
+              </Typography>
+              <Box sx={{ bgcolor: "rgba(255,255,255,0.8)", p: 2, borderRadius: "12px", mb: 2 }}>
+                <Typography variant="body1" color="#067C92" fontWeight="700" mb={1}>
+                  ✂️ Full Haircut & Styling - Additional Cost:
+                </Typography>
+                <Typography variant="body1" color="#067C92" mb={0.5}>
+                  • Small & Medium Dogs: <strong>+$35</strong>
+                </Typography>
+                <Typography variant="body1" color="#067C92">
+                  • Large Dogs: <strong>+$50</strong>
+                </Typography>
+              </Box>
+              <Typography variant="body2" color="text.secondary" fontStyle="italic">
+                * Prices may vary between Orlando and Las Vegas locations
+              </Typography>
+            </Paper>
           </Box>
 
           {/* Pricing Categories */}
@@ -369,7 +413,7 @@ const PricesPage = () => {
                 {
                   size: "Cats",
                   weight: "All Locations",
-                  price: "$140",
+                  price: "$120",
                   examples: [
                     "Persian",
                     "Maine Coon",
@@ -490,9 +534,44 @@ const PricesPage = () => {
                           variant="h4"
                           fontWeight="bold"
                           color={category.isAvailable ? "#4CAF50" : "#038B95"}
-                          mb={category.isAvailable ? 2 : 3}
+                          mb={1}
                         >
                           {category.price}
+                        </Typography>
+                        
+                        {/* Base Service Label */}
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#067C92",
+                            fontWeight: 600,
+                            mb: 1,
+                            fontSize: "0.85rem",
+                            background: "rgba(3,139,149,0.1)",
+                            px: 2,
+                            py: 0.5,
+                            borderRadius: "8px",
+                          }}
+                        >
+                          All-Inclusive Wash
+                        </Typography>
+                        
+                        {/* Haircut Add-On Pricing */}
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#F57C00",
+                            fontWeight: 700,
+                            mb: category.isAvailable ? 2 : 3,
+                            fontSize: "0.9rem",
+                            background: "rgba(255,193,7,0.15)",
+                            px: 2,
+                            py: 1,
+                            borderRadius: "8px",
+                            border: "2px solid rgba(255,193,7,0.4)",
+                          }}
+                        >
+                          ✂️ Haircut & Styling: {category.size === "Cats" || category.size === "Medium Dogs" || category.size === "Small Dogs" ? "+$35" : "+$50"}
                         </Typography>
 
                         {category.isAvailable && (
@@ -575,11 +654,116 @@ const PricesPage = () => {
                 </Typography>
               </Paper>
             </Box>
+            
+            {/* Haircut Add-On Pricing - PROMINENT */}
+            <Box mt={6}>
+              <Paper
+                elevation={6}
+                sx={{
+                  p: 4,
+                  borderRadius: "20px",
+                  background: "linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,193,7,0.1))",
+                  border: "3px solid #FFD700",
+                }}
+              >
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="#F57C00"
+                  mb={3}
+                  textAlign="center"
+                  sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}
+                >
+                  ✂️ Full Haircut & Styling Add-On
+                </Typography>
+                <Grid container spacing={3} justifyContent="center">
+                  <Grid item xs={12} md={5}>
+                    <Box
+                      sx={{
+                        textAlign: "center",
+                        p: 3,
+                        bgcolor: "white",
+                        borderRadius: "16px",
+                        border: "2px solid #4CAF50",
+                      }}
+                    >
+                      <Typography variant="h6" fontWeight="bold" color="#4CAF50" mb={1}>
+                        Small & Medium Dogs
+                      </Typography>
+                      <Typography variant="h3" fontWeight="bold" color="#038B95" mb={1}>
+                        +$35
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Added to base wash price
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={5}>
+                    <Box
+                      sx={{
+                        textAlign: "center",
+                        p: 3,
+                        bgcolor: "white",
+                        borderRadius: "16px",
+                        border: "2px solid #2196F3",
+                      }}
+                    >
+                      <Typography variant="h6" fontWeight="bold" color="#2196F3" mb={1}>
+                        Large Dogs
+                      </Typography>
+                      <Typography variant="h3" fontWeight="bold" color="#038B95" mb={1}>
+                        +$50
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Added to base wash price
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
+                <Box textAlign="center" mt={3}>
+                  <Typography variant="body1" color="#067C92" fontWeight="600">
+                    💡 Example: Small dog wash ($85) + haircut ($35) = <strong>$120 total</strong>
+                  </Typography>
+                </Box>
+              </Paper>
+            </Box>
 
             {/* Important Pricing Disclaimers */}
             <Box mt={6}>
               <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      p: 3,
+                      borderRadius: "16px",
+                      background: "rgba(156, 39, 176, 0.1)",
+                      border: "1px solid rgba(156, 39, 176, 0.3)",
+                      height: "100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="#9C27B0"
+                      mb={2}
+                      sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                    >
+                      📍 Location Pricing
+                    </Typography>
+                    <Typography variant="body2" color="#067C92" mb={1}>
+                      Prices may vary between our Orlando and Las Vegas locations
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="#067C92"
+                      fontWeight="600"
+                    >
+                      Your exact price will be confirmed during booking based on your location
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={3}>
                   <Paper
                     elevation={2}
                     sx={{
@@ -613,7 +797,7 @@ const PricesPage = () => {
                     </Typography>
                   </Paper>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
                   <Paper
                     elevation={2}
                     sx={{
@@ -654,21 +838,21 @@ const PricesPage = () => {
                     </Typography>
                   </Paper>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
                   <Paper
                     elevation={2}
                     sx={{
                       p: 3,
                       borderRadius: "16px",
-                      background: "rgba(156, 39, 176, 0.1)",
-                      border: "1px solid rgba(156, 39, 176, 0.3)",
+                      background: "rgba(76, 175, 80, 0.1)",
+                      border: "1px solid rgba(76, 175, 80, 0.3)",
                       height: "100%",
                     }}
                   >
                     <Typography
                       variant="h6"
                       fontWeight="bold"
-                      color="#9C27B0"
+                      color="#4CAF50"
                       mb={2}
                       sx={{ display: "flex", alignItems: "center", gap: 1 }}
                     >
@@ -1152,7 +1336,7 @@ const PricesPage = () => {
                   every 6 weeks
                 </Typography>
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Cats: Flat fee of $125 for members (save $15+)
+                  Cats: Flat fee of $105 for members (save $15+)
                 </Typography>
                 <Typography
                   variant="body2"
