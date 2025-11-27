@@ -354,7 +354,7 @@ const OrlandoPage = () => {
                           },
                         }}
                       >
-                        Book Now - Orlando Special!
+                        Book Now!
                       </Button>
                     </Link>
                   </motion.div>
@@ -676,72 +676,7 @@ const OrlandoPage = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={4}>
-                <Box
-                  sx={{
-                    background: "linear-gradient(135deg, #00ADCD, #0AC3E6)",
-                    borderRadius: "24px",
-                    p: 4,
-                    color: "white",
-                    textAlign: "center",
-                    boxShadow: "0 12px 40px rgba(0, 173, 205, 0.3)",
-                  }}
-                >
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      fontWeight: 800,
-                      mb: 2,
-                      fontSize: { xs: "1.5rem", md: "1.8rem" },
-                    }}
-                  >
-                    Orlando Special!
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      mb: 3,
-                      fontSize: { xs: "1.1rem", md: "1.2rem" },
-                      fontWeight: 600,
-                    }}
-                  >
-                    10% Off All August Bookings!
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      mb: 3,
-                      opacity: 0.9,
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    Use code <strong>FLUFFY10</strong> when booking your first
-                    Orlando appointment.
-                  </Typography>
-                  <Link href="/prebook" passHref legacyBehavior>
-                    <Button
-                      component="a"
-                      variant="contained"
-                      sx={{
-                        background: "rgba(255, 255, 255, 0.2)",
-                        backdropFilter: "blur(10px)",
-                        color: "white",
-                        fontWeight: 700,
-                        px: 4,
-                        py: 1.5,
-                        borderRadius: "50px",
-                        border: "1px solid rgba(255, 255, 255, 0.3)",
-                        "&:hover": {
-                          background: "rgba(255, 255, 255, 0.3)",
-                          transform: "translateY(-2px)",
-                        },
-                      }}
-                    >
-                      Claim Your Discount
-                    </Button>
-                  </Link>
-                </Box>
-              </Grid>
+            
             </Grid>
           </Container>
         </Box>
