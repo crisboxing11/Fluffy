@@ -589,7 +589,7 @@ const PricesPage = () => {
                               border: "1px solid rgba(76, 175, 80, 0.2)",
                             }}
                           >
-                            Fluffy Preferred: $125
+                            Fluffy Preferred: $105 flat fee for members
                           </Typography>
                         )}
 
@@ -1317,7 +1317,7 @@ const PricesPage = () => {
                   color="#067C92"
                   fontWeight="600"
                 >
-                  Flat fee of $125 for Fluffy Preferred members
+                  Flat fee of $105 for Fluffy Preferred members
                 </Typography>
               </Box>
             </Grid>
