@@ -228,10 +228,10 @@ const FAQPage = () => {
     <Box sx={{ bgcolor: "#FAFAFA", minHeight: "100vh" }}>
       {/* SEO & Metadata */}
       <Head>
-        <title>FAQ | Fluffy Pet Wash</title>
+        <title>Mobile Pet Grooming FAQ | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Find answers to common questions about Fluffy Pet Wash, including pricing, booking, grooming services, and pet safety."
+          content="Answers on booking, canceling, what we need (just an outlet), cats & doodles, summer heat, and pricing. Serving all of Las Vegas & Henderson."
         />
         <meta
           name="keywords"
@@ -242,10 +242,13 @@ const FAQPage = () => {
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://www.fluffypetwash.com/faq" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="FAQ | Fluffy Pet Wash" />
+        <meta
+          property="og:title"
+          content="Mobile Pet Grooming FAQ | Fluffy Pet Wash"
+        />
         <meta
           property="og:description"
-          content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling."
+          content="How mobile grooming works, policies, and what to expect — Las Vegas & Henderson."
         />
         <meta
           property="og:image"
@@ -253,14 +256,17 @@ const FAQPage = () => {
         />
         <meta property="og:image:alt" content="Fluffy Pet Wash Questions" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/faq" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/faq" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FAQ | Fluffy Pet Wash" />
+        <meta
+          name="twitter:title"
+          content="Mobile Pet Grooming FAQ | Fluffy Pet Wash"
+        />
         <meta
           name="twitter:description"
-          content="Answers to all your pet grooming questions – from pricing and services to safety and scheduling."
+          content="How mobile grooming works, policies, and what to expect — Las Vegas & Henderson."
         />
         <meta
           name="twitter:image"

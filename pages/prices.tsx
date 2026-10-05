@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -89,35 +88,6 @@ const services = [
 ];
 
 const PricesPage = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  // Ensure client-side rendering
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Don't render dynamic content until client-side
-  if (!isClient) {
-    return (
-      <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-        <Head>
-          <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
-          <meta
-            name="description"
-            content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees. Limited Fluffy Preferred membership spots available."
-          />
-        </Head>
-        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
-          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
-            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
-              Loading Pricing Information...
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-    );
-  }
-
   return (
     <Box sx={{ bgcolor: "#ffffff" }}>
       {/* SEO & Metadata */}
@@ -125,11 +95,11 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees. Limited Fluffy Preferred membership spots available."
+          content="Site-listed mobile grooming from $85. Exact price by breed at booking. Las Vegas & Henderson — no travel fees. Cash & Zelle with no card fee. Book online."
         />
         <meta
           name="keywords"
-          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile dog grooming orlando, mobile pet grooming las vegas"
+          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile dog grooming orlando, mobile pet grooming las vegas, mobile dog grooming las vegas, mobile dog grooming henderson, mobile pet grooming henderson"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -139,21 +109,21 @@ const PricesPage = () => {
         <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
         />
         <meta
           property="og:image"
           content="https://fluffypetwash.com/fluffy-circle.png"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/prices" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/prices" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
         />
         <meta
           name="twitter:image"
@@ -1464,7 +1434,7 @@ const PricesPage = () => {
                   quote:
                     "Fluffy Pet Wash makes my life super easy. They treat my frenchie like royalty!",
                   avatar: "🐕",
-                  location: "Orlando, FL",
+                  location: "Las Vegas, NV",
                 },
                 {
                   name: "Toni Robinson",
@@ -1480,7 +1450,7 @@ const PricesPage = () => {
                   quote:
                     "Highly recommended! Fantastic service and my dog looked perfect.",
                   avatar: "🦮",
-                  location: "Orlando, FL",
+                  location: "North Las Vegas, NV",
                 },
               ].map((review, index) => (
                 <Grid item xs={12} md={4} key={index}>

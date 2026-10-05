@@ -86,14 +86,14 @@ const HomePage = () => {
     <Box>
       {/* 🔥 SEO & Metadata */}
       <Head>
-        <title>Fluffy Pet Wash | Mobile Pet Grooming Services</title>
+        <title>Mobile Dog Grooming Las Vegas | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Fluffy Pet Wash provides full service mobile dog grooming and pet wash across multiple locations. Book an appointment today!"
+          content="Stress-free mobile dog & cat grooming at your door across Las Vegas & Henderson. One-on-one spa van, licensed & insured. Book online — no upfront payment."
         />
         <meta
           name="keywords"
-          content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas, dog groomer near me, cheap dogs, mobile dog grooming near me, purrfect grooming, mobile pet grooming, dog grooming orlando, mobile dog grooming orlando, mobile pet grooming orlando, mobile groomers near me, purrfect grooming mobile pet dog grooming orlando, mobile dog groomer near me, mobile dog wash near me, low maintenance dogs, pet mobile grooming, mobile pet grooming orlando fl, mobile grooming orlando, mobile grooming for dogs, grooming orlando, dog groomer orlando, mobile dog grooming orlando fl, pet grooming mobile near me, mobile groomers, groomers on orlando fl,dog wash home service,mobile pet bath,mobile dog wash for large dogs"
+          content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas, dog groomer near me, cheap dogs, mobile dog grooming near me, purrfect grooming, mobile pet grooming, dog grooming orlando, mobile dog grooming orlando, mobile pet grooming orlando, mobile groomers near me, purrfect grooming mobile pet dog grooming orlando, mobile dog groomer near me, mobile dog wash near me, low maintenance dogs, pet mobile grooming, mobile pet grooming orlando fl, mobile grooming orlando, mobile grooming for dogs, grooming orlando, dog groomer orlando, mobile dog grooming orlando fl, pet grooming mobile near me, mobile groomers, groomers on orlando fl, dog wash home service, mobile pet bath, mobile dog wash for large dogs, mobile dog grooming henderson, mobile pet grooming henderson, dog grooming henderson"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -123,11 +123,11 @@ const HomePage = () => {
         {/* ✅ Open Graph */}
         <meta
           property="og:title"
-          content="Fluffy Pet Wash | Mobile Pet Grooming Services"
+          content="Mobile Dog Grooming Las Vegas | Fluffy Pet Wash"
         />
         <meta
           property="og:description"
-          content="Book premium mobile pet grooming with Fluffy Pet Wash in Las Vegas and Orlando."
+          content="We come to you across Las Vegas, Henderson & Orlando. Climate-controlled spa van. Book online."
         />
         <meta
           property="og:image"
@@ -135,18 +135,18 @@ const HomePage = () => {
         />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         {/* ✅ Twitter Card Meta Tags (used by iMessage and Discord too) */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Fluffy Pet Wash | Mobile Pet Grooming Services"
+          content="Mobile Dog Grooming Las Vegas | Fluffy Pet Wash"
         />
         <meta
           name="twitter:description"
-          content="Book the best premium mobile pet grooming with Fluffy Pet Wash in Las Vegas and Orlando."
+          content="We come to you across Las Vegas, Henderson & Orlando. Climate-controlled spa van. Book online."
         />
         <meta
           name="twitter:image"
@@ -161,14 +161,15 @@ const HomePage = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": ["Organization", "LocalBusiness", "PetGrooming"],
-              "@id": "https://fluffypetwash.com#fluffy",
+              "@type": ["LocalBusiness", "PetGrooming"],
+              "@id": "https://www.fluffypetwash.com/#fluffy",
               name: "Fluffy Pet Wash",
+              url: "https://www.fluffypetwash.com/",
               description:
-                "Fluffy Pet Wash is a mobile pet grooming franchise offering premium grooming services across multiple cities.",
+                "Stress-free mobile dog and cat grooming at your door across Las Vegas, Henderson, and Orlando. One-on-one climate-controlled spa van. Licensed and insured.",
               logo: "https://fluffypetwash.com/fluffy-circle.PNG",
               image: "https://fluffypetwash.com/fluffy-circle.PNG",
-              telephone: "+1-702-508-6248",
+              telephone: "+17025086248",
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
@@ -179,12 +180,19 @@ const HomePage = () => {
               },
               areaServed: [
                 {
-                  "@type": "Place",
-                  name: "Las Vegas, NV",
-                  geo: {
-                    "@type": "GeoCoordinates",
-                    latitude: "36.1699",
-                    longitude: "-115.1398",
+                  "@type": "City",
+                  name: "Las Vegas",
+                  containedInPlace: {
+                    "@type": "State",
+                    name: "Nevada",
+                  },
+                },
+                {
+                  "@type": "City",
+                  name: "Henderson",
+                  containedInPlace: {
+                    "@type": "State",
+                    name: "Nevada",
                   },
                 },
                 {
@@ -197,38 +205,9 @@ const HomePage = () => {
                   },
                 },
               ],
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5",
-                reviewCount: "112",
-              },
-              review: [
-                {
-                  "@type": "Review",
-                  reviewRating: {
-                    "@type": "Rating",
-                    ratingValue: "5",
-                  },
-                  author: {
-                    "@type": "Person",
-                    name: "Katie Jones",
-                  },
-                  reviewBody:
-                    "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie!",
-                },
-                {
-                  "@type": "Review",
-                  reviewRating: {
-                    "@type": "Rating",
-                    ratingValue: "5",
-                  },
-                  author: {
-                    "@type": "Person",
-                    name: "Toni Robinson",
-                  },
-                  reviewBody:
-                    "The service was amazing! They were so patient and kept me updated the whole time.",
-                },
+              sameAs: [
+                "https://www.facebook.com/fluffypetwash",
+                "https://www.instagram.com/fluffypetwash",
               ],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
@@ -244,10 +223,6 @@ const HomePage = () => {
                 opens: "08:00",
                 closes: "19:00",
               },
-              sameAs: [
-                "https://www.facebook.com/fluffypetwash",
-                "https://www.instagram.com/fluffypetwash",
-              ],
             }),
           }}
         />
