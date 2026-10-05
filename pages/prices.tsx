@@ -239,52 +239,6 @@ const PricesPage = () => {
         </Container>
       </Box>
 
-      {/* Static SSR summary so pricing, inclusions, and area served are in the initial HTML */}
-      <Container
-        component="section"
-        maxWidth="md"
-        sx={{ pt: { xs: 5, md: 8 }, pb: 2 }}
-      >
-        <Typography
-          variant="h2"
-          component="h2"
-          fontWeight="bold"
-          color="#067C92"
-          mb={2}
-          textAlign="center"
-        >
-          Las Vegas & Henderson pricing
-        </Typography>
-        <Typography
-          variant="body1"
-          color="#067C92"
-          sx={{ lineHeight: 1.7, mb: 2 }}
-        >
-          Site-listed mobile grooming starts at $85 for an all-inclusive dog
-          wash. Your exact price is calculated at booking by breed. Fluffy Pet
-          Wash serves Las Vegas and Henderson with no travel fees. Cash and
-          Zelle have no card fee. A 3.4% service charge applies to credit and
-          debit cards.
-        </Typography>
-        <Typography
-          variant="body1"
-          color="#067C92"
-          sx={{ lineHeight: 1.7, mb: 2 }}
-        >
-          All-inclusive wash prices: small dogs (0–25 lbs) $85, medium dogs
-          $95–$125, large dogs $140–$185, extra-large dogs $200 and up, and
-          cats $120. Full haircut and styling is extra: $35 for small and
-          medium dogs, $50 for large dogs.
-        </Typography>
-        <Typography variant="body1" color="#067C92" sx={{ lineHeight: 1.7 }}>
-          Every session includes a professional brush out, hypoallergenic wash
-          and organic conditioner, towel and blow dry, nail trimming and
-          filing, ear cleaning, teeth brushing and mouth wash, optional gland
-          expression, professional de-shedding, paw cleaning and trimming,
-          sanitary area trimming, a facial treatment, and a final brush out.
-        </Typography>
-      </Container>
-
       {/* Pricing Overview Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <motion.div
