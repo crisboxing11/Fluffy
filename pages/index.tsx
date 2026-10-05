@@ -247,7 +247,6 @@ const HomePage = () => {
             {/* Main Title with Enhanced Typography */}
             <Typography
               variant="h1"
-              component="h2"
               sx={{
                 fontSize: { xs: "2.2rem", md: "3.5rem" },
                 fontWeight: 800,

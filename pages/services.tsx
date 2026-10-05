@@ -1033,7 +1033,6 @@ const ServicesPage = () => {
 
               <Typography
                 variant="h1"
-                component="h2"
                 sx={{
                   fontSize: { xs: "2.5rem", md: "4rem", lg: "4.5rem" },
                   fontWeight: 800,
