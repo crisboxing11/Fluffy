@@ -93,7 +93,7 @@ const HomePage = () => {
         />
         <meta
           name="keywords"
-          content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas, dog groomer near me, cheap dogs, mobile dog grooming near me, purrfect grooming, mobile pet grooming, mobile groomers near me, mobile dog groomer near me, mobile dog wash near me, low maintenance dogs, pet mobile grooming, mobile grooming for dogs, pet grooming mobile near me, mobile groomers, dog wash home service, mobile pet bath, mobile dog wash for large dogs, mobile dog grooming henderson, mobile pet grooming henderson, dog grooming henderson"
+          content="Fluffy Pet Wash franchise, furryland, Zoomin Groomin, fluffy pet, mobile dog grooming near me, mobile pet grooming near me, pet grooming near me, dog wash near me, dog grooming, mobile dog grooming, dog grooming prices, mobile pet groomer, dog grooming at home, mobile dog grooming las vegas, mobile pet grooming las vegas, dog grooming las vegas, mobile dog groomer las vegas, mobile dog spa Las Vegas, dog groomer las vegas, dog groomer near me, cheap dogs, mobile dog grooming near me, purrfect grooming, mobile pet grooming, dog grooming orlando, mobile dog grooming orlando, mobile pet grooming orlando, mobile groomers near me, purrfect grooming mobile pet dog grooming orlando, mobile dog groomer near me, mobile dog wash near me, low maintenance dogs, pet mobile grooming, mobile pet grooming orlando fl, mobile grooming orlando, mobile grooming for dogs, grooming orlando, dog groomer orlando, mobile dog grooming orlando fl, pet grooming mobile near me, mobile groomers, groomers on orlando fl, dog wash home service, mobile pet bath, mobile dog wash for large dogs, mobile dog grooming henderson, mobile pet grooming henderson, dog grooming henderson"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -127,7 +127,7 @@ const HomePage = () => {
         />
         <meta
           property="og:description"
-          content="We come to you across Las Vegas & Henderson. Climate-controlled spa van. Book online."
+          content="We come to you across Las Vegas, Henderson & Orlando. Climate-controlled spa van. Book online."
         />
         <meta
           property="og:image"
@@ -146,7 +146,7 @@ const HomePage = () => {
         />
         <meta
           name="twitter:description"
-          content="We come to you across Las Vegas & Henderson. Climate-controlled spa van. Book online."
+          content="We come to you across Las Vegas, Henderson & Orlando. Climate-controlled spa van. Book online."
         />
         <meta
           name="twitter:image"
@@ -166,7 +166,7 @@ const HomePage = () => {
               name: "Fluffy Pet Wash",
               url: "https://www.fluffypetwash.com/",
               description:
-                "Stress-free mobile dog and cat grooming at your door across Las Vegas and Henderson. One-on-one climate-controlled spa van. Licensed and insured.",
+                "Stress-free mobile dog and cat grooming at your door across Las Vegas, Henderson, and Orlando. One-on-one climate-controlled spa van. Licensed and insured.",
               logo: "https://fluffypetwash.com/fluffy-circle.PNG",
               image: "https://fluffypetwash.com/fluffy-circle.PNG",
               telephone: "+17025086248",
@@ -195,6 +195,19 @@ const HomePage = () => {
                     name: "Nevada",
                   },
                 },
+                {
+                  "@type": "Place",
+                  name: "Orlando, FL",
+                  geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: "28.5383",
+                    longitude: "-81.3792",
+                  },
+                },
+              ],
+              sameAs: [
+                "https://www.facebook.com/fluffypetwash",
+                "https://www.instagram.com/fluffypetwash",
               ],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",

@@ -99,7 +99,7 @@ const PricesPage = () => {
         />
         <meta
           name="keywords"
-          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile pet grooming las vegas, mobile dog grooming las vegas, mobile dog grooming henderson, mobile pet grooming henderson"
+          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile dog grooming orlando, mobile pet grooming las vegas, mobile dog grooming las vegas, mobile dog grooming henderson, mobile pet grooming henderson"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -109,7 +109,7 @@ const PricesPage = () => {
         <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas & Henderson."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
         />
         <meta
           property="og:image"
@@ -123,7 +123,7 @@ const PricesPage = () => {
         <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas & Henderson."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
         />
         <meta
           name="twitter:image"
@@ -302,7 +302,7 @@ const PricesPage = () => {
                 </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" fontStyle="italic">
-                * Exact price is confirmed at booking for Las Vegas and Henderson. No travel fees.
+                * Prices may vary between Orlando and Las Vegas locations
               </Typography>
             </Paper>
           </Box>
@@ -722,14 +722,14 @@ const PricesPage = () => {
                       📍 Location Pricing
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      Serving Las Vegas and Henderson with no travel fees
+                      Prices may vary between our Orlando and Las Vegas locations
                     </Typography>
                     <Typography
                       variant="body2"
                       color="#067C92"
                       fontWeight="600"
                     >
-                      Your exact price is confirmed at booking by breed
+                      Your exact price will be confirmed during booking based on your location
                     </Typography>
                   </Paper>
                 </Grid>
