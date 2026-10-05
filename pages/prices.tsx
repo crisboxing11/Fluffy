@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -89,35 +88,6 @@ const services = [
 ];
 
 const PricesPage = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  // Ensure client-side rendering
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Don't render dynamic content until client-side
-  if (!isClient) {
-    return (
-      <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-        <Head>
-          <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
-          <meta
-            name="description"
-            content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees. Limited Fluffy Preferred membership spots available."
-          />
-        </Head>
-        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
-          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
-            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
-              Loading Pricing Information...
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-    );
-  }
-
   return (
     <Box sx={{ bgcolor: "#ffffff" }}>
       {/* SEO & Metadata */}
@@ -125,11 +95,11 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees. Limited Fluffy Preferred membership spots available."
+          content="Site-listed mobile grooming from $85. Exact price by breed at booking. Las Vegas & Henderson — no travel fees. Cash & Zelle with no card fee. Book online."
         />
         <meta
           name="keywords"
-          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile dog grooming orlando, mobile pet grooming las vegas"
+          content="dog grooming prices, mobile pet grooming cost, luxury pet wash pricing, affordable mobile grooming, mobile pet grooming las vegas, mobile dog grooming las vegas, mobile dog grooming henderson, mobile pet grooming henderson"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -139,21 +109,21 @@ const PricesPage = () => {
         <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas & Henderson."
         />
         <meta
           property="og:image"
           content="https://fluffypetwash.com/fluffy-circle.png"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/prices" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/prices" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Transparent pricing for luxury mobile pet grooming. All-inclusive packages with no hidden fees."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas & Henderson."
         />
         <meta
           name="twitter:image"
@@ -269,6 +239,52 @@ const PricesPage = () => {
         </Container>
       </Box>
 
+      {/* Static SSR summary so pricing, inclusions, and area served are in the initial HTML */}
+      <Container
+        component="section"
+        maxWidth="md"
+        sx={{ pt: { xs: 5, md: 8 }, pb: 2 }}
+      >
+        <Typography
+          variant="h2"
+          component="h2"
+          fontWeight="bold"
+          color="#067C92"
+          mb={2}
+          textAlign="center"
+        >
+          Las Vegas & Henderson pricing
+        </Typography>
+        <Typography
+          variant="body1"
+          color="#067C92"
+          sx={{ lineHeight: 1.7, mb: 2 }}
+        >
+          Site-listed mobile grooming starts at $85 for an all-inclusive dog
+          wash. Your exact price is calculated at booking by breed. Fluffy Pet
+          Wash serves Las Vegas and Henderson with no travel fees. Cash and
+          Zelle have no card fee. A 3.4% service charge applies to credit and
+          debit cards.
+        </Typography>
+        <Typography
+          variant="body1"
+          color="#067C92"
+          sx={{ lineHeight: 1.7, mb: 2 }}
+        >
+          All-inclusive wash prices: small dogs (0–25 lbs) $85, medium dogs
+          $95–$125, large dogs $140–$185, extra-large dogs $200 and up, and
+          cats $120. Full haircut and styling is extra: $35 for small and
+          medium dogs, $50 for large dogs.
+        </Typography>
+        <Typography variant="body1" color="#067C92" sx={{ lineHeight: 1.7 }}>
+          Every session includes a professional brush out, hypoallergenic wash
+          and organic conditioner, towel and blow dry, nail trimming and
+          filing, ear cleaning, teeth brushing and mouth wash, optional gland
+          expression, professional de-shedding, paw cleaning and trimming,
+          sanitary area trimming, a facial treatment, and a final brush out.
+        </Typography>
+      </Container>
+
       {/* Pricing Overview Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <motion.div
@@ -332,7 +348,7 @@ const PricesPage = () => {
                 </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" fontStyle="italic">
-                * Prices may vary between Orlando and Las Vegas locations
+                * Exact price is confirmed at booking for Las Vegas and Henderson. No travel fees.
               </Typography>
             </Paper>
           </Box>
@@ -752,14 +768,14 @@ const PricesPage = () => {
                       📍 Location Pricing
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      Prices may vary between our Orlando and Las Vegas locations
+                      Serving Las Vegas and Henderson with no travel fees
                     </Typography>
                     <Typography
                       variant="body2"
                       color="#067C92"
                       fontWeight="600"
                     >
-                      Your exact price will be confirmed during booking based on your location
+                      Your exact price is confirmed at booking by breed
                     </Typography>
                   </Paper>
                 </Grid>
@@ -1464,7 +1480,7 @@ const PricesPage = () => {
                   quote:
                     "Fluffy Pet Wash makes my life super easy. They treat my frenchie like royalty!",
                   avatar: "🐕",
-                  location: "Orlando, FL",
+                  location: "Las Vegas, NV",
                 },
                 {
                   name: "Toni Robinson",
@@ -1480,7 +1496,7 @@ const PricesPage = () => {
                   quote:
                     "Highly recommended! Fantastic service and my dog looked perfect.",
                   avatar: "🦮",
-                  location: "Orlando, FL",
+                  location: "North Las Vegas, NV",
                 },
               ].map((review, index) => (
                 <Grid item xs={12} md={4} key={index}>

@@ -590,6 +590,98 @@ const Home = () => {
         </Box>
       </motion.div>
 
+      {/* Static SSR copy: service answer, inclusions, and area served */}
+      <Box
+        component="section"
+        aria-label="Mobile grooming in Las Vegas and Henderson"
+        sx={{
+          bgcolor: "#ffffff",
+          py: { xs: 4, md: 6 },
+          px: { xs: 2, md: 6 },
+        }}
+      >
+        <Container maxWidth="md">
+          <Typography
+            component="p"
+            sx={{
+              color: "#067C92",
+              fontSize: { xs: "1rem", md: "1.15rem" },
+              lineHeight: 1.7,
+              mb: 3,
+              textAlign: "center",
+            }}
+          >
+            Fluffy Pet Wash brings stress-free mobile dog and cat grooming to
+            your door across Las Vegas and Henderson. A licensed and insured
+            groomer works one-on-one in a climate-controlled spa van. Book
+            online with no upfront payment and no travel fees.
+          </Typography>
+          <Typography
+            variant="h2"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              color: "#067C92",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              mb: 2,
+              textAlign: "center",
+            }}
+          >
+            What every visit includes
+          </Typography>
+          <Box
+            component="ul"
+            sx={{
+              color: "#067C92",
+              lineHeight: 1.7,
+              mb: 3,
+              pl: 3,
+              maxWidth: 640,
+              mx: "auto",
+            }}
+          >
+            {[
+              "Professional brush out",
+              "Hypoallergenic wash and organic conditioner",
+              "Towel and blow dry",
+              "Nail trimming and filing",
+              "Ear cleaning",
+              "Teeth brushing",
+              "Professional de-shedding",
+              "Paw cleaning and sanitary trim",
+            ].map((item) => (
+              <Typography component="li" key={item} sx={{ mb: 0.5 }}>
+                {item}
+              </Typography>
+            ))}
+          </Box>
+          <Typography
+            variant="h2"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              color: "#067C92",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              mb: 1.5,
+              textAlign: "center",
+            }}
+          >
+            Area served
+          </Typography>
+          <Typography
+            component="p"
+            sx={{
+              color: "#067C92",
+              fontSize: { xs: "1rem", md: "1.1rem" },
+              lineHeight: 1.7,
+              textAlign: "center",
+            }}
+          >
+            We come to you across Las Vegas and Henderson, Nevada. Mobile
+            service is included, with no travel fees.
+          </Typography>
+        </Container>
+      </Box>
 
       {/* Enhanced Why Choose Us Section */}
       <motion.div
