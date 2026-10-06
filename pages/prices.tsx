@@ -95,7 +95,7 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Site-listed mobile grooming from $85. Exact price by breed at booking. Las Vegas & Henderson — no travel fees. Cash & Zelle with no card fee. Book online."
+          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Cash & Zelle with no card fee. Book online."
         />
         <meta
           name="keywords"
@@ -109,7 +109,7 @@ const PricesPage = () => {
         <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
         />
         <meta
           property="og:image"
@@ -123,7 +123,7 @@ const PricesPage = () => {
         <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson & Orlando."
+          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
         />
         <meta
           name="twitter:image"
@@ -147,7 +147,7 @@ const PricesPage = () => {
       >
         <Image
           src={PriceHeroImage}
-          alt="Professional dog grooming"
+          alt="Black and white dog standing on pavement outdoors in Henderson, NV"
           fill
           style={{ objectFit: "cover" }}
           priority

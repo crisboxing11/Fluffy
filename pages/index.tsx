@@ -15,6 +15,7 @@ const PreBookingForm = dynamic(() => import("../components/PreBookingForm"), {
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 
 const HomePage = () => {
   const router = useRouter();
@@ -166,7 +167,7 @@ const HomePage = () => {
               name: "Fluffy Pet Wash",
               url: "https://www.fluffypetwash.com/",
               description:
-                "Stress-free mobile dog and cat grooming at your door across Las Vegas, Henderson, and Orlando. One-on-one climate-controlled spa van. Licensed and insured.",
+                "Stress-free mobile dog and cat grooming at your door across the Las Vegas Valley, including Henderson, Summerlin, and North Las Vegas, and in Orlando. One-on-one climate-controlled spa van. Licensed and insured.",
               logo: "https://fluffypetwash.com/fluffy-circle.PNG",
               image: "https://fluffypetwash.com/fluffy-circle.PNG",
               telephone: "+17025086248",
@@ -178,23 +179,15 @@ const HomePage = () => {
                 postalCode: "89101",
                 addressCountry: "US",
               },
+              // SEO-20261005-05 (folded in): primary business geo = Las Vegas
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 36.1699,
+                longitude: -115.1398,
+              },
               areaServed: [
-                {
-                  "@type": "City",
-                  name: "Las Vegas",
-                  containedInPlace: {
-                    "@type": "State",
-                    name: "Nevada",
-                  },
-                },
-                {
-                  "@type": "City",
-                  name: "Henderson",
-                  containedInPlace: {
-                    "@type": "State",
-                    name: "Nevada",
-                  },
-                },
+                ...LAS_VEGAS_AREA_SERVED,
+                // Orlando market: unchanged (dual-market owner rule)
                 {
                   "@type": "Place",
                   name: "Orlando, FL",
