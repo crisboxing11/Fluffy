@@ -249,6 +249,30 @@ const ContactPage = () => {
     },
   ];
 
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Fluffy Pet Wash",
+    url: "https://fluffypetwash.com",
+    description:
+      "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
+    image: "https://fluffypetwash.com/fluffy-circle.png",
+    email: "contact@fluffypetwash.com",
+    telephone: "+1-702-508-6248",
+    address: LAS_VEGAS_POSTAL_ADDRESS,
+    areaServed: [
+      ...LAS_VEGAS_AREA_SERVED,
+      {
+        "@type": "Place",
+        name: "Orlando, FL",
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/fluffypetwash",
+      "https://www.facebook.com/fluffypetwash",
+    ],
+  };
+
   // Don't render dynamic content until client-side
   if (!isClient) {
     return (
@@ -263,6 +287,12 @@ const ContactPage = () => {
           <meta name="robots" content="index,follow" />
           <link rel="canonical" href="https://www.fluffypetwash.com/contact" />
           <link rel="icon" href="/favicon.ico" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(contactJsonLd),
+            }}
+          />
         </Head>
         <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
           <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
@@ -321,29 +351,7 @@ const ContactPage = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Fluffy Pet Wash",
-              url: "https://fluffypetwash.com",
-              description:
-                "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
-              image: "https://fluffypetwash.com/fluffy-circle.png",
-              email: "contact@fluffypetwash.com",
-              telephone: "+1-702-508-6248",
-              address: LAS_VEGAS_POSTAL_ADDRESS,
-              areaServed: [
-                ...LAS_VEGAS_AREA_SERVED,
-                {
-                  "@type": "Place",
-                  name: "Orlando, FL",
-                },
-              ],
-              sameAs: [
-                "https://www.instagram.com/fluffypetwash",
-                "https://www.facebook.com/fluffypetwash",
-              ],
-            }),
+            __html: JSON.stringify(contactJsonLd),
           }}
         />
       </Head>
