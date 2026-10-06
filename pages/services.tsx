@@ -41,6 +41,7 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import Link from "next/link";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 
 import { useState } from "react";
@@ -506,13 +507,20 @@ const ServicesPage = () => {
                 maxWidth: 800,
                 mx: "auto",
                 fontWeight: 400,
-                mb: 4,
+                mb: 1.5,
               }}
             >
               Every appointment includes our comprehensive range of professional
               services - from health assessment to luxury finishing touches. No
               hidden fees, no add-ons, just complete care for your furry family
               member.
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#038B95", mb: 4 }}>
+              Have a cat? See our{" "}
+              <Link href="/cat-grooming-las-vegas" style={{ color: "#00ADCD", fontWeight: 700 }}>
+                mobile cat grooming in Las Vegas
+              </Link>
+              .
             </Typography>
 
             {/* Value Proposition Highlights */}
