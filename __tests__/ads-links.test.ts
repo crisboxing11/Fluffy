@@ -10,7 +10,7 @@ import {
   isLasVegasClickToCall,
   isLasVegasMoeGoBookingUrl,
   normalizeTelDigits,
-  resetLasVegasBookNowForTests,
+  beginLasVegasBookingJourney,
   sendAdsConversion,
   sendLasVegasBookNowConversion,
   trackAdsClick,
@@ -99,7 +99,7 @@ describe('click-to-call phone normalisation', () => {
 
 describe('one click sends one conversion', () => {
   beforeEach(() => {
-    resetLasVegasBookNowForTests();
+    beginLasVegasBookingJourney();
   });
 
   test('a repeated event does not send twice', () => {
@@ -128,10 +128,17 @@ describe('one click sends one conversion', () => {
     expect(() => sendAdsConversion(CLICK_TO_CALL_CONVERSION)).not.toThrow();
   });
 
-  test('a prebook submit and a later MoeGo click share one Book Now conversion', () => {
+  test('double submit in one journey sends one Book Now conversion', () => {
     const send = jest.fn();
     expect(sendLasVegasBookNowConversion(send)).toBe(true);
     expect(sendLasVegasBookNowConversion(send)).toBe(false);
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).toHaveBeenCalledWith(BOOK_NOW_CONVERSION);
+  });
+
+  test('submit followed by a direct anchor sends one Book Now conversion', () => {
+    const send = jest.fn();
+    expect(sendLasVegasBookNowConversion(send)).toBe(true);
     expect(
       trackAdsClick(
         {},
@@ -140,20 +147,22 @@ describe('one click sends one conversion', () => {
       ),
     ).toBe(false);
     expect(send).toHaveBeenCalledTimes(1);
-    expect(send).toHaveBeenCalledWith(BOOK_NOW_CONVERSION);
   });
 
-  test('a MoeGo click blocks a later prebook submit', () => {
+  test('a new form mount after leaving the page sends a second conversion', () => {
     const send = jest.fn();
-    expect(
-      trackAdsClick(
-        {},
-        'https://booking.moego.pet/ol/FLUFFYPETWASH/landing',
-        send,
-      ),
-    ).toBe(true);
-    expect(sendLasVegasBookNowConversion(send)).toBe(false);
-    expect(send).toHaveBeenCalledTimes(1);
+    expect(sendLasVegasBookNowConversion(send)).toBe(true);
+    beginLasVegasBookingJourney();
+    expect(sendLasVegasBookNowConversion(send)).toBe(true);
+    expect(send).toHaveBeenCalledTimes(2);
+  });
+
+  test('direct MoeGo clicks each fire when no form was submitted', () => {
+    const send = jest.fn();
+    const href = 'https://booking.moego.pet/ol/FLUFFYPETWASH/book';
+    expect(trackAdsClick({}, href, send)).toBe(true);
+    expect(trackAdsClick({}, href, send)).toBe(true);
+    expect(send).toHaveBeenCalledTimes(2);
   });
 
   test('Orlando booking does not consume the Las Vegas conversion', () => {

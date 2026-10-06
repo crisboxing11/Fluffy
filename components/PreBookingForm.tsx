@@ -21,7 +21,11 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import territories from "../data/territories";
-import { isLasVegasMoeGoBookingUrl, sendLasVegasBookNowConversion } from "../lib/ads";
+import {
+  beginLasVegasBookingJourney,
+  isLasVegasMoeGoBookingUrl,
+  sendLasVegasBookNowConversion,
+} from "../lib/ads";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
@@ -45,6 +49,7 @@ const PreBookingForm = () => {
 
   // Reset state when component mounts to handle navigation back to homepage
   useEffect(() => {
+    beginLasVegasBookingJourney();
     setCurrentStep(0);
     setIsLoading(false);
     setError("");

@@ -118,21 +118,25 @@ export function conversionForHref(href: string): AdsConversion | null {
 }
 
 const claimedClicks = new WeakSet<object>();
-let lasVegasBookNowSent = false;
+let lasVegasFormBookNowSent = false;
 
-export function resetLasVegasBookNowForTests(): void {
-  lasVegasBookNowSent = false;
+/**
+ * A newly mounted prebook form starts a journey. Direct MoeGo clicks do not
+ * set this flag, so each of those clicks can convert on its own.
+ */
+export function beginLasVegasBookingJourney(): void {
+  lasVegasFormBookNowSent = false;
 }
 
 /**
- * One Las Vegas Book Now conversion per page load. Covers the prebook submit
- * and a later click on a direct MoeGo link in the same visit.
+ * One Book Now conversion for this form journey. A second submit is ignored
+ * until the form mounts again.
  */
 export function sendLasVegasBookNowConversion(
   send: (conversion: AdsConversion) => void = sendAdsConversion,
 ): boolean {
-  if (lasVegasBookNowSent) return false;
-  lasVegasBookNowSent = true;
+  if (lasVegasFormBookNowSent) return false;
+  lasVegasFormBookNowSent = true;
   try {
     send(BOOK_NOW_CONVERSION);
     return true;
@@ -157,9 +161,8 @@ export function trackAdsClick(
   const conversion = conversionForHref(href);
   if (!conversion) return false;
 
-  if (conversion.sendTo === LAS_VEGAS_BOOKING_SEND_TO) {
-    if (lasVegasBookNowSent) return false;
-    lasVegasBookNowSent = true;
+  if (conversion.sendTo === LAS_VEGAS_BOOKING_SEND_TO && lasVegasFormBookNowSent) {
+    return false;
   }
 
   try {
