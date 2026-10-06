@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Box,
   Typography,
@@ -21,6 +21,7 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import territories from "../data/territories";
+import { isLasVegasMoeGoBookingUrl, sendLasVegasBookNowConversion } from "../lib/ads";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
@@ -38,6 +39,7 @@ const PreBookingForm = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const bookingStarted = useRef(false);
 
   const steps = ["Select Location", "Confirm Details", "Book Appointment"];
 
@@ -80,8 +82,16 @@ const PreBookingForm = () => {
   };
 
   const proceedToBooking = () => {
+    if (bookingStarted.current) return;
+    bookingStarted.current = true;
+
     setCurrentStep(2);
-    // Use URL parameter instead of localStorage for better UX
+    // Market comes from the selected territory's MoeGo URL, not from the button label.
+    // Las Vegas uses /ol/FLUFFYPETWASH. Orlando uses /ol/FluffyPetWashOrlando.
+    const territory = territories.find((item) => item.name === location);
+    if (territory && isLasVegasMoeGoBookingUrl(territory.bookingUrl)) {
+      sendLasVegasBookNowConversion();
+    }
     const encodedLocation = encodeURIComponent(location);
     router.push(`/booking?location=${encodedLocation}`);
   };

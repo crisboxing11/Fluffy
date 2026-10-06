@@ -20,6 +20,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
+import { LAS_VEGAS_TEL_HREF } from "../lib/ads";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -628,7 +629,30 @@ const ContactPage = () => {
                         color="#038B95"
                         mb={1}
                       >
-                        {method.primary}
+                        {method.title === "Call Us" ? (
+                          <Box
+                            component="a"
+                            href={LAS_VEGAS_TEL_HREF}
+                            sx={{
+                              color: "inherit",
+                              font: "inherit",
+                              fontWeight: "inherit",
+                              lineHeight: "inherit",
+                              letterSpacing: "inherit",
+                              textDecoration: "none",
+                              display: "inline",
+                              cursor: "inherit",
+                              "&:hover, &:visited, &:active, &:focus": {
+                                color: "inherit",
+                                textDecoration: "none",
+                              },
+                            }}
+                          >
+                            {method.primary}
+                          </Box>
+                        ) : (
+                          method.primary
+                        )}
                       </Typography>
                       <Typography variant="body2" color="#64748b" mb={1}>
                         {method.secondary}

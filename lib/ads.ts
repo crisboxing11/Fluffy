@@ -14,7 +14,7 @@ export const GA4_MEASUREMENT_ID = 'G-YTSZ6NZWP3';
  */
 export const EXISTING_GOOGLE_ADS_ID = 'AW-17319676855';
 
-export const GTAG_JS_SRC = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
+export const LAS_VEGAS_TEL_HREF = 'tel:+17025086248';
 
 export const LAS_VEGAS_BOOKING_SEND_TO = 'AW-10869086002/PKrACMfh0ZIdELKu5L4o';
 export const LAS_VEGAS_CALL_SEND_TO = 'AW-10869086002/OKW7CMrh0ZIdELKu5L4o';
@@ -45,20 +45,30 @@ export const CLICK_TO_CALL_CONVERSION: AdsConversion = {
 };
 
 /**
- * One gtag.js bootstrap. Does not reset dataLayer and does not replace
- * window.gtag when GTM (or gtag.js) has already defined it.
+ * Queues hits on the dataLayer GTM already uses. Does not load gtag.js.
+ * GTM-PG7XP5HS loads gtag.js for AW-10869086002.
  */
 export function googleTagBootstrapSource(): string {
   return [
     'window.dataLayer = window.dataLayer || [];',
     'if (typeof window.gtag !== "function") {',
     '  window.gtag = function () { window.dataLayer.push(arguments); };',
-    '  window.gtag("js", new Date());',
     '}',
-    `window.gtag("config", ${JSON.stringify(GOOGLE_ADS_ID)});`,
     `window.gtag("config", ${JSON.stringify(GA4_MEASUREMENT_ID)});`,
     `window.gtag("config", ${JSON.stringify(EXISTING_GOOGLE_ADS_ID)});`,
   ].join('\n');
+}
+
+export function ensureGtag(): void {
+  if (typeof window === 'undefined') return;
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function gtagShim() {
+      // gtag.js consumes the Arguments object from this shim.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
+    };
+  }
 }
 
 export function isLasVegasMoeGoBookingUrl(href: string): boolean {
@@ -108,6 +118,28 @@ export function conversionForHref(href: string): AdsConversion | null {
 }
 
 const claimedClicks = new WeakSet<object>();
+let lasVegasBookNowSent = false;
+
+export function resetLasVegasBookNowForTests(): void {
+  lasVegasBookNowSent = false;
+}
+
+/**
+ * One Las Vegas Book Now conversion per page load. Covers the prebook submit
+ * and a later click on a direct MoeGo link in the same visit.
+ */
+export function sendLasVegasBookNowConversion(
+  send: (conversion: AdsConversion) => void = sendAdsConversion,
+): boolean {
+  if (lasVegasBookNowSent) return false;
+  lasVegasBookNowSent = true;
+  try {
+    send(BOOK_NOW_CONVERSION);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 /**
  * Records one conversion for this click event. A second call with the same
@@ -125,6 +157,11 @@ export function trackAdsClick(
   const conversion = conversionForHref(href);
   if (!conversion) return false;
 
+  if (conversion.sendTo === LAS_VEGAS_BOOKING_SEND_TO) {
+    if (lasVegasBookNowSent) return false;
+    lasVegasBookNowSent = true;
+  }
+
   try {
     send(conversion);
   } catch {
@@ -134,9 +171,10 @@ export function trackAdsClick(
 }
 
 export function sendAdsConversion(conversion: AdsConversion): void {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  if (typeof window === 'undefined') return;
 
   try {
+    ensureGtag();
     window.gtag('event', 'conversion', {
       send_to: conversion.sendTo,
       value: conversion.value,

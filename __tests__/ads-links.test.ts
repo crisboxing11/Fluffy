@@ -1,15 +1,18 @@
+import fs from 'fs';
+import path from 'path';
 import {
   BOOK_NOW_CONVERSION,
   CLICK_TO_CALL_CONVERSION,
   GA4_MEASUREMENT_ID,
-  GOOGLE_ADS_ID,
-  GTAG_JS_SRC,
   conversionForHref,
+  ensureGtag,
   googleTagBootstrapSource,
   isLasVegasClickToCall,
   isLasVegasMoeGoBookingUrl,
   normalizeTelDigits,
+  resetLasVegasBookNowForTests,
   sendAdsConversion,
+  sendLasVegasBookNowConversion,
   trackAdsClick,
 } from '../lib/ads';
 
@@ -95,6 +98,10 @@ describe('click-to-call phone normalisation', () => {
 });
 
 describe('one click sends one conversion', () => {
+  beforeEach(() => {
+    resetLasVegasBookNowForTests();
+  });
+
   test('a repeated event does not send twice', () => {
     const event = {};
     const send = jest.fn();
@@ -120,19 +127,69 @@ describe('one click sends one conversion', () => {
   test('missing gtag does not throw', () => {
     expect(() => sendAdsConversion(CLICK_TO_CALL_CONVERSION)).not.toThrow();
   });
+
+  test('a prebook submit and a later MoeGo click share one Book Now conversion', () => {
+    const send = jest.fn();
+    expect(sendLasVegasBookNowConversion(send)).toBe(true);
+    expect(sendLasVegasBookNowConversion(send)).toBe(false);
+    expect(
+      trackAdsClick(
+        {},
+        'https://booking.moego.pet/ol/FLUFFYPETWASH/book',
+        send,
+      ),
+    ).toBe(false);
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).toHaveBeenCalledWith(BOOK_NOW_CONVERSION);
+  });
+
+  test('a MoeGo click blocks a later prebook submit', () => {
+    const send = jest.fn();
+    expect(
+      trackAdsClick(
+        {},
+        'https://booking.moego.pet/ol/FLUFFYPETWASH/landing',
+        send,
+      ),
+    ).toBe(true);
+    expect(sendLasVegasBookNowConversion(send)).toBe(false);
+    expect(send).toHaveBeenCalledTimes(1);
+  });
+
+  test('Orlando booking does not consume the Las Vegas conversion', () => {
+    const send = jest.fn();
+    expect(
+      trackAdsClick(
+        {},
+        'https://booking.moego.pet/ol/FluffyPetWashOrlando/book?utm_medium=embed',
+        send,
+      ),
+    ).toBe(false);
+    expect(sendLasVegasBookNowConversion(send)).toBe(true);
+    expect(send).toHaveBeenCalledTimes(1);
+  });
+
+  test('a call click still fires after Book Now', () => {
+    const send = jest.fn();
+    sendLasVegasBookNowConversion(send);
+    expect(trackAdsClick({}, 'tel:+17025086248', send)).toBe(true);
+    expect(send).toHaveBeenNthCalledWith(2, CLICK_TO_CALL_CONVERSION);
+  });
 });
 
 describe('gtag bootstrap', () => {
   const source = googleTagBootstrapSource();
 
-  test('loads AW-10869086002 from one gtag.js url and configs it once', () => {
-    expect(GTAG_JS_SRC).toBe(
-      'https://www.googletagmanager.com/gtag/js?id=AW-10869086002',
-    );
-    expect(source.match(/AW-10869086002/g)).toEqual([GOOGLE_ADS_ID]);
-    expect(source).toContain(`window.gtag("config", "${GOOGLE_ADS_ID}")`);
+  test('does not load gtag.js and does not config AW-10869086002 itself', () => {
+    expect(source).not.toContain('googletagmanager.com/gtag/js');
+    expect(source).not.toContain('AW-10869086002');
     expect(source).not.toContain('event_callback');
     expect(source).not.toContain('window.location');
+
+    const app = fs.readFileSync(path.join(process.cwd(), 'pages/_app.tsx'), 'utf8');
+    const ads = fs.readFileSync(path.join(process.cwd(), 'lib/ads.ts'), 'utf8');
+    expect(app).not.toContain('googletagmanager.com/gtag/js');
+    expect(ads).not.toContain('googletagmanager.com/gtag/js');
   });
 
   test('reuses an existing dataLayer and gtag instead of replacing them', () => {
@@ -142,8 +199,52 @@ describe('gtag bootstrap', () => {
     expect(source).not.toMatch(/function gtag\s*\(/);
   });
 
-  test('keeps the GA4 id that the app already uses', () => {
+  test('keeps the GA4 id and the other Ads id already in the app', () => {
     expect(source).toContain(`window.gtag("config", "${GA4_MEASUREMENT_ID}")`);
     expect(source).toContain('window.gtag("config", "AW-17319676855")');
+  });
+
+  test('queues on the existing dataLayer when gtag is missing', () => {
+    const dataLayer: unknown[] = [{ existing: true }];
+    const fakeWindow = { dataLayer } as unknown as Window & typeof globalThis;
+    (global as unknown as { window: Window }).window = fakeWindow;
+
+    sendAdsConversion(CLICK_TO_CALL_CONVERSION);
+
+    expect(fakeWindow.dataLayer?.[0]).toEqual({ existing: true });
+    expect(fakeWindow.dataLayer?.length).toBe(2);
+    const queued = fakeWindow.dataLayer?.[1] as IArguments;
+    expect(queued[0]).toBe('event');
+    expect(queued[1]).toBe('conversion');
+    expect(queued[2]).toMatchObject({
+      send_to: CLICK_TO_CALL_CONVERSION.sendTo,
+      transport_type: 'beacon',
+    });
+
+    delete (global as unknown as { window?: Window }).window;
+  });
+
+  test('does not replace a gtag GTM already defined', () => {
+    const dataLayer: unknown[] = ['gtm'];
+    const gtag = jest.fn();
+    const fakeWindow = { dataLayer, gtag } as unknown as Window;
+    (global as unknown as { window: Window }).window = fakeWindow;
+
+    ensureGtag();
+    sendAdsConversion(BOOK_NOW_CONVERSION);
+
+    expect(fakeWindow.gtag).toBe(gtag);
+    expect(fakeWindow.dataLayer).toBe(dataLayer);
+    expect(dataLayer[0]).toBe('gtm');
+    expect(gtag).toHaveBeenCalledWith(
+      'event',
+      'conversion',
+      expect.objectContaining({
+        send_to: BOOK_NOW_CONVERSION.sendTo,
+        transport_type: 'beacon',
+      }),
+    );
+
+    delete (global as unknown as { window?: Window }).window;
   });
 });
