@@ -7,14 +7,20 @@ import theme from '../styles/themes';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Analytics } from '@vercel/analytics/react'; // ✅ Vercel Analytics
 import { SpeedInsights } from '@vercel/speed-insights/react'; // ✅ Vercel Speed Insights
+import {
+  GA4_MEASUREMENT_ID,
+  GTAG_JS_SRC,
+  googleTagBootstrapSource,
+} from '../lib/ads';
+import { installAdsClickListener } from '../lib/adsClicks';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('config', 'G-YTSZ6NZWP3', {
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('config', GA4_MEASUREMENT_ID, {
           page_path: url,
         });
       }
@@ -26,40 +32,19 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, [router.events]);
 
+  useEffect(() => installAdsClickListener(), []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Layout>
-        {/* ✅ Google Analytics */}
+        {/* Stub first so config is queued before gtag.js, and so an existing GTM gtag is reused. */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YTSZ6NZWP3"
+          id="google-tag-bootstrap"
           strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: googleTagBootstrapSource() }}
         />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-YTSZ6NZWP3');
-            `,
-          }}
-        />
-
-        {/* ✅ Google Ads Conversion Tracking */}
-        <Script
-          id="google-ads-tracking"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('config', 'AW-17319676855');
-            `,
-          }}
-        />
+        <Script src={GTAG_JS_SRC} strategy="afterInteractive" />
 
         {/* ✅ Vercel Analytics */}
         <Analytics />
