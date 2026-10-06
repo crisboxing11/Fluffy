@@ -121,7 +121,7 @@ const doodleFaqs = [
   {
     question: "Do you groom poodles and doodles?",
     answer:
-      "Yes! We groom poodles and doodles, including doodle mixes like Goldendoodles, Labradoodles, and Bernedoodles. Your dog's breed is confirmed during booking.",
+      "Yes. We groom poodles and doodles, including Goldendoodles, Labradoodles, and Bernedoodles. Book online the same way you would for any other dog.",
   },
   {
     question: "How much does doodle grooming cost in Las Vegas?",
@@ -393,9 +393,9 @@ const DoodleGroomingLasVegasPage = () => {
           Fluffy Pet Wash offers doodle grooming in Las Vegas without the trip
           to a salon. Whether you have a Goldendoodle, Labradoodle,
           Bernedoodle, another doodle mix, or a standard, miniature, or toy
-          poodle, you book a time, our van parks outside, and one groomer
-          handles your dog from start to finish. No cages, no other animals,
-          and no waiting for pickup.
+          poodle, you book online the same way as any other dog. Our van
+          parks outside, and one groomer handles your dog from start to
+          finish. No cages, no other animals, and no waiting for pickup.
         </Typography>
       </Container>
 
@@ -471,12 +471,12 @@ const DoodleGroomingLasVegasPage = () => {
           </Grid>
         </Paper>
         <Typography sx={{ ...bodySx, maxWidth: 800, mx: "auto", mt: 5 }}>
-          The brush out includes de-tangling and mat removal. Want a shorter,
-          tidier look? A full haircut and styling can be added to the wash.
-          Full haircuts are subject to approval based on coat condition and
-          matting, so tell us the style you have in mind and your groomer will
-          confirm what&apos;s possible for your dog. See every step in detail
-          on our{" "}
+          The brush out includes de-tangling and mat removal. Want a shorter
+          look? A full haircut and styling can be added to the wash, including
+          a teddy bear cut or a puppy cut. The final cut is decided in person,
+          between you and your groomer. Full haircuts are subject to approval
+          based on coat condition and matting. See every step in detail on
+          our{" "}
           <Link href="/services" style={linkStyle}>
             grooming services page
           </Link>
