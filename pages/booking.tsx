@@ -46,20 +46,25 @@ const BookingPage = () => {
 
   if (isLoading) {
     return (
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background:
-            "linear-gradient(135deg, #93EDF0 0%, rgba(147, 237, 240, 0.8) 30%, rgba(255, 255, 255, 0.9) 70%, #FAFAFA 100%)",
-        }}
-      >
-        <Typography variant="h6" color="#067C92">
-          Loading your booking...
-        </Typography>
-      </Box>
+      <>
+        <Head>
+          <title>Book Now | Fluffy Pet Wash</title>
+        </Head>
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background:
+              "linear-gradient(135deg, #93EDF0 0%, rgba(147, 237, 240, 0.8) 30%, rgba(255, 255, 255, 0.9) 70%, #FAFAFA 100%)",
+          }}
+        >
+          <Typography variant="h6" color="#067C92">
+            Loading your booking...
+          </Typography>
+        </Box>
+      </>
     );
   }
 
