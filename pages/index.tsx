@@ -220,8 +220,8 @@ const HomePage = () => {
                   "Saturday",
                   "Sunday",
                 ],
-                opens: "08:00",
-                closes: "19:00",
+                opens: "07:00",
+                closes: "22:00",
               },
             }),
           }}

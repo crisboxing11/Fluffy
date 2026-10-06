@@ -224,7 +224,7 @@ const ContactPage = () => {
       title: "Call Us",
       primary: "Las Vegas: (702) 508-6248",
       secondary: "Orlando: (407) 513-2935",
-      description: "Available Mon-Sat, 8AM-6PM",
+      description: "Available daily, 7AM-10PM",
       action: "",
       actionText: "",
     },
@@ -984,38 +984,14 @@ const ContactPage = () => {
                   <Stack spacing={2}>
                     <Box display="flex" justifyContent="space-between">
                       <Typography variant="body2" color="#64748b">
-                        Monday - Friday
+                        Every day
                       </Typography>
                       <Typography
                         variant="body2"
                         fontWeight={600}
                         color="#038B95"
                       >
-                        8:00 AM - 6:00 PM
-                      </Typography>
-                    </Box>
-                    <Box display="flex" justifyContent="space-between">
-                      <Typography variant="body2" color="#64748b">
-                        Saturday
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        fontWeight={600}
-                        color="#038B95"
-                      >
-                        9:00 AM - 4:00 PM
-                      </Typography>
-                    </Box>
-                    <Box display="flex" justifyContent="space-between">
-                      <Typography variant="body2" color="#64748b">
-                        Sunday
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        fontWeight={600}
-                        color="#e53e3e"
-                      >
-                        Closed
+                        7:00 AM - 10:00 PM
                       </Typography>
                     </Box>
                   </Stack>
