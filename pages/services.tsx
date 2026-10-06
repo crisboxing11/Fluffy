@@ -41,7 +41,7 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
+import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 
 import { useState } from "react";
 import ScrollingText from "../components/ScrollingText";
@@ -301,6 +301,7 @@ const ServicesPage = () => {
                 name: "Fluffy Pet Wash",
                 url: "https://fluffypetwash.com",
                 logo: "https://fluffypetwash.com/fluffy-circle.png",
+                address: LAS_VEGAS_POSTAL_ADDRESS,
               },
               areaServed: [
                 ...LAS_VEGAS_AREA_SERVED,

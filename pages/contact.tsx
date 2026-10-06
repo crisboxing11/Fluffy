@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
+import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -331,13 +331,7 @@ const ContactPage = () => {
               image: "https://fluffypetwash.com/fluffy-circle.png",
               email: "contact@fluffypetwash.com",
               telephone: "+1-702-508-6248",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Las Vegas",
-                addressRegion: "NV",
-                postalCode: "89101",
-                addressCountry: "US",
-              },
+              address: LAS_VEGAS_POSTAL_ADDRESS,
               areaServed: [
                 ...LAS_VEGAS_AREA_SERVED,
                 {
