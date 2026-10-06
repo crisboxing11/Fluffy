@@ -4,6 +4,16 @@
 // Green Valley has no standalone Wikipedia/Wikidata entry, so it has no sameAs.
 // Boulder City is outside the service area and must not appear here.
 
+// Official public business address. JSON-LD only. Do not render this in visible copy.
+export const LAS_VEGAS_POSTAL_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "6628 Sky Pointe Dr #280",
+  addressLocality: "Las Vegas",
+  addressRegion: "NV",
+  postalCode: "89131",
+  addressCountry: "US",
+};
+
 const NEVADA = { "@type": "State", name: "Nevada" };
 const LAS_VEGAS_CITY = { "@type": "City", name: "Las Vegas", containedInPlace: NEVADA };
 const HENDERSON_CITY = { "@type": "City", name: "Henderson", containedInPlace: NEVADA };

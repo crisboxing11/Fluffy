@@ -15,7 +15,7 @@ const PreBookingForm = dynamic(() => import("../components/PreBookingForm"), {
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
+import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 
 const HomePage = () => {
   const router = useRouter();
@@ -172,13 +172,7 @@ const HomePage = () => {
               image: "https://fluffypetwash.com/fluffy-circle.PNG",
               telephone: "+17025086248",
               priceRange: "$$",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Las Vegas",
-                addressRegion: "NV",
-                postalCode: "89101",
-                addressCountry: "US",
-              },
+              address: LAS_VEGAS_POSTAL_ADDRESS,
               // SEO-20261005-05 (folded in): primary business geo = Las Vegas
               geo: {
                 "@type": "GeoCoordinates",
