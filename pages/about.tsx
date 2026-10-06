@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 import Link from "next/link";
 import {
   Pets as PetsIcon,
@@ -204,6 +205,7 @@ const AboutUs = () => {
               logo: "https://fluffypetwash.com/fluffy-circle.png",
               description:
                 "Premium mobile pet grooming service providing stress-free, professional care at your doorstep.",
+              address: LAS_VEGAS_POSTAL_ADDRESS,
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+1-702-508-6248",

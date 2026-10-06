@@ -69,8 +69,8 @@ const faqData = [
       {
         question: "Do you groom all breeds?",
         answer:
-          "We service most breeds, but we do not groom poodles or doodle mixes. Check our breed list before booking!",
-        tags: ["breeds", "poodles", "doodles", "restrictions"],
+          "Yes! We groom poodles and doodles, including doodle mixes. We service most breeds, so check our breed list before booking!",
+        tags: ["breeds", "poodles", "doodles"],
       },
       {
         question: "How long does a grooming session take?",
