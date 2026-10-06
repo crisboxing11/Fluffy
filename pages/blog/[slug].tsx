@@ -78,7 +78,7 @@ const BlogPostPage = ({ post }: Props) => {
                 name: 'Fluffy Pet Wash',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://fluffypetwash.com/fluffy-circle.png',
+                  url: 'https://fluffypetwash.com/fluffy-circle.PNG',
                 },
               },
             })

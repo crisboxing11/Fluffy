@@ -252,7 +252,7 @@ const FAQPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:image:alt" content="Fluffy Pet Wash Questions" />
         <meta property="og:type" content="website" />
@@ -270,7 +270,7 @@ const FAQPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash FAQ" />
         <meta name="twitter:site" content="@fluffypetwash" />

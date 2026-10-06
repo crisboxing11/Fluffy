@@ -256,7 +256,7 @@ const ContactPage = () => {
     url: "https://fluffypetwash.com",
     description:
       "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
-    image: "https://fluffypetwash.com/fluffy-circle.png",
+    image: "https://fluffypetwash.com/fluffy-circle.PNG",
     email: "contact@fluffypetwash.com",
     telephone: "+1-702-508-6248",
     address: LAS_VEGAS_POSTAL_ADDRESS,
@@ -329,7 +329,7 @@ const ContactPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/contact" />
@@ -343,7 +343,7 @@ const ContactPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Contact Fluffy Pet Wash" />
         <meta name="twitter:site" content="@fluffypetwash" />

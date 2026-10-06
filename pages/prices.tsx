@@ -113,7 +113,7 @@ const PricesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.fluffypetwash.com/prices" />
@@ -127,7 +127,7 @@ const PricesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Pricing" />
         <meta name="twitter:site" content="@fluffypetwash" />

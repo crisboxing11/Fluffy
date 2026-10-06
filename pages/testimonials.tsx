@@ -178,7 +178,7 @@ const TestimonialsPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta
@@ -199,7 +199,7 @@ const TestimonialsPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
 
         {/* Structured Data */}

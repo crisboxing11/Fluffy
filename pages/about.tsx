@@ -172,7 +172,7 @@ const AboutUs = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/about" />
@@ -190,7 +190,7 @@ const AboutUs = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
 
         {/* Structured Data */}
@@ -202,7 +202,7 @@ const AboutUs = () => {
               "@type": "Organization",
               name: "Fluffy Pet Wash",
               url: "https://fluffypetwash.com",
-              logo: "https://fluffypetwash.com/fluffy-circle.png",
+              logo: "https://fluffypetwash.com/fluffy-circle.PNG",
               description:
                 "Premium mobile pet grooming service providing stress-free, professional care at your doorstep.",
               address: LAS_VEGAS_POSTAL_ADDRESS,

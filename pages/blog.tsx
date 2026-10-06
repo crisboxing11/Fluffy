@@ -44,7 +44,7 @@ const BlogPage = () => {
           property="og:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/blog" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
@@ -55,7 +55,7 @@ const BlogPage = () => {
           name="twitter:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Blog" />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
