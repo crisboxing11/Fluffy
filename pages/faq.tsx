@@ -231,7 +231,7 @@ const FAQPage = () => {
         <title>Mobile Pet Grooming FAQ | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Answers on booking, canceling, what we need (just an outlet), cats & doodles, summer heat, and pricing. Serving all of Las Vegas & Henderson."
+          content="Mobile dog grooming FAQ: booking, cancellations, pricing, breeds we groom & what we need at your home (just an outlet). Las Vegas, Henderson & Summerlin."
         />
         <meta
           name="keywords"
@@ -248,7 +248,7 @@ const FAQPage = () => {
         />
         <meta
           property="og:description"
-          content="How mobile grooming works, policies, and what to expect — Las Vegas & Henderson."
+          content="How our mobile grooming works, policies & what to expect in Las Vegas, Henderson & Summerlin."
         />
         <meta
           property="og:image"
@@ -266,7 +266,7 @@ const FAQPage = () => {
         />
         <meta
           name="twitter:description"
-          content="How mobile grooming works, policies, and what to expect — Las Vegas & Henderson."
+          content="How our mobile grooming works, policies & what to expect in Las Vegas, Henderson & Summerlin."
         />
         <meta
           name="twitter:image"

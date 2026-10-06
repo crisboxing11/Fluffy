@@ -87,6 +87,7 @@ const testimonials = [
     rating: 5,
     text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It's the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶",
     image: ReviewDog1,
+    imageAlt: "Woman in a black shirt holding a small white dog",
     highlight: "Stress-free for anxious dogs",
   },
   {
@@ -95,6 +96,7 @@ const testimonials = [
     rating: 5,
     text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I'm so grateful and will definitely use them again!",
     image: ReviewDog2,
+    imageAlt: "Woman in a black shirt holding a small white dog indoors",
     highlight: "Perfect for first-time grooming",
   },
   {
@@ -103,6 +105,7 @@ const testimonials = [
     rating: 5,
     text: "Highly recommended! Fantastic service, and my dog looked perfect!",
     image: ReviewDog4,
+    imageAlt: "Small white dog with a red bow against a light background",
     highlight: "Professional results",
   },
   {
@@ -111,6 +114,7 @@ const testimonials = [
     rating: 5,
     text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊",
     image: ReviewDog5,
+    imageAlt: "Black and white dog lying on green grass outdoors",
     highlight: "Gentle care for senior pets",
   },
   {
@@ -119,6 +123,7 @@ const testimonials = [
     rating: 5,
     text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.",
     image: ReviewDog6,
+    imageAlt: "Brown dog being bathed in a tub",
     highlight: "Same-day availability",
   },
   {
@@ -127,6 +132,7 @@ const testimonials = [
     rating: 5,
     text: "Always does an amazing job for my husky. Highly recommend!",
     image: ReviewDog7,
+    imageAlt: "Gray and white dog lying down against a blue-gray background",
     highlight: "Consistent quality service",
   },
 ];
@@ -206,31 +212,7 @@ const TestimonialsPage = () => {
               name: "Fluffy Pet Wash Customer Testimonials",
               description:
                 "Customer testimonials and reviews for Fluffy Pet Wash mobile grooming services",
-              mainEntity: {
-                "@type": "Organization",
-                name: "Fluffy Pet Wash",
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "5.0",
-                  reviewCount: testimonials.length.toString(),
-                  bestRating: "5",
-                  worstRating: "5",
-                },
-              },
-              review: testimonials.map((testimonial) => ({
-                "@type": "Review",
-                author: {
-                  "@type": "Person",
-                  name: testimonial.name,
-                },
-                reviewRating: {
-                  "@type": "Rating",
-                  ratingValue: testimonial.rating.toString(),
-                  bestRating: "5",
-                  worstRating: "1",
-                },
-                reviewBody: testimonial.text,
-              })),
+              about: { "@id": "https://www.fluffypetwash.com/#fluffy" },
             }),
           }}
         />
@@ -638,7 +620,7 @@ const TestimonialsPage = () => {
                             >
                               <Image
                                 src={testimonial.image}
-                                alt={`Happy pet from ${testimonial.name}`}
+                                alt={testimonial.imageAlt}
                                 width={80}
                                 height={80}
                                 style={{

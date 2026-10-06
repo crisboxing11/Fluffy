@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -338,10 +339,7 @@ const ContactPage = () => {
                 addressCountry: "US",
               },
               areaServed: [
-                {
-                  "@type": "Place",
-                  name: "Las Vegas, NV",
-                },
+                ...LAS_VEGAS_AREA_SERVED,
                 {
                   "@type": "Place",
                   name: "Orlando, FL",

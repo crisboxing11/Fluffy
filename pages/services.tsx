@@ -41,6 +41,7 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 
 import { useState } from "react";
 import ScrollingText from "../components/ScrollingText";
@@ -242,7 +243,7 @@ const ServicesPage = () => {
         <title>Premium Mobile Pet Grooming Services | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Discover Fluffy Pet Wash's comprehensive mobile pet grooming services. From essential care to luxury treatments, we bring professional grooming to your doorstep with stress-free, premium service."
+          content="Mobile dog grooming at your door in Las Vegas, Henderson & Summerlin. All-inclusive spa package: bath, blow dry, nails, ears, teeth & facial. Book online."
         />
         <meta
           name="keywords"
@@ -261,7 +262,7 @@ const ServicesPage = () => {
         />
         <meta
           property="og:description"
-          content="Professional mobile pet grooming services delivered to your door. Comprehensive care from essential grooming to luxury spa treatments."
+          content="All-inclusive mobile grooming at your door across Las Vegas, Henderson & Orlando. Bath, blow dry, nails, ears, teeth & blueberry facial."
         />
         <meta
           property="og:image"
@@ -278,7 +279,7 @@ const ServicesPage = () => {
         />
         <meta
           name="twitter:description"
-          content="Professional mobile pet grooming services delivered to your door. Comprehensive care from essential grooming to luxury spa treatments."
+          content="All-inclusive mobile grooming at your door across Las Vegas, Henderson & Orlando. Bath, blow dry, nails, ears, teeth & blueberry facial."
         />
         <meta
           name="twitter:image"
@@ -293,6 +294,8 @@ const ServicesPage = () => {
               "@context": "https://schema.org",
               "@type": "Service",
               serviceType: "Mobile Pet Grooming",
+              description:
+                "All-inclusive mobile dog grooming at your door across the Las Vegas Valley, including Henderson, Summerlin, and North Las Vegas, NV, and in Orlando, FL.",
               provider: {
                 "@type": "Organization",
                 name: "Fluffy Pet Wash",
@@ -300,7 +303,7 @@ const ServicesPage = () => {
                 logo: "https://fluffypetwash.com/fluffy-circle.png",
               },
               areaServed: [
-                { "@type": "Place", name: "Las Vegas, NV" },
+                ...LAS_VEGAS_AREA_SERVED,
                 { "@type": "Place", name: "Orlando, FL" },
               ],
             }),
@@ -324,7 +327,7 @@ const ServicesPage = () => {
       >
         <Image
           src="/Dog1.png"
-          alt="Professional Dog Grooming"
+          alt=""
           fill
           style={{
             objectFit: "cover",
@@ -960,7 +963,7 @@ const ServicesPage = () => {
               >
                 <Image
                   src="/Dog3.png"
-                  alt="Happy dog after grooming"
+                  alt="Small white dog with a pink bow on a black background in Summerlin, NV"
                   fill
                   style={{
                     objectFit: "cover",
@@ -1146,6 +1149,7 @@ const ServicesPage = () => {
                   location: "Las Vegas, NV",
                   petName: "Bella",
                   service: "Complete Grooming Package",
+                  imageAlt: "Woman in a black shirt holding a small white dog",
                 },
                 {
                   name: "Toni Robinson",
@@ -1156,6 +1160,7 @@ const ServicesPage = () => {
                   location: "Orlando, FL",
                   petName: "Max",
                   service: "Premium Spa Treatment",
+                  imageAlt: "Woman in a black shirt holding a small white dog indoors",
                 },
                 {
                   name: "David P.",
@@ -1166,6 +1171,7 @@ const ServicesPage = () => {
                   location: "Las Vegas, NV",
                   petName: "Charlie",
                   service: "Full Service Grooming",
+                  imageAlt: "Small white dog in front of a dark red wall",
                 },
               ].map((review, index) => (
                 <Grid item xs={12} md={4} key={index}>
@@ -1250,7 +1256,7 @@ const ServicesPage = () => {
                         >
                           <Avatar
                             src={review.avatar}
-                            alt={`${review.name} with pet ${review.petName}`}
+                            alt={review.imageAlt}
                             sx={{
                               width: 60,
                               height: 60,

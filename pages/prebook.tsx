@@ -2,6 +2,7 @@ import { Box, Typography, Chip, Button } from "@mui/material";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 
 const PreBookingForm = dynamic(() => import("../components/PreBookingForm"), {
   loading: () => (
@@ -192,6 +193,10 @@ const PrebookPage = () => {
                   logo:
                     "https://www.fluffypetwash.com/Fluffy%20Pet%20Wash%20LOGO%20V3.jpg",
                 },
+                areaServed: [
+                  ...LAS_VEGAS_AREA_SERVED,
+                  { "@type": "City", name: "Orlando", containedInPlace: { "@type": "State", name: "Florida" } },
+                ],
               },
             }),
           }}

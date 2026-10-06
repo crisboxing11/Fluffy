@@ -48,31 +48,38 @@ const testimonials = [
     name: "Katie Jones, Las Vegas",
     text: "Fluffy pet wash makes my life super easy when it comes to grooming my crazy frenchie! It's the best not having to leave my house & drive my dog to the groomers. My dog loves to bark and freak out everytime he sees any other dog so taking him to an actual groomers was always a mission. Fluffy pet wash only takes around 20-30 mins to wash my dog and everytime he smells so good plus feels and looks so clean! The staff are very friendly and I know my dog is in great hands! I definitely recommend fluffy pet for all ur future dog grooming! 🐾🐶",
     image: ReviewDog1,
+    imageAlt: "Woman in a black shirt holding a small white dog",
   },
   {
     name: "Toni Robinson, Las Vegas",
     text: "The service was amazing! They were so patient. My grand dog had never had a professional grooming before and they calmed her nerves and let me know every step of the way how it was going! I'm so grateful and will definitely use them again!",
     image: ReviewDog2,
+    imageAlt: "Woman in a black shirt holding a small white dog indoors",
   },
   {
     name: "David P., North Las Vegas",
     text: "Highly recommended! Fantastic service, and my dog looked perfect!",
     image: ReviewDog4,
+    imageAlt:
+      "Small white dog with a red bow against a light background in North Las Vegas, NV",
   },
   {
     name: "Linda Creelman, North Las Vegas",
     text: "Wow! Amazing groomers! Vicente Cared lovingly for my 12 year old shepherd Chloe. Quality service!♥️🏚🐕😊",
     image: ReviewDog5,
+    imageAlt: "Black and white dog lying on green grass outdoors",
   },
   {
     name: "Christie Gribben, Las Vegas",
     text: "Great same day grooming for my Rottweiler. My dog looked wonderful from top to bottom! Would highly recommend.",
     image: ReviewDog6,
+    imageAlt: "Brown dog being bathed in a tub",
   },
   {
     name: "Chelsea Ortiz, Las Vegas",
     text: "Always does an amazing job for my husky. Highly recommend!",
     image: ReviewDog7,
+    imageAlt: "Gray and white dog lying down against a blue-gray background",
   },
 ];
 
@@ -233,7 +240,7 @@ const Home = () => {
           >
             <Image
               src={DogImage}
-              alt="Happy dog after Fluffy Pet Wash grooming"
+              alt="Close-up of a small white dog with its tongue out against a pale blue background in Las Vegas"
               fill
               sizes="(max-width: 600px) 100vw, (max-width: 900px) 100vw, 100vw"
               priority
@@ -922,7 +929,7 @@ const Home = () => {
                           >
                             <Image
                               src={review.image}
-                              alt={`Happy pet from ${review.name}`}
+                              alt={review.imageAlt}
                               fill
                               style={{ objectFit: "cover", filter:
                                 "brightness(1.1) contrast(1.05) saturate(1.1)", }}
