@@ -788,13 +788,10 @@ const PricesPage = () => {
                       💳 Payment Information
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      • 3.4% service charge applies to credit/debit cards
+                      • 3.4% + 30¢ service charge applies to credit/debit cards
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
                       • Cash and Zelle payments accepted with no additional fees
-                    </Typography>
-                    <Typography variant="body2" color="#067C92" mb={1}>
-                      • $15 health and sanitation fee may apply
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
                       • Surcharge may apply for severe matting and aggressive pets

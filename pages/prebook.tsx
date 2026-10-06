@@ -120,7 +120,7 @@ const PrebookPage = () => {
                 latitude: "28.5383",
                 longitude: "-81.3792",
               },
-              openingHours: "Mo-Su 08:00-18:00",
+              openingHours: "Mo-Su 07:00-22:00",
               priceRange: "$",
               image:
                 "https://www.fluffypetwash.com/Fluffy%20Pet%20Wash%20LOGO%20V3.jpg",
