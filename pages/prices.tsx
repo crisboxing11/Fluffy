@@ -300,6 +300,16 @@ const PricesPage = () => {
                 <Typography variant="body1" color="#067C92">
                   • Large Dogs: <strong>+$50</strong>
                 </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontStyle="italic"
+                  sx={{ mt: 1.5 }}
+                >
+                  For breeds with a specialized breed fee (like poodles and
+                  doodles), the fee includes the haircut, so the haircut add-on
+                  isn&apos;t charged on top.
+                </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" fontStyle="italic">
                 * Prices may vary between Orlando and Las Vegas locations
@@ -532,7 +542,7 @@ const PricesPage = () => {
                           sx={{
                             color: "#F57C00",
                             fontWeight: 700,
-                            mb: category.isAvailable ? 2 : 3,
+                            mb: category.size === "Cats" ? (category.isAvailable ? 2 : 3) : 0.75,
                             fontSize: "0.9rem",
                             background: "rgba(255,193,7,0.15)",
                             px: 2,
@@ -543,6 +553,16 @@ const PricesPage = () => {
                         >
                           ✂️ Haircut & Styling: {category.size === "Cats" || category.size === "Medium Dogs" || category.size === "Small Dogs" ? "+$35" : "+$50"}
                         </Typography>
+                        {category.size !== "Cats" && (
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            fontStyle="italic"
+                            sx={{ mb: category.isAvailable ? 2 : 3 }}
+                          >
+                            * For poodles and doodles, included in the breed fee.
+                          </Typography>
+                        )}
 
                         {category.isAvailable && (
                           <Typography
@@ -693,6 +713,16 @@ const PricesPage = () => {
                 <Box textAlign="center" mt={3}>
                   <Typography variant="body1" color="#067C92" fontWeight="600">
                     💡 Example: Small dog wash ($85) + haircut ($35) = <strong>$120 total</strong>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    fontStyle="italic"
+                    sx={{ mt: 1.5, maxWidth: 720, mx: "auto" }}
+                  >
+                    For breeds with a specialized breed fee (like poodles and
+                    doodles), the fee includes the haircut, so the haircut
+                    add-on isn&apos;t charged on top.
                   </Typography>
                 </Box>
               </Paper>
@@ -1240,6 +1270,16 @@ const PricesPage = () => {
                   fontWeight="600"
                 >
                   Up to $50 specialized breed fee may apply
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontStyle="italic"
+                  sx={{ mt: 1 }}
+                >
+                  For breeds with a specialized breed fee (like poodles and
+                  doodles), the fee includes the haircut, so the haircut add-on
+                  isn&apos;t charged on top.
                 </Typography>
               </Box>
             </Grid>
