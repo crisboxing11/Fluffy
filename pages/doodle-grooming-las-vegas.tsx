@@ -24,9 +24,10 @@ import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 // Owner rule: visible copy names "Las Vegas" only. Sub-areas live in the meta
 // description and in JSON-LD areaServed (data/serviceArea.ts) only.
 // Owner confirmed Oct 5, 2026 that we groom poodles and doodles (pages/faq.tsx L72, PR #123).
-// Pricing rule: never promise a base price for doodles/poodles. The only figures
-// shown are the haircut add-ons and the "up to $50 specialized breed fee" from
-// pages/prices.tsx. Update this page if those change.
+// Pricing, owner Oct 8, 2026: large doodles start at $140 (prices.tsx Large Dogs,
+// $140–$185). The specialized breed fee of up to $50 applies when a haircut is
+// needed or the coat is matted, not by breed alone. Haircut add-on amounts
+// (+$35 / +$50) stay off this page until the owner says they stack with the fee.
 
 const SITE_URL = "https://www.fluffypetwash.com";
 const PAGE_URL = `${SITE_URL}/doodle-grooming-las-vegas`;
@@ -86,24 +87,18 @@ const included = [
   "Final brush out",
 ];
 
-// pages/prices.tsx: L298-L301 + L544 (haircut & styling +$35 small/medium, +$50 large),
-// L1242 ("Up to $50 specialized breed fee may apply"),
-// L1302-L1303 (members who groom every 6 weeks: 50% off the specialized breed fee).
+// pages/prices.tsx L354–L356: Large Dogs $140–$185. L1242 and L1302–L1303: breed fee.
+// Do not put +$35 or +$50 haircut add-ons back on this page.
 const priceCards = [
   {
-    price: "+$35",
-    label: "Haircut & styling, small and medium dogs",
-    note: "Added to the wash price",
-  },
-  {
-    price: "+$50",
-    label: "Haircut & styling, large dogs",
-    note: "Added to the wash price",
+    price: "$140",
+    label: "Large doodles",
+    note: "Starting price",
   },
   {
     price: "Up to $50",
     label: "Specialized breed fee",
-    note: "May apply. 50% off for Fluffy Preferred members.",
+    note: "When a haircut is needed or the coat is matted",
   },
 ];
 
@@ -126,7 +121,7 @@ const doodleFaqs = [
   {
     question: "How much does doodle grooming cost in Las Vegas?",
     answer:
-      "Doodle and poodle pricing depends on your dog's size, coat type, and coat condition, including matting. Your exact price is calculated when you book, based on your dog's breed. A full haircut and styling adds $35 for small and medium dogs or $50 for large dogs, and an up to $50 specialized breed fee may apply. Fluffy Preferred members who groom at least every 6 weeks get 50% off the specialized breed fee.",
+      "Large doodles start at $140. A specialized breed fee of up to $50 applies when a haircut is needed or the coat is matted. It does not apply based on breed alone. Fluffy Preferred members who groom at least every 6 weeks get 50% off the specialized breed fee.",
   },
   {
     question: "How often should my doodle be groomed?",
@@ -136,7 +131,7 @@ const doodleFaqs = [
   {
     question: "Can you groom a matted doodle?",
     answer:
-      "Every visit includes a brush out with de-tangling and mat removal. Full haircuts are subject to approval based on coat condition and matting level, so please tell us about any matting when you book.",
+      "Every visit includes a brush out with de-tangling and mat removal. Full haircuts are subject to approval based on coat condition and matting level, so please tell us about any matting when you book. A specialized breed fee of up to $50 applies when a haircut is needed or the coat is matted.",
   },
   {
     question: "How long does a doodle grooming appointment take?",
@@ -493,10 +488,9 @@ const DoodleGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mb: 5 }}
           >
-            Doodle and poodle pricing depends on your dog&apos;s size, coat
-            type, and coat condition, including matting. Your exact price is
-            calculated automatically when you book, based on your dog&apos;s
-            breed.
+            Large doodles start at $140. A specialized breed fee of up to $50
+            applies when a haircut is needed or the coat is matted. It does
+            not apply based on breed alone.
           </Typography>
           <Grid container spacing={3} justifyContent="center">
             {priceCards.map((card) => (
@@ -530,9 +524,10 @@ const DoodleGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mt: 5 }}
           >
-            Fluffy Preferred is open to clients who groom at least every 6
-            weeks, starting after your first appointment, which is always full
-            price. See the wash price for each dog size on our{" "}
+            Fluffy Preferred members who groom at least every 6 weeks get 50%
+            off the specialized breed fee. Membership opens after your first
+            appointment, which is always full price. See the wash price for
+            each dog size on our{" "}
             <Link href="/prices" style={linkStyle}>
               prices page
             </Link>
