@@ -25,9 +25,9 @@ import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
 // description and in JSON-LD areaServed (data/serviceArea.ts) only.
 // Owner confirmed Oct 5, 2026 that we groom poodles and doodles (pages/faq.tsx L72, PR #123).
 // Pricing, owner Oct 8, 2026: large doodles start at $140 (prices.tsx Large Dogs,
-// $140–$185). The specialized breed fee of up to $50 applies when a haircut is
-// needed or the coat is matted, not by breed alone. Haircut add-on amounts
-// (+$35 / +$50) stay off this page until the owner says they stack with the fee.
+// $140–$185). If a haircut or matting is needed, a specialized breed fee of up
+// to $50 applies and already includes the haircut. A large doodle with a
+// haircut is $140 + $50 = $190. The haircut add-on does not stack.
 
 const SITE_URL = "https://www.fluffypetwash.com";
 const PAGE_URL = `${SITE_URL}/doodle-grooming-las-vegas`;
@@ -98,7 +98,7 @@ const priceCards = [
   {
     price: "Up to $50",
     label: "Specialized breed fee",
-    note: "When a haircut is needed or the coat is matted",
+    note: "Includes the haircut. No separate haircut charge.",
   },
 ];
 
@@ -121,7 +121,7 @@ const doodleFaqs = [
   {
     question: "How much does doodle grooming cost in Las Vegas?",
     answer:
-      "Large doodles start at $140. A specialized breed fee of up to $50 applies when a haircut is needed or the coat is matted. It does not apply based on breed alone. Fluffy Preferred members who groom at least every 6 weeks get 50% off the specialized breed fee.",
+      "Large doodles start at $140. If your doodle needs a haircut or has matting, a specialized breed fee of up to $50 applies, and that fee includes the haircut, so there's no separate haircut charge. Example: a large doodle with a haircut is $140 + $50 = $190 total. Fluffy Preferred members who groom at least every 6 weeks get 50% off the specialized breed fee.",
   },
   {
     question: "How often should my doodle be groomed?",
@@ -131,7 +131,7 @@ const doodleFaqs = [
   {
     question: "Can you groom a matted doodle?",
     answer:
-      "Every visit includes a brush out with de-tangling and mat removal. Full haircuts are subject to approval based on coat condition and matting level, so please tell us about any matting when you book. A specialized breed fee of up to $50 applies when a haircut is needed or the coat is matted.",
+      "Every visit includes a brush out with de-tangling and mat removal. Full haircuts are subject to approval based on coat condition and matting level, so please tell us about any matting when you book. If a haircut is needed or the coat is matted, a specialized breed fee of up to $50 applies, and that fee includes the haircut.",
   },
   {
     question: "How long does a doodle grooming appointment take?",
@@ -488,9 +488,11 @@ const DoodleGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mb: 5 }}
           >
-            Large doodles start at $140. A specialized breed fee of up to $50
-            applies when a haircut is needed or the coat is matted. It does
-            not apply based on breed alone.
+            Large doodles start at $140. If your doodle needs a haircut or has
+            matting, a specialized breed fee of up to $50 applies, and that
+            fee includes the haircut, so there&apos;s no separate haircut
+            charge. Example: a large doodle with a haircut is $140 + $50 =
+            $190 total.
           </Typography>
           <Grid container spacing={3} justifyContent="center">
             {priceCards.map((card) => (
