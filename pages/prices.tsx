@@ -36,37 +36,37 @@ const fadeInUp = {
 const preferredPricing = [
   {
     size: "Small Dog",
-    price: "$75",
+    price: "10% off",
     originalPrice: "$85",
-    savings: "$10",
+    savings: "10%",
     desc: "Up to 25 lbs",
   },
   {
     size: "Medium Dog",
-    price: "$85-$115",
+    price: "10% off",
     originalPrice: "$95-$125",
-    savings: "$10",
+    savings: "10%",
     desc: "26-60 lbs",
   },
   {
     size: "Large Dog",
-    price: "$125-$165",
+    price: "10% off",
     originalPrice: "$140-$185",
-    savings: "$15-$20",
+    savings: "10%",
     desc: "Up to 120 lbs",
   },
   {
     size: "Extra Large Dog",
-    price: "$185",
+    price: "10% off",
     originalPrice: "$200+",
-    savings: "$15+",
+    savings: "10%",
     desc: "Over 120 lbs",
   },
   {
     size: "Cats",
-    price: "$105",
+    price: "10% off",
     originalPrice: "$120",
-    savings: "$15",
+    savings: "10%",
     desc: "All breeds",
   },
 ];
@@ -579,7 +579,7 @@ const PricesPage = () => {
                               border: "1px solid rgba(76, 175, 80, 0.2)",
                             }}
                           >
-                            Fluffy Preferred: $105 flat fee for members
+                            Fluffy Preferred: 10% off after the first visit
                           </Typography>
                         )}
 
@@ -962,12 +962,11 @@ const PricesPage = () => {
                 </Typography>
               </Box>
               <Typography variant="h6" sx={{ color: "#A1E0E3", mb: 2 }}>
-                Exclusive pricing for recurring clients • Save up to $20 per
-                visit
+                10% off services after your first appointment
               </Typography>
               <Chip
                 icon={<LocalOfferIcon />}
-                label="Only for clients who groom at least every 6 weeks"
+                label="Available after your first appointment"
                 sx={{
                   bgcolor: "rgba(255,215,0,0.2)",
                   color: "#FFD700",
@@ -1071,8 +1070,8 @@ const PricesPage = () => {
                 variant="body2"
                 sx={{ color: "rgba(255,255,255,0.9)", fontWeight: 600 }}
               >
-                ⚡ Requirements: Groom at least every 6 weeks to maintain
-                membership benefits
+                Members save 10% on services. The first appointment is full
+                price.
               </Typography>
             </Box>
           </Paper>
@@ -1324,7 +1323,7 @@ const PricesPage = () => {
                   color="#067C92"
                   fontWeight="600"
                 >
-                  Flat fee of $105 for Fluffy Preferred members
+                  Fluffy Preferred members save 10% after the first visit
                 </Typography>
               </Box>
             </Grid>
@@ -1339,11 +1338,10 @@ const PricesPage = () => {
                   💎 Fluffy Preferred Benefits
                 </Typography>
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Dogs: 50% off specialized breed fee for members who groom
-                  every 6 weeks
+                  10% off services after your first appointment
                 </Typography>
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Cats: Flat fee of $105 for members (save $15+)
+                  Same discount for dogs and cats
                 </Typography>
                 <Typography
                   variant="body2"
