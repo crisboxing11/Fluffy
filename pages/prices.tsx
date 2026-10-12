@@ -536,32 +536,44 @@ const PricesPage = () => {
                           All-Inclusive Wash
                         </Typography>
                         
-                        {/* Haircut Add-On Pricing */}
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: "#F57C00",
-                            fontWeight: 700,
-                            mb: category.size === "Cats" ? (category.isAvailable ? 2 : 3) : 0.75,
-                            fontSize: "0.9rem",
-                            background: "rgba(255,193,7,0.15)",
-                            px: 2,
-                            py: 1,
-                            borderRadius: "8px",
-                            border: "2px solid rgba(255,193,7,0.4)",
-                          }}
-                        >
-                          ✂️ Haircut & Styling: {category.size === "Cats" || category.size === "Medium Dogs" || category.size === "Small Dogs" ? "+$35" : "+$50"}
-                        </Typography>
-                        {category.size !== "Cats" && (
+                        {/* Haircut Add-On Pricing. Cats have no fixed haircut add-on. */}
+                        {category.size === "Cats" ? (
                           <Typography
                             variant="body2"
                             color="text.secondary"
                             fontStyle="italic"
                             sx={{ mb: category.isAvailable ? 2 : 3 }}
                           >
-                            * For poodles and doodles, included in the breed fee.
+                            Starting at $120. The price can go up with coat
+                            condition and temperament.
                           </Typography>
+                        ) : (
+                          <>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#F57C00",
+                                fontWeight: 700,
+                                mb: 0.75,
+                                fontSize: "0.9rem",
+                                background: "rgba(255,193,7,0.15)",
+                                px: 2,
+                                py: 1,
+                                borderRadius: "8px",
+                                border: "2px solid rgba(255,193,7,0.4)",
+                              }}
+                            >
+                              ✂️ Haircut & Styling: {category.size === "Small Dogs" || category.size === "Medium Dogs" ? "+$35" : "+$50"}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              fontStyle="italic"
+                              sx={{ mb: category.isAvailable ? 2 : 3 }}
+                            >
+                              * For poodles and doodles, included in the breed fee.
+                            </Typography>
+                          </>
                         )}
 
                         {category.isAvailable && (
