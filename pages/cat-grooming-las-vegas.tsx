@@ -96,11 +96,6 @@ const priceCards = [
     label: "All-Inclusive Wash",
     note: "Starting at $120. The price can go up with coat condition and temperament.",
   },
-  {
-    price: "10% off",
-    label: "Fluffy Preferred members",
-    note: "On services, after your first appointment",
-  },
 ];
 
 const steps = [
