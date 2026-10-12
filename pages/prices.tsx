@@ -95,7 +95,7 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Cash & Zelle with no card fee. Book online."
+          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Card, Cash & Zelle. Book online."
         />
         <meta
           name="keywords"
@@ -833,7 +833,7 @@ const PricesPage = () => {
                       • 3.4% + 30¢ service charge applies to credit/debit cards
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      • Cash and Zelle payments accepted with no additional fees
+                      • Card, Cash & Zelle accepted. Cash and Zelle have no additional fees.
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
                       • Surcharge may apply for severe matting and aggressive pets

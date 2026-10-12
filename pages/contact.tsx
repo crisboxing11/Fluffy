@@ -260,6 +260,7 @@ const ContactPage = () => {
     image: "https://fluffypetwash.com/fluffy-circle.PNG",
     email: "contact@fluffypetwash.com",
     telephone: "+1-702-508-6248",
+    paymentAccepted: "Card, Cash, Zelle",
     address: LAS_VEGAS_POSTAL_ADDRESS,
     areaServed: [
       ...LAS_VEGAS_AREA_SERVED,
