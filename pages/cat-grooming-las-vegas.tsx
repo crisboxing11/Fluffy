@@ -87,8 +87,8 @@ const included = [
   "Final brush out",
 ];
 
-// pages/prices.tsx: L384-L386 + L526 ($120 All-Inclusive Wash), L1280 ("starting at $120"),
-// L544 (Cats haircut & styling +$35), L66-L70 / L562 / L1287 / L1306 ($105 member flat price).
+// pages/prices.tsx: cat wash starts at $120; haircut add-on is +$35.
+// Owner Oct 12, 2026: Fluffy Preferred is 10% off services after the first appointment.
 const priceCards = [
   {
     price: "$120",
@@ -101,9 +101,9 @@ const priceCards = [
     note: "Added to the wash price",
   },
   {
-    price: "$105",
+    price: "10% off",
     label: "Fluffy Preferred members",
-    note: "Flat price per cat visit for clients who groom at least every 6 weeks",
+    note: "On services, after your first appointment",
   },
 ];
 
@@ -135,7 +135,7 @@ const catFaqs = [
   {
     question: "How much does cat grooming cost in Las Vegas?",
     answer:
-      "Cat grooming starts at $120 for our All-Inclusive Wash. A full haircut and styling adds $35. Fluffy Preferred members, who groom at least every 6 weeks, pay a flat $105 per cat visit after their first full-price appointment. Cat pricing varies based on temperament and coat condition, and your exact price is confirmed when you book.",
+      "Cat grooming starts at $120 for our All-Inclusive Wash. A full haircut and styling adds $35. After your first appointment, Fluffy Preferred members save 10% on services. Cat pricing varies based on temperament and coat condition, and your exact price is confirmed when you book.",
   },
   {
     question: "What breeds of cats do you groom?",
@@ -515,9 +515,8 @@ const CatGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mb: 5 }}
           >
-            Cat grooming starts at $120 for the All-Inclusive Wash. Clients who
-            groom at least every 6 weeks can join Fluffy Preferred. Membership
-            opens after your first appointment, which is always full price.
+            Cat grooming starts at $120 for the All-Inclusive Wash. After your
+            first appointment, Fluffy Preferred members save 10% on services.
           </Typography>
           <Grid container spacing={3} justifyContent="center">
             {priceCards.map((card) => (
