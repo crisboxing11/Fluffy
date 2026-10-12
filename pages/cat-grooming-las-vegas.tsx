@@ -70,8 +70,7 @@ const whyMobile = [
   },
 ];
 
-// Mirrors the "What's Included in Every Session" list in pages/prices.tsx (L75-L88).
-// Owner to confirm every item applies to cats (see ticket, owner question 1).
+// Owner Oct 12, 2026: every item applies to cats.
 const included = [
   "Professional brush out",
   "Hypoallergenic wash with organic conditioner",
@@ -87,18 +86,15 @@ const included = [
   "Final brush out",
 ];
 
-// pages/prices.tsx: cat wash starts at $120; haircut add-on is +$35.
-// Owner Oct 12, 2026: Fluffy Preferred is 10% off services after the first appointment.
+// Owner Oct 12, 2026: Las Vegas cat grooming is starting at $120. The price can
+// go up with coat condition and temperament. There is no fixed haircut add-on.
+// Lion cuts and shave-downs are typically around $35 extra.
+// Fluffy Preferred is 10% off services after the first appointment.
 const priceCards = [
   {
     price: "$120",
     label: "All-Inclusive Wash",
-    note: "Starting price for cat grooming",
-  },
-  {
-    price: "+$35",
-    label: "Full haircut & styling",
-    note: "Added to the wash price",
+    note: "Starting at $120. The price can go up with coat condition and temperament.",
   },
   {
     price: "10% off",
@@ -114,19 +110,19 @@ const steps = [
   },
   {
     title: "Get your cat ready",
-    text: "Shortly before we arrive, keep your cat in a quiet room so they're easy to find. When you book, tell us about any matting, health concerns, or past grooming reactions.",
+    text: "A rabies vaccine is the only requirement. Shortly before we arrive, keep your cat in a quiet room so they're easy to find. When you book, tell us about any matting, health concerns, or past grooming reactions.",
   },
   {
     title: "We park outside",
-    text: "Our van arrives at your home with its own water supply and all the tools needed for a complete grooming session.",
+    text: "Our van arrives at your home with its own water supply and all the tools needed for a complete grooming session. The groomer picks your cat up at the door, or you can bring your cat to the van.",
   },
   {
     title: "One-on-one grooming",
-    text: "One groomer cares for your cat in the van from start to finish. A typical session takes 40 to 90 minutes, depending on size, coat condition, and behavior.",
+    text: "One groomer cares for your cat in the van from start to finish. A visit usually takes at least 40 minutes, and it can run 20 or more minutes longer depending on coat condition and temperament.",
   },
   {
     title: "Straight back home",
-    text: "Your cat returns to familiar surroundings as soon as the visit ends. Need to change plans? You can reschedule or cancel up to 24 hours in advance.",
+    text: "Someone must be home when the groomer finishes the service. Your cat returns to familiar surroundings as soon as the visit ends. Need to change plans? You can reschedule or cancel up to 24 hours in advance.",
   },
 ];
 
@@ -135,7 +131,17 @@ const catFaqs = [
   {
     question: "How much does cat grooming cost in Las Vegas?",
     answer:
-      "Cat grooming starts at $120 for our All-Inclusive Wash. A full haircut and styling adds $35. After your first appointment, Fluffy Preferred members save 10% on services. Cat pricing varies based on temperament and coat condition, and your exact price is confirmed when you book.",
+      "Cat grooming is starting at $120 for our All-Inclusive Wash. The price can go up depending on coat condition and temperament. There is no fixed haircut charge. After your first appointment, Fluffy Preferred members save 10% on services. Your exact price is confirmed when you book.",
+  },
+  {
+    question: "What is included in a cat grooming visit?",
+    answer:
+      "Every item on the checklist: a professional brush out, hypoallergenic wash with organic conditioner, towel and blow dry, nail trimming and filing, ear cleaning, teeth brushing and mouth wash, gland expression (optional), professional de-shedding, paw cleaning and trimming, sanitary area trimming, a facial treatment, and a final brush out.",
+  },
+  {
+    question: "Do you offer lion cuts or shave-downs?",
+    answer:
+      "Yes. Lion cuts and shave-downs are available. They are typically around $35 extra, and more for cats that are hard to handle, depending on labor and temperament.",
   },
   {
     question: "What breeds of cats do you groom?",
@@ -155,7 +161,16 @@ const catFaqs = [
   {
     question: "How long does a cat grooming appointment take?",
     answer:
-      "A typical session takes 40 to 90 minutes, depending on your cat's size, coat condition, and behavior.",
+      "A visit usually takes at least 40 minutes. It can run 20 or more minutes longer depending on coat condition and temperament.",
+  },
+  {
+    question: "What are the requirements for cat grooming?",
+    answer: "A rabies vaccine is the only requirement.",
+  },
+  {
+    question: "How does my cat get to the van?",
+    answer:
+      "The groomer picks your cat up at the door, or you can bring your cat to the van. Someone must be home when the groomer finishes the service.",
   },
   {
     question: "How do I book mobile cat grooming?",
@@ -173,7 +188,7 @@ const jsonLd = {
       serviceType: "Cat grooming",
       url: PAGE_URL,
       description:
-        "Mobile cat grooming at your door in Las Vegas: a one-on-one All-Inclusive Wash in a climate-controlled spa van, with optional full haircut and styling.",
+        "Mobile cat grooming at your door in Las Vegas: a one-on-one All-Inclusive Wash in a climate-controlled spa van. Grooming is starting at $120, and lion cuts and shave-downs are available.",
       provider: {
         "@type": "LocalBusiness",
         "@id": `${SITE_URL}/#fluffy`,
@@ -182,15 +197,6 @@ const jsonLd = {
         telephone: "+17025086248",
       },
       areaServed: LAS_VEGAS_AREA_SERVED,
-      offers: {
-        "@type": "Offer",
-        url: `${SITE_URL}/prices`,
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: 120,
-          priceCurrency: "USD",
-        },
-      },
     },
     {
       "@type": "FAQPage",
@@ -493,12 +499,23 @@ const CatGroomingLasVegasPage = () => {
             ))}
           </Grid>
         </Paper>
-        <Typography sx={{ ...bodySx, maxWidth: 800, mx: "auto", mt: 5 }}>
-          The brush out includes de-tangling and mat removal. Want a shorter
-          style? A full haircut and styling can be added to the wash. Full
-          haircuts depend on coat condition and matting, so your groomer will
-          confirm what&apos;s possible for your cat. See every step in detail on
-          our{" "}
+        <Typography
+          variant="h3"
+          sx={{
+            fontSize: { xs: "1.25rem", md: "1.45rem" },
+            fontWeight: 700,
+            color: brandColors.dark,
+            textAlign: "center",
+            mt: 6,
+            mb: 2,
+          }}
+        >
+          Lion cuts and shave-downs
+        </Typography>
+        <Typography sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center" }}>
+          Lion cuts and shave-downs are available. They are typically around $35
+          extra, and more for cats that are hard to handle, depending on labor
+          and temperament. See every step in detail on our{" "}
           <Link href="/services" style={linkStyle}>
             grooming services page
           </Link>
@@ -515,8 +532,10 @@ const CatGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mb: 5 }}
           >
-            Cat grooming starts at $120 for the All-Inclusive Wash. After your
-            first appointment, Fluffy Preferred members save 10% on services.
+            Cat grooming is starting at $120 for the All-Inclusive Wash. The
+            price can go up depending on coat condition and temperament. After
+            your first appointment, Fluffy Preferred members save 10% on
+            services.
           </Typography>
           <Grid container spacing={3} justifyContent="center">
             {priceCards.map((card) => (
