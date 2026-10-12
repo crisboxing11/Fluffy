@@ -121,7 +121,7 @@ const doodleFaqs = [
   {
     question: "How much does doodle grooming cost in Las Vegas?",
     answer:
-      "Large doodles start at $140. If your doodle needs a haircut or has matting, a specialized breed fee of up to $50 applies, and that fee includes the haircut, so there's no separate haircut charge. Example: a large doodle with a haircut is $140 + $50 = $190 total. Fluffy Preferred members who groom at least every 6 weeks get 50% off the specialized breed fee.",
+      "Large doodles start at $140. If your doodle needs a haircut or has matting, a specialized breed fee of up to $50 applies, and that fee includes the haircut, so there's no separate haircut charge. Example: a large doodle with a haircut is $140 + $50 = $190 total. After your first appointment, Fluffy Preferred members save 10% on services.",
   },
   {
     question: "How often should my doodle be groomed?",
@@ -526,10 +526,8 @@ const DoodleGroomingLasVegasPage = () => {
           <Typography
             sx={{ ...bodySx, maxWidth: 800, mx: "auto", textAlign: "center", mt: 5 }}
           >
-            Fluffy Preferred members who groom at least every 6 weeks get 50%
-            off the specialized breed fee. Membership opens after your first
-            appointment, which is always full price. See the wash price for
-            each dog size on our{" "}
+            After your first appointment, Fluffy Preferred members save 10%
+            on services. See the wash price for each dog size on our{" "}
             <Link href="/prices" style={linkStyle}>
               prices page
             </Link>
