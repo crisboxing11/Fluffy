@@ -100,10 +100,10 @@ const faqData = [
         tags: ["pricing", "cost", "small", "medium", "large", "size"],
       },
       {
-        question: "Do you accept credit cards or cash?",
+        question: "Do you accept card, cash, or Zelle?",
         answer:
-          "Yes! We accept all major credit/debit cards and cash payments. No personal checks.",
-        tags: ["payment", "credit card", "cash", "methods"],
+          "Yes. We accept card, cash, and Zelle. A 3.4% + 30¢ service charge applies to credit and debit cards. Cash and Zelle have no additional fees. No personal checks.",
+        tags: ["payment", "credit card", "cash", "zelle", "methods"],
       },
       {
         question: "Are there any additional fees?",
