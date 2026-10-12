@@ -45,8 +45,10 @@ export const CLICK_TO_CALL_CONVERSION: AdsConversion = {
 };
 
 /**
- * Queues hits on the dataLayer GTM already uses. Does not load gtag.js.
- * GTM-PG7XP5HS loads gtag.js for AW-10869086002.
+ * Queues commands on the dataLayer GTM already uses. Does not insert a
+ * gtag.js script tag. GTM-PG7XP5HS loads gtag.js for G-G17GCFVQT2 only.
+ * The config below registers AW-10869086002 on that library, with no
+ * conversion label. The library then requests this Ads id once per page.
  */
 export function googleTagBootstrapSource(): string {
   return [
@@ -56,6 +58,7 @@ export function googleTagBootstrapSource(): string {
     '}',
     `window.gtag("config", ${JSON.stringify(GA4_MEASUREMENT_ID)});`,
     `window.gtag("config", ${JSON.stringify(EXISTING_GOOGLE_ADS_ID)});`,
+    `window.gtag("config", ${JSON.stringify(GOOGLE_ADS_ID)});`,
   ].join('\n');
 }
 
