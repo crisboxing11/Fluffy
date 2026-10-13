@@ -16,7 +16,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
@@ -73,12 +73,6 @@ const ContactPage = () => {
   const [successMessage, setSuccessMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // Ensure client-side rendering
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -121,8 +115,6 @@ const ContactPage = () => {
   };
 
   const handleCopyEmail = async () => {
-    if (!isClient) return; // Prevent SSR issues
-    
     const emailAddress = "contact@fluffypetwash.com";
 
     // Try modern clipboard API first (only if available and not blocked)
@@ -274,38 +266,6 @@ const ContactPage = () => {
       "https://www.facebook.com/fluffypetwash",
     ],
   };
-
-  // Don't render dynamic content until client-side
-  if (!isClient) {
-    return (
-      <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
-        <Head>
-          <title>Contact Us | Fluffy Pet Wash</title>
-          <meta
-            name="description"
-            content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form."
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="robots" content="index,follow" />
-          <link rel="canonical" href="https://www.fluffypetwash.com/contact" />
-          <link rel="icon" href="/favicon.ico" />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(contactJsonLd),
-            }}
-          />
-        </Head>
-        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
-          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
-            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
-              Loading Contact Page...
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-    );
-  }
 
   return (
     <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
@@ -716,6 +676,78 @@ const ContactPage = () => {
             ))}
           </Grid>
         </motion.div>
+
+        <Box
+          component="section"
+          id="contact-guidance"
+          aria-labelledby="contact-guidance-heading"
+          sx={{ maxWidth: 760, mx: "auto", mb: { xs: 5, md: 7 } }}
+        >
+          <Typography
+            id="contact-guidance-heading"
+            variant="h2"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              color: "#067C92",
+              fontSize: { xs: "1.6rem", md: "2rem" },
+              mb: 2,
+              textAlign: "center",
+            }}
+          >
+            When to use this page
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
+          >
+            This form is for general questions, franchise inquiries, and help
+            with a booking you already have. It does not create an appointment,
+            and it does not quote a price. To book, use the{" "}
+            <Link href="/prebook" style={{ color: "#038B95", fontWeight: 700 }}>
+              pre-book page
+            </Link>
+            . To see what a groom costs, use the{" "}
+            <Link href="/prices" style={{ color: "#038B95", fontWeight: 700 }}>
+              prices page
+            </Link>
+            .
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
+          >
+            Call or text Las Vegas at{" "}
+            <a href={LAS_VEGAS_TEL_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
+              (702) 508-6248
+            </a>
+            , or Orlando at{" "}
+            <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
+              (407) 513-2935
+            </a>
+            . Phone hours are listed on this page. You can also email{" "}
+            <a
+              href="mailto:contact@fluffypetwash.com"
+              style={{ color: "#038B95", fontWeight: 700 }}
+            >
+              contact@fluffypetwash.com
+            </a>
+            . We&apos;ll get back to you as soon as we can. For something that
+            cannot wait, call.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75 }}
+          >
+            The van comes to you. Las Vegas is fully covered, and Orlando
+            coverage is limited. Do not put a card number in this form. We do
+            not take payment here. To move or cancel a time you already booked,
+            use the confirmation text or call. Please let us know as early as
+            you can if you need to change or cancel. Same-day grooming is by
+            appointment. Call to ask whether a slot is open. A message on this
+            form is a question, not a reserved time.
+          </Typography>
+        </Box>
 
         {/* Main Content Grid */}
         <Grid container spacing={{ xs: 4, md: 6 }}>

@@ -454,6 +454,91 @@ const PrebookPage = () => {
             <PreBookingForm />
           </Box>
 
+          <Box
+            component="section"
+            id="prebook-how"
+            aria-labelledby="prebook-how-heading"
+            sx={{ mb: 6 }}
+          >
+            <Typography
+              id="prebook-how-heading"
+              variant="h2"
+              component="h2"
+              sx={{
+                fontSize: { xs: "1.6rem", md: "2rem" },
+                fontWeight: 700,
+                color: "#067C92",
+                mb: 2,
+                textAlign: "center",
+              }}
+            >
+              How booking works on this page
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75, mb: 2 }}
+            >
+              Choose a location in the form above. Las Vegas continues to the
+              online calendar. Orlando can book online or send a request
+              through the appointment form instead. After you finish, you
+              receive an email. You receive a text when the appointment is
+              accepted.
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75, mb: 2 }}
+            >
+              Nothing is charged to hold the time. Card, cash, and Zelle are
+              accepted. Credit and debit cards include a 3.4% + 30¢ service
+              charge. Cash and Zelle do not.
+              The full price list, including size and coat, is on the{" "}
+              <Link href="/prices" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
+                prices page
+              </Link>
+              .
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75, mb: 2 }}
+            >
+              The van parks at your home. Your dog is groomed one-on-one. Visit
+              length depends on your pet&apos;s size and coat. Please have
+              someone home when the groomer finishes. Please let us know as
+              early as you can if you need to change or cancel.
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75 }}
+            >
+              Questions about what is included, which breeds we take, or what a
+              visit costs belong on the{" "}
+              <Link href="/services" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
+                services
+              </Link>
+              ,{" "}
+              <Link href="/prices" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
+                prices
+              </Link>
+              , and{" "}
+              <Link href="/faq" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
+                FAQ
+              </Link>{" "}
+              pages. This page is only for starting an appointment. If you are
+              hoping for a same-day visit, call to ask whether a slot is open.
+              Las Vegas is{" "}
+              <a href="tel:+17025086248" style={{ color: "#038B95", fontWeight: "bold" }}>
+                (702) 508-6248
+              </a>{" "}
+              and Orlando is{" "}
+              <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: "bold" }}>
+                (407) 513-2935
+              </a>
+              . Phone hours are listed on the contact page. Choosing a location
+              here does not charge a card and does not finish the appointment
+              by itself.
+            </Typography>
+          </Box>
+
           {/* Condensed Information Section */}
           <Box
             component="section"
