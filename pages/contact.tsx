@@ -725,16 +725,15 @@ const ContactPage = () => {
             <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
               (407) 513-2935
             </a>
-            . Both lines are answered every day from 7:00 AM to 10:00 PM. You
-            can also email{" "}
+            . Phone hours are listed on this page. You can also email{" "}
             <a
               href="mailto:contact@fluffypetwash.com"
               style={{ color: "#038B95", fontWeight: 700 }}
             >
               contact@fluffypetwash.com
             </a>
-            . Replies to this form and to email go out within 24 hours. For
-            something that cannot wait, call.
+            . We&apos;ll get back to you as soon as we can. For something that
+            cannot wait, call.
           </Typography>
           <Typography
             variant="body1"
@@ -743,9 +742,10 @@ const ContactPage = () => {
             The van comes to you. Las Vegas is fully covered, and Orlando
             coverage is limited. Do not put a card number in this form. We do
             not take payment here. To move or cancel a time you already booked,
-            use the confirmation text or call. Changes need 24 hours&apos;
-            notice. Same-day grooming is by appointment only, and only when a
-            slot is open.
+            use the confirmation text or call. Please let us know as early as
+            you can if you need to change or cancel. Same-day grooming is by
+            appointment. Call to ask whether a slot is open. A message on this
+            form is a question, not a reserved time.
           </Typography>
         </Box>
 

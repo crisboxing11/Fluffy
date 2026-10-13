@@ -488,9 +488,9 @@ const PrebookPage = () => {
               variant="body1"
               sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75, mb: 2 }}
             >
-              Nothing is charged to hold the time. Payment is due when the
-              groom is finished, by card, cash, or Zelle. Credit and debit
-              cards include a 3.4% + 30¢ service charge. Cash and Zelle do not.
+              Nothing is charged to hold the time. Card, cash, and Zelle are
+              accepted. Credit and debit cards include a 3.4% + 30¢ service
+              charge. Cash and Zelle do not.
               The full price list, including size and coat, is on the{" "}
               <Link href="/prices" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 prices page
@@ -501,10 +501,10 @@ const PrebookPage = () => {
               variant="body1"
               sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75, mb: 2 }}
             >
-              The van parks at your home. Your dog is groomed one-on-one, and a
-              typical visit takes about 40 to 90 minutes. Please have someone
-              home when the groomer finishes. You can reschedule or cancel up
-              to 24 hours in advance from the confirmation text or by calling.
+              The van parks at your home. Your dog is groomed one-on-one. Visit
+              length depends on your pet&apos;s size and coat. Please have
+              someone home when the groomer finishes. Please let us know as
+              early as you can if you need to change or cancel.
             </Typography>
             <Typography
               variant="body1"
@@ -523,17 +523,19 @@ const PrebookPage = () => {
               <Link href="/faq" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 FAQ
               </Link>{" "}
-              pages. This page is only for starting an appointment. For a
-              same-day opening, call Las Vegas at{" "}
+              pages. This page is only for starting an appointment. If you are
+              hoping for a same-day visit, call to ask whether a slot is open.
+              Las Vegas is{" "}
               <a href="tel:+17025086248" style={{ color: "#038B95", fontWeight: "bold" }}>
                 (702) 508-6248
               </a>{" "}
-              or Orlando at{" "}
+              and Orlando is{" "}
               <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: "bold" }}>
                 (407) 513-2935
               </a>
-              . Lines are open every day from 7 AM to 10 PM, and a same-day
-              visit is added only when a slot is actually open.
+              . Phone hours are listed on the contact page. Choosing a location
+              here does not charge a card and does not finish the appointment
+              by itself.
             </Typography>
           </Box>
 

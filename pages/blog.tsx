@@ -160,8 +160,8 @@ const BlogPage = () => {
           <Link href="/blog/why-mobile-grooming-works" style={{ color: '#038B95', fontWeight: 700 }}>
             Why mobile grooming works
           </Link>{' '}
-          covers one-on-one care, skipping the car ride, and visits that usually
-          finish in under 90 minutes.{' '}
+          covers one-on-one care and skipping the car ride. Visit length
+          depends on your pet&apos;s size and coat.{' '}
           <Link href="/blog/choosing-the-right-shampoo" style={{ color: '#038B95', fontWeight: 700 }}>
             Choosing the right shampoo
           </Link>{' '}
@@ -188,7 +188,9 @@ const BlogPage = () => {
           <Link href="/prebook" style={{ color: '#038B95', fontWeight: 700 }}>
             pre-book page
           </Link>{' '}
-          starts the appointment.
+          starts the appointment. These notes do not reserve a time or set a
+          price. Check the services and prices pages for what a visit includes
+          and what it costs today.
         </Typography>
       </Box>
 

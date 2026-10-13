@@ -854,9 +854,9 @@ const Home = () => {
               mb: 2,
             }}
           >
-            A usual visit takes about 40 to 90 minutes. The time depends on
-            size, coat, and temperament. We do not sedate dogs. If a dog
-            becomes extremely distressed or aggressive, the groomer may stop so
+            Visit length depends on your pet&apos;s size and coat. Temperament
+            can change the visit too. We do not sedate dogs. If a dog becomes
+            extremely distressed or aggressive, the groomer may stop so
             everyone stays safe.
           </Typography>
           <Typography
@@ -873,8 +873,7 @@ const Home = () => {
             cleaning, teeth brushing, paw care, a sanitary trim, and a
             blueberry facial. De-shedding is part of the same visit. Prices
             follow the breed and the coat, and nothing is due when you reserve
-            the time. Card, cash, and Zelle are accepted when the groom is
-            finished. The{" "}
+            the time. Card, cash, and Zelle are accepted. The{" "}
             <Link
               href="/prices"
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
@@ -900,10 +899,10 @@ const Home = () => {
             </Link>
             . Choose Las Vegas or Orlando, confirm your dog is on the breed
             list, and continue to the calendar. You get an email after you book
-            and a text when the appointment is accepted. You can reschedule or
-            cancel up to 24 hours ahead. Phones are answered every day from 7
-            AM to 10 PM. Same-day visits are only added when a slot is open, so
-            call to check. Details on what is included are on the{" "}
+            and a text when the appointment is accepted. Please let us know as
+            early as you can if you need to change or cancel. Phone hours are
+            listed on the contact page. If you need a same-day visit, call to
+            ask whether a slot is open. Details on what is included are on the{" "}
             <Link
               href="/services"
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
