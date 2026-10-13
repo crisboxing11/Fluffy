@@ -44,7 +44,7 @@ const BlogPage = () => {
           property="og:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/blog" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
@@ -55,7 +55,7 @@ const BlogPage = () => {
           name="twitter:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.png" />
+        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Blog" />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
@@ -125,6 +125,74 @@ const BlogPage = () => {
           </Typography>
         </Box>
       </motion.div>
+
+      <Box
+        component="section"
+        id="blog-intro"
+        aria-labelledby="blog-intro-heading"
+        sx={{ py: { xs: 5, md: 7 }, px: { xs: 3, md: 6 }, maxWidth: '800px', mx: 'auto' }}
+      >
+        <Typography
+          id="blog-intro-heading"
+          variant="h2"
+          component="h2"
+          fontWeight="bold"
+          textAlign="center"
+          mb={3}
+          color="#067C92"
+          sx={{ fontSize: { xs: '1.6rem', md: '2.1rem' } }}
+        >
+          From the grooming van
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75, mb: 2 }}>
+          These notes are the same subjects our groomers talk through at the
+          driveway: how to keep a bath calm, why a van visit is easier than a
+          salon, which shampoo belongs on a dog, and why shaving a double coat
+          is not a way to cool a dog. The posts are for owners in Las Vegas and
+          Orlando.
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75, mb: 2 }}>
+          <Link href="/blog/stress-free-grooming" style={{ color: '#038B95', fontWeight: 700 }}>
+            Stress-free grooming
+          </Link>{' '}
+          walks through a quieter setup, treats, short first sessions, and a
+          steady schedule.{' '}
+          <Link href="/blog/why-mobile-grooming-works" style={{ color: '#038B95', fontWeight: 700 }}>
+            Why mobile grooming works
+          </Link>{' '}
+          covers one-on-one care and skipping the car ride. Visit length
+          depends on your pet&apos;s size and coat.{' '}
+          <Link href="/blog/choosing-the-right-shampoo" style={{ color: '#038B95', fontWeight: 700 }}>
+            Choosing the right shampoo
+          </Link>{' '}
+          explains why human shampoo is a poor match for a dog&apos;s skin, and
+          how coat type changes the product.
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75, mb: 2 }}>
+          <Link href="/blog/why-we-dont-shave" style={{ color: '#038B95', fontWeight: 700 }}>
+            Why we don&apos;t shave dogs
+          </Link>{' '}
+          explains double coats, sunburn, and what we do instead: de-shedding,
+          sanitary trims, and paw and ear tidying. The{' '}
+          <Link href="/blog/orlando-grand-opening" style={{ color: '#038B95', fontWeight: 700 }}>
+            Orlando post
+          </Link>{' '}
+          is the story of taking the same van service from Las Vegas to Orlando.
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75 }}>
+          Most dogs do well with a groom every 4 to 6 weeks. The{' '}
+          <Link href="/services" style={{ color: '#038B95', fontWeight: 700 }}>
+            services page
+          </Link>{' '}
+          describes what each visit includes, and the{' '}
+          <Link href="/prebook" style={{ color: '#038B95', fontWeight: 700 }}>
+            pre-book page
+          </Link>{' '}
+          starts the appointment. These notes do not reserve a time or set a
+          price. Check the services and prices pages for what a visit includes
+          and what it costs today.
+        </Typography>
+      </Box>
 
       <Box sx={{ py: 8, px: { xs: 3, md: 6 }, maxWidth: '1200px', mx: 'auto' }}>
         <Typography variant="h4" fontWeight="bold" textAlign="center" mb={6} color="#067C92">

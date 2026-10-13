@@ -171,6 +171,7 @@ const HomePage = () => {
               logo: "https://fluffypetwash.com/fluffy-circle.PNG",
               image: "https://fluffypetwash.com/fluffy-circle.PNG",
               telephone: "+17025086248",
+              paymentAccepted: "Card, Cash, Zelle",
               priceRange: "$$",
               address: LAS_VEGAS_POSTAL_ADDRESS,
               // SEO-20261005-05 (folded in): primary business geo = Las Vegas

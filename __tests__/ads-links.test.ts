@@ -4,6 +4,7 @@ import {
   BOOK_NOW_CONVERSION,
   CLICK_TO_CALL_CONVERSION,
   GA4_MEASUREMENT_ID,
+  GOOGLE_ADS_ID,
   conversionForHref,
   ensureGtag,
   googleTagBootstrapSource,
@@ -189,16 +190,26 @@ describe('one click sends one conversion', () => {
 describe('gtag bootstrap', () => {
   const source = googleTagBootstrapSource();
 
-  test('does not load gtag.js and does not config AW-10869086002 itself', () => {
+  test('configs AW-10869086002 once and does not load another gtag.js', () => {
     expect(source).not.toContain('googletagmanager.com/gtag/js');
-    expect(source).not.toContain('AW-10869086002');
     expect(source).not.toContain('event_callback');
     expect(source).not.toContain('window.location');
+    expect(source).not.toContain('XsDHCIHDsr4DELKu5L4o');
+    expect(source).not.toContain(`${GOOGLE_ADS_ID}/`);
+
+    const configs = source.match(/window\.gtag\("config", "[^"]+"\)/g);
+    expect(configs).toEqual([
+      `window.gtag("config", "${GA4_MEASUREMENT_ID}")`,
+      'window.gtag("config", "AW-17319676855")',
+      'window.gtag("config", "AW-10869086002")',
+    ]);
 
     const app = fs.readFileSync(path.join(process.cwd(), 'pages/_app.tsx'), 'utf8');
     const ads = fs.readFileSync(path.join(process.cwd(), 'lib/ads.ts'), 'utf8');
     expect(app).not.toContain('googletagmanager.com/gtag/js');
     expect(ads).not.toContain('googletagmanager.com/gtag/js');
+    expect(ads).not.toContain('XsDHCIHDsr4DELKu5L4o');
+    expect(ads).not.toContain('loads gtag.js for AW-10869086002');
   });
 
   test('reuses an existing dataLayer and gtag instead of replacing them', () => {

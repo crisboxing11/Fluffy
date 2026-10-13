@@ -267,7 +267,7 @@ const ServicesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fluffypetwash.com/services" />
@@ -284,7 +284,7 @@ const ServicesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
 
         {/* Structured Data */}
@@ -301,7 +301,7 @@ const ServicesPage = () => {
                 "@type": "Organization",
                 name: "Fluffy Pet Wash",
                 url: "https://fluffypetwash.com",
-                logo: "https://fluffypetwash.com/fluffy-circle.png",
+                logo: "https://fluffypetwash.com/fluffy-circle.PNG",
                 address: LAS_VEGAS_POSTAL_ADDRESS,
               },
               areaServed: [
@@ -514,6 +514,13 @@ const ServicesPage = () => {
               services - from health assessment to luxury finishing touches. No
               hidden fees, no add-ons, just complete care for your furry family
               member.
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#038B95", mb: 1.5 }}>
+              Have a cat? See our{" "}
+              <Link href="/cat-grooming-las-vegas" style={{ color: "#00ADCD", fontWeight: 700 }}>
+                mobile cat grooming in Las Vegas
+              </Link>
+              .
             </Typography>
             <Typography variant="body1" sx={{ color: "#038B95", mb: 4 }}>
               Have a doodle or poodle? See our{" "}

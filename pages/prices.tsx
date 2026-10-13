@@ -36,37 +36,37 @@ const fadeInUp = {
 const preferredPricing = [
   {
     size: "Small Dog",
-    price: "$75",
+    price: "10% off",
     originalPrice: "$85",
-    savings: "$10",
+    savings: "10%",
     desc: "Up to 25 lbs",
   },
   {
     size: "Medium Dog",
-    price: "$85-$115",
+    price: "10% off",
     originalPrice: "$95-$125",
-    savings: "$10",
+    savings: "10%",
     desc: "26-60 lbs",
   },
   {
     size: "Large Dog",
-    price: "$125-$165",
+    price: "10% off",
     originalPrice: "$140-$185",
-    savings: "$15-$20",
+    savings: "10%",
     desc: "Up to 120 lbs",
   },
   {
     size: "Extra Large Dog",
-    price: "$185",
+    price: "10% off",
     originalPrice: "$200+",
-    savings: "$15+",
+    savings: "10%",
     desc: "Over 120 lbs",
   },
   {
     size: "Cats",
-    price: "$105",
+    price: "10% off",
     originalPrice: "$120",
-    savings: "$15",
+    savings: "10%",
     desc: "All breeds",
   },
 ];
@@ -95,7 +95,7 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Cash & Zelle with no card fee. Book online."
+          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Card, Cash & Zelle. Book online."
         />
         <meta
           name="keywords"
@@ -113,7 +113,7 @@ const PricesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.fluffypetwash.com/prices" />
@@ -127,7 +127,7 @@ const PricesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.png"
+          content="https://fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Pricing" />
         <meta name="twitter:site" content="@fluffypetwash" />
@@ -299,6 +299,16 @@ const PricesPage = () => {
                 </Typography>
                 <Typography variant="body1" color="#067C92">
                   • Large Dogs: <strong>+$50</strong>
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontStyle="italic"
+                  sx={{ mt: 1.5 }}
+                >
+                  For breeds with a specialized breed fee (like poodles and
+                  doodles), the fee includes the haircut, so the haircut add-on
+                  isn&apos;t charged on top.
                 </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" fontStyle="italic">
@@ -526,23 +536,45 @@ const PricesPage = () => {
                           All-Inclusive Wash
                         </Typography>
                         
-                        {/* Haircut Add-On Pricing */}
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: "#F57C00",
-                            fontWeight: 700,
-                            mb: category.isAvailable ? 2 : 3,
-                            fontSize: "0.9rem",
-                            background: "rgba(255,193,7,0.15)",
-                            px: 2,
-                            py: 1,
-                            borderRadius: "8px",
-                            border: "2px solid rgba(255,193,7,0.4)",
-                          }}
-                        >
-                          ✂️ Haircut & Styling: {category.size === "Cats" || category.size === "Medium Dogs" || category.size === "Small Dogs" ? "+$35" : "+$50"}
-                        </Typography>
+                        {/* Haircut Add-On Pricing. Cats have no fixed haircut add-on. */}
+                        {category.size === "Cats" ? (
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            fontStyle="italic"
+                            sx={{ mb: category.isAvailable ? 2 : 3 }}
+                          >
+                            Starting at $120. The price can go up with coat
+                            condition and temperament.
+                          </Typography>
+                        ) : (
+                          <>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#F57C00",
+                                fontWeight: 700,
+                                mb: 0.75,
+                                fontSize: "0.9rem",
+                                background: "rgba(255,193,7,0.15)",
+                                px: 2,
+                                py: 1,
+                                borderRadius: "8px",
+                                border: "2px solid rgba(255,193,7,0.4)",
+                              }}
+                            >
+                              ✂️ Haircut & Styling: {category.size === "Small Dogs" || category.size === "Medium Dogs" ? "+$35" : "+$50"}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              fontStyle="italic"
+                              sx={{ mb: category.isAvailable ? 2 : 3 }}
+                            >
+                              * For poodles and doodles, included in the breed fee.
+                            </Typography>
+                          </>
+                        )}
 
                         {category.isAvailable && (
                           <Typography
@@ -559,7 +591,7 @@ const PricesPage = () => {
                               border: "1px solid rgba(76, 175, 80, 0.2)",
                             }}
                           >
-                            Fluffy Preferred: $105 flat fee for members
+                            Fluffy Preferred: 10% off after the first visit
                           </Typography>
                         )}
 
@@ -694,6 +726,16 @@ const PricesPage = () => {
                   <Typography variant="body1" color="#067C92" fontWeight="600">
                     💡 Example: Small dog wash ($85) + haircut ($35) = <strong>$120 total</strong>
                   </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    fontStyle="italic"
+                    sx={{ mt: 1.5, maxWidth: 720, mx: "auto" }}
+                  >
+                    For breeds with a specialized breed fee (like poodles and
+                    doodles), the fee includes the haircut, so the haircut
+                    add-on isn&apos;t charged on top.
+                  </Typography>
                 </Box>
               </Paper>
             </Box>
@@ -791,7 +833,7 @@ const PricesPage = () => {
                       • 3.4% + 30¢ service charge applies to credit/debit cards
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
-                      • Cash and Zelle payments accepted with no additional fees
+                      • Card, Cash & Zelle accepted. Cash and Zelle have no additional fees.
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={1}>
                       • Surcharge may apply for severe matting and aggressive pets
@@ -932,12 +974,11 @@ const PricesPage = () => {
                 </Typography>
               </Box>
               <Typography variant="h6" sx={{ color: "#A1E0E3", mb: 2 }}>
-                Exclusive pricing for recurring clients • Save up to $20 per
-                visit
+                10% off services after your first appointment
               </Typography>
               <Chip
                 icon={<LocalOfferIcon />}
-                label="Only for clients who groom at least every 6 weeks"
+                label="Available after your first appointment"
                 sx={{
                   bgcolor: "rgba(255,215,0,0.2)",
                   color: "#FFD700",
@@ -1041,8 +1082,8 @@ const PricesPage = () => {
                 variant="body2"
                 sx={{ color: "rgba(255,255,255,0.9)", fontWeight: 600 }}
               >
-                ⚡ Requirements: Groom at least every 6 weeks to maintain
-                membership benefits
+                Members save 10% on services. The first appointment is full
+                price.
               </Typography>
             </Box>
           </Paper>
@@ -1241,6 +1282,16 @@ const PricesPage = () => {
                 >
                   Up to $50 specialized breed fee may apply
                 </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontStyle="italic"
+                  sx={{ mt: 1 }}
+                >
+                  For breeds with a specialized breed fee (like poodles and
+                  doodles), the fee includes the haircut, so the haircut add-on
+                  isn&apos;t charged on top.
+                </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -1284,7 +1335,7 @@ const PricesPage = () => {
                   color="#067C92"
                   fontWeight="600"
                 >
-                  Flat fee of $105 for Fluffy Preferred members
+                  Fluffy Preferred members save 10% after the first visit
                 </Typography>
               </Box>
             </Grid>
@@ -1299,11 +1350,10 @@ const PricesPage = () => {
                   💎 Fluffy Preferred Benefits
                 </Typography>
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Dogs: 50% off specialized breed fee for members who groom
-                  every 6 weeks
+                  10% off services after your first appointment
                 </Typography>
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Cats: Flat fee of $105 for members (save $15+)
+                  Same discount for dogs and cats
                 </Typography>
                 <Typography
                   variant="body2"
