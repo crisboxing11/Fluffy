@@ -515,10 +515,17 @@ const ServicesPage = () => {
               hidden fees, no add-ons, just complete care for your furry family
               member.
             </Typography>
-            <Typography variant="body1" sx={{ color: "#038B95", mb: 4 }}>
+            <Typography variant="body1" sx={{ color: "#038B95", mb: 1.5 }}>
               Have a cat? See our{" "}
               <Link href="/cat-grooming-las-vegas" style={{ color: "#00ADCD", fontWeight: 700 }}>
                 mobile cat grooming in Las Vegas
+              </Link>
+              .
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#038B95", mb: 4 }}>
+              Have a doodle or poodle? See our{" "}
+              <Link href="/doodle-grooming-las-vegas" style={{ color: "#00ADCD", fontWeight: 700 }}>
+                doodle grooming in Las Vegas
               </Link>
               .
             </Typography>
