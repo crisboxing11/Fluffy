@@ -56,11 +56,6 @@ const BookingPage = () => {
           content="Schedule your mobile grooming appointment online."
         />
         <link rel="canonical" href="https://www.fluffypetwash.com/booking" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `gtag('event', 'ads_conversion_Book_appointment_1');`,
-          }}
-        />
       </Head>
 
       {/* Hero Header */}

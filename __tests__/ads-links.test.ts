@@ -206,10 +206,15 @@ describe('gtag bootstrap', () => {
 
     const app = fs.readFileSync(path.join(process.cwd(), 'pages/_app.tsx'), 'utf8');
     const ads = fs.readFileSync(path.join(process.cwd(), 'lib/ads.ts'), 'utf8');
+    const booking = fs.readFileSync(path.join(process.cwd(), 'pages/booking.tsx'), 'utf8');
+    const policy = fs.readFileSync(path.join(process.cwd(), 'pages/privacy-policy.tsx'), 'utf8');
     expect(app).not.toContain('googletagmanager.com/gtag/js');
     expect(ads).not.toContain('googletagmanager.com/gtag/js');
     expect(ads).not.toContain('XsDHCIHDsr4DELKu5L4o');
     expect(ads).not.toContain('loads gtag.js for AW-10869086002');
+    expect(booking).not.toContain('ads_conversion_Book_appointment_1');
+    expect(booking).not.toContain("gtag('event'");
+    expect(policy).not.toContain('booking page also sends a booking conversion event');
   });
 
   test('reuses an existing dataLayer and gtag instead of replacing them', () => {

@@ -83,7 +83,7 @@ const PrivacyPolicyPage = () => {
         Google Tag Manager, container GTM-PG7XP5HS, loads on every page. Browsers that do not run scripts still receive a hidden Google Tag Manager frame. Using that tag library, this site configures Google Analytics 4 property G-YTSZ6NZWP3 and Google Ads accounts AW-17319676855 and AW-10869086002. That same tag manager container also loads Google tag G-G17GCFVQT2. These Google tags use cookies to measure page views, recognize a browser across pages, and record advertising clicks.
       </Typography>
       <Typography component="p" variant="body1" mb={2}>
-        When you move from one page to another, we send the page path to Google Analytics. We record a booking conversion when you follow a Las Vegas MoeGo booking link or continue on the Las Vegas booking path, and a call conversion when you click the Las Vegas phone number. The booking page also sends a booking conversion event. These events measure visits and ads. They do not include your name, phone number, email address, service address, pet details, or card number.
+        When you move from one page to another, we send the page path to Google Analytics. We record a booking conversion when you follow a Las Vegas MoeGo booking link or continue on the Las Vegas booking path, and a call conversion when you click the Las Vegas phone number. These events measure visits and ads. They do not include your name, phone number, email address, service address, pet details, or card number.
       </Typography>
       <Typography component="p" variant="body1" mb={3}>
         Vercel Analytics and Vercel Speed Insights also run on every page. Vercel Analytics measures which pages are visited. Vercel Speed Insights measures how quickly pages load.

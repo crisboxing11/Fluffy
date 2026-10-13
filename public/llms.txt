@@ -22,3 +22,11 @@ Fluffy Pet Wash grooms pets at the client's door. Appointments are booked throug
 - [Testimonials](https://www.fluffypetwash.com/testimonials): Customer reviews
 - [Blog](https://www.fluffypetwash.com/blog): Grooming tips and news
 - [Privacy policy](https://www.fluffypetwash.com/privacy-policy): How the site handles personal information
+
+## Blog
+
+- [5 Tips for Stress-Free Grooming](https://www.fluffypetwash.com/blog/stress-free-grooming)
+- [Why Mobile Grooming Works](https://www.fluffypetwash.com/blog/why-mobile-grooming-works)
+- [Choosing the Right Shampoo for Your Dog](https://www.fluffypetwash.com/blog/choosing-the-right-shampoo)
+- [Why We Don't Shave Dogs](https://www.fluffypetwash.com/blog/why-we-dont-shave)
+- [Fluffy Pet Wash Expands to Orlando](https://www.fluffypetwash.com/blog/orlando-grand-opening)
