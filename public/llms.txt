@@ -1,1 +1,32 @@
-Sitemap: https://www.fluffypetwash.com/sitemap.xml
+# Fluffy Pet Wash
+
+> Mobile dog and cat grooming that comes to your door in Las Vegas, Henderson, and Orlando.
+
+Fluffy Pet Wash grooms pets at the client's door. Appointments are booked through MoeGo. Payments are processed through MoeGo. This file lists the public pages.
+
+## Services
+
+- [Home](https://www.fluffypetwash.com/): Mobile dog grooming in Las Vegas
+- [Services](https://www.fluffypetwash.com/services): What a grooming visit includes
+- [Prices](https://www.fluffypetwash.com/prices): Mobile dog grooming prices
+- [Cat grooming in Las Vegas](https://www.fluffypetwash.com/cat-grooming-las-vegas): Cat grooming, starting at $120
+- [Orlando](https://www.fluffypetwash.com/orlando): Mobile pet grooming in Orlando, Florida
+
+## Visit
+
+- [Book](https://www.fluffypetwash.com/prebook): Book a mobile grooming appointment
+- [Booking](https://www.fluffypetwash.com/booking): Finish a booking online
+- [FAQ](https://www.fluffypetwash.com/faq): Common questions about visits, pricing, and pets
+- [Contact](https://www.fluffypetwash.com/contact): Phone, email, and the contact form
+- [About](https://www.fluffypetwash.com/about): About Fluffy Pet Wash
+- [Testimonials](https://www.fluffypetwash.com/testimonials): Customer reviews
+- [Blog](https://www.fluffypetwash.com/blog): Grooming tips and news
+- [Privacy policy](https://www.fluffypetwash.com/privacy-policy): How the site handles personal information
+
+## Blog
+
+- [5 Tips for Stress-Free Grooming](https://www.fluffypetwash.com/blog/stress-free-grooming)
+- [Why Mobile Grooming Works](https://www.fluffypetwash.com/blog/why-mobile-grooming-works)
+- [Choosing the Right Shampoo for Your Dog](https://www.fluffypetwash.com/blog/choosing-the-right-shampoo)
+- [Why We Don't Shave Dogs](https://www.fluffypetwash.com/blog/why-we-dont-shave)
+- [Fluffy Pet Wash Expands to Orlando](https://www.fluffypetwash.com/blog/orlando-grand-opening)
