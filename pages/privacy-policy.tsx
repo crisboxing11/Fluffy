@@ -93,7 +93,7 @@ const PrivacyPolicyPage = () => {
         5. We Do Not Sell Your Information
       </Typography>
       <Typography component="p" variant="body1" mb={2}>
-        We <strong>do not</strong> sell, rent, or lease your personal information. Your privacy is our top priority. We share information only with service providers that help us operate this website and provide grooming:
+        We <strong>do not</strong> sell, rent, or lease your personal information. We share information only with service providers that help us operate this website and provide grooming:
       </Typography>
       <Box component="ul" sx={{ pl: 4, mb: 3, listStyleType: 'disc' }}>
         <li>
@@ -118,14 +118,14 @@ const PrivacyPolicyPage = () => {
         </li>
       </Box>
       <Typography component="p" variant="body1" mb={3}>
-        We do not sell personal data. The footer and some pages link to our Facebook and Instagram profiles. Those are ordinary links. This site does not load a Facebook or Instagram advertising pixel.
+        The footer and some pages link to our Facebook and Instagram profiles. Those are ordinary links. This site does not load a Facebook or Instagram advertising pixel.
       </Typography>
 
       <Typography component="h2" variant="h5" fontWeight="bold" color="#067C92" mb={1}>
         6. Data Security
       </Typography>
       <Typography component="p" variant="body1" mb={3}>
-        We use industry-standard security measures to protect your information, including encrypted communications and limited employee access. This website tells browsers to keep using an encrypted connection. Booking details and card payments are handled by MoeGo. Contact messages are delivered through Gmail.
+        This website tells browsers to keep using an encrypted connection. Booking details and card payments are handled by MoeGo. Contact messages are delivered through Gmail.
       </Typography>
 
       <Typography component="h2" variant="h5" fontWeight="bold" color="#067C92" mb={1}>
