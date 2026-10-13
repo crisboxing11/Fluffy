@@ -136,11 +136,11 @@ const doodleFaqs = [
   {
     question: "How long does a doodle grooming appointment take?",
     answer:
-      "A typical session takes 40 to 90 minutes, depending on your dog's size, coat condition, and behavior.",
+      "Visit length depends on your dog's size, coat condition, and behavior.",
   },
   {
     question: "How do I book mobile doodle grooming?",
-    answer: `Book online through our booking page, or call or text ${PHONE_DISPLAY} between 7 AM and 10 PM, any day of the week. You'll receive an email after booking and a text once we accept your appointment. You can reschedule or cancel up to 24 hours in advance.`,
+    answer: `Book online through our booking page, or call or text ${PHONE_DISPLAY} between 7 AM and 10 PM, any day of the week. You'll receive an email after booking and a text once we accept your appointment. If you need to change or cancel, please let us know as early as you can.`,
   },
 ];
 
