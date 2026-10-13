@@ -23,12 +23,11 @@ const BookingPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [bookingUrl, setBookingUrl] = useState(territories[0].bookingUrl);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
   const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
-    // Get location from URL parameter
+    // Location comes from the query after hydration. The page itself is
+    // rendered on the server so crawlers see the booking copy.
     const { location } = router.query;
 
     if (location && typeof location === "string") {
@@ -40,33 +39,7 @@ const BookingPage = () => {
         setBookingUrl(territory.bookingUrl);
       }
     }
-
-    setIsLoading(false);
   }, [router.query]);
-
-  if (isLoading) {
-    return (
-      <>
-        <Head>
-          <title>Book Now | Fluffy Pet Wash</title>
-        </Head>
-        <Box
-          sx={{
-            minHeight: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background:
-              "linear-gradient(135deg, #93EDF0 0%, rgba(147, 237, 240, 0.8) 30%, rgba(255, 255, 255, 0.9) 70%, #FAFAFA 100%)",
-          }}
-        >
-          <Typography variant="h6" color="#067C92">
-            Loading your booking...
-          </Typography>
-        </Box>
-      </>
-    );
-  }
 
   return (
     <Box
@@ -82,6 +55,7 @@ const BookingPage = () => {
           name="description"
           content="Schedule your mobile grooming appointment online."
         />
+        <link rel="canonical" href="https://www.fluffypetwash.com/booking" />
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('event', 'ads_conversion_Book_appointment_1');`,

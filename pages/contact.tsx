@@ -16,7 +16,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
@@ -73,12 +73,6 @@ const ContactPage = () => {
   const [successMessage, setSuccessMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // Ensure client-side rendering
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -121,8 +115,6 @@ const ContactPage = () => {
   };
 
   const handleCopyEmail = async () => {
-    if (!isClient) return; // Prevent SSR issues
-    
     const emailAddress = "contact@fluffypetwash.com";
 
     // Try modern clipboard API first (only if available and not blocked)
@@ -274,38 +266,6 @@ const ContactPage = () => {
       "https://www.facebook.com/fluffypetwash",
     ],
   };
-
-  // Don't render dynamic content until client-side
-  if (!isClient) {
-    return (
-      <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
-        <Head>
-          <title>Contact Us | Fluffy Pet Wash</title>
-          <meta
-            name="description"
-            content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form."
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="robots" content="index,follow" />
-          <link rel="canonical" href="https://www.fluffypetwash.com/contact" />
-          <link rel="icon" href="/favicon.ico" />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(contactJsonLd),
-            }}
-          />
-        </Head>
-        <Container maxWidth="lg" sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}>
-          <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
-            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 800, color: "#067C92" }}>
-              Loading Contact Page...
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-    );
-  }
 
   return (
     <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh" }}>
