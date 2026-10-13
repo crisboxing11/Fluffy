@@ -804,6 +804,124 @@ const Home = () => {
         </Box>
       </motion.div>
 
+      <Box
+        component="section"
+        id="home-visit"
+        aria-labelledby="home-visit-heading"
+        sx={{
+          py: { xs: 5, md: 8 },
+          px: { xs: 2, sm: 3, md: 6 },
+          bgcolor: "#ffffff",
+        }}
+      >
+        <Container maxWidth="md">
+          <Typography
+            id="home-visit-heading"
+            variant="h2"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              color: "#067C92",
+              fontSize: { xs: "1.6rem", md: "2.2rem" },
+              mb: 3,
+              textAlign: "center",
+              lineHeight: 1.2,
+            }}
+          >
+            What to expect at your door
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#334155",
+              fontSize: { xs: "1rem", md: "1.125rem" },
+              lineHeight: 1.75,
+              mb: 2,
+            }}
+          >
+            Fluffy Pet Wash brings a grooming van to your home in Las Vegas and
+            in Orlando. Your dog is the only pet in the van for that visit.
+            There is no salon lobby, no cage beside other dogs, and no car ride
+            before the bath. The van is climate-controlled, and the groomer
+            stays with your dog from the first brush to the last.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#334155",
+              fontSize: { xs: "1rem", md: "1.125rem" },
+              lineHeight: 1.75,
+              mb: 2,
+            }}
+          >
+            A usual visit takes about 40 to 90 minutes. The time depends on
+            size, coat, and temperament. We do not sedate dogs. If a dog
+            becomes extremely distressed or aggressive, the groomer may stop so
+            everyone stays safe.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#334155",
+              fontSize: { xs: "1rem", md: "1.125rem" },
+              lineHeight: 1.75,
+              mb: 2,
+            }}
+          >
+            The groom includes a hypoallergenic wash, organic conditioner, a
+            full brush-out, towel and blow dry, nail trim and file, ear
+            cleaning, teeth brushing, paw care, a sanitary trim, and a
+            blueberry facial. De-shedding is part of the same visit. Prices
+            follow the breed and the coat, and nothing is due when you reserve
+            the time. Card, cash, and Zelle are accepted when the groom is
+            finished. The{" "}
+            <Link
+              href="/prices"
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              prices page
+            </Link>{" "}
+            lists the card service charge.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#334155",
+              fontSize: { xs: "1rem", md: "1.125rem" },
+              lineHeight: 1.75,
+            }}
+          >
+            Booking starts on this page or on the{" "}
+            <Link
+              href="/prebook"
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              pre-book page
+            </Link>
+            . Choose Las Vegas or Orlando, confirm your dog is on the breed
+            list, and continue to the calendar. You get an email after you book
+            and a text when the appointment is accepted. You can reschedule or
+            cancel up to 24 hours ahead. Phones are answered every day from 7
+            AM to 10 PM. Same-day visits are only added when a slot is open, so
+            call to check. Details on what is included are on the{" "}
+            <Link
+              href="/services"
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              services page
+            </Link>{" "}
+            and in the{" "}
+            <Link
+              href="/faq"
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              FAQ
+            </Link>
+            .
+          </Typography>
+        </Container>
+      </Box>
+
       {/* Enhanced Testimonials Section */}
       <motion.div
         initial="hidden"
