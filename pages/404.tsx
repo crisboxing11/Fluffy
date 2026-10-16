@@ -11,7 +11,7 @@ const Custom404 = () => {
         <title>Page Not Found | Fluffy Pet Wash</title>
         <meta name="description" content="Oops! The page you&apos;re looking for does not exist." />
         <meta name="robots" content="noindex" />
-        <link rel="canonical" href="https://fluffypetwash.com/404" />
+        <link rel="canonical" href="https://www.fluffypetwash.com/404" />
       </Head>
       <Box sx={{ mb: 4 }}>
         <Image src="/fluffy-circle.PNG" alt="Fluffy Pet Wash Logo" width={150} height={150} />

@@ -113,7 +113,7 @@ const PricesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.fluffypetwash.com/prices" />
@@ -127,7 +127,7 @@ const PricesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Pricing" />
         <meta name="twitter:site" content="@fluffypetwash" />
@@ -484,7 +484,17 @@ const PricesPage = () => {
                           fontWeight="bold"
                           sx={{ color: category.color, mb: 1 }}
                         >
-                          {category.size}
+                          {category.size === "Cats" ? (
+                            <Link
+                              href="/cat-grooming-las-vegas"
+                              aria-label="Mobile cat grooming in Las Vegas"
+                              style={{ color: "inherit", textDecoration: "none" }}
+                            >
+                              {category.size}
+                            </Link>
+                          ) : (
+                            category.size
+                          )}
                         </Typography>
 
                         {/* Weight Range */}
@@ -1328,7 +1338,13 @@ const PricesPage = () => {
                   }}
                 />
                 <Typography variant="body2" color="#067C92" mb={2}>
-                  Professional cat grooming starting at $120
+                  <Link
+                    href="/cat-grooming-las-vegas"
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    Professional cat grooming
+                  </Link>{" "}
+                  starting at $120
                 </Typography>
                 <Typography
                   variant="body2"

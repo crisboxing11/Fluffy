@@ -132,7 +132,7 @@ const HomePage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:image:alt" content="Fluffy Pet Wash Logo" />
         <meta property="og:type" content="website" />
@@ -151,7 +151,7 @@ const HomePage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Logo" />
         <meta name="twitter:site" content="@fluffypetwash" />
@@ -168,8 +168,8 @@ const HomePage = () => {
               url: "https://www.fluffypetwash.com/",
               description:
                 "Stress-free mobile dog and cat grooming at your door across the Las Vegas Valley, including Henderson, Summerlin, and North Las Vegas, and in Orlando. One-on-one climate-controlled spa van. Licensed and insured.",
-              logo: "https://fluffypetwash.com/fluffy-circle.PNG",
-              image: "https://fluffypetwash.com/fluffy-circle.PNG",
+              logo: "https://www.fluffypetwash.com/fluffy-circle.PNG",
+              image: "https://www.fluffypetwash.com/fluffy-circle.PNG",
               telephone: "+17025086248",
               paymentAccepted: "Card, Cash, Zelle",
               priceRange: "$$",
@@ -248,6 +248,7 @@ const HomePage = () => {
             {/* Main Title with Enhanced Typography */}
             <Typography
               variant="h1"
+              component="h2"
               sx={{
                 fontSize: { xs: "2.2rem", md: "3.5rem" },
                 fontWeight: 800,

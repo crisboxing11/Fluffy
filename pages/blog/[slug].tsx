@@ -31,11 +31,11 @@ const BlogPostPage = ({ post }: Props) => {
         <meta property="og:description" content={post.excerpt} />
         <meta
           property="og:image"
-          content={`https://fluffypetwash.com${post.image}`}
+          content={`https://www.fluffypetwash.com${post.image}`}
         />
         <meta
           property="og:url"
-          content={`https://fluffypetwash.com/blog/${post.slug}`}
+          content={`https://www.fluffypetwash.com/blog/${post.slug}`}
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
@@ -50,7 +50,7 @@ const BlogPostPage = ({ post }: Props) => {
           content={post.metaTitle ? post.metaTitle : post.title}
         />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={`https://fluffypetwash.com${post.image}`} />
+        <meta name="twitter:image" content={`https://www.fluffypetwash.com${post.image}`} />
         <meta name="twitter:image:alt" content={post.imageAlt || post.title} />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
@@ -64,8 +64,8 @@ const BlogPostPage = ({ post }: Props) => {
               '@type': 'BlogPosting',
               headline: post.title,
               description: post.excerpt,
-              image: `https://fluffypetwash.com${post.image}`,
-              url: `https://fluffypetwash.com/blog/${post.slug}`,
+              image: `https://www.fluffypetwash.com${post.image}`,
+              url: `https://www.fluffypetwash.com/blog/${post.slug}`,
               datePublished: post.date,
               dateModified: post.date,
               timeRequired: `PT${readingTime}M`,
@@ -78,7 +78,7 @@ const BlogPostPage = ({ post }: Props) => {
                 name: 'Fluffy Pet Wash',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://fluffypetwash.com/fluffy-circle.PNG',
+                  url: 'https://www.fluffypetwash.com/fluffy-circle.PNG',
                 },
               },
             })
@@ -95,13 +95,13 @@ const BlogPostPage = ({ post }: Props) => {
                   '@type': 'ListItem',
                   position: 1,
                   name: 'Blog',
-                  item: 'https://fluffypetwash.com/blog',
+                  item: 'https://www.fluffypetwash.com/blog',
                 },
                 {
                   '@type': 'ListItem',
                   position: 2,
                   name: post.title,
-                  item: `https://fluffypetwash.com/blog/${post.slug}`,
+                  item: `https://www.fluffypetwash.com/blog/${post.slug}`,
                 },
               ],
             }),

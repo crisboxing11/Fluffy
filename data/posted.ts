@@ -43,7 +43,7 @@ export const posted: BlogPost[] = [
       <h2>Bonus Tip: Leave It to the Pros</h2>
       <p>If your dog gets anxious, hiring a professional groomer is the best decision you can make. Fluffy Pet Wash offers <strong>luxury mobile grooming</strong> services designed with your pet’s emotional well-being in mind. Our team handles everything with compassion and expertise so your pup feels safe, clean, and fabulous.</p>
   
-      <p><strong>Book your stress-free appointment today at the <a href="https://fluffypetwash.com">Fluffy Pet Wash website</a> and experience the Fluffy difference!</strong></p>
+      <p><strong>Book your stress-free appointment today at the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and experience the Fluffy difference!</strong></p>
     `
   },
   {
@@ -74,7 +74,7 @@ export const posted: BlogPost[] = [
       <h2>5. Total Convenience for Busy Pet Parents</h2>
       <p>Working from home? Running errands? Just don’t want to leave the house? Book online and we’ll handle the rest. No time wasted, no traffic, and no stress. Just a fresh, fluffy pup delivered back to you with a wagging tail and sparkling coat.</p>
   
-      <p><strong>Join thousands of happy pet parents who trust Fluffy Pet Wash to make grooming easier, faster, and fluffier.</strong> Book now on the <a href="https://fluffypetwash.com">Fluffy Pet Wash website</a> and see why mobile grooming isn’t just a trend—it’s the future.</p>
+      <p><strong>Join thousands of happy pet parents who trust Fluffy Pet Wash to make grooming easier, faster, and fluffier.</strong> Book now on the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and see why mobile grooming isn’t just a trend—it’s the future.</p>
     `
   },
   {
@@ -150,7 +150,7 @@ export const posted: BlogPost[] = [
   
       <p>We know you want your dog to be comfortable. That’s exactly why we don’t shave. Instead, we provide expert care tailored to your dog’s breed, coat type, and health. From deshedding to spa grade conditioning, we do it right every time.</p>
   
-      <p><strong>Book your grooming appointment with Fluffy Pet Wash today and help your dog stay cool, comfortable, and protected the safe way.</strong> Visit the <a href="https://fluffypetwash.com">Fluffy Pet Wash website</a> to schedule now.</p>
+      <p><strong>Book your grooming appointment with Fluffy Pet Wash today and help your dog stay cool, comfortable, and protected the safe way.</strong> Visit the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> to schedule now.</p>
     `,
     imageAlt: ""
   },
@@ -182,7 +182,7 @@ export const posted: BlogPost[] = [
       <h2>🎁 Grand Opening Special</h2>
       <p>To celebrate our Orlando launch, we’re offering an exclusive <strong>10% off your first appointment</strong> plus <strong>FREE premium add-ons</strong> like blueberry facials, paw balm, and teeth brushing—because your pup deserves the full Fluffy treatment.</p>
   
-      <p><strong>Booking is easy:</strong> Visit the <a href="https://fluffypetwash.com">Fluffy Pet Wash website</a> and select your location. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
+      <p><strong>Booking is easy:</strong> Visit the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and select your location. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
     `,
     imageAlt: ""
   },

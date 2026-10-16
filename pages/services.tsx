@@ -267,10 +267,10 @@ const ServicesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/services" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/services" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -284,7 +284,7 @@ const ServicesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
 
         {/* Structured Data */}
@@ -300,8 +300,8 @@ const ServicesPage = () => {
               provider: {
                 "@type": "Organization",
                 name: "Fluffy Pet Wash",
-                url: "https://fluffypetwash.com",
-                logo: "https://fluffypetwash.com/fluffy-circle.PNG",
+                url: "https://www.fluffypetwash.com",
+                logo: "https://www.fluffypetwash.com/fluffy-circle.PNG",
                 address: LAS_VEGAS_POSTAL_ADDRESS,
               },
               areaServed: [
@@ -1052,6 +1052,7 @@ const ServicesPage = () => {
 
               <Typography
                 variant="h1"
+                component="h2"
                 sx={{
                   fontSize: { xs: "2.5rem", md: "4rem", lg: "4.5rem" },
                   fontWeight: 800,

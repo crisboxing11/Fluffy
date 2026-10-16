@@ -69,7 +69,7 @@ const faqData = [
       {
         question: "Do you groom all breeds?",
         answer:
-          "Yes! We groom poodles and doodles, including doodle mixes. We service most breeds, so check our breed list before booking!",
+          "Yes! We groom poodles and doodles, including doodle mixes. We service most breeds, so check our breed list before booking! Mobile cat grooming in Las Vegas is available at your door.",
         tags: ["breeds", "poodles", "doodles"],
       },
       {
@@ -165,6 +165,25 @@ const staggerContainer = {
   },
 };
 
+const CAT_GROOMING_LINK = "Mobile cat grooming in Las Vegas";
+
+function renderFaqAnswer(answer: string) {
+  const at = answer.indexOf(CAT_GROOMING_LINK);
+  if (at === -1) return answer;
+  return (
+    <>
+      {answer.slice(0, at)}
+      <Link
+        href="/cat-grooming-las-vegas"
+        style={{ color: "#00ADCD", fontWeight: 600, textDecoration: "none" }}
+      >
+        {CAT_GROOMING_LINK}
+      </Link>
+      {answer.slice(at + CAT_GROOMING_LINK.length)}
+    </>
+  );
+}
+
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: {
@@ -252,7 +271,7 @@ const FAQPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:image:alt" content="Fluffy Pet Wash Questions" />
         <meta property="og:type" content="website" />
@@ -270,7 +289,7 @@ const FAQPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash FAQ" />
         <meta name="twitter:site" content="@fluffypetwash" />
@@ -792,7 +811,7 @@ const FAQPage = () => {
                                           mb: 2,
                                         }}
                                       >
-                                        {faq.answer}
+                                        {renderFaqAnswer(faq.answer)}
                                       </Typography>
 
                                       {/* Tags */}

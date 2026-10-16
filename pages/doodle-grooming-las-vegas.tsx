@@ -18,7 +18,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { LAS_VEGAS_AREA_SERVED } from "../data/serviceArea";
+import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 
 // SEO-20261005-08: Las Vegas doodle & poodle grooming landing page.
 // Owner rule: visible copy names "Las Vegas" only. Sub-areas live in the meta
@@ -161,6 +161,7 @@ const jsonLd = {
         name: "Fluffy Pet Wash",
         url: `${SITE_URL}/`,
         telephone: "+17025086248",
+        address: LAS_VEGAS_POSTAL_ADDRESS,
       },
       areaServed: LAS_VEGAS_AREA_SERVED,
     },
