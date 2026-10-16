@@ -44,9 +44,9 @@ const BlogPage = () => {
           property="og:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta property="og:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
+        <meta property="og:image" content="https://www.fluffypetwash.com/fluffy-circle.PNG" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/blog" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/blog" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -55,7 +55,7 @@ const BlogPage = () => {
           name="twitter:description"
           content="Insights and updates from the Fluffy Pet Wash team."
         />
-        <meta name="twitter:image" content="https://fluffypetwash.com/fluffy-circle.PNG" />
+        <meta name="twitter:image" content="https://www.fluffypetwash.com/fluffy-circle.PNG" />
         <meta name="twitter:image:alt" content="Fluffy Pet Wash Blog" />
         <meta name="twitter:site" content="@fluffypetwash" />
         <meta name="twitter:creator" content="@fluffypetwash" />
@@ -67,13 +67,13 @@ const BlogPage = () => {
               '@type': 'Blog',
               name: 'Fluffy Pet Wash Blog',
               description: 'Insights and updates from the Fluffy Pet Wash team.',
-              url: 'https://fluffypetwash.com/blog',
+              url: 'https://www.fluffypetwash.com/blog',
               blogPost: posted.map((p) => ({
                 '@type': 'BlogPosting',
                 headline: p.title,
                 description: p.excerpt,
-                image: `https://fluffypetwash.com${p.image}`,
-                url: `https://fluffypetwash.com/blog/${p.slug}`,
+                image: `https://www.fluffypetwash.com${p.image}`,
+                url: `https://www.fluffypetwash.com/blog/${p.slug}`,
                 datePublished: p.date,
                 author: {
                   '@type': 'Organization',

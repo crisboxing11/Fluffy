@@ -101,7 +101,7 @@ const OrlandoPage = () => {
           name="description"
           content="Learn about Fluffy Pet Wash's mobile dog grooming services in Orlando. Explore benefits, FAQs, and how to book your appointment."
         />
-        <link rel="canonical" href="https://fluffypetwash.com/orlando" />
+        <link rel="canonical" href="https://www.fluffypetwash.com/orlando" />
       </Head>
 
       {/* Hero Section */}

@@ -246,10 +246,10 @@ const ContactPage = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Fluffy Pet Wash",
-    url: "https://fluffypetwash.com",
+    url: "https://www.fluffypetwash.com",
     description:
       "Mobile pet grooming service offering luxury grooming for dogs at your doorstep.",
-    image: "https://fluffypetwash.com/fluffy-circle.PNG",
+    image: "https://www.fluffypetwash.com/fluffy-circle.PNG",
     email: "contact@fluffypetwash.com",
     telephone: "+1-702-508-6248",
     paymentAccepted: "Card, Cash, Zelle",
@@ -291,10 +291,10 @@ const ContactPage = () => {
         />
         <meta
           property="og:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fluffypetwash.com/contact" />
+        <meta property="og:url" content="https://www.fluffypetwash.com/contact" />
         <meta property="og:site_name" content="Fluffy Pet Wash" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -305,7 +305,7 @@ const ContactPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://fluffypetwash.com/fluffy-circle.PNG"
+          content="https://www.fluffypetwash.com/fluffy-circle.PNG"
         />
         <meta name="twitter:image:alt" content="Contact Fluffy Pet Wash" />
         <meta name="twitter:site" content="@fluffypetwash" />
