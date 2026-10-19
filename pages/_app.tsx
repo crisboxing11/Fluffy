@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react'; // ✅ Vercel Analytics
 import { SpeedInsights } from '@vercel/speed-insights/react'; // ✅ Vercel Speed Insights
 import { GA4_MEASUREMENT_ID, googleTagBootstrapSource } from '../lib/ads';
 import { installAdsClickListener } from '../lib/adsClicks';
+import '../styles/sr-only.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
