@@ -598,8 +598,20 @@ const OrlandoPage = () => {
                       lineHeight: 1.7,
                     }}
                   >
-                    We are excited to bring our luxurious grooming van to the
-                    neighborhoods of Orlando. Our team delivers stress-free
+                    We are excited to bring our{" "}
+                    <Link
+                      href="/blog/orlando-grand-opening"
+                      style={{
+                        color: "#00ADCD",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        borderBottom: "2px solid #93EDF0",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      luxurious grooming van
+                    </Link>{" "}
+                    to the neighborhoods of Orlando. Our team delivers stress-free
                     baths, blowouts, and paw treatments right to your driveway,
                     so your pup stays relaxed in familiar surroundings. From
                     Park Lake to Lake Nona, we service most Orlando communities

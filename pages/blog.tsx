@@ -227,8 +227,8 @@ const BlogPage = () => {
                       {post.excerpt}
                     </Typography>
                     <Box mt="auto">
-                      <Button component={Link} href={post.link} variant="contained" aria-label={`Read more about ${post.title}`}>
-                        Read More
+                      <Button component={Link} href={post.link} variant="contained">
+                        Read More<span className="sr-only">{`: ${post.title}`}</span>
                       </Button>
                     </Box>
                   </CardContent>

@@ -165,23 +165,53 @@ const staggerContainer = {
   },
 };
 
-const CAT_GROOMING_LINK = "Mobile cat grooming in Las Vegas";
+const FAQ_INLINE_LINK_STYLE = {
+  color: "#00ADCD",
+  fontWeight: 600,
+  textDecoration: "none",
+} as const;
 
-function renderFaqAnswer(answer: string) {
-  const at = answer.indexOf(CAT_GROOMING_LINK);
-  if (at === -1) return answer;
+const FAQ_INLINE_LINKS = [
+  {
+    phrase: "Mobile cat grooming in Las Vegas",
+    href: "/cat-grooming-las-vegas",
+  },
+  {
+    phrase: "doodles",
+    href: "/doodle-grooming-las-vegas",
+  },
+] as const;
+
+const DOODLE_GROOMING_URL =
+  "https://www.fluffypetwash.com/doodle-grooming-las-vegas";
+
+function renderFaqAnswer(answer: string): React.ReactNode {
+  let earliest: { at: number; phrase: string; href: string } | null = null;
+  for (const link of FAQ_INLINE_LINKS) {
+    const at = answer.indexOf(link.phrase);
+    if (at === -1) continue;
+    if (!earliest || at < earliest.at) {
+      earliest = { at, phrase: link.phrase, href: link.href };
+    }
+  }
+  if (!earliest) return answer;
   return (
     <>
-      {answer.slice(0, at)}
-      <Link
-        href="/cat-grooming-las-vegas"
-        style={{ color: "#00ADCD", fontWeight: 600, textDecoration: "none" }}
-      >
-        {CAT_GROOMING_LINK}
+      {answer.slice(0, earliest.at)}
+      <Link href={earliest.href} style={FAQ_INLINE_LINK_STYLE}>
+        {earliest.phrase}
       </Link>
-      {answer.slice(at + CAT_GROOMING_LINK.length)}
+      {renderFaqAnswer(answer.slice(earliest.at + earliest.phrase.length))}
     </>
   );
+}
+
+function faqAnswerForJsonLd(question: string, answer: string) {
+  if (question !== "Do you groom all breeds?") return answer;
+  const phrase = "doodles";
+  const at = answer.indexOf(phrase);
+  if (at === -1) return answer;
+  return `${answer.slice(0, at)}<a href="${DOODLE_GROOMING_URL}">${phrase}</a>${answer.slice(at + phrase.length)}`;
 }
 
 const scaleIn = {
@@ -306,7 +336,7 @@ const FAQPage = () => {
                   name: q.question,
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: q.answer,
+                    text: faqAnswerForJsonLd(q.question, q.answer),
                   },
                 })),
               ),

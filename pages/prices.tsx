@@ -10,6 +10,8 @@ import {
   Stack,
   Paper,
   Divider,
+  type SxProps,
+  type Theme,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import StarIcon from "@mui/icons-material/Star";
@@ -86,6 +88,30 @@ const services = [
   "Facial Treatment",
   "Final Brush Out",
 ];
+
+const inlineLinkStyle = {
+  color: "#038B95",
+  textDecoration: "underline",
+  fontWeight: "bold",
+} as const;
+
+function BreedFeeHaircutNote({ sx }: { sx?: SxProps<Theme> }) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      fontStyle="italic"
+      sx={sx}
+    >
+      For breeds with a specialized breed fee (like poodles and{" "}
+      <Link href="/doodle-grooming-las-vegas" style={inlineLinkStyle}>
+        doodles
+      </Link>
+      ), the fee includes the haircut, so the haircut add-on isn&apos;t charged
+      on top.
+    </Typography>
+  );
+}
 
 const PricesPage = () => {
   return (
@@ -300,16 +326,7 @@ const PricesPage = () => {
                 <Typography variant="body1" color="#067C92">
                   • Large Dogs: <strong>+$50</strong>
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  fontStyle="italic"
-                  sx={{ mt: 1.5 }}
-                >
-                  For breeds with a specialized breed fee (like poodles and
-                  doodles), the fee includes the haircut, so the haircut add-on
-                  isn&apos;t charged on top.
-                </Typography>
+                <BreedFeeHaircutNote sx={{ mt: 1.5 }} />
               </Box>
               <Typography variant="body2" color="text.secondary" fontStyle="italic">
                 * Prices may vary between Orlando and Las Vegas locations
@@ -736,16 +753,7 @@ const PricesPage = () => {
                   <Typography variant="body1" color="#067C92" fontWeight="600">
                     💡 Example: Small dog wash ($85) + haircut ($35) = <strong>$120 total</strong>
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    fontStyle="italic"
-                    sx={{ mt: 1.5, maxWidth: 720, mx: "auto" }}
-                  >
-                    For breeds with a specialized breed fee (like poodles and
-                    doodles), the fee includes the haircut, so the haircut
-                    add-on isn&apos;t charged on top.
-                  </Typography>
+                  <BreedFeeHaircutNote sx={{ mt: 1.5, maxWidth: 720, mx: "auto" }} />
                 </Box>
               </Paper>
             </Box>
@@ -1292,16 +1300,7 @@ const PricesPage = () => {
                 >
                   Up to $50 specialized breed fee may apply
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  fontStyle="italic"
-                  sx={{ mt: 1 }}
-                >
-                  For breeds with a specialized breed fee (like poodles and
-                  doodles), the fee includes the haircut, so the haircut add-on
-                  isn&apos;t charged on top.
-                </Typography>
+                <BreedFeeHaircutNote sx={{ mt: 1 }} />
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
