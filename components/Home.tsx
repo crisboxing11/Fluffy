@@ -278,7 +278,7 @@ const Home = () => {
           >
             <Box
               sx={{
-                maxWidth: { xs: "92%", sm: "88%", md: "600px", lg: "780px" },
+                maxWidth: { xs: "92%", sm: "88%", md: "880px", lg: "960px" },
                 textAlign: { xs: "center", md: "left" },
                 width: "100%",
                 maxHeight: {
@@ -391,7 +391,7 @@ const Home = () => {
                     },
                     position: "relative",
                     overflow: "hidden",
-                    maxWidth: { lg: 640 },
+                    maxWidth: { md: 640 },
                     "&::before": {
                       content: '""',
                       position: "absolute",
@@ -464,10 +464,10 @@ const Home = () => {
                   sx={{
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
-                    flexWrap: "wrap",
-                    alignItems: { xs: "stretch", sm: "center" },
+                    flexWrap: { xs: "wrap", md: "nowrap" },
+                    alignItems: { xs: "stretch", sm: "center", md: "stretch" },
                     justifyContent: { xs: "center", md: "flex-start" },
-                    gap: { xs: 1.25, sm: 2 },
+                    gap: { xs: 1.25, sm: 2, lg: 2.5 },
                     width: { xs: "100%", sm: "auto" },
                     maxWidth: { xs: 280, sm: "none" },
                     mx: { xs: "auto", md: 0 },
@@ -481,9 +481,9 @@ const Home = () => {
                       size="large"
                       aria-label="Book a grooming appointment"
                       sx={{
-                        px: { xs: 4, sm: 5, md: 6, lg: 8 },
-                        py: { xs: 2.2, sm: 2.8, md: 3 },
-                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem", lg: "1.4rem" },
+                        px: { xs: 4, sm: 5, md: 7, lg: 8 },
+                        py: { xs: 2.2, sm: 2.8, md: 0 },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.65rem", lg: "1.9rem" },
                         fontWeight: 800,
                         textTransform: "none",
                         borderRadius: "50px",
@@ -497,7 +497,10 @@ const Home = () => {
                         transition:
                           "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                         width: { xs: "100%", sm: "auto" },
-                        minHeight: { xs: "52px", sm: "56px" },
+                        flexShrink: 0,
+                        boxSizing: "border-box",
+                        height: { md: 88, lg: 104 },
+                        minHeight: { xs: "52px", sm: "56px", md: 88, lg: 104 },
                         "&::before": {
                           content: '""',
                           position: "absolute",
@@ -532,13 +535,20 @@ const Home = () => {
                     component="a"
                     href={LAS_VEGAS_TEL_HREF}
                     variant="outlined"
-                    startIcon={<PhoneIcon aria-hidden="true" sx={{ fontSize: 20 }} />}
+                    startIcon={
+                      <PhoneIcon
+                        aria-hidden="true"
+                        sx={{ fontSize: { xs: 20, md: 28, lg: 32 } }}
+                      />
+                    }
                     aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
                     sx={{
-                      px: { xs: 2.5, sm: 3, md: 3.5 },
-                      py: { xs: 1.25, sm: 1.35, md: 1.5 },
-                      minHeight: 48,
-                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+                      px: { xs: 2.5, sm: 3, md: 5, lg: 6.5 },
+                      py: { xs: 1.25, sm: 1.35, md: 0 },
+                      boxSizing: "border-box",
+                      height: { md: 88, lg: 104 },
+                      minHeight: { xs: 48, sm: 48, md: 88, lg: 104 },
+                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.35rem", lg: "1.55rem" },
                       fontWeight: 700,
                       textTransform: "none",
                       borderRadius: "50px",
