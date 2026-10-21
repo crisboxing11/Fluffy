@@ -6,6 +6,11 @@ export type BlogImage = {
   caption?: string;
 };
 
+export type BlogFaq = {
+  question: string;
+  answer: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -22,6 +27,11 @@ export type BlogPost = {
    * for the visible hero, og:image, and preload. `image` stays the card.
    */
   heroImage?: BlogImage;
+  /**
+   * When set, the post page renders these questions and emits FAQPage
+   * JSON-LD from the same array.
+   */
+  faq?: BlogFaq[];
   date: string;
   content: string;
 };
@@ -75,7 +85,7 @@ export const posted: BlogPost[] = [
       <p>Here's how cat grooming is priced with us:</p>
       <ul>
         <li><strong>Cat grooming starts at a $120 minimum.</strong> The price can go up depending on coat condition or temperament.</li>
-        <li><strong>Lion cuts and shave-downs are usually $35 extra,</strong> and can cost more for hard-to-handle cats.</li>
+        <li><strong>Lion cuts and shave-downs are usually about $35 extra,</strong> and can cost more for hard-to-handle cats.</li>
         <li><strong>No travel fees</strong> anywhere in our Las Vegas service area.</li>
         <li>After your first appointment, you can join <strong>Fluffy Preferred</strong> for 10% off services.</li>
       </ul>
@@ -88,13 +98,13 @@ export const posted: BlogPost[] = [
 
       <h2>Why mobile grooming is easier on many cats</h2>
       <p>A lot of cats don't love car rides, carriers, or the sounds and smells of other animals. With mobile grooming, we bring the grooming to your driveway. Your cat goes a few steps from your door into our van and gets one-on-one attention, with no waiting room, no other pets, and no long drive home.</p>
-      <p>You can learn more on our <a href="/cat-grooming-las-vegas">cat grooming page</a>. We're open 7 AM to 10 PM daily, which makes it easier to pick a calm time of day for your cat.</p>
+      <p>You can learn more on our <a href="/cat-grooming-las-vegas">cat grooming page</a>. We're open 7 AM to 10 PM daily (closed Thanksgiving and Christmas), which makes it easier to pick a calm time of day for your cat.</p>
 
       <h2>How to prepare for your cat's appointment</h2>
       <ul>
         <li><strong>Keep your cat indoors</strong> the day of the appointment so they're easy to find.</li>
         <li><strong>The groomer picks your cat up at the door,</strong> or you can bring your cat to the van. Someone must be home.</li>
-        <li><strong>Have the carrier ready</strong> if you'd like to bring your cat out to the van that way.</li>
+        <li><strong>Have the carrier ready</strong> in case you'd like to bring your cat out to the van that way.</li>
         <li><strong>A rabies vaccine is the only requirement.</strong></li>
         <li><strong>Tell us about any sensitive spots</strong> or past grooming experiences, good or bad.</li>
         <li><strong>Mention any health notes</strong> your vet has shared with you.</li>
@@ -110,15 +120,24 @@ export const posted: BlogPost[] = [
 
       <h2>Book your cat's lion cut</h2>
       <p>Ready for a sleek new look, or just want to talk options? <a href="/prebook">Book online</a> or call <strong>702-508-6248</strong>. You can also email contact@fluffypetwash.com.</p>
-
-      <h2>Common questions</h2>
-      <p><strong>How much does a lion cut for a cat cost?</strong></p>
-      <p>Cat grooming starts at a $120 minimum. Lion cuts and shave-downs are usually $35 extra, and can cost more for hard-to-handle cats. The total can also go up depending on coat condition or temperament.</p>
-      <p><strong>Will my cat have to ride in the car?</strong></p>
-      <p>No. We come to your home anywhere in our Las Vegas service area, and there are no travel fees. The groomer picks your cat up at the door, or you can bring your cat to the van. Someone must be home.</p>
-      <p><strong>Can you groom a cat with matted fur?</strong></p>
-      <p>Yes, our groomers work with matted coats. Matting can affect the approach and the price, and the final style is decided in person with your groomer. If the skin under the mats looks irritated, ask your vet.</p>
-    `
+    `,
+    faq: [
+      {
+        question: 'How much does a lion cut for a cat cost?',
+        answer:
+          'Cat grooming starts at a $120 minimum. Lion cuts and shave-downs are usually about $35 extra, and can cost more for hard-to-handle cats. The total can also go up depending on coat condition or temperament.',
+      },
+      {
+        question: 'Will my cat have to ride in the car?',
+        answer:
+          'No. We come to your home anywhere in our Las Vegas service area, and there are no travel fees. The groomer picks your cat up at the door, or you can bring your cat to the van. Someone must be home.',
+      },
+      {
+        question: 'Can you groom a cat with matted fur?',
+        answer:
+          'Yes, our groomers work with matted coats. Matting can affect the approach and the price, and the final style is decided in person with your groomer. If the skin under the mats looks irritated, ask your vet.',
+      },
+    ],
   },
   {
     slug: 'stress-free-grooming',
