@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Home from "../components/Home";
 
@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
+import { LAS_VEGAS_PHONE_DISPLAY, LAS_VEGAS_TEL_HREF } from "../lib/ads";
 
 const HomePage = () => {
   const router = useRouter();
@@ -470,13 +471,36 @@ const HomePage = () => {
                 textWrap: "pretty",
               }}
             >
-              <strong>Why Fluffy Pet Wash?</strong> We bring a one-on-one,
-              climate-controlled grooming van to your door across Las Vegas,
-              with no travel fees. Every dog groom is all-inclusive, from
-              hypoallergenic wash and blowout to nails, ears, teeth and a
-              blueberry facial. Small dogs start at $85, and we groom doodles
-              and cats too. Open 7 AM–10 PM daily, closed Thanksgiving and
-              Christmas; book online or call 702-508-6248.
+              <strong>Why Fluffy Pet Wash?</strong> Your pet gets one-on-one
+              grooming in our climate-controlled van, right outside your door
+              anywhere in the Las Vegas valley, with no travel fees. We use a
+              hypoallergenic wash, organic conditioner and biodegradable,
+              plant-based products, and every dog groom includes the bath,
+              blowout, nails and ears. Dogs start at $85, and we groom doodles
+              and cats too. Open 7 AM–10 PM daily; call{" "}
+              <Link
+                href={LAS_VEGAS_TEL_HREF}
+                color="inherit"
+                underline="always"
+                sx={{
+                  fontWeight: "inherit",
+                  textDecorationColor: "rgba(6, 124, 146, 0.55)",
+                  textUnderlineOffset: "0.18em",
+                  whiteSpace: "nowrap",
+                  "&:visited": { color: "inherit" },
+                  "&:hover": {
+                    color: "#00ADCD",
+                    textDecorationColor: "#00ADCD",
+                  },
+                  "&:focus-visible": {
+                    outline: "3px solid #067C92",
+                    outlineOffset: "3px",
+                    borderRadius: "2px",
+                  },
+                }}
+              >
+                {LAS_VEGAS_PHONE_DISPLAY}
+              </Link>.
             </Typography>
           </Box>
 
