@@ -278,7 +278,7 @@ const Home = () => {
           >
             <Box
               sx={{
-                maxWidth: { xs: "92%", sm: "88%", md: "880px", lg: "960px" },
+                maxWidth: { xs: "92%", sm: "88%", md: 640 },
                 textAlign: { xs: "center", md: "left" },
                 width: "100%",
                 maxHeight: {
@@ -391,7 +391,6 @@ const Home = () => {
                     },
                     position: "relative",
                     overflow: "hidden",
-                    maxWidth: { md: 640 },
                     "&::before": {
                       content: '""',
                       position: "absolute",
@@ -467,9 +466,9 @@ const Home = () => {
                     flexWrap: { xs: "wrap", md: "nowrap" },
                     alignItems: { xs: "stretch", sm: "center", md: "stretch" },
                     justifyContent: { xs: "center", md: "flex-start" },
-                    gap: { xs: 1.25, sm: 2, lg: 2.5 },
-                    width: { xs: "100%", sm: "auto" },
-                    maxWidth: { xs: 280, sm: "none" },
+                    gap: { xs: 1.25, sm: 2, md: 2 },
+                    width: { xs: "100%", sm: "auto", md: "100%" },
+                    maxWidth: { xs: 280, sm: "none", md: "100%" },
                     mx: { xs: "auto", md: 0 },
                     mb: { xs: 2, sm: 3.5, md: 5 },
                   }}
@@ -481,9 +480,9 @@ const Home = () => {
                       size="large"
                       aria-label="Book a grooming appointment"
                       sx={{
-                        px: { xs: 4, sm: 5, md: 7, lg: 8 },
+                        px: { xs: 4, sm: 5, md: 3 },
                         py: { xs: 2.2, sm: 2.8, md: 0 },
-                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.65rem", lg: "1.9rem" },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.375rem" },
                         fontWeight: 800,
                         textTransform: "none",
                         borderRadius: "50px",
@@ -496,11 +495,15 @@ const Home = () => {
                         overflow: "hidden",
                         transition:
                           "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                        width: { xs: "100%", sm: "auto" },
-                        flexShrink: 0,
+                        width: { xs: "100%", sm: "auto", md: "auto" },
+                        flexGrow: { md: 1.15 },
+                        flexBasis: { md: "0px" },
+                        flexShrink: { xs: 0, sm: 0, md: 1 },
+                        minWidth: { md: 0 },
+                        whiteSpace: { md: "nowrap" },
                         boxSizing: "border-box",
-                        height: { md: 88, lg: 104 },
-                        minHeight: { xs: "52px", sm: "56px", md: 88, lg: 104 },
+                        height: { md: 68 },
+                        minHeight: { xs: "52px", sm: "56px", md: 68 },
                         "&::before": {
                           content: '""',
                           position: "absolute",
@@ -538,17 +541,17 @@ const Home = () => {
                     startIcon={
                       <PhoneIcon
                         aria-hidden="true"
-                        sx={{ fontSize: { xs: 20, md: 28, lg: 32 } }}
+                        sx={{ fontSize: { xs: 20, md: 22 } }}
                       />
                     }
                     aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
                     sx={{
-                      px: { xs: 2.5, sm: 3, md: 5, lg: 6.5 },
+                      px: { xs: 2.5, sm: 3, md: 2.5 },
                       py: { xs: 1.25, sm: 1.35, md: 0 },
                       boxSizing: "border-box",
-                      height: { md: 88, lg: 104 },
-                      minHeight: { xs: 48, sm: 48, md: 88, lg: 104 },
-                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.35rem", lg: "1.55rem" },
+                      height: { md: 68 },
+                      minHeight: { xs: 48, sm: 48, md: 68 },
+                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.25rem" },
                       fontWeight: 700,
                       textTransform: "none",
                       borderRadius: "50px",
@@ -556,10 +559,21 @@ const Home = () => {
                       color: "#067C92",
                       backgroundColor: "#FFFFFF",
                       boxShadow: "0 6px 18px rgba(6, 124, 146, 0.12)",
-                      width: { xs: "100%", sm: "auto" },
-                      flexShrink: 0,
+                      width: { xs: "100%", sm: "auto", md: "auto" },
+                      flexGrow: { md: 1 },
+                      flexBasis: { md: "0px" },
+                      flexShrink: { xs: 0, sm: 0, md: 1 },
+                      minWidth: { md: 0 },
+                      whiteSpace: { md: "nowrap" },
+                      lineHeight: { md: 1 },
                       transition:
                         "background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease",
+                      "& .MuiButton-startIcon": {
+                        marginLeft: { md: 0 },
+                        marginRight: { md: "10px" },
+                        display: { md: "inherit" },
+                        alignItems: { md: "center" },
+                      },
                       "&:hover": {
                         border: "2px solid #038B95",
                         backgroundColor: "#F4FBFB",
@@ -588,29 +602,61 @@ const Home = () => {
               >
                 <Grid
                   container
-                  spacing={{ xs: 0.5, sm: 1, md: 2 }}
+                  spacing={{ xs: 0.5, sm: 1, md: 0 }}
                   justifyContent={{ xs: "center", md: "flex-start" }}
+                  sx={{
+                    width: { md: "100% !important" },
+                    alignItems: { md: "stretch" },
+                    columnGap: { md: "16px" },
+                    rowGap: { md: "16px" },
+                    marginTop: { md: "0 !important" },
+                    marginLeft: { md: "0 !important" },
+                    "& > .MuiGrid-item": {
+                      paddingTop: { md: "0 !important" },
+                      paddingLeft: { md: "0 !important" },
+                    },
+                  }}
                 >
                   {trustIndicators.map((item, index) => (
-                    <Grid item xs={4} sm={4} md={12} lg={4} key={index}>
+                    <Grid
+                      item
+                      xs={4}
+                      sm={4}
+                      md={4}
+                      lg={4}
+                      key={index}
+                      sx={{
+                        display: "flex",
+                        "@media (min-width:900px)": {
+                          flexBasis: "0 !important",
+                          flexGrow: "1 !important",
+                          maxWidth: "none !important",
+                          width: "auto",
+                          minWidth: 0,
+                        },
+                      }}
+                    >
                       <Box
                         sx={{
                           display: "flex",
                           flexDirection: { xs: "column", sm: "row", md: "row" },
                           alignItems: "center",
                           justifyContent: { xs: "center", md: "flex-start" },
-                          gap: { xs: 0.5, sm: 1, md: 2 },
+                          gap: { xs: 0.5, sm: 1, md: 1 },
                           background:
                             "linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8))",
                           backdropFilter: "blur(15px)",
-                          px: { xs: 1, sm: 2, md: 3 },
-                          py: { xs: 1.5, sm: 2, md: 2.5 },
+                          px: { xs: 1, sm: 2, md: 1.5 },
+                          py: { xs: 1.5, sm: 2, md: 1.75 },
                           borderRadius: { xs: "12px", sm: "16px", md: "20px" },
                           border: `1px solid ${item.color}30`,
                           boxShadow: `0 6px 20px ${item.color}15`,
                           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                           mx: { xs: 0.5, sm: 0 },
                           minHeight: { xs: "auto", sm: "auto" },
+                          width: { md: "100%" },
+                          height: { md: "100%" },
+                          boxSizing: "border-box",
                           "&:hover": {
                             transform: "translateY(-2px)",
                             boxShadow: `0 8px 25px ${item.color}25`,
@@ -620,8 +666,8 @@ const Home = () => {
                       >
                         <Box
                           sx={{
-                            width: { xs: 24, sm: 28, md: 36 },
-                            height: { xs: 24, sm: 28, md: 36 },
+                            width: { xs: 24, sm: 28, md: 28 },
+                            height: { xs: 24, sm: 28, md: 28 },
                             borderRadius: "50%",
                             background: `linear-gradient(135deg, ${item.color}, ${item.color}CC)`,
                             display: "flex",
@@ -634,7 +680,7 @@ const Home = () => {
                           <item.icon
                             sx={{
                               color: "white",
-                              fontSize: { xs: 14, sm: 16, md: 20 },
+                              fontSize: { xs: 14, sm: 16, md: 16 },
                             }}
                           />
                         </Box>
@@ -645,10 +691,11 @@ const Home = () => {
                             fontSize: {
                               xs: "0.65rem",
                               sm: "0.8rem",
-                              md: "1rem",
+                              md: "0.875rem",
                             },
-                            letterSpacing: "0.3px",
-                            textAlign: "center",
+                            letterSpacing: { xs: "0.3px", md: 0 },
+                            textAlign: { xs: "center", md: "left" },
+                            whiteSpace: { md: "nowrap" },
                             lineHeight: 1.2,
                           }}
                         >
