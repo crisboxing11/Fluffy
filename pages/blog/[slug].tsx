@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BlogFaqSection, faqPageJsonLd } from '../../components/blog/faq';
 
 type Props = {
   post: BlogPost;

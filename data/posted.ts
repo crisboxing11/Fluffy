@@ -38,6 +38,104 @@ export type BlogPost = {
 
 export const posted: BlogPost[] = [
   {
+    slug: 'goldendoodle-haircut-guide',
+    title: 'Goldendoodle Haircuts in Las Vegas: What to Ask For and What It Costs',
+    metaTitle: 'Goldendoodle Haircuts in Las Vegas | Fluffy Pet Wash',
+    excerpt:
+      'Planning a goldendoodle haircut in Las Vegas? Learn what to ask your groomer, how pricing works, and how mobile grooming keeps doodles comfortable.',
+    // image: generated (GenerateImage, Oct 20 2026); exported, see workflow.md Images
+    image: '/blog/goldendoodle-haircut-guide/goldendoodle-haircut-hero.webp',
+    imageAlt:
+      'A goldendoodle with a fresh teddy bear cut standing on a grooming table inside a mobile grooming van, desert hills outside',
+    heroImage: {
+      src: '/blog/goldendoodle-haircut-guide/goldendoodle-haircut-hero.webp',
+      alt: 'A goldendoodle with a fresh teddy bear cut standing on a grooming table inside a mobile grooming van, desert hills outside',
+      width: 1600,
+      height: 900,
+      caption:
+        'Illustrative image: a freshly trimmed goldendoodle in a mobile grooming van, warm desert light.',
+    },
+    date: '2026-10-27',
+    content: `
+      <p>That soft, curly goldendoodle coat is a big part of why people fall in love with the breed. It also takes real upkeep. If your doodle is due for a haircut, a little planning helps: know what to ask for, what the visit costs, and how to keep the coat looking good between appointments. Here's what we've learned from grooming doodles across Las Vegas.</p>
+
+      <h2>Why goldendoodle coats need regular haircuts</h2>
+      <p>Doodle coats come in many textures, from loose waves to tight curls, and many of them keep growing instead of shedding out. That's great for keeping hair off the couch. It also means loose hair can get caught in the coat and start to tangle, especially behind the ears, under the collar, in the armpits and on the legs.</p>
+      <p>A regular haircut keeps the coat at a length you can actually brush at home. It keeps the face and eyes clear and the paws tidy, and it gives your groomer a chance to catch small tangles before they become mats. If you notice anything on your dog's skin that worries you, ask your vet.</p>
+
+      <h2>Popular goldendoodle haircut styles</h2>
+      <p>There's no single "correct" doodle cut. These are the requests we hear most often:</p>
+      <ul>
+        <li><strong>Teddy bear style:</strong> a rounded face and an even length on the body. Soft and cuddly looking.</li>
+        <li><strong>Shorter all-over trim:</strong> an easier-care length for busy families or very active dogs.</li>
+        <li><strong>Longer, fluffier look:</strong> shows off the curls, but needs more brushing at home.</li>
+        <li><strong>Tidy-up between full cuts:</strong> face, feet and sanitary areas trimmed to stretch the time between big haircuts.</li>
+      </ul>
+      <p>Photos help a lot. Bring a picture or two of a look you like. Your groomer will look at your dog's coat in person and talk through what will work. <strong>The final cut style is always decided together with your groomer at the appointment</strong>, because coat texture, length and condition all affect what's possible that day.</p>
+
+      <!-- image: generated (GenerateImage, Oct 20 2026); exported, see workflow.md Images -->
+      <figure>
+        <img src="/blog/goldendoodle-haircut-guide/goldendoodle-brushing-mobile-van.webp" alt="A gloved hand brushing a goldendoodle's curly coat with a slicker brush on a grooming table" width="1200" height="900" />
+        <figcaption>Illustrative image: brushing out a curly doodle coat before a trim.</figcaption>
+      </figure>
+
+      <h2>What to tell your groomer</h2>
+      <p>A few details make the visit go smoothly:</p>
+      <ul>
+        <li>How short you want it overall, and whether the face should be rounder or shorter</li>
+        <li>Whether you want the ears and tail left long</li>
+        <li>Any spots your dog is sensitive about, like paws or ears</li>
+        <li>How much brushing you realistically do at home (no judgment, it helps us pick a practical length)</li>
+        <li>If you've noticed tangles or matting, so we can plan the right approach</li>
+      </ul>
+
+      <h2>What a goldendoodle haircut costs at Fluffy Pet Wash</h2>
+      <p>We keep doodle pricing simple. Here's a real example: <strong>a large doodle with a haircut is $140 + a $50 specialized breed fee = $190.</strong></p>
+      <p>A few things to know about how that works:</p>
+      <ul>
+        <li>The specialized breed fee is <strong>up to $50</strong>. It applies when your doodle gets a haircut or has matting.</li>
+        <li><strong>The breed fee already includes the haircut.</strong> The separate haircut add-on doesn't stack on top of it, so you won't pay both.</li>
+        <li>Base prices depend on size. You can see all of our size tiers on the <a href="/prices">prices page</a>.</li>
+        <li><strong>There are no travel fees.</strong> We come to you anywhere in Las Vegas.</li>
+      </ul>
+      <p>After your first appointment you can join <strong>Fluffy Preferred</strong> for 10% off services. We accept card, cash and Zelle (no checks). Card payments carry a 3.4% + 30¢ service charge.</p>
+      <p>For more on how we groom doodles, visit our <a href="/doodle-grooming-las-vegas">doodle grooming page</a>.</p>
+
+      <h2>Why mobile grooming works well for doodles</h2>
+      <p>Doodles are often social, energetic dogs. For some of them, a busy salon full of other dogs, dryers and kennels is a lot. With mobile grooming, your dog gets one-on-one attention in our van, right outside your home. There's no car ride, no waiting in a kennel, and you're close by the whole time.</p>
+      <p>We're open 7 AM to 10 PM every day (closed Thanksgiving and Christmas), so it's easier to find a time that fits around work, school and walks.</p>
+
+      <h2>Keeping the coat nice between appointments</h2>
+      <p>A good haircut lasts longer with a little help at home:</p>
+      <ul>
+        <li><strong>Brush a few times a week</strong>, working all the way down to the skin, not just over the top of the coat.</li>
+        <li><strong>Check the friction spots</strong> where tangles start: behind the ears, the collar line, armpits and the backs of the legs.</li>
+        <li><strong>Dry the coat fully</strong> after baths or swims. Damp curls tangle faster.</li>
+        <li><strong>Book your next visit before the coat gets long.</strong> Staying on a regular schedule is easier on your dog than working through heavy tangles.</li>
+      </ul>
+      <p>Ask your groomer how often they'd suggest for your dog's coat and lifestyle. Many owners find a regular rebooking rhythm keeps things easy.</p>
+
+      <h2>Ready to book your doodle's haircut?</h2>
+      <p>Whether your goldendoodle needs a full teddy bear cut or a neat tidy-up, we'd love to help. <a href="/prebook">Book online at /prebook</a> or call us at <strong>702-508-6248</strong>. Questions? Email contact@fluffypetwash.com.</p>
+    `,
+    faq: [
+      {
+        question: 'How much is a goldendoodle haircut at Fluffy Pet Wash?',
+        answer:
+          "For example, a large doodle with a haircut is $140 plus a $50 specialized breed fee, for $190 total. The breed fee (up to $50) already includes the haircut, so the haircut add-on isn't charged on top. See /prices for all size tiers.",
+      },
+      {
+        question: 'Can I choose the exact haircut style ahead of time?',
+        answer:
+          "You're welcome to share photos and preferences when you book. The final style is decided in person with your groomer, based on your doodle's coat that day.",
+      },
+      {
+        question: 'Do you charge a travel fee?',
+        answer: 'No. There are no travel fees anywhere in our Las Vegas service area.',
+      },
+    ],
+  },
+  {
     slug: 'cat-lion-cut-guide',
     title: 'Lion Cuts for Cats: What to Know Before You Book',
     metaTitle: 'Lion Cuts for Cats in Las Vegas | Fluffy Pet Wash',
