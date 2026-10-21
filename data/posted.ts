@@ -35,10 +35,10 @@ export const posted: BlogPost[] = [
       'Thinking about a lion cut for your cat? Learn what it is, what to expect, and how mobile cat grooming works in Las Vegas. Cat grooming starts at $120.',
     image: '/blog/cat-lion-cut-guide/cat-lion-cut-hero.webp',
     imageAlt:
-      'An orange long-haired cat with a lion cut, short body coat and full mane, sitting on a towel inside a mobile grooming van at sunset',
+      'An orange long-haired cat with a lion cut, short body coat and full mane, sitting on a towel inside a mobile grooming van',
     heroImage: {
       src: '/blog/cat-lion-cut-guide/cat-lion-cut-hero.webp',
-      alt: 'An orange long-haired cat with a lion cut, short body coat and full mane, sitting on a towel inside a mobile grooming van at sunset',
+      alt: 'An orange long-haired cat with a lion cut, short body coat and full mane, sitting on a towel inside a mobile grooming van',
       width: 1600,
       height: 900,
       caption:
@@ -83,7 +83,7 @@ export const posted: BlogPost[] = [
 
       <figure>
         <img src="/blog/cat-lion-cut-guide/long-haired-cat-combing-towel.webp" alt="Illustrative image: a fluffy gray cat wrapped in a towel during gentle grooming" width="1200" height="900" />
-        <figcaption>Illustrative image: a fluffy gray cat wrapped in a towel during gentle grooming</figcaption>
+        <figcaption>Illustrative image: gentle combing keeps a long coat comfortable between cuts.</figcaption>
       </figure>
 
       <h2>Why mobile grooming is easier on many cats</h2>
