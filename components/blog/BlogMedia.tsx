@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-import { BlogPost } from '../../data/posted';
+import Link from 'next/link';
+import { BlogFaq, BlogPost } from '../../data/posted';
 
 /**
  * Shared caption style for hero and inline blog images.
@@ -214,4 +215,52 @@ export function BlogContent({ html }: { html: string }) {
   }
 
   return <Box sx={proseSx}>{nodes}</Box>;
+}
+
+const INTERNAL_PATH = /(\/(?:prices|prebook|doodle-grooming-las-vegas|services))/g;
+
+function answerWithLinks(answer: string): ReactNode[] {
+  const parts = answer.split(INTERNAL_PATH);
+  return parts.map((part, index) =>
+    part.startsWith('/') ? (
+      <Link key={index} href={part}>
+        {part}
+      </Link>
+    ) : (
+      <Fragment key={index}>{part}</Fragment>
+    )
+  );
+}
+
+/** Visible FAQ. Questions and answers are the same strings used for FAQPage JSON-LD. */
+export function BlogFaqSection({ faq }: { faq: BlogFaq[] }) {
+  if (faq.length === 0) return null;
+  return (
+    <Box component="section" aria-labelledby="post-faq-heading" sx={proseSx}>
+      <h2 id="post-faq-heading">FAQ</h2>
+      {faq.map((item) => (
+        <Box key={item.question}>
+          <p>
+            <strong>{item.question}</strong>
+          </p>
+          <p>{answerWithLinks(item.answer)}</p>
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
+export function faqPageJsonLd(faq: BlogFaq[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
 }

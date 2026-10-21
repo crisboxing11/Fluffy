@@ -4,14 +4,15 @@ import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BlogContent, BlogHero, hasIntrinsicHero } from '../../components/blog/BlogMedia';
+import { BlogContent, BlogFaqSection, BlogHero, faqPageJsonLd, hasIntrinsicHero } from '../../components/blog/BlogMedia';
 
 type Props = {
   post: BlogPost;
 };
 
 const BlogPostPage = ({ post }: Props) => {
-  const wordCount = post.content.replace(/<[^>]+>/g, '').split(/\s+/).length;
+  const faqText = (post.faq ?? []).map((item) => `${item.question} ${item.answer}`).join(' ');
+  const wordCount = `${post.content} ${faqText}`.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
   const readingTime = Math.ceil(wordCount / 200);
   return (
     <>
@@ -108,6 +109,12 @@ const BlogPostPage = ({ post }: Props) => {
             }),
           }}
         />
+        {post.faq && post.faq.length > 0 ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(post.faq)) }}
+          />
+        ) : null}
       </Head>
 
       {hasIntrinsicHero(post) ? (
@@ -162,6 +169,7 @@ const BlogPostPage = ({ post }: Props) => {
           {`${post.date} • ${readingTime} min read`}
         </Typography>
         <BlogContent html={post.content} />
+        {post.faq && post.faq.length > 0 ? <BlogFaqSection faq={post.faq} /> : null}
         <Box mt={4}>
           <Typography>
             Learn more on our{' '}

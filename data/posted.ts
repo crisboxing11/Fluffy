@@ -1,3 +1,8 @@
+export type BlogFaq = {
+  question: string;
+  answer: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -17,6 +22,11 @@ export type BlogPost = {
   imageHeight?: number;
   /** Optional caption under the hero. Not repeated inside `content`. */
   imageCaption?: string;
+  /**
+   * When set, the template renders these questions and emits FAQPage JSON-LD
+   * from this same array.
+   */
+  faq?: BlogFaq[];
   date: string;
   content: string;
 };
@@ -79,7 +89,7 @@ export const posted: BlogPost[] = [
         <li>Base prices depend on size. You can see all of our size tiers on the <a href="/prices">prices page</a>.</li>
         <li><strong>There are no travel fees.</strong> We come to you anywhere in Las Vegas.</li>
       </ul>
-      <p>After your first appointment you can join <strong>Fluffy Preferred</strong> for 10% off services. We accept card, cash and Zelle (no checks). Card payments carry a 3.4% + 30¢ processing fee.</p>
+      <p>After your first appointment you can join <strong>Fluffy Preferred</strong> for 10% off services. We accept card, cash and Zelle (no checks). Card payments carry a 3.4% + 30¢ service charge.</p>
       <p>For more on how we groom doodles, visit our <a href="/doodle-grooming-las-vegas">doodle grooming page</a>.</p>
 
       <h2>Why mobile grooming works well for doodles</h2>
@@ -98,15 +108,23 @@ export const posted: BlogPost[] = [
 
       <h2>Ready to book your doodle's haircut?</h2>
       <p>Whether your goldendoodle needs a full teddy bear cut or a neat tidy-up, we'd love to help. <a href="/prebook">Book online at /prebook</a> or call us at <strong>702-508-6248</strong>. Questions? Email contact@fluffypetwash.com.</p>
-
-      <h2>FAQ</h2>
-      <p><strong>How much is a goldendoodle haircut at Fluffy Pet Wash?</strong></p>
-      <p>For example, a large doodle with a haircut is $140 plus a $50 specialized breed fee, for $190 total. The breed fee (up to $50) already includes the haircut, so the haircut add-on isn't charged on top. See <a href="/prices">/prices</a> for all size tiers.</p>
-      <p><strong>Can I choose the exact haircut style ahead of time?</strong></p>
-      <p>You're welcome to share photos and preferences when you book. The final style is decided in person with your groomer, based on your doodle's coat that day.</p>
-      <p><strong>Do you charge a travel fee?</strong></p>
-      <p>No. There are no travel fees anywhere in our Las Vegas service area.</p>
-    `
+    `,
+    faq: [
+      {
+        question: 'How much is a goldendoodle haircut at Fluffy Pet Wash?',
+        answer:
+          "For example, a large doodle with a haircut is $140 plus a $50 specialized breed fee, for $190 total. The breed fee (up to $50) already includes the haircut, so the haircut add-on isn't charged on top. See /prices for all size tiers.",
+      },
+      {
+        question: 'Can I choose the exact haircut style ahead of time?',
+        answer:
+          "You're welcome to share photos and preferences when you book. The final style is decided in person with your groomer, based on your doodle's coat that day.",
+      },
+      {
+        question: 'Do you charge a travel fee?',
+        answer: 'No. There are no travel fees anywhere in our Las Vegas service area.',
+      },
+    ],
   },
   {
     slug: 'stress-free-grooming',
