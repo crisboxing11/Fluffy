@@ -734,7 +734,7 @@ const OrlandoPage = () => {
                 {
                   question: "Do you groom large breeds?",
                   answer:
-                    "Yes, our spacious van accommodates most breeds up to 120 pounds with specialized equipment for larger dogs.",
+                    "Yes. All breeds are welcome, including large dogs. The van has room and equipment for bigger dogs.",
                 },
                 {
                   question: "How do I book?",

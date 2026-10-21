@@ -392,8 +392,7 @@ const HomePage = () => {
                 mb: 2,
               }}
             >
-              Start by confirming your dog&apos;s eligibility for our premium
-              mobile grooming services.
+              All breeds welcome — dogs of every breed and size, plus cats.
             </Typography>
 
             {/* Process Steps */}

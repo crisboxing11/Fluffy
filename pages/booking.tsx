@@ -66,6 +66,27 @@ const BookingPage = () => {
       >
         <Container maxWidth="xl" sx={{ pt: { xs: 8, md: 12 }, pb: 4 }}>
           <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Typography
+              component="p"
+              sx={{
+                display: "inline-block",
+                mb: 3,
+                px: { xs: 2.5, md: 3.5 },
+                py: { xs: 1, md: 1.15 },
+                borderRadius: "999px",
+                bgcolor: "rgba(255, 255, 255, 0.9)",
+                color: "#067C92",
+                fontWeight: 700,
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                lineHeight: 1.45,
+                letterSpacing: "0.01em",
+                border: "1px solid rgba(0, 173, 205, 0.35)",
+                boxShadow: "0 8px 24px rgba(6, 124, 146, 0.08)",
+              }}
+            >
+              All breeds welcome — dogs of every breed and size, plus cats.
+            </Typography>
+
             {selectedLocation && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -308,13 +329,13 @@ const BookingPage = () => {
                           alignItems: "flex-start",
                           mb: 2.5,
                           p: 2,
-                          background: "rgba(255, 193, 7, 0.1)",
+                          background: "rgba(76, 175, 80, 0.1)",
                           borderRadius: "12px",
-                          border: "1px solid rgba(255, 193, 7, 0.2)",
+                          border: "1px solid rgba(76, 175, 80, 0.28)",
                         }}
                       >
                         <Typography sx={{ fontSize: "1.2rem", mr: 2 }}>
-                          🧬
+                          🐾
                         </Typography>
                         <Typography
                           variant="body1"
@@ -324,8 +345,8 @@ const BookingPage = () => {
                             lineHeight: 1.5,
                           }}
                         >
-                          If your dog&apos;s breed isn&apos;t listed, we
-                          don&apos;t service that breed
+                          All breeds welcome. Any breed can book, including
+                          mixes. Breed never blocks an appointment.
                         </Typography>
                       </Box>
 
@@ -478,13 +499,13 @@ const BookingPage = () => {
                           alignItems: "center",
                           mb: 1.5,
                           p: 1.5,
-                          background: "rgba(255, 193, 7, 0.08)",
+                          background: "rgba(76, 175, 80, 0.08)",
                           borderRadius: "10px",
-                          border: "1px solid rgba(255, 193, 7, 0.15)",
+                          border: "1px solid rgba(76, 175, 80, 0.2)",
                         }}
                       >
                         <Typography sx={{ fontSize: "0.9rem", mr: 1.5 }}>
-                          🧬
+                          🐾
                         </Typography>
                         <Typography
                           variant="body2"
@@ -495,8 +516,7 @@ const BookingPage = () => {
                             fontSize: "0.85rem",
                           }}
                         >
-                          If your dog&apos;s breed isn&apos;t listed, we don&apos;t service
-                          that breed
+                          All breeds welcome. Any breed can book.
                         </Typography>
                       </Box>
 

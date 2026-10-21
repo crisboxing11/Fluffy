@@ -37,7 +37,7 @@ const faqData = [
       {
         question: "How do I book an appointment?",
         answer:
-          "Simply visit our booking page, select your service area and dog breed and press the Confirm & Continue Booking button. This will take you to the actual booking and just simply follow the steps. You'll receive an email after booking and a text once we have accepted your booking.",
+          "Visit our booking page, choose your service area, and continue to the calendar. All breeds are welcome, so you do not need to call or email to ask. You'll receive an email after booking and a text once we have accepted your booking.",
         tags: ["booking", "appointment", "schedule"],
       },
       {
@@ -76,7 +76,7 @@ const faqData = [
       {
         question: "Do you groom all breeds?",
         answer:
-          "Yes! We groom poodles and doodles, including doodle mixes. We service most breeds, so check our breed list before booking! Mobile cat grooming in Las Vegas is available at your door.",
+          "Yes. All breeds are welcome — dogs of every breed and size, plus cats. We groom poodles and doodles, including doodle mixes. Mobile cat grooming in Las Vegas is available at your door.",
         tags: ["breeds", "poodles", "doodles"],
       },
       {

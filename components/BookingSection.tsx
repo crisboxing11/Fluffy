@@ -11,7 +11,7 @@ const BookingSection = () => {
         </Typography>
       </motion.div>
       <Typography variant="body1" color="textSecondary" textAlign="center" mb={4}>
-        Before proceeding, confirm your dog&apos;s eligibility.
+        All breeds welcome. Pick your location to continue.
       </Typography>
 
       <Paper sx={{ maxWidth: 600, mx: 'auto', p: 4, boxShadow: 3 }}>
@@ -21,7 +21,7 @@ const BookingSection = () => {
       {/* Moego Booking Embed */}
       <Box sx={{ mt: 6, textAlign: 'center' }}>
         <Typography variant="h4" fontWeight="bold" mb={2}>
-          Already Pre-Screened? Book Now!
+          Ready to choose a time? Book now.
         </Typography>
         <Box sx={{ width: '100%', height: 800, mt: 2 }}>
           <iframe
