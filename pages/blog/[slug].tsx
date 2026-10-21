@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import type { ReactNode } from 'react';
-import { posted, BlogImage, BlogPost } from '../../data/posted';
+import { posted, BlogFaq, BlogImage, BlogPost } from '../../data/posted';
 import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
@@ -125,8 +125,45 @@ function BlogContent({ html }: { html: string }) {
   return <>{nodes}</>;
 }
 
+function BlogFaqSection({ faq }: { faq: BlogFaq[] }) {
+  if (faq.length === 0) return null;
+  return (
+    <Box component="section" aria-labelledby="post-faq-heading" sx={{ mt: 4 }}>
+      <Typography id="post-faq-heading" variant="h2" component="h2" gutterBottom>
+        Common questions
+      </Typography>
+      {faq.map((item) => (
+        <Box key={item.question}>
+          <Typography variant="body1" component="p" sx={{ mb: 1 }}>
+            <strong>{item.question}</strong>
+          </Typography>
+          <Typography variant="body1" component="p" sx={{ mb: 2 }}>
+            {item.answer}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
+function faqPageJsonLd(faq: BlogFaq[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 const BlogPostPage = ({ post }: Props) => {
-  const wordCount = post.content.replace(/<[^>]+>/g, '').split(/\s+/).length;
+  const faqText = (post.faq ?? []).map((item) => `${item.question} ${item.answer}`).join(' ');
+  const wordCount = `${post.content} ${faqText}`.replace(/<[^>]+>/g, '').split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / 200);
   const shareImage = post.heroImage?.src ?? post.image;
   const shareImageAlt = post.heroImage?.alt || post.imageAlt || post.title;
@@ -225,6 +262,12 @@ const BlogPostPage = ({ post }: Props) => {
             }),
           }}
         />
+        {post.faq && post.faq.length > 0 ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(post.faq)) }}
+          />
+        ) : null}
       </Head>
 
       {post.heroImage ? null : (
@@ -284,6 +327,7 @@ const BlogPostPage = ({ post }: Props) => {
           {`${post.date} • ${readingTime} min read`}
         </Typography>
         <BlogContent html={post.content} />
+        {post.faq && post.faq.length > 0 ? <BlogFaqSection faq={post.faq} /> : null}
         <Box mt={4}>
           <Typography>
             Learn more on our{' '}
