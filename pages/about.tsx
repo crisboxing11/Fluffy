@@ -221,7 +221,7 @@ const AboutUs = () => {
       </Head>
 
       {/* Hero Section */}
-      <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+      <motion.div initial={false} animate="visible" variants={fadeInUp}>
         <Box
           sx={{
             position: "relative",
@@ -266,7 +266,7 @@ const AboutUs = () => {
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
