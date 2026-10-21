@@ -42,6 +42,39 @@ describe('Las Vegas home tap-to-call', () => {
     }
   });
 
+  test('hero call matches book hover, press, and reduced motion', () => {
+    expect(home).toContain('const heroActionTiming = "0.4s cubic-bezier(0.4, 0, 0.2, 1)"');
+    expect(home).toContain('translateY(-3px) scale(1.02)');
+    expect(home).toContain('"@media (hover: hover)"');
+    expect(home).toContain('"@media (hover: none)"');
+    expect(home).toContain('transform: "none !important"');
+    expect(home).toContain('"@media (prefers-reduced-motion: reduce)"');
+    expect(home).toContain('"&&:active, &&:hover:active"');
+    expect(home).toContain('heroPressedSx(bookHeroRestShadow)');
+    expect(home).toContain('heroPressedSx(callHeroRestShadow)');
+    expect(home).toContain('backgroundColor: "#F4FBFB"');
+    expect(home).toContain('boxShadow: callHeroHoverShadow');
+    expect(home).toContain('outline: "3px solid #067C92 !important"');
+    expect(home).toContain('outlineOffset: "3px !important"');
+
+    const book = home.slice(
+      home.indexOf('aria-label="Book a grooming appointment"'),
+      home.indexOf('Book Your Appointment'),
+    );
+    const call = home.slice(
+      home.indexOf('href={LAS_VEGAS_TEL_HREF}'),
+      home.indexOf('Call {LAS_VEGAS_PHONE_DISPLAY}'),
+    );
+    for (const source of [book, call]) {
+      expect(source).toContain('heroActionTransition');
+      expect(source).toContain('heroPressedSx');
+      expect(source).toContain('outline: "3px solid #067C92 !important"');
+      expect(source).toContain('outlineOffset: "3px !important"');
+    }
+    expect(call).toContain('border: "2px solid #067C92"');
+    expect(call).toContain('border: "2px solid #038B95"');
+  });
+
   test('orlando redirect and orlando page are unchanged by this link', () => {
     expect(index).toContain('router.replace("/orlando")');
     expect(orlando).not.toContain('tel:+17025086248');

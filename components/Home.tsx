@@ -124,6 +124,50 @@ const scaleIn = {
   },
 };
 
+// Shared by Book and Call so the hover, press, and reduced-motion
+// treatment cannot drift. Timing matches the filled button.
+const heroActionTiming = "0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+
+const bookHeroRestShadow =
+  "0 12px 40px rgba(0, 173, 205, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
+const bookHeroHoverShadow =
+  "0 16px 50px rgba(0, 173, 205, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)";
+const callHeroRestShadow = "0 6px 18px rgba(6, 124, 146, 0.12)";
+const callHeroHoverShadow = "0 10px 28px rgba(6, 124, 146, 0.22)";
+
+function heroActionTransition(properties: string): string {
+  return properties
+    .split(", ")
+    .map((property) => `${property} ${heroActionTiming}`)
+    .join(", ");
+}
+
+// Lift only on real hover. Pressed wins over that lift. Reduced motion
+// also cancels the theme's contained-button scale(1.05).
+function heroPressedSx(restShadow: string) {
+  return {
+    "@media (hover: hover)": {
+      "&&:hover": {
+        transform: "translateY(-3px) scale(1.02)",
+      },
+    },
+    "@media (hover: none)": {
+      "&&:hover": {
+        transform: "none !important",
+      },
+    },
+    "&&:active, &&:hover:active": {
+      transform: "translateY(0) scale(1)",
+      boxShadow: restShadow,
+    },
+    "@media (prefers-reduced-motion: reduce)": {
+      "&&, &&:hover, &&:active, &&:hover:active": {
+        transform: "none !important",
+      },
+    },
+  };
+}
+
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
   const [objectPosition, setObjectPosition] = useState("center center");
@@ -488,13 +532,15 @@ const Home = () => {
                         borderRadius: "50px",
                         background:
                           "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
-                        boxShadow:
-                          "0 12px 40px rgba(0, 173, 205, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                        boxShadow: bookHeroRestShadow,
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                         position: "relative",
                         overflow: "hidden",
-                        transition:
-                          "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        "&&": {
+                          transition: heroActionTransition(
+                            "background, transform, box-shadow",
+                          ),
+                        },
                         width: { xs: "100%", sm: "auto", md: "auto" },
                         flexGrow: { md: 1.15 },
                         flexBasis: { md: "0px" },
@@ -515,16 +561,15 @@ const Home = () => {
                             "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
                           transition: "left 0.6s ease",
                         },
-                        "&:hover": {
+                        "&&:hover": {
                           background:
                             "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
-                          transform: "translateY(-3px) scale(1.02)",
-                          boxShadow:
-                            "0 16px 50px rgba(0, 173, 205, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
+                          boxShadow: bookHeroHoverShadow,
                           "&::before": {
                             left: "100%",
                           },
                         },
+                        ...heroPressedSx(bookHeroRestShadow),
                         "&&:focus-visible, &&.Mui-focusVisible": {
                           outline: "3px solid #067C92 !important",
                           outlineOffset: "3px !important",
@@ -558,7 +603,7 @@ const Home = () => {
                       border: "2px solid #067C92",
                       color: "#067C92",
                       backgroundColor: "#FFFFFF",
-                      boxShadow: "0 6px 18px rgba(6, 124, 146, 0.12)",
+                      boxShadow: callHeroRestShadow,
                       width: { xs: "100%", sm: "auto", md: "auto" },
                       flexGrow: { md: 1 },
                       flexBasis: { md: "0px" },
@@ -566,19 +611,24 @@ const Home = () => {
                       minWidth: { md: 0 },
                       whiteSpace: { md: "nowrap" },
                       lineHeight: { md: 1 },
-                      transition:
-                        "background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease",
+                      "&&": {
+                        transition: heroActionTransition(
+                          "background-color, border-color, color, transform, box-shadow",
+                        ),
+                      },
                       "& .MuiButton-startIcon": {
                         marginLeft: { md: 0 },
                         marginRight: { md: "10px" },
                         display: { md: "inherit" },
                         alignItems: { md: "center" },
                       },
-                      "&:hover": {
+                      "&&:hover": {
                         border: "2px solid #038B95",
                         backgroundColor: "#F4FBFB",
                         color: "#067C92",
+                        boxShadow: callHeroHoverShadow,
                       },
+                      ...heroPressedSx(callHeroRestShadow),
                       "&&:focus-visible, &&.Mui-focusVisible": {
                         outline: "3px solid #067C92 !important",
                         outlineOffset: "3px !important",
