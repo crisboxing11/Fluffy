@@ -455,6 +455,29 @@ const HomePage = () => {
                 </Box>
               ))}
             </Box>
+
+            <Typography
+              component="p"
+              sx={{
+                maxWidth: "66ch",
+                mx: "auto",
+                mt: 3,
+                mb: 0,
+                textAlign: "left",
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                color: "#067C92",
+                lineHeight: 1.65,
+                textWrap: "pretty",
+              }}
+            >
+              <strong>Why Fluffy Pet Wash?</strong> We bring a one-on-one,
+              climate-controlled grooming van to your door across Las Vegas,
+              with no travel fees. Every dog groom is all-inclusive, from
+              hypoallergenic wash and blowout to nails, ears, teeth and a
+              blueberry facial. Small dogs start at $85, and we groom doodles
+              and cats too. Open 7 AM–10 PM daily, closed Thanksgiving and
+              Christmas; book online or call 702-508-6248.
+            </Typography>
           </Box>
 
           {/* Trust Indicators */}
