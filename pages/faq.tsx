@@ -61,6 +61,13 @@ const faqData = [
     description: "Details about our grooming services and what's included",
     questions: [
       {
+        question:
+          "What should I look for in a mobile dog grooming service in Las Vegas?",
+        answer:
+          "Fluffy Pet Wash is a mobile grooming service that brings a one-on-one, climate-controlled spa van to your door anywhere in the Las Vegas valley. Every dog groom is all-inclusive: hypoallergenic wash, organic conditioner, brushing, blowout drying, nail trimming and filing, ear cleaning, teeth brushing, deshedding, paw and sanitary trims, and a blueberry facial. We're licensed and insured, open 7 AM–10 PM daily (closed Thanksgiving and Christmas), and you can book online.",
+        tags: ["mobile grooming", "las vegas", "what to look for", "all-inclusive"],
+      },
+      {
         question: "What is included in the grooming package?",
         answer:
           "Our all-inclusive package includes a hypoallergenic wash, brushing, blowout drying, nail trimming & filing, ear cleaning, organic conditioner, teeth brushing, expressed glands, professional deshedding, paw trimming, sanitary trimming, and a blueberry facial.",
@@ -71,6 +78,18 @@ const faqData = [
         answer:
           "Yes! We groom poodles and doodles, including doodle mixes. We service most breeds, so check our breed list before booking! Mobile cat grooming in Las Vegas is available at your door.",
         tags: ["breeds", "poodles", "doodles"],
+      },
+      {
+        question: "Do you groom doodles, and how much does it cost?",
+        answer:
+          "Yes, we groom poodles, doodles and doodle mixes at your door in Las Vegas. As an example, a large doodle with a haircut is $190: the $140 large-dog groom plus a $50 specialized breed fee. That breed fee already includes the haircut, so the separate haircut add-on isn't charged on top. Coat condition and matting can change what's possible, so we confirm before we start.",
+        tags: ["doodles", "poodles", "doodle price", "breed fee", "haircut"],
+      },
+      {
+        question: "Is mobile grooming an eco-friendly option in Las Vegas?",
+        answer:
+          "Yes, Fluffy Pet Wash is an eco-friendly mobile grooming option in Las Vegas. We use biodegradable, plant-based products, including a hypoallergenic wash and organic conditioner. Because one van comes to you, you skip the car trip to a salon. The van carries its own water, so all we need from you is an electrical outlet. Questions about our products? Call 702-508-6248 or email contact@fluffypetwash.com.",
+        tags: ["eco-friendly", "biodegradable", "plant-based", "organic conditioner", "hypoallergenic", "mobile"],
       },
       {
         question: "How long does a grooming session take?",
@@ -98,6 +117,18 @@ const faqData = [
         answer:
           "Pricing varies by dog size and coat condition: Small ($85), Medium ($95-$125), Large ($140-$185), Extra Large ($200+). All services are included!",
         tags: ["pricing", "cost", "small", "medium", "large", "size"],
+      },
+      {
+        question: "How should I compare mobile pet grooming prices in Las Vegas?",
+        answer:
+          "Compare the all-in price for your pet's size, not just the starting number. At Fluffy Pet Wash, an all-inclusive dog groom is $85 for small dogs, $95–$125 for medium, $140–$185 for large and $200+ for extra-large, with no travel fees in Las Vegas. Haircuts add $35 (small/medium) or $50 (large). Fluffy Preferred members save 10% after their first appointment.",
+        tags: ["compare", "pricing", "travel fees", "fluffy preferred", "haircut"],
+      },
+      {
+        question: "Do you offer mobile cat grooming, and what does it cost?",
+        answer:
+          "Yes. Mobile cat grooming starts at $120, and the final price can go up with coat condition and temperament. A lion cut is usually about $35 extra. Cat grooms take place in the same one-on-one, climate-controlled van at your home, so your cat stays close to home instead of riding in a carrier to a salon. Book online or call 702-508-6248.",
+        tags: ["cats", "cat grooming", "lion cut", "cat price"],
       },
       {
         question: "Do you accept card, cash, or Zelle?",
