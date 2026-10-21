@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BlogContent, BlogHero, hasIntrinsicHero } from '../../components/blog/BlogMedia';
 
 type Props = {
   post: BlogPost;
@@ -109,43 +110,58 @@ const BlogPostPage = ({ post }: Props) => {
         />
       </Head>
 
-      <Box
-        sx={{
-          position: 'relative',
-          width: '100%',
-          height: { xs: '40vh', md: '50vh' },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          color: 'white',
-          overflow: 'hidden'
-        }}
-      >
-        <Image
-          src={post.image}
-          alt={post.imageAlt || post.title}
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
+      {hasIntrinsicHero(post) ? (
+        <BlogHero post={post} />
+      ) : (
         <Box
-          sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }}
-        />
-        <Typography variant="h1" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
-          {post.title}
-        </Typography>
-      </Box>
+          sx={{
+            position: 'relative',
+            width: '100%',
+            height: { xs: '40vh', md: '50vh' },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            color: 'white',
+            overflow: 'hidden'
+          }}
+        >
+          <Image
+            src={post.image}
+            alt={post.imageAlt || post.title}
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+          <Box
+            sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }}
+          />
+          <Typography variant="h1" fontWeight="bold" sx={{ position: 'relative', zIndex: 1 }}>
+            {post.title}
+          </Typography>
+        </Box>
+      )}
 
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Container maxWidth="md" sx={{ pt: hasIntrinsicHero(post) ? { xs: 3, md: 4 } : 6, pb: 6 }}>
+        {hasIntrinsicHero(post) ? (
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontSize: { xs: '1.85rem', md: '2.5rem' },
+              lineHeight: 1.15,
+              fontWeight: 800,
+              color: '#067C92',
+              mb: 1.5,
+            }}
+          >
+            {post.title}
+          </Typography>
+        ) : null}
         <Typography variant="subtitle2" color="textSecondary" gutterBottom>
           {`${post.date} • ${readingTime} min read`}
         </Typography>
-        <Typography
-          variant="body1"
-          component="div"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <BlogContent html={post.content} />
         <Box mt={4}>
           <Typography>
             Learn more on our{' '}
