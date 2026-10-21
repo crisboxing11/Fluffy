@@ -13,6 +13,7 @@ import StarIcon from "@mui/icons-material/Star";
 import SpaIcon from "@mui/icons-material/Spa";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import PhoneIcon from "@mui/icons-material/Phone";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,6 +27,10 @@ import ReviewDog6 from "../public/ReviewDog6.jpg";
 import ReviewDog4 from "../public/ReviewDog4.jpg";
 import ReviewDog7 from "../public/ReviewDog7.jpg";
 import Link from "next/link";
+import {
+  LAS_VEGAS_PHONE_DISPLAY,
+  LAS_VEGAS_TEL_HREF,
+} from "../lib/ads";
 
 // Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
@@ -273,7 +278,7 @@ const Home = () => {
           >
             <Box
               sx={{
-                maxWidth: { xs: "92%", sm: "88%", md: "600px" },
+                maxWidth: { xs: "92%", sm: "88%", md: "600px", lg: "780px" },
                 textAlign: { xs: "center", md: "left" },
                 width: "100%",
                 maxHeight: {
@@ -386,6 +391,7 @@ const Home = () => {
                     },
                     position: "relative",
                     overflow: "hidden",
+                    maxWidth: { lg: 640 },
                     "&::before": {
                       content: '""',
                       position: "absolute",
@@ -444,7 +450,7 @@ const Home = () => {
                 </Box>
               </motion.div>
 
-              {/* Enhanced CTA Button */}
+              {/* Book stays the filled primary. Call is the outlined secondary. */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -454,7 +460,20 @@ const Home = () => {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <Box sx={{ mb: { xs: 2.5, sm: 3.5, md: 5 } }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    flexWrap: "wrap",
+                    alignItems: { xs: "stretch", sm: "center" },
+                    justifyContent: { xs: "center", md: "flex-start" },
+                    gap: { xs: 1.25, sm: 2 },
+                    width: { xs: "100%", sm: "auto" },
+                    maxWidth: { xs: 280, sm: "none" },
+                    mx: { xs: "auto", md: 0 },
+                    mb: { xs: 2, sm: 3.5, md: 5 },
+                  }}
+                >
                   <Link href="/prebook" passHref legacyBehavior>
                     <Button
                       component="a"
@@ -462,9 +481,9 @@ const Home = () => {
                       size="large"
                       aria-label="Book a grooming appointment"
                       sx={{
-                        px: { xs: 4, sm: 5, md: 8 },
+                        px: { xs: 4, sm: 5, md: 6, lg: 8 },
                         py: { xs: 2.2, sm: 2.8, md: 3 },
-                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.4rem" },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem", lg: "1.4rem" },
                         fontWeight: 800,
                         textTransform: "none",
                         borderRadius: "50px",
@@ -475,10 +494,9 @@ const Home = () => {
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                         position: "relative",
                         overflow: "hidden",
-                        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition:
+                          "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                         width: { xs: "100%", sm: "auto" },
-                        maxWidth: { xs: "280px", sm: "none" },
-                        mx: { xs: "auto", md: 0 },
                         minHeight: { xs: "52px", sm: "56px" },
                         "&::before": {
                           content: '""',
@@ -501,11 +519,50 @@ const Home = () => {
                             left: "100%",
                           },
                         },
+                        "&&:focus-visible, &&.Mui-focusVisible": {
+                          outline: "3px solid #067C92 !important",
+                          outlineOffset: "3px !important",
+                        },
                       }}
                     >
                       Book Your Appointment
                     </Button>
                   </Link>
+                  <Button
+                    component="a"
+                    href={LAS_VEGAS_TEL_HREF}
+                    variant="outlined"
+                    startIcon={<PhoneIcon aria-hidden="true" sx={{ fontSize: 20 }} />}
+                    aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
+                    sx={{
+                      px: { xs: 2.5, sm: 3, md: 3.5 },
+                      py: { xs: 1.25, sm: 1.35, md: 1.5 },
+                      minHeight: 48,
+                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+                      fontWeight: 700,
+                      textTransform: "none",
+                      borderRadius: "50px",
+                      border: "2px solid #067C92",
+                      color: "#067C92",
+                      backgroundColor: "#FFFFFF",
+                      boxShadow: "0 6px 18px rgba(6, 124, 146, 0.12)",
+                      width: { xs: "100%", sm: "auto" },
+                      flexShrink: 0,
+                      transition:
+                        "background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease",
+                      "&:hover": {
+                        border: "2px solid #038B95",
+                        backgroundColor: "#F4FBFB",
+                        color: "#067C92",
+                      },
+                      "&&:focus-visible, &&.Mui-focusVisible": {
+                        outline: "3px solid #067C92 !important",
+                        outlineOffset: "3px !important",
+                      },
+                    }}
+                  >
+                    Call {LAS_VEGAS_PHONE_DISPLAY}
+                  </Button>
                 </Box>
               </motion.div>
 
