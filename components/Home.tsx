@@ -1061,8 +1061,8 @@ const Home = () => {
             >
               pre-book page
             </Link>
-            . Choose Las Vegas or Orlando, confirm your dog is on the breed
-            list, and continue to the calendar. You get an email after you book
+            . Choose Las Vegas or Orlando and continue to the calendar. All
+            breeds are welcome. You get an email after you book
             and a text when the appointment is accepted. Please let us know as
             early as you can if you need to change or cancel. Phone hours are
             listed on the contact page. If you need a same-day visit, call to

@@ -662,6 +662,18 @@ const PricesPage = () => {
               ))}
             </Grid>
 
+            <Typography
+              variant="body1"
+              color="#067C92"
+              fontWeight="600"
+              textAlign="center"
+              sx={{ mt: 4, maxWidth: 720, mx: "auto", lineHeight: 1.6 }}
+            >
+              All breeds welcome. These names are pricing examples. If your
+              breed is not listed, it is still welcome as Other / any breed,
+              and that choice never blocks booking.
+            </Typography>
+
             {/* Automatic Pricing Info */}
             <Box textAlign="center" mt={6}>
               <Paper
@@ -799,23 +811,24 @@ const PricesPage = () => {
                     sx={{
                       p: 3,
                       borderRadius: "16px",
-                      background: "rgba(255, 193, 7, 0.1)",
-                      border: "1px solid rgba(255, 193, 7, 0.3)",
+                      background: "rgba(0, 173, 205, 0.1)",
+                      border: "1px solid rgba(0, 173, 205, 0.3)",
                       height: "100%",
                     }}
                   >
                     <Typography
                       variant="h6"
                       fontWeight="bold"
-                      color="#F57C00"
+                      color="#067C92"
                       mb={2}
                       sx={{ display: "flex", alignItems: "center", gap: 1 }}
                     >
-                      ⚠️ Breed Restrictions Apply
+                      ✅ All Breeds Welcome
                     </Typography>
                     <Typography variant="body2" color="#067C92" mb={2}>
-                      We only service breeds on our approved list. Your breed
-                      will be verified during the booking process.
+                      Every breed is welcome, including mixes. Example lists
+                      are for pricing only. Other / any breed never blocks
+                      booking.
                     </Typography>
                     <Typography
                       variant="body2"
@@ -1226,11 +1239,11 @@ const PricesPage = () => {
                       fontWeight="bold"
                       mb={1}
                     >
-                      📋 Breed List Only
+                      ✅ All Breeds Welcome
                     </Typography>
                     <Typography variant="body2" color="#067C92">
-                      Service limited to breeds on our approved list for safety
-                      and expertise
+                      Dogs of every breed and size, plus cats. The names above
+                      are pricing examples. Other / any breed is always welcome.
                     </Typography>
                   </Box>
                 </Grid>

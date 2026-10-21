@@ -202,14 +202,27 @@ const PreBookingForm = () => {
       </Typography>
 
       {currentStep === 0 && (
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          mb={3}
-          sx={{ px: { xs: 1, md: 0 } }}
-        >
-          Choose your location to see available appointment times and services
-        </Typography>
+        <>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            mb={1}
+            sx={{ px: { xs: 1, md: 0 } }}
+          >
+            Choose your location to see available appointment times and services
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              color: "#067C92",
+              fontWeight: 700,
+              mb: 3,
+              px: { xs: 1, md: 0 },
+            }}
+          >
+            All breeds welcome.
+          </Typography>
+        </>
       )}
 
       {currentStep === 1 && (
@@ -443,12 +456,8 @@ const PreBookingForm = () => {
             },
           }}
         >
-          <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
-            Before booking, please note:
-          </Typography>
           <Typography variant="body2">
-            • Breed restrictions apply
-            <br />• No shave downs on double-coated breeds
+            No shave downs on double-coated breeds.
           </Typography>
         </Alert>
       )}

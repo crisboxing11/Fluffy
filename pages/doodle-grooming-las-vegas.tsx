@@ -674,7 +674,7 @@ const DoodleGroomingLasVegasPage = () => {
           </Box>
         </Stack>
         <Typography sx={{ color: "text.secondary" }}>
-          Grooming another breed? Start at the{" "}
+          All breeds welcome. Grooming another breed? Start at the{" "}
           <Link href="/" style={linkStyle}>
             Fluffy Pet Wash homepage
           </Link>

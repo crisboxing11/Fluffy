@@ -510,8 +510,9 @@ const PrebookPage = () => {
               variant="body1"
               sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, color: "#334155", lineHeight: 1.75 }}
             >
-              Questions about what is included, which breeds we take, or what a
-              visit costs belong on the{" "}
+              All breeds are welcome, so you do not need to call or email to
+              ask. Questions about what is included or what a visit costs
+              belong on the{" "}
               <Link href="/services" style={{ color: "#038B95", fontWeight: "bold", textDecoration: "none" }}>
                 services
               </Link>
