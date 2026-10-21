@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -29,9 +29,9 @@ const Custom404 = () => {
         If you still can&apos;t find what you need, our <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }}>contact page</Link> is the fastest way to get in touch. We&apos;ll be happy to point you in the right direction.
       </Typography>
       <Link href="/" passHref legacyBehavior>
-        <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>
           <Button variant="contained" color="primary" aria-label="Go back to homepage">Go Back Home</Button>
-        </m.div>
+        </motion.div>
       </Link>
     </Box>
   );

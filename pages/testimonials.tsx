@@ -14,7 +14,7 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Star as StarIcon,
   Favorite as HeartIcon,
@@ -219,7 +219,7 @@ const TestimonialsPage = () => {
       </Head>
 
       {/* Hero Section */}
-      <m.div initial={false} animate="visible" variants={fadeInUp}>
+      <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
           sx={{
             position: "relative",
@@ -253,8 +253,6 @@ const TestimonialsPage = () => {
               objectPosition: "center",
             }}
             priority
-            fetchPriority="high"
-            sizes="100vw"
             quality={90}
           />
 
@@ -267,8 +265,8 @@ const TestimonialsPage = () => {
               color: "white",
             }}
           >
-            <m.div
-              initial={false}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
@@ -398,13 +396,13 @@ const TestimonialsPage = () => {
                   }}
                 />
               </Stack>
-            </m.div>
+            </motion.div>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Stats Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -421,7 +419,7 @@ const TestimonialsPage = () => {
             <Grid container spacing={4}>
               {stats.map((stat, index) => (
                 <Grid item xs={6} md={3} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Paper
                       elevation={0}
                       sx={{
@@ -487,16 +485,16 @@ const TestimonialsPage = () => {
                         {stat.label}
                       </Typography>
                     </Paper>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Testimonials Grid Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -520,7 +518,7 @@ const TestimonialsPage = () => {
           }}
         >
           <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-            <m.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
               <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
                 <Typography
                   variant="h2"
@@ -552,12 +550,12 @@ const TestimonialsPage = () => {
                   and again.
                 </Typography>
               </Box>
-            </m.div>
+            </motion.div>
 
             <Grid container spacing={4}>
               {testimonials.map((testimonial, index) => (
                 <Grid item xs={12} md={6} lg={4} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Card
                       sx={{
                         height: "100%",
@@ -625,14 +623,12 @@ const TestimonialsPage = () => {
                                 alt={testimonial.imageAlt}
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 style={{
                                   objectFit: "cover",
                                   width: "100%",
                                   height: "100%",
                                 }}
                                 quality={75}
-                                loading="lazy"
                               />
                             </Box>
                             <Box
@@ -732,16 +728,16 @@ const TestimonialsPage = () => {
                         </Typography>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Trust Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -755,7 +751,7 @@ const TestimonialsPage = () => {
         >
           <Container maxWidth="md">
             <Box sx={{ textAlign: "center" }}>
-              <m.div variants={slideInLeft}>
+              <motion.div variants={slideInLeft}>
                 <Typography
                   variant="h2"
                   sx={{
@@ -854,14 +850,14 @@ const TestimonialsPage = () => {
                   senior pets, we provide consistent, professional care that pet
                   owners can trust.
                 </Typography>
-              </m.div>
+              </motion.div>
             </Box>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Call-to-Action Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -889,7 +885,7 @@ const TestimonialsPage = () => {
           }}
         >
           <Container maxWidth="md" sx={{ position: "relative", zIndex: 1 }}>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -1009,10 +1005,10 @@ const TestimonialsPage = () => {
                   </Button>
                 </Link>
               </Stack>
-            </m.div>
+            </motion.div>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
     </Box>
   );
 };

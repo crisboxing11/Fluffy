@@ -76,26 +76,12 @@ const HomePage = () => {
       }
     };
 
-    // After first paint. requestIdleCallback waits until the browser is
-    // idle (past the LCP frame). The timeout still runs the Orlando check
-    // if the main thread stays busy. setTimeout is the fallback.
-    let cancelled = false;
-    const run = () => {
-      if (!cancelled) void checkLocation();
-    };
-    let cancel: () => void;
-    if (typeof window.requestIdleCallback === "function") {
-      const idleId = window.requestIdleCallback(run, { timeout: 4000 });
-      cancel = () => window.cancelIdleCallback(idleId);
-    } else {
-      const timeoutId = window.setTimeout(run, 1);
-      cancel = () => window.clearTimeout(timeoutId);
-    }
+    // Use requestAnimationFrame to ensure DOM is ready
+    const frameId = requestAnimationFrame(() => {
+      checkLocation();
+    });
 
-    return () => {
-      cancelled = true;
-      cancel();
-    };
+    return () => cancelAnimationFrame(frameId);
   }, [router.isReady, router.pathname, router]);
 
   return (

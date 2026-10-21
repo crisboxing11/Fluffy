@@ -11,7 +11,7 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PetsIcon from "@mui/icons-material/Pets";
 import StarIcon from "@mui/icons-material/Star";
@@ -105,7 +105,7 @@ const OrlandoPage = () => {
       </Head>
 
       {/* Hero Section */}
-      <m.div initial={false} animate="visible" variants={fadeInUp}>
+      <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
           sx={{
             position: "relative",
@@ -195,8 +195,6 @@ const OrlandoPage = () => {
                   zIndex: 2,
                 }}
                 priority
-                fetchPriority="high"
-                sizes="(max-width: 899px) 1px, 58vw"
                 quality={100}
               />
             </Box>
@@ -213,7 +211,7 @@ const OrlandoPage = () => {
           >
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -310,7 +308,7 @@ const OrlandoPage = () => {
                   </Box>
 
                   {/* CTA Button */}
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
@@ -359,16 +357,16 @@ const OrlandoPage = () => {
                         Book Now!
                       </Button>
                     </Link>
-                  </m.div>
-                </m.div>
+                  </motion.div>
+                </motion.div>
               </Grid>
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Service Areas Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -382,7 +380,7 @@ const OrlandoPage = () => {
           }}
         >
           <Container maxWidth="lg">
-            <m.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
               <Typography
                 variant="h2"
                 sx={{
@@ -409,12 +407,12 @@ const OrlandoPage = () => {
                 We proudly serve these Orlando neighborhoods and surrounding
                 areas
               </Typography>
-            </m.div>
+            </motion.div>
 
             <Grid container spacing={2} justifyContent="center">
               {serviceAreas.map((area, index) => (
                 <Grid item xs={6} sm={4} md={3} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Box
                       sx={{
                         background:
@@ -451,16 +449,16 @@ const OrlandoPage = () => {
                         {area}
                       </Typography>
                     </Box>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Features Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -474,7 +472,7 @@ const OrlandoPage = () => {
           }}
         >
           <Container maxWidth="lg">
-            <m.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
               <Typography
                 variant="h2"
                 sx={{
@@ -487,12 +485,12 @@ const OrlandoPage = () => {
               >
                 Why Choose Us in Orlando?
               </Typography>
-            </m.div>
+            </motion.div>
 
             <Grid container spacing={4}>
               {features.map((feature, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Card
                       sx={{
                         height: "100%",
@@ -555,16 +553,16 @@ const OrlandoPage = () => {
                         </Typography>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Content Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -694,10 +692,10 @@ const OrlandoPage = () => {
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* FAQ Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -711,7 +709,7 @@ const OrlandoPage = () => {
           }}
         >
           <Container maxWidth="lg">
-            <m.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
               <Typography
                 variant="h2"
                 sx={{
@@ -724,7 +722,7 @@ const OrlandoPage = () => {
               >
                 Orlando FAQ
               </Typography>
-            </m.div>
+            </motion.div>
 
             <Grid container spacing={3}>
               {[
@@ -745,7 +743,7 @@ const OrlandoPage = () => {
                 },
               ].map((faq, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Card
                       sx={{
                         height: "100%",
@@ -804,16 +802,16 @@ const OrlandoPage = () => {
                         </Typography>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Final CTA Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -908,7 +906,7 @@ const OrlandoPage = () => {
             </Link>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
     </Box>
   );
 };

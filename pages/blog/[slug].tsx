@@ -32,9 +32,7 @@ function BlogFigure({
         height={height}
         sizes="(max-width: 900px) 100vw, 800px"
         style={{ width: '100%', height: 'auto', borderRadius: 12 }}
-        {...(priority
-          ? { priority: true as const, fetchPriority: 'high' as const }
-          : { loading: 'lazy' as const })}
+        {...(priority ? { priority: true } : { loading: 'lazy' as const })}
       />
       {caption ? (
         <Typography
@@ -292,8 +290,6 @@ const BlogPostPage = ({ post }: Props) => {
             fill
             style={{ objectFit: 'cover' }}
             priority
-            fetchPriority="high"
-            sizes="100vw"
           />
           <Box
             sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }}

@@ -1,6 +1,6 @@
 import { Box, Typography, Grid, Card, CardContent, Button } from '@mui/material';
 import Image from 'next/image';
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { posted } from '../data/posted';
@@ -85,7 +85,7 @@ const BlogPage = () => {
         />
       </Head>
 
-      <m.div initial={false} animate="visible" variants={fadeInUp}>
+      <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
         <Box
           sx={{
             position: 'relative',
@@ -106,7 +106,6 @@ const BlogPage = () => {
             layout="fill"
             objectFit="cover"
             priority
-            fetchPriority="high"
             sizes="100vw"
             style={{ opacity: 0.4 }}
           />
@@ -125,7 +124,7 @@ const BlogPage = () => {
             Fluffy Pet Wash Blog
           </Typography>
         </Box>
-      </m.div>
+      </motion.div>
 
       <Box
         component="section"
@@ -202,7 +201,7 @@ const BlogPage = () => {
         <Grid container spacing={4}>
           {posts.map((post, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <m.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
+              <motion.div initial="hidden" whileInView="visible" variants={zoomIn} viewport={{ once: true }}>
                 <Card
                   sx={{
                     boxShadow: 3,
@@ -234,7 +233,7 @@ const BlogPage = () => {
                     </Box>
                   </CardContent>
                 </Card>
-              </m.div>
+              </motion.div>
             </Grid>
           ))}
         </Grid>

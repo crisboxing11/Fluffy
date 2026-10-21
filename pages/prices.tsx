@@ -20,7 +20,7 @@ import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import { Rating } from "@mui/material";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import PriceHeroImage from "../public/Dog8.jpg";
 import Head from "next/head";
@@ -177,8 +177,6 @@ const PricesPage = () => {
           fill
           style={{ objectFit: "cover" }}
           priority
-          fetchPriority="high"
-          sizes="100vw"
         />
         <Box
           sx={{
@@ -197,7 +195,7 @@ const PricesPage = () => {
             color: "white",
           }}
         >
-          <m.div initial={false} animate="visible" variants={fadeInUp}>
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
             <Typography
               variant="h1"
               sx={{
@@ -263,13 +261,13 @@ const PricesPage = () => {
                 }}
               />
             </Stack>
-          </m.div>
+          </motion.div>
         </Container>
       </Box>
 
       {/* Pricing Overview Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
-        <m.div
+        <motion.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -433,7 +431,7 @@ const PricesPage = () => {
                   md={category.isAvailable ? 12 : 3}
                   key={index}
                 >
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -659,7 +657,7 @@ const PricesPage = () => {
                         </Box>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
@@ -908,12 +906,12 @@ const PricesPage = () => {
               </Grid>
             </Box>
           </Paper>
-        </m.div>
+        </motion.div>
       </Container>
 
       {/* Fluffy Preferred Membership - Premium Section */}
       <Container maxWidth="lg" sx={{ py: 2 }}>
-        <m.div
+        <motion.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -1107,12 +1105,12 @@ const PricesPage = () => {
               </Typography>
             </Box>
           </Paper>
-        </m.div>
+        </motion.div>
       </Container>
 
       {/* What's Included Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
-        <m.div
+        <motion.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -1251,7 +1249,7 @@ const PricesPage = () => {
               </Link>
             </Typography>
           </Box>
-        </m.div>
+        </motion.div>
       </Container>
 
       {/* Service Information */}
@@ -1422,7 +1420,7 @@ const PricesPage = () => {
         />
 
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <m.div
+          <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -1430,7 +1428,7 @@ const PricesPage = () => {
           >
             {/* Enhanced Header */}
             <Box textAlign="center" mb={8}>
-              <m.div
+              <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6 }}
@@ -1455,7 +1453,7 @@ const PricesPage = () => {
                   </Typography>
                   <StarIcon sx={{ color: "#FFD700", fontSize: 24 }} />
                 </Box>
-              </m.div>
+              </motion.div>
 
               <Typography
                 variant="h2"
@@ -1518,7 +1516,7 @@ const PricesPage = () => {
                 },
               ].map((review, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -1657,14 +1655,14 @@ const PricesPage = () => {
                         </Typography>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
 
             {/* Trust indicators */}
             <Box textAlign="center" mt={8}>
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -1707,9 +1705,9 @@ const PricesPage = () => {
                     </Typography>
                   </Box>
                 </Paper>
-              </m.div>
+              </motion.div>
             </Box>
-          </m.div>
+          </motion.div>
         </Container>
       </Box>
 
@@ -1723,7 +1721,7 @@ const PricesPage = () => {
         }}
       >
         <Container maxWidth="lg">
-          <m.div
+          <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -1789,7 +1787,7 @@ const PricesPage = () => {
                 Contact Us
               </Button>
             </Stack>
-          </m.div>
+          </motion.div>
         </Container>
       </Box>
     </Box>

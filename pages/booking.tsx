@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import territories from "../data/territories";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 const BookingPage = () => {
   const router = useRouter();
@@ -59,7 +59,7 @@ const BookingPage = () => {
       </Head>
 
       {/* Hero Header */}
-      <m.div
+      <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -67,7 +67,7 @@ const BookingPage = () => {
         <Container maxWidth="xl" sx={{ pt: { xs: 8, md: 12 }, pb: 4 }}>
           <Box sx={{ textAlign: "center", mb: 4 }}>
             {selectedLocation && (
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -90,7 +90,7 @@ const BookingPage = () => {
                     },
                   }}
                 />
-              </m.div>
+              </motion.div>
             )}
 
             <Typography
@@ -127,10 +127,10 @@ const BookingPage = () => {
             </Typography>
           </Box>
         </Container>
-      </m.div>
+      </motion.div>
 
       {/* Main Booking Content */}
-      <m.div
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -243,7 +243,7 @@ const BookingPage = () => {
                   flexShrink: 0,
                 }}
               >
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
@@ -403,7 +403,7 @@ const BookingPage = () => {
                       🚐 Mobile Convenience
                     </Typography>
                   </Paper>
-                </m.div>
+                </motion.div>
               </Box>
             )}
 
@@ -415,7 +415,7 @@ const BookingPage = () => {
                   mb: 2,
                 }}
               >
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
@@ -551,12 +551,12 @@ const BookingPage = () => {
                       </Box>
                     </Box>
                   </Paper>
-                </m.div>
+                </motion.div>
               </Box>
             )}
           </Box>
         </Container>
-      </m.div>
+      </motion.div>
     </Box>
   );
 };

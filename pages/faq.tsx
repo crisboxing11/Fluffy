@@ -22,7 +22,7 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import PaymentIcon from "@mui/icons-material/Payment";
 import PetsIcon from "@mui/icons-material/Pets";
-import { m, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -426,7 +426,7 @@ const FAQPage = () => {
             justifyContent: "center",
           }}
         >
-          <m.div initial={false} animate="visible" variants={fadeInUp}>
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
             <Box
               sx={{
                 textAlign: "center",
@@ -514,7 +514,7 @@ const FAQPage = () => {
                 and we&apos;ll be happy to help!
               </Typography>
             </Box>
-          </m.div>
+          </motion.div>
         </Container>
       </Box>
 
@@ -523,7 +523,7 @@ const FAQPage = () => {
         sx={{ py: { xs: 4, sm: 6, md: 8 }, px: { xs: 2, sm: 3, md: 4 } }}
       >
         {/* Enhanced Search Section */}
-        <m.div initial="hidden" animate="visible" variants={fadeInUp}>
+        <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
           <Card
             sx={{
               mb: 6,
@@ -683,12 +683,12 @@ const FAQPage = () => {
               )}
             </CardContent>
           </Card>
-        </m.div>
+        </motion.div>
 
         {/* FAQ Categories and Questions */}
         <AnimatePresence mode="wait">
           {filteredFAQs.length > 0 ? (
-            <m.div
+            <motion.div
               key="faq-content"
               initial="hidden"
               animate="visible"
@@ -700,7 +700,7 @@ const FAQPage = () => {
                   const IconComponent = section.icon;
                   return (
                     <Grid item xs={12} key={sectionIndex}>
-                      <m.div variants={scaleIn}>
+                      <motion.div variants={scaleIn}>
                         <Card
                           sx={{
                             background:
@@ -906,14 +906,14 @@ const FAQPage = () => {
                             })}
                           </CardContent>
                         </Card>
-                      </m.div>
+                      </motion.div>
                     </Grid>
                   );
                 })}
               </Grid>
-            </m.div>
+            </motion.div>
           ) : (
-            <m.div
+            <motion.div
               key="no-results"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -1025,12 +1025,12 @@ const FAQPage = () => {
                   </Box>
                 </Box>
               </Card>
-            </m.div>
+            </motion.div>
           )}
         </AnimatePresence>
 
         {/* Call to Action Section */}
-        <m.div
+        <motion.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -1160,7 +1160,7 @@ const FAQPage = () => {
               </Box>
             </CardContent>
           </Card>
-        </m.div>
+        </motion.div>
       </Container>
     </Box>
   );

@@ -12,7 +12,7 @@ import {
   Paper,
 } from "@mui/material";
 import Image from "next/image";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import Head from "next/head";
 import { LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 import Link from "next/link";
@@ -221,7 +221,7 @@ const AboutUs = () => {
       </Head>
 
       {/* Hero Section */}
-      <m.div initial={false} animate="visible" variants={fadeInUp}>
+      <motion.div initial={false} animate="visible" variants={fadeInUp}>
         <Box
           sx={{
             position: "relative",
@@ -253,8 +253,6 @@ const AboutUs = () => {
               objectPosition: "center",
             }}
             priority
-            fetchPriority="high"
-            sizes="100vw"
             quality={90}
           />
 
@@ -267,7 +265,7 @@ const AboutUs = () => {
               color: "white",
             }}
           >
-            <m.div
+            <motion.div
               initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -348,13 +346,13 @@ const AboutUs = () => {
                   }}
                 />
               </Stack>
-            </m.div>
+            </motion.div>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Stats Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -371,7 +369,7 @@ const AboutUs = () => {
             <Grid container spacing={4}>
               {stats.map((stat, index) => (
                 <Grid item xs={6} md={3} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Paper
                       elevation={0}
                       sx={{
@@ -438,16 +436,16 @@ const AboutUs = () => {
                         {stat.label}
                       </Typography>
                     </Paper>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Mission Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -457,7 +455,7 @@ const AboutUs = () => {
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
               <Grid item xs={12} md={6}>
-                <m.div variants={slideInLeft}>
+                <motion.div variants={slideInLeft}>
                   <Box
                     sx={{
                       position: "relative",
@@ -490,11 +488,11 @@ const AboutUs = () => {
                       quality={85}
                     />
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <m.div variants={slideInRight}>
+                <motion.div variants={slideInRight}>
                   <Box sx={{ pl: { xs: 0, md: 4 } }}>
                     <Typography
                       variant="h2"
@@ -601,15 +599,15 @@ const AboutUs = () => {
                       </Button>
                     </Link>
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Values Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={staggerContainer}
@@ -633,7 +631,7 @@ const AboutUs = () => {
           }}
         >
           <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-            <m.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
               <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
                 <Typography
                   variant="h2"
@@ -664,12 +662,12 @@ const AboutUs = () => {
                   are as a company.
                 </Typography>
               </Box>
-            </m.div>
+            </motion.div>
 
             <Grid container spacing={4}>
               {values.map((value, index) => (
                 <Grid item xs={12} sm={6} md={3} key={index}>
-                  <m.div variants={scaleIn}>
+                  <motion.div variants={scaleIn}>
                     <Card
                       sx={{
                         height: "100%",
@@ -741,16 +739,16 @@ const AboutUs = () => {
                         </Typography>
                       </CardContent>
                     </Card>
-                  </m.div>
+                  </motion.div>
                 </Grid>
               ))}
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Why Choose Mobile Grooming */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -760,7 +758,7 @@ const AboutUs = () => {
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
               <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
-                <m.div variants={slideInLeft}>
+                <motion.div variants={slideInLeft}>
                   <Box sx={{ pr: { xs: 0, md: 4 } }}>
                     <Typography
                       variant="h2"
@@ -878,11 +876,11 @@ const AboutUs = () => {
                       </Button>
                     </Link>
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
 
               <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                <m.div variants={slideInRight}>
+                <motion.div variants={slideInRight}>
                   <Box
                     sx={{
                       position: "relative",
@@ -915,15 +913,15 @@ const AboutUs = () => {
                       quality={85}
                     />
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Team Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -938,7 +936,7 @@ const AboutUs = () => {
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
               <Grid item xs={12} md={6}>
-                <m.div variants={slideInLeft}>
+                <motion.div variants={slideInLeft}>
                   <Box
                     sx={{
                       position: "relative",
@@ -960,11 +958,11 @@ const AboutUs = () => {
                       quality={85}
                     />
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <m.div variants={slideInRight}>
+                <motion.div variants={slideInRight}>
                   <Box sx={{ pl: { xs: 0, md: 4 } }}>
                     <Typography
                       variant="h2"
@@ -1096,15 +1094,15 @@ const AboutUs = () => {
                       </Stack>
                     </Box>
                   </Box>
-                </m.div>
+                </motion.div>
               </Grid>
             </Grid>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
 
       {/* Call-to-Action Section */}
-      <m.div
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
@@ -1132,7 +1130,7 @@ const AboutUs = () => {
           }}
         >
           <Container maxWidth="md" sx={{ position: "relative", zIndex: 1 }}>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -1226,10 +1224,10 @@ const AboutUs = () => {
                   </Button>
                 </Link>
               </Stack>
-            </m.div>
+            </motion.div>
           </Container>
         </Box>
-      </m.div>
+      </motion.div>
     </Box>
   );
 };

@@ -1,4 +1,3 @@
-import path from 'path';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const securityHeaders = [
@@ -12,19 +11,6 @@ const nextConfig = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })({
   reactStrictMode: true,
-
-  images: {
-    formats: ['image/avif', 'image/webp'],
-  },
-
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /slick-theme\.css$/,
-      enforce: 'pre',
-      use: [path.join(process.cwd(), 'lib/slick-font-display-loader.cjs')],
-    });
-    return config;
-  },
 
   async redirects() {
     return [
