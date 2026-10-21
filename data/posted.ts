@@ -187,7 +187,7 @@ export const posted: BlogPost[] = [
         <li><strong>No travel fees</strong> anywhere in our Las Vegas service area.</li>
         <li>After your first appointment, you can join <strong>Fluffy Preferred</strong> for 10% off services.</li>
       </ul>
-      <p>We accept card, cash and Zelle (no checks). Card payments carry a 3.4% + 30¢ processing fee. You'll find the full price list on our <a href="/prices">prices page</a>.</p>
+      <p>We accept card, cash and Zelle (no checks). Card payments carry a 3.4% + 30¢ service charge. You'll find the full price list on our <a href="/prices">prices page</a>.</p>
 
       <figure>
         <img src="/blog/cat-lion-cut-guide/long-haired-cat-combing-towel.webp" alt="Illustrative image: a fluffy gray cat wrapped in a towel during gentle grooming" width="1200" height="900" />
