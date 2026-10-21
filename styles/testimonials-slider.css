@@ -1,0 +1,39 @@
+/*
+ * Reserved slot for the home testimonial carousel.
+ * Heights are the settled slick slider (card plus its track) at the
+ * same breakpoints the layout uses, so the chunk can load later
+ * without shifting the page.
+ */
+.testimonials-slider-reserve {
+  position: relative;
+  min-height: 664px;
+}
+
+@media (min-width: 600px) {
+  .testimonials-slider-reserve {
+    min-height: 587px;
+  }
+}
+
+@media (min-width: 900px) {
+  .testimonials-slider-reserve {
+    min-height: 735px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonials-slider-reserve {
+    min-height: 706px;
+  }
+}
+
+/* Slick measures slide width here, but the box stays out of flow
+   until onInit so the first unstyled frame cannot change height. */
+.testimonials-slider-pending {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  pointer-events: none;
+}

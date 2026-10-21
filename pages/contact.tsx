@@ -15,7 +15,7 @@ import {
   Stack,
   Avatar,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
@@ -351,7 +351,7 @@ const ContactPage = () => {
         sx={{ py: { xs: 2, md: 8 }, pt: { xs: 12, md: 8 } }}
       >
         {/* Hero Section */}
-        <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+        <m.div initial={false} animate="visible" variants={fadeInUp}>
           <Box textAlign="center" mb={{ xs: 4, md: 8 }}>
             <Typography
               variant="h1"
@@ -539,10 +539,10 @@ const ContactPage = () => {
               </Link>
             </Stack>
           </Box>
-        </motion.div>
+        </m.div>
 
         {/* Contact Methods Grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           variants={staggerContainer}
@@ -551,7 +551,7 @@ const ContactPage = () => {
           <Grid container spacing={4} mb={{ xs: 6, md: 8 }}>
             {contactMethods.map((method, index) => (
               <Grid item xs={12} md={4} key={index}>
-                <motion.div variants={scaleIn}>
+                <m.div variants={scaleIn}>
                   <Card
                     sx={{
                       height: "100%",
@@ -671,11 +671,11 @@ const ContactPage = () => {
                       ) : null}
                     </CardContent>
                   </Card>
-                </motion.div>
+                </m.div>
               </Grid>
             ))}
           </Grid>
-        </motion.div>
+        </m.div>
 
         <Box
           component="section"
@@ -753,7 +753,7 @@ const ContactPage = () => {
         <Grid container spacing={{ xs: 4, md: 6 }}>
           {/* Contact Form */}
           <Grid item xs={12} lg={8}>
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               variants={fadeInUp}
@@ -939,14 +939,14 @@ const ContactPage = () => {
                   </Box>
                 </Box>
               </Paper>
-            </motion.div>
+            </m.div>
           </Grid>
 
           {/* Sidebar Information */}
           <Grid item xs={12} lg={4}>
             <Stack spacing={4}>
               {/* Why Contact Us */}
-              <motion.div
+              <m.div
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeInUp}
@@ -1004,10 +1004,10 @@ const ContactPage = () => {
                     ))}
                   </Stack>
                 </Paper>
-              </motion.div>
+              </m.div>
 
               {/* Business Hours */}
-              <motion.div
+              <m.div
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeInUp}
@@ -1061,10 +1061,10 @@ const ContactPage = () => {
                     Emergency grooming available by appointment
                   </Typography>
                 </Paper>
-              </motion.div>
+              </m.div>
 
               {/* Quick Links */}
-              <motion.div
+              <m.div
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeInUp}
@@ -1158,7 +1158,7 @@ const ContactPage = () => {
                     </Link>
                   </Stack>
                 </Paper>
-              </motion.div>
+              </m.div>
             </Stack>
           </Grid>
         </Grid>

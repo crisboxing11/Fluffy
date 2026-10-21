@@ -249,6 +249,71 @@ describe('gtag bootstrap', () => {
     delete (global as unknown as { window?: Window }).window;
   });
 
+  test('a click before lazyOnload stays queued and is sent when gtag drains it', () => {
+    const dataLayer: unknown[] = [];
+    const fakeWindow = { dataLayer } as unknown as Window & typeof globalThis;
+    (global as unknown as { window: Window }).window = fakeWindow;
+
+    sendAdsConversion(CLICK_TO_CALL_CONVERSION);
+    sendAdsConversion(BOOK_NOW_CONVERSION);
+    expect(dataLayer).toHaveLength(2);
+
+    new Function(googleTagBootstrapSource())();
+
+    const delivered: unknown[][] = [];
+    const realGtag = (...args: unknown[]) => {
+      delivered.push(args);
+    };
+    fakeWindow.gtag = realGtag as unknown as Window['gtag'];
+    for (const entry of dataLayer.slice()) {
+      realGtag(...Array.from(entry as ArrayLike<unknown>));
+    }
+
+    const conversions = delivered.filter(
+      (args) => args[0] === 'event' && args[1] === 'conversion',
+    );
+    expect(conversions).toHaveLength(2);
+    expect(conversions[0][2]).toMatchObject({
+      send_to: 'AW-10869086002/OKW7CMrh0ZIdELKu5L4o',
+      transport_type: 'beacon',
+    });
+    expect(conversions[1][2]).toMatchObject({
+      send_to: BOOK_NOW_CONVERSION.sendTo,
+      transport_type: 'beacon',
+    });
+    expect(JSON.stringify(delivered)).not.toContain('XsDHCIHDsr4DELKu5L4o');
+    expect(dataLayer.length).toBeGreaterThan(2);
+
+    delete (global as unknown as { window?: Window }).window;
+  });
+
+  test('GTM loads after idle and the document keeps the noscript frame', () => {
+    const app = fs.readFileSync(path.join(process.cwd(), 'pages/_app.tsx'), 'utf8');
+    const documentSource = fs.readFileSync(
+      path.join(process.cwd(), 'pages/_document.tsx'),
+      'utf8',
+    );
+    const index = fs.readFileSync(path.join(process.cwd(), 'pages/index.tsx'), 'utf8');
+
+    expect(app.match(/strategy="lazyOnload"/g)).toHaveLength(2);
+    expect(app).not.toContain('afterInteractive');
+    expect(app).toContain('id="gtm-script"');
+    expect(app).toContain('id="google-tag-bootstrap"');
+    expect(app).toContain("import { LazyMotion, domAnimation }");
+    expect(documentSource).toContain('ns.html?id=');
+    expect(documentSource).toContain(
+      'rel="preconnect" href="https://www.googletagmanager.com"',
+    );
+    expect(documentSource).toContain('https://www.google-analytics.com');
+    expect(documentSource).toContain('https://stats.g.doubleclick.net');
+    expect(documentSource).toContain('https://ad.doubleclick.net');
+    expect(documentSource).not.toContain('gtm.js?id=');
+    expect(documentSource).not.toContain('function(w,d,s,l,i)');
+    expect(index).toContain('requestIdleCallback');
+    expect(index).toContain('https://ipapi.co/json/');
+    expect(index).not.toContain('requestAnimationFrame');
+  });
+
   test('does not replace a gtag GTM already defined', () => {
     const dataLayer: unknown[] = ['gtm'];
     const gtag = jest.fn();

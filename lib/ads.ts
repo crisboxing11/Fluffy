@@ -1,7 +1,15 @@
 /**
  * Google Ads conversion labels and link matching.
  * GTM-PG7XP5HS may already define dataLayer and gtag. Callers must reuse them.
+ *
+ * FLAGGED and intentionally kept (do not remove these tags):
+ * - G-G17GCFVQT2 is loaded by the GTM container, not configured in this file.
+ * - G-YTSZ6NZWP3 is GA4_MEASUREMENT_ID.
+ * - AW-17319676855 is EXISTING_GOOGLE_ADS_ID.
+ * Book Now and Las Vegas click-to-call stay on AW-10869086002.
  */
+
+export const GTM_ID = 'GTM-PG7XP5HS';
 
 export const GOOGLE_ADS_ID = 'AW-10869086002';
 
@@ -50,6 +58,8 @@ export const CLICK_TO_CALL_CONVERSION: AdsConversion = {
  * gtag.js script tag. GTM-PG7XP5HS loads gtag.js for G-G17GCFVQT2 only.
  * The config below registers AW-10869086002 on that library, with no
  * conversion label. The library then requests this Ads id once per page.
+ * Both this bootstrap and gtm.js load with next/script lazyOnload, so a
+ * click that happens first must remain on dataLayer until those scripts run.
  */
 export function googleTagBootstrapSource(): string {
   return [
@@ -69,6 +79,8 @@ export function ensureGtag(): void {
   if (typeof window.gtag !== 'function') {
     window.gtag = function gtagShim() {
       // gtag.js consumes the Arguments object from this shim.
+      // Keep the object on the queue so a click before lazyOnload
+      // is still sent when GTM installs the real gtag.
       // eslint-disable-next-line prefer-rest-params
       window.dataLayer?.push(arguments);
     };

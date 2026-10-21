@@ -1,0 +1,27 @@
+/*
+ * Home hero photo. Values match the old resize listener:
+ * viewport < 600 mobile, < 900 tablet, otherwise desktop.
+ * Set at SSR so the LCP image does not wait for useEffect.
+ */
+img.home-hero-photo {
+  object-fit: cover;
+  object-position: 30% center;
+  opacity: 0.25;
+  pointer-events: none;
+  filter: brightness(1.05) contrast(1.02);
+}
+
+@media (min-width: 600px) {
+  img.home-hero-photo {
+    object-position: 40% center;
+    opacity: 0.35;
+  }
+}
+
+@media (min-width: 900px) {
+  img.home-hero-photo {
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 0.7;
+  }
+}

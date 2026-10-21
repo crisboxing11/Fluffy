@@ -39,7 +39,7 @@ import {
   FormatQuote as FormatQuoteIcon,
 } from "@mui/icons-material";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
@@ -337,13 +337,14 @@ const ServicesPage = () => {
             opacity: 0.12,
           }}
           priority
+          fetchPriority="high"
           sizes="100vw"
         />
         <Container
           maxWidth="lg"
           sx={{ position: "relative", zIndex: 2, textAlign: "center" }}
         >
-          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+          <m.div initial={false} animate="visible" variants={fadeInUp}>
             <Typography
               variant="h1"
               sx={{
@@ -473,7 +474,7 @@ const ServicesPage = () => {
                 Explore All Services
               </Button>
             </Stack>
-          </motion.div>
+          </m.div>
         </Container>
       </Box>
 
@@ -482,7 +483,7 @@ const ServicesPage = () => {
 
       {/* Service Categories */}
       <Container maxWidth="xl" sx={{ py: { xs: 6, md: 10 } }} id="services">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -623,9 +624,9 @@ const ServicesPage = () => {
               </Typography>
             </Paper>
           </Box>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           variants={staggerContainer}
@@ -634,7 +635,7 @@ const ServicesPage = () => {
           <Grid container spacing={4}>
             {Object.entries(serviceCategories).map(([key, category]) => (
               <Grid item xs={12} md={6} key={key}>
-                <motion.div variants={fadeInUp}>
+                <m.div variants={fadeInUp}>
                   <Card
                     sx={{
                       height: "100%",
@@ -779,17 +780,17 @@ const ServicesPage = () => {
                       </Box>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </m.div>
               </Grid>
             ))}
           </Grid>
-        </motion.div>
+        </m.div>
       </Container>
 
       {/* Process Section */}
       <Box sx={{ bgcolor: "#F8F9FA", py: { xs: 6, md: 10 } }}>
         <Container maxWidth="lg">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -815,9 +816,9 @@ const ServicesPage = () => {
                 Simple, convenient, and stress-free grooming in 4 easy steps
               </Typography>
             </Box>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             variants={staggerContainer}
@@ -826,7 +827,7 @@ const ServicesPage = () => {
             <Grid container spacing={4}>
               {processSteps.map((step, index) => (
                 <Grid item xs={12} sm={6} md={3} key={index}>
-                  <motion.div variants={fadeInUp}>
+                  <m.div variants={fadeInUp}>
                     <Box textAlign="center">
                       <Paper
                         elevation={0}
@@ -873,11 +874,11 @@ const ServicesPage = () => {
                         {step.description}
                       </Typography>
                     </Box>
-                  </motion.div>
+                  </m.div>
                 </Grid>
               ))}
             </Grid>
-          </motion.div>
+          </m.div>
         </Container>
       </Box>
 
@@ -885,7 +886,7 @@ const ServicesPage = () => {
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               variants={slideInLeft}
@@ -960,10 +961,10 @@ const ServicesPage = () => {
                   </Box>
                 ))}
               </Stack>
-            </motion.div>
+            </m.div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               variants={slideInRight}
@@ -988,7 +989,7 @@ const ServicesPage = () => {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </Box>
-            </motion.div>
+            </m.div>
           </Grid>
         </Grid>
       </Container>
@@ -1015,7 +1016,7 @@ const ServicesPage = () => {
         }}
       >
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -1192,7 +1193,7 @@ const ServicesPage = () => {
                 },
               ].map((review, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <motion.div variants={fadeInUp}>
+                  <m.div variants={fadeInUp}>
                     <Card
                       sx={{
                         height: "100%",
@@ -1272,15 +1273,23 @@ const ServicesPage = () => {
                           sx={{ display: "flex", alignItems: "center", gap: 2 }}
                         >
                           <Avatar
-                            src={review.avatar}
-                            alt={review.imageAlt}
                             sx={{
                               width: 60,
                               height: 60,
                               border: "3px solid #00ADCD",
                               boxShadow: "0 4px 15px rgba(0, 173, 205, 0.2)",
+                              position: "relative",
                             }}
-                          />
+                          >
+                            <Image
+                              src={review.avatar}
+                              alt={review.imageAlt}
+                              fill
+                              sizes="60px"
+                              loading="lazy"
+                              style={{ objectFit: "cover" }}
+                            />
+                          </Avatar>
                           <Box sx={{ flex: 1 }}>
                             <Typography
                               variant="h6"
@@ -1345,7 +1354,7 @@ const ServicesPage = () => {
                         </Box>
                       </CardContent>
                     </Card>
-                  </motion.div>
+                  </m.div>
                 </Grid>
               ))}
             </Grid>
@@ -1472,13 +1481,13 @@ const ServicesPage = () => {
                 </Button>
               </Paper>
             </Box>
-          </motion.div>
+          </m.div>
         </Container>
       </Box>
 
       {/* FAQ Section */}
       <Container maxWidth="md" sx={{ py: { xs: 6, md: 10 } }}>
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -1541,7 +1550,7 @@ const ServicesPage = () => {
               </Accordion>
             ))}
           </Stack>
-        </motion.div>
+        </m.div>
       </Container>
 
       {/* CTA Section */}
@@ -1555,7 +1564,7 @@ const ServicesPage = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -1635,7 +1644,7 @@ const ServicesPage = () => {
                 </Button>
               </Stack>
             </Box>
-          </motion.div>
+          </m.div>
         </Container>
       </Box>
     </Box>
