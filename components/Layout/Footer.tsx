@@ -13,8 +13,17 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { useRouter } from "next/router";
+import {
+  LAS_VEGAS_PHONE_DISPLAY,
+  LAS_VEGAS_TEL_HREF,
+} from "../../lib/ads";
 
 const Footer = () => {
+  const { pathname } = useRouter();
+  // Las Vegas home only. Orlando and every other route keep the contact link.
+  const showLasVegasNumber = pathname === "/";
+
   const navigationLinks = {
     Services: [
       { name: "Pet Grooming", href: "/services" },
@@ -96,19 +105,57 @@ const Footer = () => {
               {/* Contact Info */}
               <Stack spacing={2}>
                 <Box display="flex" alignItems="center" gap={2}>
-                  <PhoneIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
-                  <Link
-                    href="/contact"
-                    color="inherit"
-                    underline="none"
-                    sx={{
-                      fontSize: "1rem",
-                      transition: "color 0.3s ease",
-                      "&:hover": { color: "#A1E0E3" },
-                    }}
-                  >
-                    Contact Us for Phone Numbers
-                  </Link>
+                  {showLasVegasNumber ? (
+                    <Link
+                      href={LAS_VEGAS_TEL_HREF}
+                      underline="none"
+                      aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
+                      sx={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 2,
+                        minHeight: 44,
+                        px: 1.5,
+                        borderRadius: "999px",
+                        color: "#FFFFFF",
+                        bgcolor: "#026B73",
+                        fontSize: "1rem",
+                        fontWeight: 700,
+                        lineHeight: 1.2,
+                        transition: "background-color 0.3s ease",
+                        "&:hover": {
+                          color: "#FFFFFF",
+                          bgcolor: "#015860",
+                        },
+                        "&&:focus-visible": {
+                          outline: "3px solid #FFFFFF",
+                          outlineOffset: "3px",
+                        },
+                      }}
+                    >
+                      <PhoneIcon
+                        aria-hidden="true"
+                        sx={{ color: "#FFFFFF", fontSize: "1.25rem" }}
+                      />
+                      {LAS_VEGAS_PHONE_DISPLAY}
+                    </Link>
+                  ) : (
+                    <>
+                      <PhoneIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
+                      <Link
+                        href="/contact"
+                        color="inherit"
+                        underline="none"
+                        sx={{
+                          fontSize: "1rem",
+                          transition: "color 0.3s ease",
+                          "&:hover": { color: "#A1E0E3" },
+                        }}
+                      >
+                        Contact Us for Phone Numbers
+                      </Link>
+                    </>
+                  )}
                 </Box>
                 <Box display="flex" alignItems="center" gap={2}>
                   <EmailIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
