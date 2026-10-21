@@ -75,6 +75,14 @@ describe('Las Vegas home tap-to-call', () => {
     expect(call).toContain('border: "2px solid #038B95"');
   });
 
+  test('homepage why paragraph uses the shared Las Vegas call link', () => {
+    expect(index).toContain('href={LAS_VEGAS_TEL_HREF}');
+    expect(index).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
+    expect(index).toContain('Why Fluffy Pet Wash?');
+    expect(index).not.toContain('XsDHCIHDsr4DELKu5L4o');
+    expect(index).not.toContain('tel:+14075132935');
+  });
+
   test('orlando redirect and orlando page are unchanged by this link', () => {
     expect(index).toContain('router.replace("/orlando")');
     expect(orlando).not.toContain('tel:+17025086248');
