@@ -38,6 +38,109 @@ export type BlogPost = {
 
 export const posted: BlogPost[] = [
   {
+    slug: 'double-coated-dog-deshedding-las-vegas',
+    title:
+      'Double-Coated Dogs in Las Vegas: Deshedding Huskies, Shepherds and Goldens (and Why Not to Shave)',
+    metaTitle: 'Deshedding Double-Coated Dogs in Las Vegas | Fluffy Pet Wash',
+    excerpt:
+      'Husky, shepherd or golden shedding everywhere? Learn how deshedding works and why not to shave a double coat. Mobile grooming in Las Vegas.',
+    image: '/blog/double-coated-dog-deshedding-las-vegas/husky-double-coat-deshedding-hero.webp',
+    imageAlt:
+      'A gray and white Siberian husky standing on a grooming table inside a mobile grooming van, tufts of loose undercoat around its paws, a sunny desert-landscaped street outside',
+    heroImage: {
+      src: '/blog/double-coated-dog-deshedding-las-vegas/husky-double-coat-deshedding-hero.webp',
+      alt: 'A gray and white Siberian husky standing on a grooming table inside a mobile grooming van, tufts of loose undercoat around its paws, a sunny desert-landscaped street outside',
+      width: 1600,
+      height: 900,
+      caption:
+        'Illustrative image: a husky mid-deshed, with loose undercoat collecting on the table.',
+    },
+    date: '2026-11-03',
+    content: `
+      <p>If you share your home with a husky, a German shepherd or a golden retriever, you already know the drill: fur on the couch, fur on your clothes, fur drifting across the floor like tumbleweeds. Double-coated dogs shed, and sometimes they shed a lot. The good news is that regular deshedding makes a real difference. Here's how a double coat works, why shaving it usually isn't the answer in the desert heat, and what a deshedding groom looks like when we come to you in Las Vegas.</p>
+
+      <h2>What is a double coat?</h2>
+      <p>A double-coated dog has two layers of fur. The <strong>undercoat</strong> is short, soft and dense, a bit like fleece. The <strong>topcoat</strong> (sometimes called guard hairs) is longer and coarser, and it's the part you see and pet.</p>
+      <p>The two layers work together. The undercoat traps a layer of air close to the body, and the guard hairs help shield the skin from sun, dirt and moisture. Breeds commonly described as double-coated include:</p>
+      <ul>
+        <li>Siberian huskies and Alaskan malamutes</li>
+        <li>German shepherds and Australian shepherds</li>
+        <li>Golden retrievers and Labrador retrievers</li>
+        <li>Pomeranians, corgis, Shiba Inus and Akitas</li>
+      </ul>
+      <p>That's not a complete list, and mixed breeds can have a double coat too. And to be clear, <strong>we groom every dog breed</strong>, double coat or not. If you're unsure what kind of coat your dog has, your groomer can tell you at the visit.</p>
+
+      <h2>Why double-coated dogs shed so much</h2>
+      <p>The undercoat is constantly growing and releasing. Many double-coated dogs also go through heavier sheds, often called "blowing coat," a couple of times a year when the old undercoat lets go in big clumps.</p>
+      <p>When that loose undercoat doesn't get brushed out, it stays packed against the skin. It can tangle into the topcoat, hold dirt and moisture, and make your dog feel warmer, not cooler. That's what you're seeing when a husky's coat looks puffy and uneven, or when you can pull tufts out with your fingers.</p>
+
+      <h2>Should you shave a double-coated dog in the Las Vegas heat?</h2>
+      <p>It's a very natural thought. It's hot here, your dog has a lot of fur, so take the fur off. But for most double-coated dogs, groomers generally recommend <strong>against shaving</strong> the coat down.</p>
+      <p>Here's the general reasoning that's well established in grooming:</p>
+      <ul>
+        <li><strong>The coat helps with sun protection.</strong> The guard hairs shade the skin. Shaved skin is more exposed to strong desert sun.</li>
+        <li><strong>The undercoat is the real problem, not the coat itself.</strong> Removing the loose undercoat lets air move through the topcoat. Shaving removes the protective layer along with it.</li>
+        <li><strong>The coat may not grow back the same.</strong> Some double coats grow back patchy or with a different texture after a close shave, and it can take a long time.</li>
+      </ul>
+      <p>We've written more about this in <a href="/blog/why-we-dont-shave">why we don't shave</a>. If your dog has a skin issue, a medical reason to shave or heavy matting, talk to your vet and your groomer about the best option for that dog. Every dog is different, and the final plan is always made together at the appointment.</p>
+
+      <h2>What happens during a deshedding groom</h2>
+      <p>Deshedding is included in every groom at no extra charge. Our grooms are all-inclusive, and the only add-on is a haircut (see our <a href="/prices">prices page</a>). A deshedding-focused visit with us usually looks like this:</p>
+      <ol>
+        <li><strong>A pre-brush and coat check.</strong> Your groomer looks at the coat, the skin and any tangles, and works out the plan.</li>
+        <li><strong>A hypoallergenic wash and organic conditioner.</strong> Bathing helps loosen the undercoat so it releases more easily. We use biodegradable, plant-based products.</li>
+        <li><strong>A thorough blow dry.</strong> A high-velocity dryer pushes a lot of loose undercoat out of the coat while drying it fully. Damp undercoat left in the coat can tangle.</li>
+        <li><strong>Brushing out with undercoat tools.</strong> Rakes, slicker brushes and combs work down through the layers, section by section.</li>
+        <li><strong>The finishing touches.</strong> Nails, ears, paw tidy and sanitary trim, plus a light tidy of feathers on breeds like goldens if you'd like.</li>
+      </ol>
+      <p>It's not unusual to fill a good-sized pile with undercoat during one visit, especially during a seasonal shed.</p>
+
+      <figure>
+        <img src="/blog/double-coated-dog-deshedding-las-vegas/german-shepherd-undercoat-rake-mobile-van.webp" alt="A gloved hand using an undercoat rake on a German shepherd lying on a grooming table inside a mobile grooming van, a pile of loose tan fur beside the dog" width="1200" height="900" />
+        <figcaption>Illustrative image: raking out loose undercoat on a German shepherd inside a grooming van.</figcaption>
+      </figure>
+
+      <h2>Why mobile grooming suits big, fluffy dogs</h2>
+      <p>Deshedding a double coat takes time and patience. In our climate-controlled van, your dog gets one-on-one attention with no kennels, no other barking dogs and no long car ride with fur flying around your back seat. The loose fur stays in the van, not in your living room.</p>
+      <p>We're open 7 AM to 10 PM every day, so you can book an early morning before the heat or an evening after work. We come to you anywhere in the Las Vegas valley, and <strong>there are no travel fees</strong>.</p>
+
+      <h2>What it costs</h2>
+      <p>Dog grooming starts at $85, and pricing depends on your dog's size and breed. See every size tier on our <a href="/prices">prices page</a>, and our full list of what's included on the <a href="/services">services page</a>. We accept card, cash and Zelle; card payments include a service charge.</p>
+
+      <h2>Keeping shedding under control between visits</h2>
+      <ul>
+        <li><strong>Brush a few times a week</strong>, more during a heavy shed. Get down to the skin, not just across the top.</li>
+        <li><strong>Pay attention to the thick spots:</strong> behind the ears, the neck ruff, the "pants" on the back legs and the tail.</li>
+        <li><strong>Dry fully after baths or pool days.</strong> Damp undercoat packs down and tangles.</li>
+        <li><strong>Rebook on a steady rhythm.</strong> Regular deshedding is easier on your dog than tackling a full seasonal blowout all at once. Ask your groomer what schedule fits your dog's coat.</li>
+      </ul>
+
+      <h2>Book a deshedding groom</h2>
+      <p>Whether you have a husky blowing coat, a shepherd leaving tufts in every corner or a golden with fluffy feathers, we'd love to help. <a href="/prebook">Book Now</a> or call us at <strong><a href="tel:+17025086248">702-508-6248</a></strong>. Have questions first? Visit our <a href="/faq">FAQ</a>.</p>
+    `,
+    faq: [
+      {
+        question: 'Should I shave my husky or German shepherd for the summer?',
+        answer:
+          "For most double-coated dogs, groomers generally recommend against it. The coat helps protect the skin from the sun, and removing the loose undercoat usually does more for comfort than shaving. If there's a medical reason or heavy matting, talk with your vet and your groomer.",
+      },
+      {
+        question: 'How often should a double-coated dog be deshedded?',
+        answer:
+          "It depends on the dog and the time of year. Many owners book on a regular schedule and add a visit during heavy seasonal sheds. Your groomer can suggest a rhythm after seeing your dog's coat.",
+      },
+      {
+        question: 'Is deshedding included in your grooming?',
+        answer:
+          'Yes. Deshedding is included in every groom at no extra charge. Our grooms are all-inclusive; the only add-on is a haircut. See /prices for size pricing.',
+      },
+      {
+        question: 'Do you groom breeds other than huskies, shepherds and goldens?',
+        answer: 'Yes. We groom all dog breeds, plus cats. See /services.',
+      },
+    ],
+  },
+  {
     slug: 'cat-lion-cut-guide',
     title: 'Lion Cuts for Cats: What to Know Before You Book',
     metaTitle: 'Lion Cuts for Cats in Las Vegas | Fluffy Pet Wash',
