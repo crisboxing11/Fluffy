@@ -26,7 +26,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PetsIcon from "@mui/icons-material/Pets";
-import BusinessIcon from "@mui/icons-material/Business";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -201,11 +200,6 @@ const ContactPage = () => {
       description: "Schedule your pet's next spa day",
     },
     {
-      icon: <BusinessIcon />,
-      title: "Franchise Inquiry",
-      description: "Join our growing family of entrepreneurs",
-    },
-    {
       icon: <SupportAgentIcon />,
       title: "Customer Support",
       description: "Get help with existing bookings",
@@ -273,11 +267,11 @@ const ContactPage = () => {
         <title>Contact Us | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form."
+          content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments or general inquiries. Call, email, or fill out our contact form."
         />
         <meta
           name="keywords"
-          content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me, dog groomer near me, mobile dog groomer near me, mobile groomers near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
+          content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me, dog groomer near me, mobile dog groomer near me, mobile groomers near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -287,7 +281,7 @@ const ContactPage = () => {
         <meta property="og:title" content="Contact Us | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Contact Fluffy Pet Wash for mobile grooming, questions, or franchise inquiries. Call, email, or fill out our quick form."
+          content="Contact Fluffy Pet Wash for mobile grooming or questions. Call, email, or fill out our quick form."
         />
         <meta
           property="og:image"
@@ -301,7 +295,7 @@ const ContactPage = () => {
         <meta name="twitter:title" content="Contact Us | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Reach out to Fluffy Pet Wash for mobile dog grooming appointments, franchising, or general questions."
+          content="Reach out to Fluffy Pet Wash for mobile dog grooming appointments or general questions."
         />
         <meta
           name="twitter:image"
@@ -386,8 +380,7 @@ const ContactPage = () => {
                 px: { xs: 1, md: 0 },
               }}
             >
-              Ready to pamper your pet or explore franchise opportunities? We&apos;re
-              here to help make it happen.
+              Ready to pamper your pet? We&apos;re here to help make it happen.
             </Typography>
 
             {/* Important Notice */}
@@ -506,31 +499,6 @@ const ContactPage = () => {
                     fontSize: "1rem",
                     "&:hover": {
                       bgcolor: "#026B73",
-                      transform: "translateY(-2px)",
-                    },
-                    transition: "all 0.3s ease",
-                  }}
-                />
-              </Link>
-              <Link
-                href="#"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <Chip
-                  label="Franchise Inquiry"
-                  icon={<BusinessIcon />}
-                  variant="outlined"
-                  clickable
-                  sx={{
-                    borderColor: "#038B95",
-                    color: "#038B95",
-                    fontWeight: 600,
-                    px: 2,
-                    py: 1,
-                    fontSize: "1rem",
-                    "&:hover": {
-                      bgcolor: "rgba(3, 139, 149, 0.1)",
                       transform: "translateY(-2px)",
                     },
                     transition: "all 0.3s ease",
@@ -701,8 +669,8 @@ const ContactPage = () => {
             variant="body1"
             sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
           >
-            This form is for general questions, franchise inquiries, and help
-            with a booking you already have. It does not create an appointment,
+            This form is for general questions and help with a booking you
+            already have. It does not create an appointment,
             and it does not quote a price. To book, use the{" "}
             <Link href="/prebook" style={{ color: "#038B95", fontWeight: 700 }}>
               pre-book page
@@ -867,9 +835,6 @@ const ContactPage = () => {
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Booking Question">
                           Booking Question
-                        </option>
-                        <option value="Franchise Interest">
-                          Franchise Interest
                         </option>
                         <option value="Customer Support">
                           Customer Support
