@@ -144,6 +144,16 @@ function heroActionTransition(properties: string): string {
 
 // Lift only on real hover. Pressed wins over that lift. Reduced motion
 // also cancels the theme's contained-button scale(1.05).
+const whyChooseLinkStyle = {
+  color: "#00ADCD",
+  fontWeight: 700,
+  textDecoration: "none",
+  borderBottom: "3px solid #93EDF0",
+  transition: "all 0.3s ease",
+  padding: "2px 4px",
+  borderRadius: "4px",
+} as const;
+
 function heroPressedSx(restShadow: string) {
   return {
     "@media (hover: hover)": {
@@ -847,21 +857,25 @@ const Home = () => {
                   }}
                 >
                   We provide{" "}
-                  <Link
-                    href="/services"
-                    style={{
-                      color: "#00ADCD",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      borderBottom: "3px solid #93EDF0",
-                      transition: "all 0.3s ease",
-                      padding: "2px 4px",
-                      borderRadius: "4px",
-                    }}
-                  >
+                  <Link href="/services" style={whyChooseLinkStyle}>
                     premium mobile grooming services
                   </Link>{" "}
-                  directly to your home with unmatched care and convenience.
+                  directly to your home with unmatched care and convenience,
+                  including{" "}
+                  <Link
+                    href="/cat-grooming-las-vegas"
+                    style={whyChooseLinkStyle}
+                  >
+                    mobile cat grooming in Las Vegas
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/doodle-grooming-las-vegas"
+                    style={whyChooseLinkStyle}
+                  >
+                    doodle and poodle grooming in Las Vegas
+                  </Link>
+                  .
                 </Typography>
               </Box>
             </motion.div>
