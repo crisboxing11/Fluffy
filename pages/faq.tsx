@@ -113,6 +113,12 @@ const faqData = [
     description: "Information about costs and payment methods",
     questions: [
       {
+        question: "How much is mobile dog grooming in Las Vegas?",
+        answer:
+          "An all-inclusive dog groom in Las Vegas is $85 for small dogs, $95-$125 for medium, $140-$185 for large, and $200+ for extra-large. Every dog groom is all-inclusive: hypoallergenic wash, blowout drying, nail trimming and filing, ear cleaning, and deshedding, and a full haircut and styling is the only add-on: haircuts add $35 (small/medium) or $50 (large). No travel fees ever, a 3.4% + 30¢ service charge applies to credit and debit cards, and a large doodle with a haircut is $140 + $50 specialized breed fee = $190, and that breed fee already includes the haircut, so the separate haircut add-on isn't charged on top.",
+        tags: ["pricing", "cost", "las vegas", "haircut", "breed fee", "travel fees"],
+      },
+      {
         question: "How much does grooming cost?",
         answer:
           "Pricing varies by dog size and coat condition: Small ($85), Medium ($95-$125), Large ($140-$185), Extra Large ($200+). All services are included!",
