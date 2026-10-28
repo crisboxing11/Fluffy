@@ -121,7 +121,7 @@ const PricesPage = () => {
         <title>Mobile Dog Grooming Prices | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Mobile dog grooming from $85, priced by breed at booking. No travel fees in Las Vegas, Henderson & Summerlin. Card, Cash & Zelle. Book online."
+          content="Mobile dog grooming from $85. Starting prices for Las Vegas, Henderson & Summerlin. No travel fees. Card, Cash & Zelle. Book online."
         />
         <meta
           name="keywords"
@@ -135,7 +135,7 @@ const PricesPage = () => {
         <meta property="og:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
+          content="Starting prices are listed on the site. The final price depends on your pet. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
         />
         <meta
           property="og:image"
@@ -149,7 +149,7 @@ const PricesPage = () => {
         <meta name="twitter:title" content="Mobile Dog Grooming Prices | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Transparent site-listed prices. Exact cost calculated at booking by breed. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
+          content="Starting prices are listed on the site. The final price depends on your pet. No travel fees across Las Vegas, Henderson, Summerlin & Orlando."
         />
         <meta
           name="twitter:image"
@@ -284,16 +284,16 @@ const PricesPage = () => {
               mx="auto"
               sx={{ lineHeight: 1.6 }}
             >
-              An all-inclusive dog groom in Las Vegas is $85 for small dogs,
-              $95-$125 for medium, $140-$185 for large, and $200+ for
-              extra-large. Every dog groom is all-inclusive: hypoallergenic
-              wash, blowout drying, nail trimming and filing, ear cleaning, and
-              deshedding, and a full haircut and styling is the only add-on:
-              haircuts add $35 (small/medium) or $50 (large). No travel fees
-              ever, a 3.4% + 30¢ service charge applies to credit and debit
-              cards, and a large doodle with a haircut is $140 + $50 specialized
-              breed fee = $190, and that breed fee already includes the
-              haircut, so the separate haircut add-on isn&apos;t charged on top.
+              An all-inclusive dog groom in Las Vegas starts at $85 for small
+              dogs, $95+ for medium, $140+ for large, and $200+ for extra-large.
+              Every dog groom is all-inclusive: hypoallergenic wash, blowout
+              drying, nail trimming and filing, ear cleaning, and deshedding,
+              and a full haircut and styling is the only add-on: haircuts add
+              $35 (small/medium) or $50 (large). No travel fees ever, a 3.4% +
+              30¢ service charge applies to credit and debit cards, and a large
+              doodle with a haircut starts at $140 plus a $50 specialized breed
+              fee, and that breed fee already includes the haircut, so the
+              separate haircut add-on isn&apos;t charged on top.
             </Typography>
           </Box>
           <Box textAlign="center" mb={8}>
@@ -307,8 +307,8 @@ const PricesPage = () => {
               mx="auto"
               mb={3}
             >
-              Your exact price is automatically calculated during booking based
-              on your dog&apos;s breed and specific needs
+              Prices below are starting prices. Your final price depends on
+              your pet&apos;s size, coat condition, and any haircut.
             </Typography>
             
             {/* Clear Pricing Structure Notice */}
@@ -710,8 +710,8 @@ const PricesPage = () => {
                 }}
               >
                 <Typography variant="body1" color="#4CAF50" fontWeight="600">
-                  💡 Your exact price is automatically calculated when you book
-                  based on your dog&apos;s breed!
+                  💡 Prices shown are starting prices. Your groomer will go over
+                  the final price with you.
                 </Typography>
               </Paper>
             </Box>
@@ -783,7 +783,7 @@ const PricesPage = () => {
                 </Grid>
                 <Box textAlign="center" mt={3}>
                   <Typography variant="body1" color="#067C92" fontWeight="600">
-                    💡 Example: Small dog wash ($85) + haircut ($35) = <strong>$120 total</strong>
+                    💡 Example: a small-dog wash starts at $85, and a haircut adds $35.
                   </Typography>
                   <BreedFeeHaircutNote sx={{ mt: 1.5, maxWidth: 720, mx: "auto" }} />
                 </Box>
@@ -811,14 +811,16 @@ const PricesPage = () => {
                       mb={2}
                       sx={{ display: "flex", alignItems: "center", gap: 1 }}
                     >
-                      📍 Price at Booking
+                      Starting Prices
                     </Typography>
                     <Typography
                       variant="body2"
                       color="#067C92"
                       fontWeight="600"
                     >
-                      Your exact price will be confirmed during booking
+                      Prices shown are starting prices. Your final price depends
+                      on your pet&apos;s size, coat condition and any haircut,
+                      and your groomer will go over it with you.
                     </Typography>
                   </Paper>
                 </Grid>
