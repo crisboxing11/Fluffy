@@ -216,7 +216,7 @@ const PricesPage = () => {
                 color: "#A1E0E3",
               }}
             >
-              Premium mobile grooming with no hidden fees
+              Premium mobile grooming. No travel fees, no surprises
             </Typography>
             <Stack
               direction="row"
@@ -351,9 +351,6 @@ const PricesPage = () => {
                 </Typography>
                 <BreedFeeHaircutNote sx={{ mt: 1.5 }} />
               </Box>
-              <Typography variant="body2" color="text.secondary" fontStyle="italic">
-                * Prices may vary between Orlando and Las Vegas locations
-              </Typography>
             </Paper>
           </Box>
 
@@ -814,17 +811,14 @@ const PricesPage = () => {
                       mb={2}
                       sx={{ display: "flex", alignItems: "center", gap: 1 }}
                     >
-                      📍 Location Pricing
-                    </Typography>
-                    <Typography variant="body2" color="#067C92" mb={1}>
-                      Prices may vary between our Orlando and Las Vegas locations
+                      📍 Price at Booking
                     </Typography>
                     <Typography
                       variant="body2"
                       color="#067C92"
                       fontWeight="600"
                     >
-                      Your exact price will be confirmed during booking based on your location
+                      Your exact price will be confirmed during booking
                     </Typography>
                   </Paper>
                 </Grid>

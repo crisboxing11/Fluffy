@@ -121,7 +121,7 @@ const AboutUs = () => {
       icon: ShieldIcon,
       title: "Safety First",
       description:
-        "Your pet's safety and comfort are our top priorities in every grooming session.",
+        "Your pet's safety and comfort are priorities in every grooming session.",
       color: "#6BCF7F",
     },
     {
@@ -994,7 +994,7 @@ const AboutUs = () => {
                       animal care and trained in the latest grooming techniques.
                       Each team member undergoes extensive training in pet
                       handling, safety protocols, and stress-reduction methods
-                      to ensure your pet receives the best possible care.
+                      to ensure your pet receives careful, professional care.
                     </Typography>
 
                     <Box sx={{ mb: 4 }}>
