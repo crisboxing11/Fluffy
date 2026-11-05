@@ -44,17 +44,17 @@ export const posted: BlogPost[] = [
     metaTitle: 'Poodle Haircuts Explained in Las Vegas | Fluffy Pet Wash',
     excerpt:
       'Poodle haircuts explained: lamb, teddy bear, puppy, continental and more. Mobile poodle grooming in Las Vegas and Henderson. Book or call 702-508-6248.',
-    // <!-- image: placeholder only; owner-approved photo needed -->
-    image: '/images/post-04/poodle-teddy-bear-cut-mobile-van-hero.webp',
+    // <!-- image: generated (realistic illustrative poodle, mobile van) -->
+    image: '/blog/poodle-haircuts-las-vegas/poodle-teddy-bear-cut-mobile-van-hero.webp',
     imageAlt:
       'A cream standard poodle with a soft teddy bear cut standing on a grooming table inside a mobile grooming van, sunny Las Vegas desert landscaping visible outside',
     heroImage: {
-      src: '/images/post-04/poodle-teddy-bear-cut-mobile-van-hero.webp',
+      src: '/blog/poodle-haircuts-las-vegas/poodle-teddy-bear-cut-mobile-van-hero.webp',
       alt: 'A cream standard poodle with a soft teddy bear cut standing on a grooming table inside a mobile grooming van, sunny Las Vegas desert landscaping visible outside',
       width: 1600,
       height: 900,
       caption:
-        'Placeholder only. Owner-approved poodle photo needed before this post is published.',
+        'Illustrative image: a poodle in a teddy bear cut standing on a grooming table inside a mobile grooming van.',
     },
     date: '2026-11-06',
     content: `
@@ -83,10 +83,10 @@ export const posted: BlogPost[] = [
       </ul>
       <p>If you notice skin redness, odor or anything that worries you, ask your vet. Grooming keeps the coat clean and tidy; it is not a substitute for veterinary care.</p>
 
-      <!-- image: placeholder only; owner-approved photo needed -->
+      <!-- image: generated (realistic illustrative poodle, mobile van) -->
       <figure>
-        <img src="/images/post-04/poodle-brushing-coat-care-inline.webp" alt="Close-up of a gloved hand brushing a curly apricot poodle coat on a grooming table inside a mobile van, with a metal comb resting nearby" width="1200" height="900" />
-        <figcaption>Placeholder only. Owner-approved poodle photo needed before this post is published.</figcaption>
+        <img src="/blog/poodle-haircuts-las-vegas/poodle-brushing-coat-care-inline.webp" alt="Close-up of a gloved hand brushing a curly apricot poodle coat on a grooming table inside a mobile van, with a metal comb resting nearby" width="1200" height="900" />
+        <figcaption>Illustrative image: brushing a curly poodle coat on a grooming table, with a metal comb nearby.</figcaption>
       </figure>
 
       <h2>Why mobile one-on-one suits poodles</h2>
