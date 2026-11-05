@@ -198,38 +198,6 @@ const Navbar = () => {
               >
                 Book Now
               </Button>
-
-              {/* <Button
-                variant="outlined"
-                href="https://franchise.fluffypetwash.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Franchise with Fluffy Pet Wash"
-                sx={{
-                  borderColor: "#00ADCD",
-                  color: "#00ADCD",
-                  fontWeight: 600,
-                  px: { xs: 3, md: 1.8, lg: 3 },
-                  py: { xs: 1.2, md: 0.8, lg: 1.2 },
-                  borderRadius: { xs: "25px", md: "16px", lg: "25px" },
-                  textTransform: "none",
-                  fontSize: { xs: "0.95rem", md: "0.85rem", lg: "0.95rem" },
-                  minWidth: { md: "120px", lg: "160px" },
-                  borderWidth: "2px",
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  "&:hover": {
-                    borderColor: "#038B95",
-                    backgroundColor: "rgba(0, 173, 205, 0.1)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 4px 15px rgba(0, 173, 205, 0.2)",
-                  },
-                  "&:active": {
-                    transform: "translateY(0px)",
-                  },
-                }}
-              >
-                Franchise With Us!
-              </Button> */}
             </Box>
           </Box>
 
@@ -402,7 +370,7 @@ const Navbar = () => {
                   }}
                 >
                   <Fade in={mobileOpen} timeout={600}>
-                    <Box sx={{ mb: 2 }}>
+                    <Box>
                       <Button
                         fullWidth
                         variant="contained"
@@ -429,39 +397,6 @@ const Navbar = () => {
                         }}
                       >
                         Book Now
-                      </Button>
-                    </Box>
-                  </Fade>
-
-                  <Fade in={mobileOpen} timeout={700}>
-                    <Box>
-                      <Button
-                        fullWidth
-                        variant="outlined"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Franchise with Fluffy Pet Wash"
-                        onClick={handleDrawerClose}
-                        sx={{
-                          borderColor: "#00ADCD",
-                          color: "#00ADCD",
-                          fontWeight: 600,
-                          borderRadius: "16px",
-                          py: 1.5,
-                          fontSize: "1rem",
-                          textTransform: "none",
-                          borderWidth: "2px",
-                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                          "&:hover": {
-                            borderColor: "#038B95",
-                            backgroundColor: "rgba(0, 173, 205, 0.1)",
-                            transform: "translateY(-2px)",
-                            boxShadow: "0 6px 20px rgba(0, 173, 205, 0.2)",
-                          },
-                        }}
-                      >
-                        Franchise With Us!
                       </Button>
                     </Box>
                   </Fade>

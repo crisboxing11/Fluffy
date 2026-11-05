@@ -102,6 +102,32 @@ const OrlandoPage = () => {
           content="Learn about Fluffy Pet Wash's mobile dog grooming services in Orlando. Explore benefits, FAQs, and how to book your appointment."
         />
         <link rel="canonical" href="https://www.fluffypetwash.com/orlando" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://www.fluffypetwash.com/orlando#business",
+              name: "Fluffy Pet Wash",
+              url: "https://www.fluffypetwash.com/orlando",
+              description:
+                "Learn about Fluffy Pet Wash's mobile dog grooming services in Orlando. Explore benefits, FAQs, and how to book your appointment.",
+              email: "orlando@fluffypetwash.com",
+              telephone: "+1-407-513-2935",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Orlando",
+                addressRegion: "FL",
+                addressCountry: "US",
+              },
+              areaServed: {
+                "@type": "City",
+                name: "Orlando",
+              },
+            }),
+          }}
+        />
       </Head>
 
       {/* Hero Section */}
@@ -669,10 +695,9 @@ const OrlandoPage = () => {
                   >
                     Ready to reserve your slot? Use our simple booking form to
                     confirm that we service your part of Orlando, then continue
-                    to secure your preferred appointment time. You can always
-                    reach out through our{" "}
-                    <Link
-                      href="/contact"
+                    to secure your preferred appointment time. Email{" "}
+                    <a
+                      href="mailto:orlando@fluffypetwash.com"
                       style={{
                         color: "#00ADCD",
                         fontWeight: "bold",
@@ -681,8 +706,8 @@ const OrlandoPage = () => {
                         paddingBottom: "2px",
                       }}
                     >
-                      contact page
-                    </Link>{" "}
+                      orlando@fluffypetwash.com
+                    </a>{" "}
                     if you need assistance.
                   </Typography>
                 </Box>

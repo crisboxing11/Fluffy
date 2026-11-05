@@ -7,7 +7,6 @@ const territories = [
     name: 'Orlando, Florida',
     bookingUrl: 'https://booking.moego.pet/ol/FluffyPetWashOrlando/book?utm_medium=embed',
   },
-  // Add additional territories here as the franchise expands
 ];
 
 export default territories;

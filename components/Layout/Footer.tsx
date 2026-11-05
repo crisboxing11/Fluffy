@@ -19,10 +19,20 @@ import {
   LAS_VEGAS_TEL_HREF,
 } from "../../lib/ads";
 
+const LAS_VEGAS_EMAIL = "contact@fluffypetwash.com";
+const ORLANDO_EMAIL = "orlando@fluffypetwash.com";
+
 const Footer = () => {
-  const { pathname } = useRouter();
+  const { pathname, asPath } = useRouter();
+  const path = asPath.split("?")[0];
   // Las Vegas home only. Orlando and every other route keep the contact link.
   const showLasVegasNumber = pathname === "/";
+  // Orlando pages use the Orlando inbox. Every other page keeps the Las Vegas inbox.
+  // asPath is required because blog posts use the /blog/[slug] route pattern.
+  const publicEmail =
+    path === "/orlando" || path === "/blog/orlando-grand-opening"
+      ? ORLANDO_EMAIL
+      : LAS_VEGAS_EMAIL;
 
   const navigationLinks = {
     Services: [
@@ -160,7 +170,7 @@ const Footer = () => {
                 <Box display="flex" alignItems="center" gap={2}>
                   <EmailIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
                   <Link
-                    href="mailto:contact@fluffypetwash.com"
+                    href={`mailto:${publicEmail}`}
                     color="inherit"
                     underline="none"
                     sx={{
@@ -169,7 +179,7 @@ const Footer = () => {
                       "&:hover": { color: "#A1E0E3" },
                     }}
                   >
-                    contact@fluffypetwash.com
+                    {publicEmail}
                   </Link>
                 </Box>
                 <Box display="flex" alignItems="flex-start" gap={2}>

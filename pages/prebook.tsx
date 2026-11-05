@@ -105,6 +105,7 @@ const PrebookPage = () => {
               description:
                 "Premium mobile pet grooming service that comes to your location. Professional dog grooming with licensed and insured groomers.",
               url: "https://www.fluffypetwash.com",
+              email: "orlando@fluffypetwash.com",
               telephone: "+1-407-513-2935",
               address: {
                 "@type": "PostalAddress",

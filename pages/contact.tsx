@@ -26,7 +26,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PetsIcon from "@mui/icons-material/Pets";
-import BusinessIcon from "@mui/icons-material/Business";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -53,6 +52,11 @@ const staggerContainer = {
   },
 };
 
+const CONTACT_INBOXES = [
+  { city: "Las Vegas", email: "contact@fluffypetwash.com" },
+  { city: "Orlando", email: "orlando@fluffypetwash.com" },
+] as const;
+
 const scaleIn = {
   hidden: { scale: 0.8, opacity: 0 },
   visible: {
@@ -72,7 +76,7 @@ const ContactPage = () => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [emailCopied, setEmailCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -114,15 +118,16 @@ const ContactPage = () => {
     }
   };
 
-  const handleCopyEmail = async () => {
-    const emailAddress = "contact@fluffypetwash.com";
+  const handleCopyEmail = async (emailAddress: string) => {
 
     // Try modern clipboard API first (only if available and not blocked)
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(emailAddress);
-        setEmailCopied(true);
-        setTimeout(() => setEmailCopied(false), 2000);
+        setCopiedEmail(emailAddress);
+        setTimeout(() => {
+          setCopiedEmail((current) => (current === emailAddress ? null : current));
+        }, 2000);
         return;
       }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -147,8 +152,10 @@ const ContactPage = () => {
       document.body.removeChild(textArea);
 
       if (successful) {
-        setEmailCopied(true);
-        setTimeout(() => setEmailCopied(false), 2000);
+        setCopiedEmail(emailAddress);
+        setTimeout(() => {
+          setCopiedEmail((current) => (current === emailAddress ? null : current));
+        }, 2000);
       } else {
         throw new Error("execCommand failed");
       }
@@ -195,16 +202,6 @@ const ContactPage = () => {
   };
 
   const contactReasons = [
-    {
-      icon: <PetsIcon />,
-      title: "Book a Grooming",
-      description: "Schedule your pet's next spa day",
-    },
-    {
-      icon: <BusinessIcon />,
-      title: "Franchise Inquiry",
-      description: "Join our growing family of entrepreneurs",
-    },
     {
       icon: <SupportAgentIcon />,
       title: "Customer Support",
@@ -273,11 +270,11 @@ const ContactPage = () => {
         <title>Contact Us | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Have questions? Contact Fluffy Pet Wash for mobile grooming appointments, franchising info, or general inquiries. Call, email, or fill out our contact form."
+          content="Have questions? Contact Fluffy Pet Wash for general inquiries. Call, email, or fill out our contact form."
         />
         <meta
           name="keywords"
-          content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile pet grooming franchise, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me, dog groomer near me, mobile dog groomer near me, mobile groomers near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
+          content="contact mobile pet grooming, fluffy pet wash contact, dog grooming questions, mobile dog grooming questions, should I do mobile grooming, mobile grooming prices, how much for mobile grooming, mobile grooming questions, mobile dog grooming questions, mobile pet grooming questions, Is mobile grooming right for me, dog groomer near me, mobile dog groomer near me, mobile groomers near me, mobile dog grooming orlando, mobile pet grooming orlando, mobile dog grooming las vegas, mobile pet grooming las vegas"
         />
         <meta name="author" content="Fluffy Pet Wash" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -287,7 +284,7 @@ const ContactPage = () => {
         <meta property="og:title" content="Contact Us | Fluffy Pet Wash" />
         <meta
           property="og:description"
-          content="Contact Fluffy Pet Wash for mobile grooming, questions, or franchise inquiries. Call, email, or fill out our quick form."
+          content="Contact Fluffy Pet Wash for mobile grooming or questions. Call, email, or fill out our quick form."
         />
         <meta
           property="og:image"
@@ -301,7 +298,7 @@ const ContactPage = () => {
         <meta name="twitter:title" content="Contact Us | Fluffy Pet Wash" />
         <meta
           name="twitter:description"
-          content="Reach out to Fluffy Pet Wash for mobile dog grooming appointments, franchising, or general questions."
+          content="Reach out to Fluffy Pet Wash with general questions."
         />
         <meta
           name="twitter:image"
@@ -386,8 +383,7 @@ const ContactPage = () => {
                 px: { xs: 1, md: 0 },
               }}
             >
-              Ready to pamper your pet or explore franchise opportunities? We&apos;re
-              here to help make it happen.
+              Ready to pamper your pet? We&apos;re here to help make it happen.
             </Typography>
 
             {/* Important Notice */}
@@ -512,31 +508,6 @@ const ContactPage = () => {
                   }}
                 />
               </Link>
-              <Link
-                href="#"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <Chip
-                  label="Franchise Inquiry"
-                  icon={<BusinessIcon />}
-                  variant="outlined"
-                  clickable
-                  sx={{
-                    borderColor: "#038B95",
-                    color: "#038B95",
-                    fontWeight: 600,
-                    px: 2,
-                    py: 1,
-                    fontSize: "1rem",
-                    "&:hover": {
-                      bgcolor: "rgba(3, 139, 149, 0.1)",
-                      transform: "translateY(-2px)",
-                    },
-                    transition: "all 0.3s ease",
-                  }}
-                />
-              </Link>
             </Stack>
           </Box>
         </motion.div>
@@ -586,89 +557,133 @@ const ContactPage = () => {
                       >
                         {method.title}
                       </Typography>
-                      <Typography
-                        variant="body1"
-                        fontWeight={600}
-                        color="#038B95"
-                        mb={1}
-                      >
-                        {method.title === "Call Us" ? (
-                          <Box
-                            component="a"
-                            href={LAS_VEGAS_TEL_HREF}
-                            sx={{
-                              color: "inherit",
-                              font: "inherit",
-                              fontWeight: "inherit",
-                              lineHeight: "inherit",
-                              letterSpacing: "inherit",
-                              textDecoration: "none",
-                              display: "inline",
-                              cursor: "inherit",
-                              "&:hover, &:visited, &:active, &:focus": {
-                                color: "inherit",
-                                textDecoration: "none",
-                              },
-                            }}
+                      {method.title === "Email Us" ? (
+                        <Stack spacing={2.5} sx={{ textAlign: "center" }}>
+                          {CONTACT_INBOXES.map((inbox) => {
+                            const copied = copiedEmail === inbox.email;
+                            return (
+                              <Box key={inbox.city}>
+                                <Typography
+                                  component="p"
+                                  sx={{
+                                    fontWeight: 800,
+                                    color: "#067C92",
+                                    fontSize: "1.05rem",
+                                    lineHeight: 1.2,
+                                    mb: 0.75,
+                                  }}
+                                >
+                                  {inbox.city}
+                                </Typography>
+                                <Typography
+                                  component="a"
+                                  href={`mailto:${inbox.email}`}
+                                  sx={{
+                                    display: "block",
+                                    color: "#038B95",
+                                    fontWeight: 600,
+                                    fontSize: { xs: "0.95rem", sm: "1rem" },
+                                    lineHeight: 1.4,
+                                    textDecoration: "none",
+                                    overflowWrap: "anywhere",
+                                    mb: 1.25,
+                                    "&:hover": { textDecoration: "underline" },
+                                  }}
+                                >
+                                  {inbox.email}
+                                </Typography>
+                                <Button
+                                  variant="outlined"
+                                  size="small"
+                                  onClick={() => handleCopyEmail(inbox.email)}
+                                  startIcon={<ContentCopyIcon />}
+                                  aria-label={`Copy ${inbox.city} email ${inbox.email}`}
+                                  sx={{
+                                    borderColor: copied ? "#4caf50" : "#038B95",
+                                    color: copied ? "#4caf50" : "#038B95",
+                                    fontWeight: 600,
+                                    borderRadius: "12px",
+                                    px: 2.5,
+                                    "&:hover": {
+                                      bgcolor: copied
+                                        ? "rgba(76, 175, 80, 0.1)"
+                                        : "rgba(3, 139, 149, 0.1)",
+                                      borderColor: copied ? "#388e3c" : "#026B73",
+                                    },
+                                    transition: "all 0.3s ease",
+                                  }}
+                                >
+                                  {copied ? "Copied!" : "Copy"}
+                                </Button>
+                              </Box>
+                            );
+                          })}
+                        </Stack>
+                      ) : (
+                        <>
+                          <Typography
+                            variant="body1"
+                            fontWeight={600}
+                            color="#038B95"
+                            mb={1}
                           >
-                            {method.primary}
-                          </Box>
-                        ) : (
-                          method.primary
-                        )}
-                      </Typography>
-                      <Typography variant="body2" color="#64748b" mb={1}>
-                        {method.secondary}
-                      </Typography>
-                      <Typography variant="body2" color="#94a3b8" mb={3}>
-                        {method.description}
-                      </Typography>
-                      {method.actionText ? (
-                        <Button
-                          variant="outlined"
-                          href={method.action}
-                          target={
-                            method.action.startsWith("http")
-                              ? "_blank"
-                              : undefined
-                          }
-                          sx={{
-                            borderColor: "#038B95",
-                            color: "#038B95",
-                            fontWeight: 600,
-                            borderRadius: "12px",
-                            px: 3,
-                            "&:hover": {
-                              bgcolor: "rgba(3, 139, 149, 0.1)",
-                              borderColor: "#026B73",
-                            },
-                          }}
-                        >
-                          {method.actionText}
-                        </Button>
-                      ) : method.title === "Email Us" ? (
-                        <Button
-                          variant="outlined"
-                          onClick={handleCopyEmail}
-                          startIcon={<ContentCopyIcon />}
-                          sx={{
-                            borderColor: emailCopied ? "#4caf50" : "#038B95",
-                            color: emailCopied ? "#4caf50" : "#038B95",
-                            fontWeight: 600,
-                            borderRadius: "12px",
-                            px: 3,
-                            "&:hover": {
-                              bgcolor: emailCopied
-                                ? "rgba(76, 175, 80, 0.1)"
-                                : "rgba(3, 139, 149, 0.1)",
-                              borderColor: emailCopied ? "#388e3c" : "#026B73",
-                            },
-                            transition: "all 0.3s ease",
-                          }}
-                        >
-                          {emailCopied ? "Copied!" : "Copy Email"}
-                        </Button>
-                      ) : null}
+                            {method.title === "Call Us" ? (
+                              <Box
+                                component="a"
+                                href={LAS_VEGAS_TEL_HREF}
+                                sx={{
+                                  color: "inherit",
+                                  font: "inherit",
+                                  fontWeight: "inherit",
+                                  lineHeight: "inherit",
+                                  letterSpacing: "inherit",
+                                  textDecoration: "none",
+                                  display: "inline",
+                                  cursor: "inherit",
+                                  "&:hover, &:visited, &:active, &:focus": {
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                  },
+                                }}
+                              >
+                                {method.primary}
+                              </Box>
+                            ) : (
+                              method.primary
+                            )}
+                          </Typography>
+                          <Typography variant="body2" color="#64748b" mb={1}>
+                            {method.secondary}
+                          </Typography>
+                          <Typography variant="body2" color="#94a3b8" mb={3}>
+                            {method.description}
+                          </Typography>
+                          {method.actionText ? (
+                            <Button
+                              variant="outlined"
+                              href={method.action}
+                              target={
+                                method.action.startsWith("http")
+                                  ? "_blank"
+                                  : undefined
+                              }
+                              sx={{
+                                borderColor: "#038B95",
+                                color: "#038B95",
+                                fontWeight: 600,
+                                borderRadius: "12px",
+                                px: 3,
+                                "&:hover": {
+                                  bgcolor: "rgba(3, 139, 149, 0.1)",
+                                  borderColor: "#026B73",
+                                },
+                              }}
+                            >
+                              {method.actionText}
+                            </Button>
+                          ) : null}
+                        </>
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -701,9 +716,9 @@ const ContactPage = () => {
             variant="body1"
             sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
           >
-            This form is for general questions, franchise inquiries, and help
-            with a booking you already have. It does not create an appointment,
-            and it does not quote a price. To book, use the{" "}
+            This form is for general questions and help with a booking you
+            already have. It does not create an appointment, and it does not
+            quote a price. To book, use the{" "}
             <Link href="/prebook" style={{ color: "#038B95", fontWeight: 700 }}>
               pre-book page
             </Link>
@@ -725,12 +740,20 @@ const ContactPage = () => {
             <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
               (407) 513-2935
             </a>
-            . Phone hours are listed on this page. You can also email{" "}
+            . Phone hours are listed on this page. Email{" "}
+            <strong>Las Vegas</strong> at{" "}
             <a
               href="mailto:contact@fluffypetwash.com"
               style={{ color: "#038B95", fontWeight: 700 }}
             >
               contact@fluffypetwash.com
+            </a>{" "}
+            or <strong>Orlando</strong> at{" "}
+            <a
+              href="mailto:orlando@fluffypetwash.com"
+              style={{ color: "#038B95", fontWeight: 700 }}
+            >
+              orlando@fluffypetwash.com
             </a>
             . We&apos;ll get back to you as soon as we can. For something that
             cannot wait, call.
@@ -865,12 +888,6 @@ const ContactPage = () => {
                         }}
                       >
                         <option value="General Inquiry">General Inquiry</option>
-                        <option value="Booking Question">
-                          Booking Question
-                        </option>
-                        <option value="Franchise Interest">
-                          Franchise Interest
-                        </option>
                         <option value="Customer Support">
                           Customer Support
                         </option>
