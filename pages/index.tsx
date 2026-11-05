@@ -91,7 +91,7 @@ const HomePage = () => {
         <title>Mobile Dog Grooming Las Vegas | Fluffy Pet Wash</title>
         <meta
           name="description"
-          content="Stress-free mobile dog & cat grooming at your door across Las Vegas & Henderson. One-on-one spa van, licensed & insured. Book online — no upfront payment."
+          content="Mobile dog grooming in Las Vegas & Henderson, plus cats. One-on-one climate-controlled spa van, all breeds welcome. Book online, no upfront payment."
         />
         <meta
           name="keywords"
@@ -475,8 +475,8 @@ const HomePage = () => {
               anywhere in the Las Vegas valley, with no travel fees. We use a
               hypoallergenic wash, organic conditioner and biodegradable,
               plant-based products, and every dog groom includes the bath,
-              blowout, nails and ears. Dogs start at $85, and we groom doodles
-              and cats too. Open 7 AM–10 PM daily; call{" "}
+              blowout, de-shedding, nails and ears. Dogs start at $85, and we
+              groom doodles and cats too. Open 7 AM–10 PM daily; call{" "}
               <Link
                 href={LAS_VEGAS_TEL_HREF}
                 color="inherit"
