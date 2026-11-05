@@ -17,6 +17,8 @@ import { useRouter } from "next/router";
 import {
   LAS_VEGAS_PHONE_DISPLAY,
   LAS_VEGAS_TEL_HREF,
+  ORLANDO_PHONE_DISPLAY,
+  ORLANDO_TEL_HREF,
 } from "../../lib/ads";
 
 const LAS_VEGAS_EMAIL = "contact@fluffypetwash.com";
@@ -25,14 +27,13 @@ const ORLANDO_EMAIL = "orlando@fluffypetwash.com";
 const Footer = () => {
   const { pathname, asPath } = useRouter();
   const path = asPath.split("?")[0];
-  // Las Vegas home only. Orlando and every other route keep the contact link.
+  // Las Vegas home shows 702. Orlando surfaces show 407. Other routes keep the contact link.
   const showLasVegasNumber = pathname === "/";
-  // Orlando pages use the Orlando inbox. Every other page keeps the Las Vegas inbox.
+  // Orlando pages use the Orlando inbox and phone. Every other page keeps Las Vegas.
   // asPath is required because blog posts use the /blog/[slug] route pattern.
-  const publicEmail =
-    path === "/orlando" || path === "/blog/orlando-grand-opening"
-      ? ORLANDO_EMAIL
-      : LAS_VEGAS_EMAIL;
+  const isOrlandoSurface =
+    path === "/orlando" || path === "/blog/orlando-grand-opening";
+  const publicEmail = isOrlandoSurface ? ORLANDO_EMAIL : LAS_VEGAS_EMAIL;
 
   const navigationLinks = {
     Services: [
@@ -148,6 +149,40 @@ const Footer = () => {
                         sx={{ color: "#FFFFFF", fontSize: "1.25rem" }}
                       />
                       {LAS_VEGAS_PHONE_DISPLAY}
+                    </Link>
+                  ) : isOrlandoSurface ? (
+                    <Link
+                      href={ORLANDO_TEL_HREF}
+                      underline="none"
+                      aria-label={`Call ${ORLANDO_PHONE_DISPLAY}`}
+                      sx={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 2,
+                        minHeight: 44,
+                        px: 1.5,
+                        borderRadius: "999px",
+                        color: "#FFFFFF",
+                        bgcolor: "#026B73",
+                        fontSize: "1rem",
+                        fontWeight: 700,
+                        lineHeight: 1.2,
+                        transition: "background-color 0.3s ease",
+                        "&:hover": {
+                          color: "#FFFFFF",
+                          bgcolor: "#015860",
+                        },
+                        "&&:focus-visible": {
+                          outline: "3px solid #FFFFFF",
+                          outlineOffset: "3px",
+                        },
+                      }}
+                    >
+                      <PhoneIcon
+                        aria-hidden="true"
+                        sx={{ color: "#FFFFFF", fontSize: "1.25rem" }}
+                      />
+                      {ORLANDO_PHONE_DISPLAY}
                     </Link>
                   ) : (
                     <>

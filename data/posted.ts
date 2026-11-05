@@ -405,7 +405,7 @@ export const posted: BlogPost[] = [
       <h2>🎁 Grand Opening Special</h2>
       <p>To celebrate our Orlando launch, we’re offering an exclusive <strong>10% off your first appointment</strong> plus <strong>FREE premium add-ons</strong> like blueberry facials, paw balm, and teeth brushing—because your pup deserves the full Fluffy treatment.</p>
   
-      <p><strong>Booking is easy:</strong> Visit the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and select your location. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
+      <p><strong>Booking is easy:</strong> Visit the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and select your location, or call <a href="tel:+14075132935">(407) 513-2935</a>. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
     `,
     imageAlt: ""
   },
