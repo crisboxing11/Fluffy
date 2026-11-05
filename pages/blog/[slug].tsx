@@ -5,7 +5,8 @@ import Head from 'next/head';
 import { Typography, Container, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BlogFaqSection, faqPageJsonLd } from '../../components/blog/faq';
+import { BlogFaqSection } from '../../components/blog/faq';
+import { faqPageJsonLd, jsonLdScriptContent, visibleBlogFaq } from '../../lib/blogFaq';
 
 type Props = {
   post: BlogPost;
@@ -127,6 +128,7 @@ function BlogContent({ html }: { html: string }) {
 }
 
 const BlogPostPage = ({ post }: Props) => {
+  const faq = visibleBlogFaq(post);
   const faqText = (post.faq ?? []).map((item) => `${item.question} ${item.answer}`).join(' ');
   const wordCount = `${post.content} ${faqText}`.replace(/<[^>]+>/g, '').split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / 200);
@@ -227,10 +229,10 @@ const BlogPostPage = ({ post }: Props) => {
             }),
           }}
         />
-        {post.faq && post.faq.length > 0 ? (
+        {faq.length > 0 ? (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(post.faq)) }}
+            dangerouslySetInnerHTML={{ __html: jsonLdScriptContent(faqPageJsonLd(faq)) }}
           />
         ) : null}
       </Head>

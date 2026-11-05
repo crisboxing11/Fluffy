@@ -21,18 +21,3 @@ export function BlogFaqSection({ faq }: { faq: BlogFaq[] }) {
     </Box>
   );
 }
-
-export function faqPageJsonLd(faq: BlogFaq[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
-}
