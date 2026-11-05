@@ -55,7 +55,7 @@ export const posted: BlogPost[] = [
       caption:
         'Illustrative image: a husky mid-deshed, with loose undercoat collecting on the table.',
     },
-    date: '2026-11-03',
+    date: '2026-11-05',
     content: `
       <p>If you share your home with a husky, a German shepherd or a golden retriever, you already know the drill: fur on the couch, fur on your clothes, fur drifting across the floor like tumbleweeds. Double-coated dogs shed, and sometimes they shed a lot. The good news is that regular deshedding makes a real difference. Here's how a double coat works, why shaving it usually isn't the answer in the desert heat, and what a deshedding groom looks like when we come to you in Las Vegas.</p>
 
