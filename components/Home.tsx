@@ -28,9 +28,15 @@ import ReviewDog4 from "../public/ReviewDog4.jpg";
 import ReviewDog7 from "../public/ReviewDog7.jpg";
 import Link from "next/link";
 import {
-  LAS_VEGAS_PHONE_DISPLAY,
+  LAS_VEGAS_BOOKING_HREF,
+  LAS_VEGAS_BOOK_LABEL,
+  LAS_VEGAS_CALL_LABEL,
   LAS_VEGAS_TEL_HREF,
-} from "../lib/ads";
+  ORLANDO_BOOKING_HREF,
+  ORLANDO_BOOK_LABEL,
+  ORLANDO_CALL_LABEL,
+  ORLANDO_TEL_HREF,
+} from "../lib/locationActions";
 
 // Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
@@ -153,6 +159,23 @@ const whyChooseLinkStyle = {
   padding: "2px 4px",
   borderRadius: "4px",
 } as const;
+
+const heroCities = [
+  {
+    city: "Las Vegas",
+    bookHref: LAS_VEGAS_BOOKING_HREF,
+    bookLabel: LAS_VEGAS_BOOK_LABEL,
+    callHref: LAS_VEGAS_TEL_HREF,
+    callLabel: LAS_VEGAS_CALL_LABEL,
+  },
+  {
+    city: "Orlando",
+    bookHref: ORLANDO_BOOKING_HREF,
+    bookLabel: ORLANDO_BOOK_LABEL,
+    callHref: ORLANDO_TEL_HREF,
+    callLabel: ORLANDO_CALL_LABEL,
+  },
+] as const;
 
 function heroPressedSx(restShadow: string) {
   return {
@@ -506,7 +529,6 @@ const Home = () => {
                 </Box>
               </motion.div>
 
-              {/* Book stays the filled primary. Call is the outlined secondary. */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -516,140 +538,148 @@ const Home = () => {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
+                <Typography
+                  component="p"
+                  sx={{
+                    mb: 1.25,
+                    fontWeight: 800,
+                    color: "#067C92",
+                    textAlign: { xs: "center", md: "left" },
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                  }}
+                >
+                  Choose a city to call or book
+                </Typography>
                 <Box
                   sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", sm: "row" },
-                    flexWrap: { xs: "wrap", md: "nowrap" },
-                    alignItems: { xs: "stretch", sm: "center", md: "stretch" },
-                    justifyContent: { xs: "center", md: "flex-start" },
-                    gap: { xs: 1.25, sm: 2, md: 2 },
-                    width: { xs: "100%", sm: "auto", md: "100%" },
-                    maxWidth: { xs: 280, sm: "none", md: "100%" },
-                    mx: { xs: "auto", md: 0 },
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                    gap: 1.5,
+                    width: "100%",
                     mb: { xs: 2, sm: 3.5, md: 5 },
                   }}
                 >
-                  <Link href="/prebook" passHref legacyBehavior>
-                    <Button
-                      component="a"
-                      variant="contained"
-                      size="large"
-                      aria-label="Book a grooming appointment"
+                  {heroCities.map((market) => (
+                    <Box
+                      key={market.city}
+                      component="section"
+                      aria-label={`${market.city} call and booking`}
                       sx={{
-                        px: { xs: 4, sm: 5, md: 3 },
-                        py: { xs: 2.2, sm: 2.8, md: 0 },
-                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.375rem" },
-                        fontWeight: 800,
-                        textTransform: "none",
-                        borderRadius: "50px",
-                        background:
-                          "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
-                        boxShadow: bookHeroRestShadow,
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        position: "relative",
-                        overflow: "hidden",
-                        "&&": {
-                          transition: heroActionTransition(
-                            "background, transform, box-shadow",
-                          ),
-                        },
-                        width: { xs: "100%", sm: "auto", md: "auto" },
-                        flexGrow: { md: 1.15 },
-                        flexBasis: { md: "0px" },
-                        flexShrink: { xs: 0, sm: 0, md: 1 },
-                        minWidth: { md: 0 },
-                        whiteSpace: { md: "nowrap" },
-                        boxSizing: "border-box",
-                        height: { md: 68 },
-                        minHeight: { xs: "52px", sm: "56px", md: 68 },
-                        "&::before": {
-                          content: '""',
-                          position: "absolute",
-                          top: 0,
-                          left: "-100%",
-                          width: "100%",
-                          height: "100%",
-                          background:
-                            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                          transition: "left 0.6s ease",
-                        },
-                        "&&:hover": {
-                          background:
-                            "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
-                          boxShadow: bookHeroHoverShadow,
-                          "&::before": {
-                            left: "100%",
-                          },
-                        },
-                        ...heroPressedSx(bookHeroRestShadow),
-                        "&&:focus-visible, &&.Mui-focusVisible": {
-                          outline: "3px solid #067C92 !important",
-                          outlineOffset: "3px !important",
-                        },
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 1,
+                        p: 1.25,
+                        borderRadius: "22px",
+                        border: "2px solid",
+                        borderColor:
+                          market.city === "Orlando" ? "#0AC3E6" : "#067C92",
+                        bgcolor:
+                          market.city === "Orlando"
+                            ? "rgba(229, 248, 251, 0.92)"
+                            : "rgba(255, 255, 255, 0.92)",
                       }}
                     >
-                      Book Your Appointment
-                    </Button>
-                  </Link>
-                  <Button
-                    component="a"
-                    href={LAS_VEGAS_TEL_HREF}
-                    variant="outlined"
-                    startIcon={
-                      <PhoneIcon
-                        aria-hidden="true"
-                        sx={{ fontSize: { xs: 20, md: 22 } }}
-                      />
-                    }
-                    aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
-                    sx={{
-                      px: { xs: 2.5, sm: 3, md: 2.5 },
-                      py: { xs: 1.25, sm: 1.35, md: 0 },
-                      boxSizing: "border-box",
-                      height: { md: 68 },
-                      minHeight: { xs: 48, sm: 48, md: 68 },
-                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.25rem" },
-                      fontWeight: 700,
-                      textTransform: "none",
-                      borderRadius: "50px",
-                      border: "2px solid #067C92",
-                      color: "#067C92",
-                      backgroundColor: "#FFFFFF",
-                      boxShadow: callHeroRestShadow,
-                      width: { xs: "100%", sm: "auto", md: "auto" },
-                      flexGrow: { md: 1 },
-                      flexBasis: { md: "0px" },
-                      flexShrink: { xs: 0, sm: 0, md: 1 },
-                      minWidth: { md: 0 },
-                      whiteSpace: { md: "nowrap" },
-                      lineHeight: { md: 1 },
-                      "&&": {
-                        transition: heroActionTransition(
-                          "background-color, border-color, color, transform, box-shadow",
-                        ),
-                      },
-                      "& .MuiButton-startIcon": {
-                        marginLeft: { md: 0 },
-                        marginRight: { md: "10px" },
-                        display: { md: "inherit" },
-                        alignItems: { md: "center" },
-                      },
-                      "&&:hover": {
-                        border: "2px solid #038B95",
-                        backgroundColor: "#F4FBFB",
-                        color: "#067C92",
-                        boxShadow: callHeroHoverShadow,
-                      },
-                      ...heroPressedSx(callHeroRestShadow),
-                      "&&:focus-visible, &&.Mui-focusVisible": {
-                        outline: "3px solid #067C92 !important",
-                        outlineOffset: "3px !important",
-                      },
-                    }}
-                  >
-                    Call {LAS_VEGAS_PHONE_DISPLAY}
-                  </Button>
+                      <Typography
+                        component="h2"
+                        sx={{
+                          m: 0,
+                          fontWeight: 800,
+                          fontSize: "1.05rem",
+                          color: "#067C92",
+                          textAlign: "left",
+                        }}
+                      >
+                        {market.city}
+                      </Typography>
+                      <Link href={market.bookHref} passHref legacyBehavior>
+                        <Button
+                          component="a"
+                          variant="contained"
+                          aria-label={market.bookLabel}
+                          sx={{
+                            px: 2,
+                            py: 1.25,
+                            fontSize: { xs: "0.92rem", md: "0.98rem" },
+                            fontWeight: 800,
+                            textTransform: "none",
+                            whiteSpace: "normal",
+                            lineHeight: 1.25,
+                            height: "auto",
+                            borderRadius: "18px",
+                            background:
+                              "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                            boxShadow: bookHeroRestShadow,
+                            border: "1px solid rgba(255, 255, 255, 0.1)",
+                            position: "relative",
+                            overflow: "hidden",
+                            width: "100%",
+                            minHeight: 48,
+                            "&&": {
+                              transition: heroActionTransition(
+                                "background, transform, box-shadow",
+                              ),
+                            },
+                            "&&:hover": {
+                              background:
+                                "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                              boxShadow: bookHeroHoverShadow,
+                            },
+                            ...heroPressedSx(bookHeroRestShadow),
+                            "&&:focus-visible, &&.Mui-focusVisible": {
+                              outline: "3px solid #067C92 !important",
+                              outlineOffset: "3px !important",
+                            },
+                          }}
+                        >
+                          {market.bookLabel}
+                        </Button>
+                      </Link>
+                      <Button
+                        component="a"
+                        href={market.callHref}
+                        variant="outlined"
+                        aria-label={market.callLabel}
+                        startIcon={
+                          <PhoneIcon aria-hidden="true" sx={{ fontSize: 20 }} />
+                        }
+                        sx={{
+                          px: 1.5,
+                          py: 1.1,
+                          fontSize: { xs: "0.9rem", md: "0.95rem" },
+                          fontWeight: 700,
+                          textTransform: "none",
+                          whiteSpace: "normal",
+                          lineHeight: 1.25,
+                          height: "auto",
+                          borderRadius: "18px",
+                          border: "2px solid #067C92",
+                          color: "#067C92",
+                          backgroundColor: "#FFFFFF",
+                          boxShadow: callHeroRestShadow,
+                          width: "100%",
+                          minHeight: 48,
+                          "&&": {
+                            transition: heroActionTransition(
+                              "background-color, border-color, color, transform, box-shadow",
+                            ),
+                          },
+                          "&&:hover": {
+                            border: "2px solid #038B95",
+                            backgroundColor: "#F4FBFB",
+                            color: "#067C92",
+                            boxShadow: callHeroHoverShadow,
+                          },
+                          ...heroPressedSx(callHeroRestShadow),
+                          "&&:focus-visible, &&.Mui-focusVisible": {
+                            outline: "3px solid #067C92 !important",
+                            outlineOffset: "3px !important",
+                          },
+                        }}
+                      >
+                        {market.callLabel}
+                      </Button>
+                    </Box>
+                  ))}
                 </Box>
               </motion.div>
 
@@ -1072,14 +1102,21 @@ const Home = () => {
               lineHeight: 1.75,
             }}
           >
-            Booking starts on this page or on the{" "}
+            Booking starts with a city:{" "}
             <Link
-              href="/prebook"
+              href={LAS_VEGAS_BOOKING_HREF}
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
             >
-              pre-book page
+              {LAS_VEGAS_BOOK_LABEL}
+            </Link>{" "}
+            or{" "}
+            <Link
+              href={ORLANDO_BOOKING_HREF}
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              {ORLANDO_BOOK_LABEL}
             </Link>
-            . Choose your location and continue to the calendar. All dog breeds
+            . All dog breeds
             are welcome, including poodles and doodles. Doodle owners can read
             our{" "}
             <Link
@@ -1091,12 +1128,19 @@ const Home = () => {
             . You get an email after you book
             and a text when the appointment is accepted. Please let us know as
             early as you can if you need to change or cancel. Phone hours are
-            listed on the contact page. If you need a same-day visit, call{" "}
+            listed on the contact page.             If you need a same-day visit,{" "}
             <a
               href={LAS_VEGAS_TEL_HREF}
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
             >
-              {LAS_VEGAS_PHONE_DISPLAY}
+              {LAS_VEGAS_CALL_LABEL}
+            </a>{" "}
+            or{" "}
+            <a
+              href={ORLANDO_TEL_HREF}
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              {ORLANDO_CALL_LABEL}
             </a>{" "}
             to ask whether a slot is open. Details on what is included are on the{" "}
             <Link

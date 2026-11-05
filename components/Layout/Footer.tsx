@@ -14,25 +14,17 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useRouter } from "next/router";
-import {
-  LAS_VEGAS_PHONE_DISPLAY,
-  LAS_VEGAS_TEL_HREF,
-} from "../../lib/ads";
-
-const LAS_VEGAS_EMAIL = "contact@fluffypetwash.com";
-const ORLANDO_EMAIL = "orlando@fluffypetwash.com";
+import { LAS_VEGAS_EMAIL } from "../../lib/locationActions";
+import LocationChoices from "../LocationChoices";
 
 const Footer = () => {
   const { pathname, asPath } = useRouter();
   const path = asPath.split("?")[0];
-  // Las Vegas home only. Orlando and every other route keep the contact link.
-  const showLasVegasNumber = pathname === "/";
-  // Orlando pages use the Orlando inbox. Every other page keeps the Las Vegas inbox.
+  // Home and Orlando surfaces list both cities. Other routes keep the contact link.
   // asPath is required because blog posts use the /blog/[slug] route pattern.
-  const publicEmail =
-    path === "/orlando" || path === "/blog/orlando-grand-opening"
-      ? ORLANDO_EMAIL
-      : LAS_VEGAS_EMAIL;
+  const isOrlandoSurface =
+    path === "/orlando" || path === "/blog/orlando-grand-opening";
+  const showCityChoices = pathname === "/" || isOrlandoSurface;
 
   const navigationLinks = {
     Services: [
@@ -82,7 +74,7 @@ const Footer = () => {
           justifyContent="space-between"
         >
           {/* Brand Section */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={showCityChoices ? 12 : 4}>
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h4"
@@ -114,63 +106,13 @@ const Footer = () => {
 
               {/* Contact Info */}
               <Stack spacing={2}>
+                {showCityChoices ? (
+                  <LocationChoices tone="dark" />
+                ) : (
                 <Box display="flex" alignItems="center" gap={2}>
-                  {showLasVegasNumber ? (
-                    <Link
-                      href={LAS_VEGAS_TEL_HREF}
-                      underline="none"
-                      aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
-                      sx={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 2,
-                        minHeight: 44,
-                        px: 1.5,
-                        borderRadius: "999px",
-                        color: "#FFFFFF",
-                        bgcolor: "#026B73",
-                        fontSize: "1rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        transition: "background-color 0.3s ease",
-                        "&:hover": {
-                          color: "#FFFFFF",
-                          bgcolor: "#015860",
-                        },
-                        "&&:focus-visible": {
-                          outline: "3px solid #FFFFFF",
-                          outlineOffset: "3px",
-                        },
-                      }}
-                    >
-                      <PhoneIcon
-                        aria-hidden="true"
-                        sx={{ color: "#FFFFFF", fontSize: "1.25rem" }}
-                      />
-                      {LAS_VEGAS_PHONE_DISPLAY}
-                    </Link>
-                  ) : (
-                    <>
-                      <PhoneIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
-                      <Link
-                        href="/contact"
-                        color="inherit"
-                        underline="none"
-                        sx={{
-                          fontSize: "1rem",
-                          transition: "color 0.3s ease",
-                          "&:hover": { color: "#A1E0E3" },
-                        }}
-                      >
-                        Contact Us for Phone Numbers
-                      </Link>
-                    </>
-                  )}
-                </Box>
-                <Box display="flex" alignItems="center" gap={2}>
-                  <EmailIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
+                  <PhoneIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
                   <Link
-                    href={`mailto:${publicEmail}`}
+                    href="/contact"
                     color="inherit"
                     underline="none"
                     sx={{
@@ -179,9 +121,27 @@ const Footer = () => {
                       "&:hover": { color: "#A1E0E3" },
                     }}
                   >
-                    {publicEmail}
+                    Contact Us for Phone Numbers
                   </Link>
                 </Box>
+                )}
+                {!showCityChoices && (
+                <Box display="flex" alignItems="center" gap={2}>
+                  <EmailIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />
+                  <Link
+                    href={`mailto:${LAS_VEGAS_EMAIL}`}
+                    color="inherit"
+                    underline="none"
+                    sx={{
+                      fontSize: "1rem",
+                      transition: "color 0.3s ease",
+                      "&:hover": { color: "#A1E0E3" },
+                    }}
+                  >
+                    {LAS_VEGAS_EMAIL}
+                  </Link>
+                </Box>
+                )}
                 <Box display="flex" alignItems="flex-start" gap={2}>
                   <LocationOnIcon
                     sx={{ color: "#A1E0E3", fontSize: "1.25rem", mt: 0.25 }}
