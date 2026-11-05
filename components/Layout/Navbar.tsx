@@ -17,9 +17,32 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import {
+  LAS_VEGAS_BOOKING_HREF,
+  LAS_VEGAS_BOOK_LABEL,
+  ORLANDO_BOOKING_HREF,
+  ORLANDO_BOOK_LABEL,
+} from "../../lib/locationActions";
+
+const navBookSx = {
+  color: "#fff",
+  fontWeight: 700,
+  px: { lg: 1.4 },
+  py: 1,
+  borderRadius: "16px",
+  textTransform: "none",
+  fontSize: "0.82rem",
+  lineHeight: 1.2,
+  whiteSpace: "normal",
+  minHeight: 44,
+  boxShadow: "none",
+};
 
 const Navbar = () => {
+  const { pathname } = useRouter();
+  const onHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const trigger = useScrollTrigger({
@@ -167,37 +190,68 @@ const Navbar = () => {
               </Button>
             ))}
 
-            <Box sx={{ display: "flex", gap: 1.5, ml: 2 }}>
-              <Button
-                variant="contained"
-                href="/prebook"
-                aria-label="Book grooming appointment"
-                sx={{
-                  background:
-                    "linear-gradient(135deg, #00ADCD 0%, #038B95 100%)",
-                  color: "#fff",
-                  fontWeight: 700,
-                  px: { xs: 3, md: 1.8, lg: 3 },
-                  py: { xs: 1.2, md: 0.8, lg: 1.2 },
-                  borderRadius: { xs: "25px", md: "16px", lg: "25px" },
-                  textTransform: "none",
-                  fontSize: { xs: "0.95rem", md: "0.85rem", lg: "0.95rem" },
-                  minWidth: { md: "100px", lg: "140px" },
-                  boxShadow: "0 4px 15px rgba(0, 173, 205, 0.3)",
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  "&:hover": {
+            <Box sx={{ display: "flex", gap: 1, ml: 1.5 }}>
+              {onHome ? (
+                <>
+                  <Button
+                    variant="contained"
+                    href={LAS_VEGAS_BOOKING_HREF}
+                    aria-label={LAS_VEGAS_BOOK_LABEL}
+                    sx={{
+                      ...navBookSx,
+                      background:
+                        "linear-gradient(135deg, #067C92 0%, #038B95 100%)",
+                      "&:hover": { background: "#026B73" },
+                    }}
+                  >
+                    Book Las Vegas
+                  </Button>
+                  <Button
+                    variant="contained"
+                    href={ORLANDO_BOOKING_HREF}
+                    aria-label={ORLANDO_BOOK_LABEL}
+                    sx={{
+                      ...navBookSx,
+                      background:
+                        "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 100%)",
+                      "&:hover": { background: "#038B95" },
+                    }}
+                  >
+                    Book Orlando
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="contained"
+                  href="/prebook"
+                  aria-label="Book grooming appointment"
+                  sx={{
                     background:
-                      "linear-gradient(135deg, #038B95 0%, #00ADCD 100%)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 6px 20px rgba(0, 173, 205, 0.4)",
-                  },
-                  "&:active": {
-                    transform: "translateY(0px)",
-                  },
-                }}
-              >
-                Book Now
-              </Button>
+                      "linear-gradient(135deg, #00ADCD 0%, #038B95 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    px: { xs: 3, md: 1.8, lg: 3 },
+                    py: { xs: 1.2, md: 0.8, lg: 1.2 },
+                    borderRadius: { xs: "25px", md: "16px", lg: "25px" },
+                    textTransform: "none",
+                    fontSize: { xs: "0.95rem", md: "0.85rem", lg: "0.95rem" },
+                    minWidth: { md: "100px", lg: "140px" },
+                    boxShadow: "0 4px 15px rgba(0, 173, 205, 0.3)",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #038B95 0%, #00ADCD 100%)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 6px 20px rgba(0, 173, 205, 0.4)",
+                    },
+                    "&:active": {
+                      transform: "translateY(0px)",
+                    },
+                  }}
+                >
+                  Book Now
+                </Button>
+              )}
             </Box>
           </Box>
 
@@ -371,6 +425,48 @@ const Navbar = () => {
                 >
                   <Fade in={mobileOpen} timeout={600}>
                     <Box>
+                      {onHome ? (
+                        <Box sx={{ display: "flex", flexDirection: "column", gap: 1.25 }}>
+                          <Button
+                            fullWidth
+                            variant="contained"
+                            href={LAS_VEGAS_BOOKING_HREF}
+                            aria-label={LAS_VEGAS_BOOK_LABEL}
+                            onClick={handleDrawerClose}
+                            sx={{
+                              background: "#067C92",
+                              color: "#fff",
+                              fontWeight: 800,
+                              borderRadius: "16px",
+                              py: 1.5,
+                              textTransform: "none",
+                              whiteSpace: "normal",
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {LAS_VEGAS_BOOK_LABEL}
+                          </Button>
+                          <Button
+                            fullWidth
+                            variant="contained"
+                            href={ORLANDO_BOOKING_HREF}
+                            aria-label={ORLANDO_BOOK_LABEL}
+                            onClick={handleDrawerClose}
+                            sx={{
+                              background: "#00ADCD",
+                              color: "#fff",
+                              fontWeight: 800,
+                              borderRadius: "16px",
+                              py: 1.5,
+                              textTransform: "none",
+                              whiteSpace: "normal",
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {ORLANDO_BOOK_LABEL}
+                          </Button>
+                        </Box>
+                      ) : (
                       <Button
                         fullWidth
                         variant="contained"
@@ -398,6 +494,7 @@ const Navbar = () => {
                       >
                         Book Now
                       </Button>
+                      )}
                     </Box>
                   </Fade>
                 </Box>

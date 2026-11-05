@@ -94,10 +94,9 @@ describe('city call and booking pairing', () => {
       expect(source).toContain('ORLANDO_BOOKING_HREF');
     }
 
-    expect(footer).toContain('isOrlandoSurface ? (');
-    expect(footer).toContain('<LocationChoices tone="dark" />');
-    expect(footer).toContain('href={LAS_VEGAS_TEL_HREF}');
+    expect(footer).toContain('showCityChoices ? (');
     expect(footer).toContain('pathname === "/"');
+    expect(footer).toContain('<LocationChoices tone="dark" />');
     expect(footer).toContain('Contact Us for Phone Numbers');
     expect(footer).not.toContain('tel:+14075132935');
     expect(footer).not.toContain('218-517-8083');
@@ -126,10 +125,40 @@ describe('city call and booking pairing', () => {
     }
   });
 
+  test('the homepage hero, booking band, header, and footer pair both cities', () => {
+    const home = read('components/Home.tsx');
+    const index = read('pages/index.tsx');
+    const navbar = read('components/Layout/Navbar.tsx');
+
+    expect(home).toContain('callHref: LAS_VEGAS_TEL_HREF');
+    expect(home).toContain('callLabel: LAS_VEGAS_CALL_LABEL');
+    expect(home).toContain('bookHref: LAS_VEGAS_BOOKING_HREF');
+    expect(home).toContain('bookLabel: LAS_VEGAS_BOOK_LABEL');
+    expect(home).toContain('callHref: ORLANDO_TEL_HREF');
+    expect(home).toContain('callLabel: ORLANDO_CALL_LABEL');
+    expect(home).toContain('bookHref: ORLANDO_BOOKING_HREF');
+    expect(home).toContain('bookLabel: ORLANDO_BOOK_LABEL');
+    expect(home.indexOf('city: "Las Vegas"')).toBeLessThan(home.indexOf('city: "Orlando"'));
+    expect(conversionForHref(LAS_VEGAS_TEL_HREF)?.sendTo).toBe(LAS_VEGAS_CALL_SEND_TO);
+    expect(conversionForHref(ORLANDO_TEL_HREF)).toBeNull();
+
+    expect(index).toContain('<LocationChoices');
+    expect(index).toContain('href={LAS_VEGAS_TEL_HREF}');
+    expect(index).toContain('href={ORLANDO_TEL_HREF}');
+    expect(index).toContain('{LAS_VEGAS_CALL_LABEL}');
+    expect(index).toContain('{ORLANDO_CALL_LABEL}');
+
+    expect(navbar).toContain('const onHome = pathname === "/"');
+    expect(navbar).toContain('href={LAS_VEGAS_BOOKING_HREF}');
+    expect(navbar).toContain('href={ORLANDO_BOOKING_HREF}');
+    expect(navbar).toContain('Book Las Vegas');
+    expect(navbar).toContain('Book Orlando');
+    expect(navbar).toContain('{LAS_VEGAS_BOOK_LABEL}');
+    expect(navbar).toContain('{ORLANDO_BOOK_LABEL}');
+  });
+
   test('ordinary Las Vegas pages do not gain Orlando call or booking actions', () => {
     const lasVegasPages = [
-      'components/Home.tsx',
-      'pages/index.tsx',
       'pages/services.tsx',
       'pages/prices.tsx',
       'pages/faq.tsx',
