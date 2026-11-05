@@ -1,3 +1,16 @@
+import {
+  LAS_VEGAS_BOOKING_HREF,
+  LAS_VEGAS_BOOK_LABEL,
+  LAS_VEGAS_CALL_LABEL,
+  LAS_VEGAS_EMAIL,
+  LAS_VEGAS_TEL_HREF,
+  ORLANDO_BOOKING_HREF,
+  ORLANDO_BOOK_LABEL,
+  ORLANDO_CALL_LABEL,
+  ORLANDO_EMAIL,
+  ORLANDO_TEL_HREF,
+} from "../lib/locationActions";
+
 export type BlogImage = {
   src: string;
   alt: string;
@@ -405,7 +418,9 @@ export const posted: BlogPost[] = [
       <h2>🎁 Grand Opening Special</h2>
       <p>To celebrate our Orlando launch, we’re offering an exclusive <strong>10% off your first appointment</strong> plus <strong>FREE premium add-ons</strong> like blueberry facials, paw balm, and teeth brushing—because your pup deserves the full Fluffy treatment.</p>
   
-      <p><strong>Booking is easy:</strong> Visit the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and select your location, or call <a href="tel:+14075132935">(407) 513-2935</a>. We’ll take care of the rest. Orlando, let’s get Fluffy!</p>
+      <p><strong>Booking is easy. Choose a city:</strong></p>
+      <p><strong>Las Vegas:</strong> <a href="${LAS_VEGAS_BOOKING_HREF}">${LAS_VEGAS_BOOK_LABEL}</a> or <a href="${LAS_VEGAS_TEL_HREF}">${LAS_VEGAS_CALL_LABEL}</a>. Email <a href="mailto:${LAS_VEGAS_EMAIL}">${LAS_VEGAS_EMAIL}</a>.</p>
+      <p><strong>Orlando:</strong> <a href="${ORLANDO_BOOKING_HREF}">${ORLANDO_BOOK_LABEL}</a> or <a href="${ORLANDO_TEL_HREF}">${ORLANDO_CALL_LABEL}</a>. Email <a href="mailto:${ORLANDO_EMAIL}">${ORLANDO_EMAIL}</a>.</p>
     `,
     imageAlt: ""
   },
