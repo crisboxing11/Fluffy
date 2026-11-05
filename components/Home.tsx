@@ -469,7 +469,7 @@ const Home = () => {
                       letterSpacing: { xs: "-0.01em", md: "normal" },
                     }}
                   >
-                    Bringing stress-free, professional pet grooming{" "}
+                    Stress-free mobile dog grooming in Las Vegas, brought{" "}
                     <Box
                       component="span"
                       sx={{
@@ -496,9 +496,12 @@ const Home = () => {
                       letterSpacing: { xs: "0.01em", md: "normal" },
                     }}
                   >
-                    Our full-service mobile spa pampers your pup in a calm,
-                    stress-free environment on wheels — no travel, no waiting,
-                    just pure comfort.
+                    Fluffy Pet Wash is a mobile dog grooming service for the Las
+                    Vegas valley. Our climate-controlled van comes to your home,
+                    so your dog gets a one-on-one groom with no salon lobby and
+                    no car ride. Every groom is all-inclusive, with de-shedding
+                    included. All dog breeds are welcome, including poodles and
+                    doodles, and we groom cats too.
                   </Typography>
                 </Box>
               </motion.div>
@@ -1006,7 +1009,7 @@ const Home = () => {
               lineHeight: 1.2,
             }}
           >
-            What to expect at your door
+            What to Expect From Mobile Dog Grooming in Las Vegas
           </Typography>
           <Typography
             variant="body1"
@@ -1017,8 +1020,8 @@ const Home = () => {
               mb: 2,
             }}
           >
-            Fluffy Pet Wash brings a grooming van to your home in Las Vegas and
-            in Orlando. Your dog is the only pet in the van for that visit.
+            Fluffy Pet Wash brings a grooming van to your home across the Las
+            Vegas valley. Your dog is the only pet in the van for that visit.
             There is no salon lobby, no cage beside other dogs, and no car ride
             before the bath. The van is climate-controlled, and the groomer
             stays with your dog from the first brush to the last.
@@ -1046,19 +1049,20 @@ const Home = () => {
               mb: 2,
             }}
           >
-            The groom includes a hypoallergenic wash, organic conditioner, a
-            full brush-out, towel and blow dry, nail trim and file, ear
-            cleaning, teeth brushing, paw care, a sanitary trim, and a
-            blueberry facial. De-shedding is part of the same visit. Prices
-            follow the breed and the coat, and nothing is due when you reserve
-            the time. Card, cash, and Zelle are accepted. The{" "}
+            Every dog groom is all-inclusive. It includes a hypoallergenic
+            wash, organic conditioner, a full brush-out, towel and blow dry,
+            nail trim and file, ear cleaning, teeth brushing, paw care, and a
+            sanitary trim. De-shedding is part of the same visit, and a full
+            haircut is the only add-on. Prices follow the breed and the coat,
+            and nothing is due when you reserve the time. Card, cash, and Zelle
+            are accepted. See current{" "}
             <Link
               href="/prices"
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
             >
-              prices page
+              mobile dog grooming prices in Las Vegas
             </Link>{" "}
-            lists the card service charge.
+            for the size tiers and the card service charge.
           </Typography>
           <Typography
             variant="body1"
@@ -1075,12 +1079,26 @@ const Home = () => {
             >
               pre-book page
             </Link>
-            . Choose Las Vegas or Orlando and continue to the calendar. All
-            breeds are welcome. You get an email after you book
+            . Choose your location and continue to the calendar. All dog breeds
+            are welcome, including poodles and doodles. Doodle owners can read
+            our{" "}
+            <Link
+              href="/blog/goldendoodle-haircut-guide"
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              goldendoodle haircut guide
+            </Link>
+            . You get an email after you book
             and a text when the appointment is accepted. Please let us know as
             early as you can if you need to change or cancel. Phone hours are
-            listed on the contact page. If you need a same-day visit, call to
-            ask whether a slot is open. Details on what is included are on the{" "}
+            listed on the contact page. If you need a same-day visit, call{" "}
+            <a
+              href={LAS_VEGAS_TEL_HREF}
+              style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
+            >
+              {LAS_VEGAS_PHONE_DISPLAY}
+            </a>{" "}
+            to ask whether a slot is open. Details on what is included are on the{" "}
             <Link
               href="/services"
               style={{ color: "#00ADCD", fontWeight: 700, textDecoration: "none" }}
