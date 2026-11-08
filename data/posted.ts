@@ -56,7 +56,7 @@ export const posted: BlogPost[] = [
       caption:
         'Illustrative image: a poodle in a teddy bear cut standing on a grooming table inside a mobile grooming van.',
     },
-    date: '2026-11-06',
+    date: '2026-11-08',
     content: `
       <p>Poodle hair keeps growing, so toy, miniature and standard poodles need regular trims to stay comfortable and easy to brush. Popular styles include the teddy bear, lamb, puppy, kennel/sporting and continental looks — but cut names are only a starting point. In Las Vegas, we groom your poodle one-on-one in our van. <a href="/prebook">Book</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>.</p>
 
