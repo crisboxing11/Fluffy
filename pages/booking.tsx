@@ -13,6 +13,10 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import territories from "../data/territories";
+import {
+  LAS_VEGAS_PHONE_DISPLAY,
+  LAS_VEGAS_TEL_HREF,
+} from "../lib/ads";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 import { motion } from "framer-motion";
@@ -203,6 +207,128 @@ const BookingPage = () => {
                   </Typography>
                 </Alert>
               )}
+
+              <Box
+                component="section"
+                aria-labelledby="booking-help-heading"
+                sx={{
+                  mb: 2,
+                  px: { xs: 1.5, md: 2.5 },
+                  py: { xs: 1.75, md: 2 },
+                  borderRadius: "16px",
+                  bgcolor: "#F4FBFB",
+                  border: "1px solid rgba(6, 124, 146, 0.28)",
+                }}
+              >
+                <Typography
+                  id="booking-help-heading"
+                  component="h2"
+                  variant="h2"
+                  sx={{
+                    fontSize: { xs: "1.2rem", md: "1.35rem" },
+                    fontWeight: 700,
+                    color: "#044E5C",
+                    lineHeight: 1.3,
+                    mb: 1,
+                  }}
+                >
+                  Not seeing appointment times?
+                </Typography>
+                <Typography
+                  component="p"
+                  variant="body1"
+                  sx={{
+                    color: "#0C3E48",
+                    fontSize: "1rem",
+                    lineHeight: 1.6,
+                    mb: 2,
+                  }}
+                >
+                  Your address may be outside our service area, or no online appointments may be available for your selections. Call your location and we’ll help check.
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    gap: 1.5,
+                  }}
+                >
+                  <Box
+                    component="a"
+                    href={LAS_VEGAS_TEL_HREF}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxSizing: "border-box",
+                      flex: { sm: "1 1 0" },
+                      width: { xs: "100%", sm: "auto" },
+                      minHeight: 48,
+                      px: 2,
+                      py: 1.25,
+                      borderRadius: "12px",
+                      border: "2px solid #067C92",
+                      bgcolor: "#FFFFFF",
+                      color: "#044E5C",
+                      fontWeight: 700,
+                      fontSize: "1rem",
+                      lineHeight: 1.3,
+                      textAlign: "center",
+                      textDecoration: "none",
+                      "&:hover": {
+                        bgcolor: "#E7F6F8",
+                      },
+                      "&:focus": {
+                        outline: "3px solid #044E5C",
+                        outlineOffset: "3px",
+                      },
+                      "&:focus-visible": {
+                        outline: "3px solid #044E5C !important",
+                        outlineOffset: "3px",
+                      },
+                    }}
+                  >
+                    Las Vegas: {LAS_VEGAS_PHONE_DISPLAY}
+                  </Box>
+                  <Box
+                    component="a"
+                    href="tel:+14075132935"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxSizing: "border-box",
+                      flex: { sm: "1 1 0" },
+                      width: { xs: "100%", sm: "auto" },
+                      minHeight: 48,
+                      px: 2,
+                      py: 1.25,
+                      borderRadius: "12px",
+                      border: "2px solid #067C92",
+                      bgcolor: "#FFFFFF",
+                      color: "#044E5C",
+                      fontWeight: 700,
+                      fontSize: "1rem",
+                      lineHeight: 1.3,
+                      textAlign: "center",
+                      textDecoration: "none",
+                      "&:hover": {
+                        bgcolor: "#E7F6F8",
+                      },
+                      "&:focus": {
+                        outline: "3px solid #044E5C",
+                        outlineOffset: "3px",
+                      },
+                      "&:focus-visible": {
+                        outline: "3px solid #044E5C !important",
+                        outlineOffset: "3px",
+                      },
+                    }}
+                  >
+                    Orlando: (407) 513-2935
+                  </Box>
+                </Box>
+              </Box>
 
               {/* Loading Indicator */}
               {!iframeLoaded && (
