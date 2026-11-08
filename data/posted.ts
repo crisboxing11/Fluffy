@@ -38,6 +38,90 @@ export type BlogPost = {
 
 export const posted: BlogPost[] = [
   {
+    slug: 'poodle-haircuts-las-vegas',
+    title:
+      'Poodle Haircuts Explained: Popular Styles and How Mobile Grooming Works in Las Vegas',
+    metaTitle: 'Poodle Haircuts Explained in Las Vegas | Fluffy Pet Wash',
+    excerpt:
+      'Poodle haircuts explained: lamb, teddy bear, puppy, continental and more. Mobile poodle grooming in Las Vegas and Henderson. Book or call 702-508-6248.',
+    // <!-- image: generated (realistic illustrative poodle, mobile van) -->
+    image: '/blog/poodle-haircuts-las-vegas/poodle-teddy-bear-cut-mobile-van-hero.webp',
+    imageAlt:
+      'A cream standard poodle with a soft teddy bear cut standing on a grooming table inside a mobile grooming van, sunny Las Vegas desert landscaping visible outside',
+    heroImage: {
+      src: '/blog/poodle-haircuts-las-vegas/poodle-teddy-bear-cut-mobile-van-hero.webp',
+      alt: 'A cream standard poodle with a soft teddy bear cut standing on a grooming table inside a mobile grooming van, sunny Las Vegas desert landscaping visible outside',
+      width: 1600,
+      height: 900,
+      caption:
+        'Illustrative image: a poodle in a teddy bear cut standing on a grooming table inside a mobile grooming van.',
+    },
+    date: '2026-11-08',
+    content: `
+      <p>Poodle hair keeps growing, so toy, miniature and standard poodles need regular trims to stay comfortable and easy to brush. Popular styles include the teddy bear, lamb, puppy, kennel/sporting and continental looks — but cut names are only a starting point. In Las Vegas, we groom your poodle one-on-one in our van. <a href="/prebook">Book</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>.</p>
+
+      <h2>Popular poodle cut styles</h2>
+      <p>There is no single "correct" poodle haircut. These are the requests we hear most often, and they work for toy, miniature and standard sizes:</p>
+      <ul>
+        <li><strong>Teddy bear:</strong> a rounded face and an even, soft length on the body. Friendly and easy to maintain when brushed regularly.</li>
+        <li><strong>Lamb (or lamb trim):</strong> shorter on the body with fuller legs that look a bit like lamb's wool. A classic everyday look.</li>
+        <li><strong>Kennel / sporting:</strong> a practical shorter body with tidy legs and face. Often chosen for active dogs or hot months.</li>
+        <li><strong>Puppy cut:</strong> an even all-over length that keeps the coat manageable while your dog is still growing into a fuller adult coat. Useful for young dogs and owners who want a simple brush-out at home.</li>
+        <li><strong>Continental (and related show-style outlines):</strong> a more sculpted silhouette with longer "pants," a topknot and shorter clipped areas. Some owners want a softer home version of this look rather than a strict show trim.</li>
+      </ul>
+      <p>Cut names are just a starting point. Photos and style names help your groomer understand what you like, but the final cut is decided in person. Coat condition, mat level, your dog's comfort that day and how you brush between visits all shape what is realistic and kind for that appointment. Bring a photo if you have one, and plan to talk it through before the clippers start.</p>
+      <p>We groom all dog breeds, including every poodle size and doodle mixes. For doodle-specific coat notes, see our <a href="/doodle-grooming-las-vegas">doodle and poodle grooming page</a>.</p>
+
+      <h2>Coat care between visits</h2>
+      <p>Poodle coats trap loose hair in the curls instead of dropping it on the floor. That is why brushing between visits matters as much as the haircut:</p>
+      <ul>
+        <li><strong>Brush a few times a week,</strong> working in small sections down to the skin, then follow with a metal comb. If the comb snags, there is still a tangle to work out.</li>
+        <li><strong>Watch friction spots:</strong> behind the ears, under the collar, armpits, legs and the tail.</li>
+        <li><strong>Dry fully after baths or pool days.</strong> Damp curls tighten into mats.</li>
+        <li><strong>Try not to bathe over mats.</strong> Water can make them tighter; brush first, or leave dematting to your groomer.</li>
+        <li><strong>Rebook on a steady rhythm.</strong> Many poodle owners do well every 4 to 6 weeks, but your groomer will suggest a schedule after seeing your dog's coat and lifestyle.</li>
+      </ul>
+      <p>If you notice skin redness, odor or anything that worries you, ask your vet. Grooming keeps the coat clean and tidy; it is not a substitute for veterinary care.</p>
+
+      <!-- image: generated (realistic illustrative poodle, mobile van) -->
+      <figure>
+        <img src="/blog/poodle-haircuts-las-vegas/poodle-brushing-coat-care-inline.webp" alt="Close-up of a gloved hand brushing a curly apricot poodle coat on a grooming table inside a mobile van, with a metal comb resting nearby" width="1200" height="900" />
+        <figcaption>Illustrative image: brushing a curly poodle coat on a grooming table, with a metal comb nearby.</figcaption>
+      </figure>
+
+      <h2>Why mobile one-on-one suits poodles</h2>
+      <p>A full poodle haircut takes focus: face, feet, sanitary areas and an even body length. In our climate-controlled van, your dog gets one groomer from start to finish — no kennels, no other barking dogs and no long car ride with a freshly clipped coat. You stay close by at home while we work outside.</p>
+      <p>Every visit is our all-inclusive wash: professional brush-out, hypoallergenic wash with organic conditioner, towel and blow dry, nail trimming and filing, ear cleaning, teeth brushing, optional gland expression, professional deshedding, paw tidy, sanitary trim, facial treatment and a final brush-out. Deshedding is included at no extra charge. A full haircut and styling is the only add-on (see <a href="/services">services</a> and <a href="/prices">prices</a>).</p>
+      <p>We're open 7 AM to 10 PM every day (closed Thanksgiving and Christmas), and we come to you anywhere in the Las Vegas valley with no travel fees.</p>
+
+      <h2>What it costs</h2>
+      <p>Prices are always starting at figures; your final total depends on size, coat condition and whether a haircut or dematting is needed. From our live <a href="/prices">prices page</a>:</p>
+      <ul>
+        <li><strong>Small dogs (up to about 25 lbs):</strong> starting at $85</li>
+        <li><strong>Medium dogs:</strong> starting at $95–$125</li>
+        <li><strong>Large dogs:</strong> starting at $140–$185</li>
+        <li><strong>Extra-large dogs:</strong> starting at $200+</li>
+      </ul>
+      <p>For poodles (and doodles), an up-to-$50 specialized breed fee may apply when a haircut or matting is involved. That fee already includes the haircut, so the separate haircut add-on (+$35 for small/medium or +$50 for large) does not stack on top. Example: a large doodle or poodle with a haircut is $140 + $50 = $190 total.</p>
+      <p>We accept card, cash and Zelle (no checks). Card payments include a 3.4% + 30¢ service charge. After your first appointment, Fluffy Preferred members save 10% on services.</p>
+
+      <h2>Book a poodle haircut in Las Vegas</h2>
+      <p>Ready for a teddy bear, lamb trim or a practical sporting length? <a href="/prebook">Book Now</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>. Questions first? Visit our <a href="/faq">FAQ</a>.</p>
+
+      <h2>FAQ</h2>
+      <p><strong>Q: How often should a poodle be groomed?</strong></p>
+      <p>A: Many owners book every 4 to 6 weeks, but it depends on coat texture, how much you brush at home and the length you like. Your groomer can suggest a rhythm after the first visit.</p>
+      <p><strong>Q: Do cut names like "teddy bear" or "lamb" lock in the exact look?</strong></p>
+      <p>A: No. Style names and photos are a helpful starting point. The final cut is decided in person with your groomer based on coat condition and what is comfortable for your dog that day.</p>
+      <p><strong>Q: How much does poodle grooming cost?</strong></p>
+      <p>A: Dog grooming starts at $85 for small dogs, with higher starting tiers by size on our <a href="/prices">prices page</a>. For poodles needing a haircut or dematting, an up-to-$50 specialized breed fee applies and already includes the haircut (example: large with haircut $140 + $50 = $190). The separate haircut add-on does not stack.</p>
+      <p><strong>Q: Do you only groom poodles and doodles?</strong></p>
+      <p>A: No. We groom all dog breeds, plus cats. Poodles and doodles are welcome alongside every other breed.</p>
+      <p><strong>Q: Is deshedding extra?</strong></p>
+      <p>A: No. Deshedding is included in every groom. Grooms are all-inclusive; a full haircut is the only add-on.</p>
+    `,
+  },
+  {
     slug: 'double-coated-dog-deshedding-las-vegas',
     title:
       'Double-Coated Dogs in Las Vegas: Deshedding Huskies, Shepherds and Goldens (and Why Not to Shave)',
