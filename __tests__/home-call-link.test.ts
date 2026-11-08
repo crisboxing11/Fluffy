@@ -51,7 +51,8 @@ describe('Las Vegas home tap-to-call', () => {
     const choices = read('components/LocationChoices.tsx');
     expect(choices).toContain('gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)"');
     expect(choices).toContain('"&&:focus-visible"');
-    expect(choices).toContain('outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92"');
+    expect(choices).toContain('? "3px solid #FFFFFF !important"');
+    expect(choices).toContain(': "3px solid #067C92 !important"');
     expect(choices).not.toContain('borderRadius: "20px"');
     expect(home).not.toContain('heroCities');
   });
