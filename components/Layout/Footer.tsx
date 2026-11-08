@@ -107,7 +107,7 @@ const Footer = () => {
               {/* Contact Info */}
               <Stack spacing={2}>
                 {showCityChoices ? (
-                  <LocationChoices tone="dark" />
+                  <LocationChoices tone="dark" showEmail />
                 ) : (
                 <Box display="flex" alignItems="center" gap={2}>
                   <PhoneIcon sx={{ color: "#A1E0E3", fontSize: "1.25rem" }} />

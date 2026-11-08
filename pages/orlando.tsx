@@ -358,7 +358,7 @@ const OrlandoPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                   >
-                    <LocationChoices columns={1} />
+                    <LocationChoices />
                   </motion.div>
                 </motion.div>
               </Grid>
