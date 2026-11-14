@@ -17,6 +17,7 @@ import PetsIcon from "@mui/icons-material/Pets";
 import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OrlandoVanImage from "../public/Orlando Van .png";
+import { ORLANDO_TEL_HREF } from "../lib/ads";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -339,7 +340,7 @@ const OrlandoPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                   >
-                    <Link href="/prebook" passHref legacyBehavior>
+                    <Link href="/booking?location=Orlando%2C%20Florida" passHref legacyBehavior>
                       <Button
                         component="a"
                         variant="contained"
@@ -884,11 +885,66 @@ const OrlandoPage = () => {
               Join hundreds of satisfied Orlando pet parents who trust Fluffy
               Pet Wash for their mobile grooming needs.
             </Typography>
-            <Link href="/prebook" passHref legacyBehavior>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: 2,
+              }}
+            >
+              <Link href="/booking?location=Orlando%2C%20Florida" passHref legacyBehavior>
+                <Button
+                  component="a"
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    px: 6,
+                    py: 2.5,
+                    fontSize: "1.2rem",
+                    fontWeight: 800,
+                    textTransform: "none",
+                    borderRadius: "50px",
+                    background:
+                      "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                    color: "white",
+                    boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    position: "relative",
+                    overflow: "hidden",
+                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    minHeight: 44,
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: "-100%",
+                      width: "100%",
+                      height: "100%",
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                      transition: "left 0.6s ease",
+                    },
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                      transform: "translateY(-3px) scale(1.02)",
+                      boxShadow: "0 16px 50px rgba(0, 173, 205, 0.5)",
+                      "&::before": {
+                        left: "100%",
+                      },
+                    },
+                  }}
+                >
+                  Book Your Orlando Appointment
+                </Button>
+              </Link>
               <Button
                 component="a"
+                href={ORLANDO_TEL_HREF}
                 variant="contained"
                 size="large"
+                aria-label="Call Orlando"
                 sx={{
                   px: 6,
                   py: 2.5,
@@ -904,6 +960,7 @@ const OrlandoPage = () => {
                   position: "relative",
                   overflow: "hidden",
                   transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  minHeight: 44,
                   "&::before": {
                     content: '""',
                     position: "absolute",
@@ -926,9 +983,9 @@ const OrlandoPage = () => {
                   },
                 }}
               >
-                Book Your Orlando Appointment
+                Call Orlando
               </Button>
-            </Link>
+            </Box>
           </Container>
         </Box>
       </motion.div>

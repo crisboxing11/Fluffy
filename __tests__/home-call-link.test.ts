@@ -27,7 +27,12 @@ describe('Las Vegas home tap-to-call', () => {
 
   test('hero and footer use that href, not another number', () => {
     expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
-    expect(home).toContain('Call {LAS_VEGAS_PHONE_DISPLAY}');
+    expect(home).toContain('Call Las Vegas');
+    expect(home).toContain('href={ORLANDO_TEL_HREF}');
+    expect(home).toContain('Call Orlando');
+    expect(home).toContain('"/booking?location=Las%20Vegas%2C%20Nevada"');
+    expect(home).toContain('"/booking?location=Orlando%2C%20Florida"');
+    expect(home).not.toContain('Choose a city');
     expect(footer).toContain('href={LAS_VEGAS_TEL_HREF}');
     expect(footer).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
     expect(footer).toContain('pathname === "/"');
@@ -57,13 +62,14 @@ describe('Las Vegas home tap-to-call', () => {
     expect(home).toContain('outline: "3px solid #067C92 !important"');
     expect(home).toContain('outlineOffset: "3px !important"');
 
-    const book = home.slice(
-      home.indexOf('aria-label="Book a grooming appointment"'),
-      home.indexOf('Book Your Appointment'),
-    );
+    const bookMarker = 'aria-label="Book Las Vegas"';
+    const bookStart = home.indexOf(bookMarker);
+    const book = home.slice(bookStart, home.indexOf('Book Las Vegas', bookStart + bookMarker.length));
+    const callStart = home.indexOf('href={LAS_VEGAS_TEL_HREF}');
+    const callAria = 'aria-label={`Call Las Vegas:';
     const call = home.slice(
-      home.indexOf('href={LAS_VEGAS_TEL_HREF}'),
-      home.indexOf('Call {LAS_VEGAS_PHONE_DISPLAY}'),
+      callStart,
+      home.indexOf('Call Las Vegas', home.indexOf(callAria) + callAria.length),
     );
     for (const source of [book, call]) {
       expect(source).toContain('heroActionTransition');
