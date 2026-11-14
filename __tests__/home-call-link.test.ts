@@ -26,16 +26,16 @@ describe('Las Vegas home tap-to-call', () => {
   });
 
   test('homepage hero and footer name both cities without a second hardcoded number', () => {
-    expect(home).toContain('<LocationChoices');
-    expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
-    expect(home).toContain('href={ORLANDO_TEL_HREF}');
-    expect(home).toContain('href={LAS_VEGAS_BOOKING_HREF}');
-    expect(home).toContain('href={ORLANDO_BOOKING_HREF}');
-    expect(home).toContain('{LAS_VEGAS_CALL_LABEL}');
-    expect(home).toContain('{ORLANDO_CALL_LABEL}');
+    expect(home).toContain('callHref: LAS_VEGAS_TEL_HREF');
+    expect(home).toContain('callHref: ORLANDO_TEL_HREF');
+    expect(home).toContain('bookHref: LAS_VEGAS_BOOKING_HREF');
+    expect(home).toContain('bookHref: ORLANDO_BOOKING_HREF');
+    expect(home).toContain('callLabel: LAS_VEGAS_CALL_LABEL');
+    expect(home).toContain('callLabel: ORLANDO_CALL_LABEL');
+    expect(home).toContain('href={market.callHref}');
     expect(footer).toContain('pathname === "/"');
     expect(footer).toContain('showCityChoices');
-    expect(footer).toContain('<LocationChoices tone="dark" showEmail />');
+    expect(footer).toContain('<LocationChoices tone="dark" />');
     expect(footer).toContain('Contact Us for Phone Numbers');
 
     for (const source of [home, footer]) {
@@ -47,13 +47,23 @@ describe('Las Vegas home tap-to-call', () => {
     }
   });
 
-  test('city actions keep a visible focus ring and do not use a stacked card layout', () => {
-    const choices = read('components/LocationChoices.tsx');
-    expect(choices).toContain('gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)"');
-    expect(choices).toContain('"&&:focus-visible"');
-    expect(choices).toContain('outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92"');
-    expect(choices).not.toContain('borderRadius: "20px"');
-    expect(home).not.toContain('heroCities');
+  test('hero call matches book hover, press, and reduced motion', () => {
+    expect(home).toContain('const heroActionTiming = "0.4s cubic-bezier(0.4, 0, 0.2, 1)"');
+    expect(home).toContain('translateY(-3px) scale(1.02)');
+    expect(home).toContain('"@media (hover: hover)"');
+    expect(home).toContain('"@media (hover: none)"');
+    expect(home).toContain('transform: "none !important"');
+    expect(home).toContain('"@media (prefers-reduced-motion: reduce)"');
+    expect(home).toContain('"&&:active, &&:hover:active"');
+    expect(home).toContain('heroPressedSx(bookHeroRestShadow)');
+    expect(home).toContain('heroPressedSx(callHeroRestShadow)');
+    expect(home).toContain('backgroundColor: "#F4FBFB"');
+    expect(home).toContain('boxShadow: callHeroHoverShadow');
+    expect(home).toContain('outline: "3px solid #067C92 !important"');
+    expect(home).toContain('outlineOffset: "3px !important"');
+    expect(home).toContain('border: "2px solid #067C92"');
+    expect(home).toContain('border: "2px solid #038B95"');
+    expect(home).toContain('heroActionTransition');
   });
 
   test('homepage why paragraph names both city call links', () => {

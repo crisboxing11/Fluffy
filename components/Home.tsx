@@ -1,6 +1,7 @@
 import {
   Box,
   Typography,
+  Button,
   Grid,
   Card,
   CardContent,
@@ -12,6 +13,7 @@ import StarIcon from "@mui/icons-material/Star";
 import SpaIcon from "@mui/icons-material/Spa";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import PhoneIcon from "@mui/icons-material/Phone";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -35,7 +37,6 @@ import {
   ORLANDO_CALL_LABEL,
   ORLANDO_TEL_HREF,
 } from "../lib/locationActions";
-import LocationChoices from "./LocationChoices";
 
 // Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
@@ -129,6 +130,26 @@ const scaleIn = {
   },
 };
 
+// Shared by Book and Call so the hover, press, and reduced-motion
+// treatment cannot drift. Timing matches the filled button.
+const heroActionTiming = "0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+
+const bookHeroRestShadow =
+  "0 12px 40px rgba(0, 173, 205, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
+const bookHeroHoverShadow =
+  "0 16px 50px rgba(0, 173, 205, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)";
+const callHeroRestShadow = "0 6px 18px rgba(6, 124, 146, 0.12)";
+const callHeroHoverShadow = "0 10px 28px rgba(6, 124, 146, 0.22)";
+
+function heroActionTransition(properties: string): string {
+  return properties
+    .split(", ")
+    .map((property) => `${property} ${heroActionTiming}`)
+    .join(", ");
+}
+
+// Lift only on real hover. Pressed wins over that lift. Reduced motion
+// also cancels the theme's contained-button scale(1.05).
 const whyChooseLinkStyle = {
   color: "#00ADCD",
   fontWeight: 700,
@@ -138,6 +159,47 @@ const whyChooseLinkStyle = {
   padding: "2px 4px",
   borderRadius: "4px",
 } as const;
+
+const heroCities = [
+  {
+    city: "Las Vegas",
+    bookHref: LAS_VEGAS_BOOKING_HREF,
+    bookLabel: LAS_VEGAS_BOOK_LABEL,
+    callHref: LAS_VEGAS_TEL_HREF,
+    callLabel: LAS_VEGAS_CALL_LABEL,
+  },
+  {
+    city: "Orlando",
+    bookHref: ORLANDO_BOOKING_HREF,
+    bookLabel: ORLANDO_BOOK_LABEL,
+    callHref: ORLANDO_TEL_HREF,
+    callLabel: ORLANDO_CALL_LABEL,
+  },
+] as const;
+
+function heroPressedSx(restShadow: string) {
+  return {
+    "@media (hover: hover)": {
+      "&&:hover": {
+        transform: "translateY(-3px) scale(1.02)",
+      },
+    },
+    "@media (hover: none)": {
+      "&&:hover": {
+        transform: "none !important",
+      },
+    },
+    "&&:active, &&:hover:active": {
+      transform: "translateY(0) scale(1)",
+      boxShadow: restShadow,
+    },
+    "@media (prefers-reduced-motion: reduce)": {
+      "&&, &&:hover, &&:active, &&:hover:active": {
+        transform: "none !important",
+      },
+    },
+  };
+}
 
 const Home = () => {
   const [opacity, setOpacity] = useState(0.9); // Default for desktop
@@ -468,12 +530,156 @@ const Home = () => {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
               >
-                <Box sx={{ mb: { xs: 2, sm: 3.5, md: 5 } }}>
-                  <LocationChoices />
+                <Typography
+                  component="p"
+                  sx={{
+                    mb: 1.25,
+                    fontWeight: 800,
+                    color: "#067C92",
+                    textAlign: { xs: "center", md: "left" },
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                  }}
+                >
+                  Choose a city to call or book
+                </Typography>
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                    gap: 1.5,
+                    width: "100%",
+                    mb: { xs: 2, sm: 3.5, md: 5 },
+                  }}
+                >
+                  {heroCities.map((market) => (
+                    <Box
+                      key={market.city}
+                      component="section"
+                      aria-label={`${market.city} call and booking`}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 1,
+                        p: 1.25,
+                        borderRadius: "22px",
+                        border: "2px solid",
+                        borderColor:
+                          market.city === "Orlando" ? "#0AC3E6" : "#067C92",
+                        bgcolor:
+                          market.city === "Orlando"
+                            ? "rgba(229, 248, 251, 0.92)"
+                            : "rgba(255, 255, 255, 0.92)",
+                      }}
+                    >
+                      <Typography
+                        component="h2"
+                        sx={{
+                          m: 0,
+                          fontWeight: 800,
+                          fontSize: "1.05rem",
+                          color: "#067C92",
+                          textAlign: "left",
+                        }}
+                      >
+                        {market.city}
+                      </Typography>
+                      <Link href={market.bookHref} passHref legacyBehavior>
+                        <Button
+                          component="a"
+                          variant="contained"
+                          aria-label={market.bookLabel}
+                          sx={{
+                            px: 2,
+                            py: 1.25,
+                            fontSize: { xs: "0.92rem", md: "0.98rem" },
+                            fontWeight: 800,
+                            textTransform: "none",
+                            whiteSpace: "normal",
+                            lineHeight: 1.25,
+                            height: "auto",
+                            borderRadius: "18px",
+                            background:
+                              "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                            boxShadow: bookHeroRestShadow,
+                            border: "1px solid rgba(255, 255, 255, 0.1)",
+                            position: "relative",
+                            overflow: "hidden",
+                            width: "100%",
+                            minHeight: 48,
+                            "&&": {
+                              transition: heroActionTransition(
+                                "background, transform, box-shadow",
+                              ),
+                            },
+                            "&&:hover": {
+                              background:
+                                "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                              boxShadow: bookHeroHoverShadow,
+                            },
+                            ...heroPressedSx(bookHeroRestShadow),
+                            "&&:focus-visible, &&.Mui-focusVisible": {
+                              outline: "3px solid #067C92 !important",
+                              outlineOffset: "3px !important",
+                            },
+                          }}
+                        >
+                          {market.bookLabel}
+                        </Button>
+                      </Link>
+                      <Button
+                        component="a"
+                        href={market.callHref}
+                        variant="outlined"
+                        aria-label={market.callLabel}
+                        startIcon={
+                          <PhoneIcon aria-hidden="true" sx={{ fontSize: 20 }} />
+                        }
+                        sx={{
+                          px: 1.5,
+                          py: 1.1,
+                          fontSize: { xs: "0.9rem", md: "0.95rem" },
+                          fontWeight: 700,
+                          textTransform: "none",
+                          whiteSpace: "normal",
+                          lineHeight: 1.25,
+                          height: "auto",
+                          borderRadius: "18px",
+                          border: "2px solid #067C92",
+                          color: "#067C92",
+                          backgroundColor: "#FFFFFF",
+                          boxShadow: callHeroRestShadow,
+                          width: "100%",
+                          minHeight: 48,
+                          "&&": {
+                            transition: heroActionTransition(
+                              "background-color, border-color, color, transform, box-shadow",
+                            ),
+                          },
+                          "&&:hover": {
+                            border: "2px solid #038B95",
+                            backgroundColor: "#F4FBFB",
+                            color: "#067C92",
+                            boxShadow: callHeroHoverShadow,
+                          },
+                          ...heroPressedSx(callHeroRestShadow),
+                          "&&:focus-visible, &&.Mui-focusVisible": {
+                            outline: "3px solid #067C92 !important",
+                            outlineOffset: "3px !important",
+                          },
+                        }}
+                      >
+                        {market.callLabel}
+                      </Button>
+                    </Box>
+                  ))}
                 </Box>
               </motion.div>
 

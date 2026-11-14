@@ -74,8 +74,8 @@ describe('city call and booking pairing', () => {
     expect(source).toContain('bookHref: ORLANDO_BOOKING_HREF');
     expect(source).toContain('bookLabel: ORLANDO_BOOK_LABEL');
     expect(source).toContain('email: ORLANDO_EMAIL');
-    expect(source).toContain('gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)"');
-    expect(source.indexOf('city: "Las Vegas"')).toBeLessThan(source.indexOf('city: "Orlando"'));
+    expect(source).toContain('Choose a city to call or book');
+    expect(source.indexOf('Las Vegas')).toBeLessThan(source.indexOf('Orlando'));
     expect(source).not.toContain('218-517-8083');
     expect(source).not.toContain('209 Popolo');
     expect(source).not.toContain('89138');
@@ -96,7 +96,7 @@ describe('city call and booking pairing', () => {
 
     expect(footer).toContain('showCityChoices ? (');
     expect(footer).toContain('pathname === "/"');
-    expect(footer).toContain('<LocationChoices tone="dark" showEmail />');
+    expect(footer).toContain('<LocationChoices tone="dark" />');
     expect(footer).toContain('Contact Us for Phone Numbers');
     expect(footer).not.toContain('tel:+14075132935');
     expect(footer).not.toContain('218-517-8083');
@@ -130,15 +130,15 @@ describe('city call and booking pairing', () => {
     const index = read('pages/index.tsx');
     const navbar = read('components/Layout/Navbar.tsx');
 
-    expect(home).toContain('<LocationChoices');
-    expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
-    expect(home).toContain('href={ORLANDO_TEL_HREF}');
-    expect(home).toContain('{LAS_VEGAS_CALL_LABEL}');
-    expect(home).toContain('{ORLANDO_CALL_LABEL}');
-    expect(home).toContain('href={LAS_VEGAS_BOOKING_HREF}');
-    expect(home).toContain('href={ORLANDO_BOOKING_HREF}');
-    expect(home).toContain('{LAS_VEGAS_BOOK_LABEL}');
-    expect(home).toContain('{ORLANDO_BOOK_LABEL}');
+    expect(home).toContain('callHref: LAS_VEGAS_TEL_HREF');
+    expect(home).toContain('callLabel: LAS_VEGAS_CALL_LABEL');
+    expect(home).toContain('bookHref: LAS_VEGAS_BOOKING_HREF');
+    expect(home).toContain('bookLabel: LAS_VEGAS_BOOK_LABEL');
+    expect(home).toContain('callHref: ORLANDO_TEL_HREF');
+    expect(home).toContain('callLabel: ORLANDO_CALL_LABEL');
+    expect(home).toContain('bookHref: ORLANDO_BOOKING_HREF');
+    expect(home).toContain('bookLabel: ORLANDO_BOOK_LABEL');
+    expect(home.indexOf('city: "Las Vegas"')).toBeLessThan(home.indexOf('city: "Orlando"'));
     expect(conversionForHref(LAS_VEGAS_TEL_HREF)?.sendTo).toBe(LAS_VEGAS_CALL_SEND_TO);
     expect(conversionForHref(ORLANDO_TEL_HREF)).toBeNull();
 

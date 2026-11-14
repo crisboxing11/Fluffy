@@ -718,8 +718,8 @@ const ContactPage = () => {
               {LAS_VEGAS_CALL_LABEL}
             </a>
             {" "}or{" "}
-            <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
-              Call Orlando: (407) 513-2935
+            <a href={ORLANDO_TEL_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
+              {ORLANDO_CALL_LABEL}
             </a>
             . Phone hours are listed on this page. Email{" "}
             <strong>Las Vegas</strong> at{" "}

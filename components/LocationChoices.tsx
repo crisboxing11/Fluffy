@@ -33,134 +33,160 @@ const locations = [
 ] as const;
 
 type LocationChoicesProps = {
+  /** One column when the parent is narrow. Two columns from the md breakpoint. */
+  columns?: 1 | 2;
   tone?: "light" | "dark";
-  showEmail?: boolean;
 };
 
-const LocationChoices = ({ tone = "light", showEmail = false }: LocationChoicesProps) => {
+const LocationChoices = ({ columns = 2, tone = "light" }: LocationChoicesProps) => {
   const dark = tone === "dark";
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
-        columnGap: { xs: 1, sm: 2 },
-        width: "100%",
-        minWidth: 0,
-      }}
-    >
-      {locations.map((location) => (
-        <Box
-          key={location.city}
-          component="section"
-          aria-label={`${location.city} call and booking`}
-          sx={{
-            minWidth: 0,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "stretch",
-            gap: 0.75,
-          }}
-        >
-          <Typography
-            component="p"
-            sx={{
-              m: 0,
-              fontWeight: 800,
-              fontSize: { xs: "0.95rem", sm: "1.05rem" },
-              lineHeight: 1.2,
-              color: dark ? "#FFFFFF" : "#067C92",
-            }}
-          >
-            {location.city}
-          </Typography>
-          <NextLink href={location.bookHref} passHref legacyBehavior>
-            <Button
-              component="a"
-              variant="contained"
-              aria-label={location.bookLabel}
+    <Box sx={{ width: "100%" }}>
+      <Typography
+        component="p"
+        sx={{
+          mb: 1.5,
+          fontWeight: 800,
+          textAlign: "center",
+          color: dark ? "#FFFFFF" : "#067C92",
+          fontSize: { xs: "1rem", sm: "1.05rem" },
+        }}
+      >
+        Choose a city to call or book
+      </Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: columns === 1 ? "1fr" : { xs: "1fr", md: "1fr 1fr" },
+          gap: 2,
+          width: "100%",
+          alignItems: "stretch",
+        }}
+      >
+        {locations.map((location, index) => {
+          const orlando = index === 1;
+          return (
+            <Box
+              key={location.city}
+              component="section"
+              aria-label={`${location.city}: call, book, and email`}
               sx={{
-                textTransform: "none",
-                whiteSpace: "normal",
-                lineHeight: 1.25,
-                height: "auto",
-                minHeight: 40,
-                minWidth: 0,
-                width: "100%",
-                px: { xs: 1, sm: 1.5 },
-                py: 0.75,
-                fontWeight: 800,
-                fontSize: { xs: "0.75rem", sm: "0.875rem" },
-                borderRadius: "999px",
-                color: dark ? "#026B73" : "#FFFFFF",
-                bgcolor: dark ? "#FFFFFF" : "#026B73",
-                boxShadow: "none",
-                "&:hover": {
-                  bgcolor: dark ? "#A1E0E3" : "#015860",
-                  color: dark ? "#026B73" : "#FFFFFF",
-                  boxShadow: "none",
-                },
-                "&&:focus-visible": {
-                  outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
-                  outlineOffset: "2px",
-                },
+                display: "flex",
+                flexDirection: "column",
+                gap: 1.25,
+                textAlign: "left",
+                p: { xs: 2, sm: 2.5 },
+                borderRadius: "20px",
+                border: "2px solid",
+                borderColor: dark
+                  ? orlando
+                    ? "#A1E0E3"
+                    : "#FFFFFF"
+                  : orlando
+                    ? "#0AC3E6"
+                    : "#067C92",
+                bgcolor: dark
+                  ? orlando
+                    ? "rgba(161, 224, 227, 0.16)"
+                    : "rgba(255, 255, 255, 0.12)"
+                  : orlando
+                    ? "#E5F8FB"
+                    : "#FFFFFF",
+                boxShadow: dark ? "none" : "0 8px 24px rgba(6, 124, 146, 0.08)",
               }}
             >
-              {location.bookLabel}
-            </Button>
-          </NextLink>
-          <Button
-            component="a"
-            href={location.callHref}
-            variant="outlined"
-            aria-label={location.callLabel}
-            sx={{
-              textTransform: "none",
-              whiteSpace: "normal",
-              lineHeight: 1.25,
-              height: "auto",
-              minHeight: 40,
-              minWidth: 0,
-              width: "100%",
-              px: { xs: 1, sm: 1.5 },
-              py: 0.75,
-              fontWeight: 700,
-              fontSize: { xs: "0.75rem", sm: "0.875rem" },
-              borderRadius: "999px",
-              color: dark ? "#FFFFFF" : "#067C92",
-              borderColor: dark ? "rgba(255,255,255,0.85)" : "#067C92",
-              bgcolor: dark ? "transparent" : "#FFFFFF",
-              "&:hover": {
-                bgcolor: dark ? "rgba(255,255,255,0.12)" : "#F4FBFB",
-                borderColor: dark ? "#FFFFFF" : "#038B95",
-                color: dark ? "#FFFFFF" : "#067C92",
-              },
-              "&&:focus-visible": {
-                outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
-                outlineOffset: "2px",
-              },
-            }}
-          >
-            {location.callLabel}
-          </Button>
-          {showEmail ? (
-            <MuiLink
-              href={`mailto:${location.email}`}
-              underline="hover"
-              sx={{
-                fontWeight: 700,
-                overflowWrap: "anywhere",
-                color: dark ? "#FFFFFF" : "#038B95",
-                fontSize: { xs: "0.7rem", sm: "0.8rem" },
-                lineHeight: 1.3,
-              }}
-            >
-              {location.email}
-            </MuiLink>
-          ) : null}
-        </Box>
-      ))}
+              <Typography
+                component="h3"
+                sx={{
+                  m: 0,
+                  fontWeight: 800,
+                  fontSize: { xs: "1.25rem", sm: "1.35rem" },
+                  lineHeight: 1.2,
+                  color: dark ? "#FFFFFF" : orlando ? "#038B95" : "#067C92",
+                }}
+              >
+                {location.city}
+              </Typography>
+              <Button
+                component="a"
+                href={location.callHref}
+                variant={dark ? "contained" : "outlined"}
+                sx={{
+                  textTransform: "none",
+                  whiteSpace: "normal",
+                  lineHeight: 1.3,
+                  height: "auto",
+                  minHeight: 48,
+                  px: 2,
+                  py: 1.25,
+                  fontWeight: 800,
+                  fontSize: { xs: "0.95rem", sm: "1rem" },
+                  borderRadius: "14px",
+                  color: dark ? "#026B73" : "#067C92",
+                  bgcolor: dark ? "#FFFFFF" : "transparent",
+                  borderColor: dark ? "#FFFFFF" : "#067C92",
+                  borderWidth: 2,
+                  "&:hover": {
+                    bgcolor: dark ? "#A1E0E3" : "rgba(6, 124, 146, 0.08)",
+                    borderColor: dark ? "#A1E0E3" : "#067C92",
+                    borderWidth: 2,
+                  },
+                  "&&:focus-visible": {
+                    outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
+                    outlineOffset: "3px",
+                  },
+                }}
+              >
+                {location.callLabel}
+              </Button>
+              <NextLink href={location.bookHref} passHref legacyBehavior>
+                <Button
+                  component="a"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    whiteSpace: "normal",
+                    lineHeight: 1.3,
+                    height: "auto",
+                    minHeight: 48,
+                    px: 2,
+                    py: 1.25,
+                    fontWeight: 800,
+                    fontSize: { xs: "0.95rem", sm: "1rem" },
+                    borderRadius: "14px",
+                    color: "#FFFFFF",
+                    bgcolor: orlando ? "#00ADCD" : "#067C92",
+                    boxShadow: "none",
+                    "&:hover": {
+                      bgcolor: orlando ? "#038B95" : "#026B73",
+                      boxShadow: "none",
+                    },
+                    "&&:focus-visible": {
+                      outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
+                      outlineOffset: "3px",
+                    },
+                  }}
+                >
+                  {location.bookLabel}
+                </Button>
+              </NextLink>
+              <MuiLink
+                href={`mailto:${location.email}`}
+                underline="hover"
+                sx={{
+                  fontWeight: 700,
+                  overflowWrap: "anywhere",
+                  color: dark ? "#FFFFFF" : "#038B95",
+                  fontSize: { xs: "0.95rem", sm: "1rem" },
+                }}
+              >
+                {location.email}
+              </MuiLink>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 };
