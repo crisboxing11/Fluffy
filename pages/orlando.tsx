@@ -17,7 +17,6 @@ import PetsIcon from "@mui/icons-material/Pets";
 import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OrlandoVanImage from "../public/Orlando Van .png";
-import { ORLANDO_PHONE_DISPLAY, ORLANDO_TEL_HREF } from "../lib/ads";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -50,42 +49,6 @@ const scaleIn = {
     transition: {
       duration: 0.6,
       ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
-
-const orlandoCtaButtonSx = {
-  px: 6,
-  py: 2.5,
-  fontSize: "1.2rem",
-  fontWeight: 800,
-  textTransform: "none",
-  borderRadius: "50px",
-  background: "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
-  color: "white",
-  boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
-  border: "1px solid rgba(255, 255, 255, 0.2)",
-  position: "relative",
-  overflow: "hidden",
-  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: "-100%",
-    width: "100%",
-    height: "100%",
-    background:
-      "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-    transition: "left 0.6s ease",
-  },
-  "&:hover": {
-    background:
-      "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
-    transform: "translateY(-3px) scale(1.02)",
-    boxShadow: "0 16px 50px rgba(0, 173, 205, 0.5)",
-    "&::before": {
-      left: "100%",
     },
   },
 };
@@ -732,20 +695,7 @@ const OrlandoPage = () => {
                   >
                     Ready to reserve your slot? Use our simple booking form to
                     confirm that we service your part of Orlando, then continue
-                    to secure your preferred appointment time. Call{" "}
-                    <a
-                      href={ORLANDO_TEL_HREF}
-                      style={{
-                        color: "#00ADCD",
-                        fontWeight: "bold",
-                        textDecoration: "none",
-                        borderBottom: "2px solid #93EDF0",
-                        paddingBottom: "2px",
-                      }}
-                    >
-                      {ORLANDO_PHONE_DISPLAY}
-                    </a>{" "}
-                    or email{" "}
+                    to secure your preferred appointment time. Email{" "}
                     <a
                       href="mailto:orlando@fluffypetwash.com"
                       style={{
@@ -934,35 +884,51 @@ const OrlandoPage = () => {
               Join hundreds of satisfied Orlando pet parents who trust Fluffy
               Pet Wash for their mobile grooming needs.
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: 2,
-              }}
-            >
-              <Link href="/prebook" passHref legacyBehavior>
-                <Button
-                  component="a"
-                  variant="contained"
-                  size="large"
-                  sx={orlandoCtaButtonSx}
-                >
-                  Book Your Orlando Appointment
-                </Button>
-              </Link>
+            <Link href="/prebook" passHref legacyBehavior>
               <Button
                 component="a"
-                href={ORLANDO_TEL_HREF}
                 variant="contained"
                 size="large"
-                sx={orlandoCtaButtonSx}
+                sx={{
+                  px: 6,
+                  py: 2.5,
+                  fontSize: "1.2rem",
+                  fontWeight: 800,
+                  textTransform: "none",
+                  borderRadius: "50px",
+                  background:
+                    "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                  color: "white",
+                  boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: "-100%",
+                    width: "100%",
+                    height: "100%",
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                    transition: "left 0.6s ease",
+                  },
+                  "&:hover": {
+                    background:
+                      "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                    transform: "translateY(-3px) scale(1.02)",
+                    boxShadow: "0 16px 50px rgba(0, 173, 205, 0.5)",
+                    "&::before": {
+                      left: "100%",
+                    },
+                  },
+                }}
               >
-                Call {ORLANDO_PHONE_DISPLAY}
+                Book Your Orlando Appointment
               </Button>
-            </Box>
+            </Link>
           </Container>
         </Box>
       </motion.div>
