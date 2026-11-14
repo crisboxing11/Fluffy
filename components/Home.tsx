@@ -30,7 +30,12 @@ import Link from "next/link";
 import {
   LAS_VEGAS_PHONE_DISPLAY,
   LAS_VEGAS_TEL_HREF,
+  ORLANDO_PHONE_DISPLAY,
+  ORLANDO_TEL_HREF,
 } from "../lib/ads";
+
+const LAS_VEGAS_BOOKING_HREF = "/booking?location=Las%20Vegas%2C%20Nevada";
+const ORLANDO_BOOKING_HREF = "/booking?location=Orlando%2C%20Florida";
 
 // Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
@@ -520,7 +525,7 @@ const Home = () => {
                   sx={{
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
-                    flexWrap: { xs: "wrap", md: "nowrap" },
+                    flexWrap: "wrap",
                     alignItems: { xs: "stretch", sm: "center", md: "stretch" },
                     justifyContent: { xs: "center", md: "flex-start" },
                     gap: { xs: 1.25, sm: 2, md: 2 },
@@ -530,12 +535,12 @@ const Home = () => {
                     mb: { xs: 2, sm: 3.5, md: 5 },
                   }}
                 >
-                  <Link href="/prebook" passHref legacyBehavior>
+                  <Link href={LAS_VEGAS_BOOKING_HREF} passHref legacyBehavior>
                     <Button
                       component="a"
                       variant="contained"
                       size="large"
-                      aria-label="Book a grooming appointment"
+                      aria-label="Book Las Vegas"
                       sx={{
                         px: { xs: 4, sm: 5, md: 3 },
                         py: { xs: 2.2, sm: 2.8, md: 0 },
@@ -554,12 +559,10 @@ const Home = () => {
                             "background, transform, box-shadow",
                           ),
                         },
-                        width: { xs: "100%", sm: "auto", md: "auto" },
-                        flexGrow: { md: 1.15 },
-                        flexBasis: { md: "0px" },
-                        flexShrink: { xs: 0, sm: 0, md: 1 },
-                        minWidth: { md: 0 },
-                        whiteSpace: { md: "nowrap" },
+                        width: { xs: "100%", sm: "auto" },
+                        flexGrow: 0,
+                        flexShrink: 0,
+                        whiteSpace: "nowrap",
                         boxSizing: "border-box",
                         height: { md: 68 },
                         minHeight: { xs: "52px", sm: "56px", md: 68 },
@@ -589,7 +592,7 @@ const Home = () => {
                         },
                       }}
                     >
-                      Book Your Appointment
+                      Book Las Vegas
                     </Button>
                   </Link>
                   <Button
@@ -602,7 +605,7 @@ const Home = () => {
                         sx={{ fontSize: { xs: 20, md: 22 } }}
                       />
                     }
-                    aria-label={`Call ${LAS_VEGAS_PHONE_DISPLAY}`}
+                    aria-label={`Call Las Vegas: ${LAS_VEGAS_PHONE_DISPLAY}`}
                     sx={{
                       px: { xs: 2.5, sm: 3, md: 2.5 },
                       py: { xs: 1.25, sm: 1.35, md: 0 },
@@ -617,12 +620,10 @@ const Home = () => {
                       color: "#067C92",
                       backgroundColor: "#FFFFFF",
                       boxShadow: callHeroRestShadow,
-                      width: { xs: "100%", sm: "auto", md: "auto" },
-                      flexGrow: { md: 1 },
-                      flexBasis: { md: "0px" },
-                      flexShrink: { xs: 0, sm: 0, md: 1 },
-                      minWidth: { md: 0 },
-                      whiteSpace: { md: "nowrap" },
+                      width: { xs: "100%", sm: "auto" },
+                      flexGrow: 0,
+                      flexShrink: 0,
+                      whiteSpace: "nowrap",
                       lineHeight: { md: 1 },
                       "&&": {
                         transition: heroActionTransition(
@@ -648,7 +649,123 @@ const Home = () => {
                       },
                     }}
                   >
-                    Call {LAS_VEGAS_PHONE_DISPLAY}
+                    Call Las Vegas
+                  </Button>
+                  <Link href={ORLANDO_BOOKING_HREF} passHref legacyBehavior>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      size="large"
+                      aria-label="Book Orlando"
+                      sx={{
+                        px: { xs: 4, sm: 5, md: 3 },
+                        py: { xs: 2.2, sm: 2.8, md: 0 },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.375rem" },
+                        fontWeight: 800,
+                        textTransform: "none",
+                        borderRadius: "50px",
+                        background:
+                          "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                        boxShadow: bookHeroRestShadow,
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        position: "relative",
+                        overflow: "hidden",
+                        "&&": {
+                          transition: heroActionTransition(
+                            "background, transform, box-shadow",
+                          ),
+                        },
+                        width: { xs: "100%", sm: "auto" },
+                        flexGrow: 0,
+                        flexShrink: 0,
+                        whiteSpace: "nowrap",
+                        boxSizing: "border-box",
+                        height: { md: 68 },
+                        minHeight: { xs: "52px", sm: "56px", md: 68 },
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: "-100%",
+                          width: "100%",
+                          height: "100%",
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                          transition: "left 0.6s ease",
+                        },
+                        "&&:hover": {
+                          background:
+                            "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                          boxShadow: bookHeroHoverShadow,
+                          "&::before": {
+                            left: "100%",
+                          },
+                        },
+                        ...heroPressedSx(bookHeroRestShadow),
+                        "&&:focus-visible, &&.Mui-focusVisible": {
+                          outline: "3px solid #067C92 !important",
+                          outlineOffset: "3px !important",
+                        },
+                      }}
+                    >
+                      Book Orlando
+                    </Button>
+                  </Link>
+                  <Button
+                    component="a"
+                    href={ORLANDO_TEL_HREF}
+                    variant="outlined"
+                    startIcon={
+                      <PhoneIcon
+                        aria-hidden="true"
+                        sx={{ fontSize: { xs: 20, md: 22 } }}
+                      />
+                    }
+                    aria-label={`Call Orlando: ${ORLANDO_PHONE_DISPLAY}`}
+                    sx={{
+                      px: { xs: 2.5, sm: 3, md: 2.5 },
+                      py: { xs: 1.25, sm: 1.35, md: 0 },
+                      boxSizing: "border-box",
+                      height: { md: 68 },
+                      minHeight: { xs: 48, sm: 48, md: 68 },
+                      fontSize: { xs: "0.95rem", sm: "1rem", md: "1.25rem" },
+                      fontWeight: 700,
+                      textTransform: "none",
+                      borderRadius: "50px",
+                      border: "2px solid #067C92",
+                      color: "#067C92",
+                      backgroundColor: "#FFFFFF",
+                      boxShadow: callHeroRestShadow,
+                      width: { xs: "100%", sm: "auto" },
+                      flexGrow: 0,
+                      flexShrink: 0,
+                      whiteSpace: "nowrap",
+                      lineHeight: { md: 1 },
+                      "&&": {
+                        transition: heroActionTransition(
+                          "background-color, border-color, color, transform, box-shadow",
+                        ),
+                      },
+                      "& .MuiButton-startIcon": {
+                        marginLeft: { md: 0 },
+                        marginRight: { md: "10px" },
+                        display: { md: "inherit" },
+                        alignItems: { md: "center" },
+                      },
+                      "&&:hover": {
+                        border: "2px solid #038B95",
+                        backgroundColor: "#F4FBFB",
+                        color: "#067C92",
+                        boxShadow: callHeroHoverShadow,
+                      },
+                      ...heroPressedSx(callHeroRestShadow),
+                      "&&:focus-visible, &&.Mui-focusVisible": {
+                        outline: "3px solid #067C92 !important",
+                        outlineOffset: "3px !important",
+                      },
+                    }}
+                  >
+                    Call Orlando
                   </Button>
                 </Box>
               </motion.div>
