@@ -16,13 +16,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
-import {
-  LAS_VEGAS_CALL_LABEL,
-  LAS_VEGAS_TEL_HREF,
-  ORLANDO_CALL_LABEL,
-  ORLANDO_TEL_HREF,
-} from "../lib/locationActions";
-import LocationChoices from "../components/LocationChoices";
+import { LAS_VEGAS_PHONE_DISPLAY, LAS_VEGAS_TEL_HREF } from "../lib/ads";
 
 const HomePage = () => {
   const router = useRouter();
@@ -378,7 +372,7 @@ const HomePage = () => {
               letterSpacing: "-0.01em",
             }}
           >
-            Call or book by city
+            Book Your Appointment
           </Typography>
 
           {/* Enhanced Description */}
@@ -482,15 +476,16 @@ const HomePage = () => {
               hypoallergenic wash, organic conditioner and biodegradable,
               plant-based products, and every dog groom includes the bath,
               blowout, de-shedding, nails and ears. Dogs start at $85, and we
-              groom doodles and cats too. Open 7 AM–10 PM daily.{" "}
+              groom doodles and cats too. Open 7 AM–10 PM daily; call{" "}
               <Link
                 href={LAS_VEGAS_TEL_HREF}
                 color="inherit"
                 underline="always"
                 sx={{
-                  fontWeight: 800,
+                  fontWeight: "inherit",
                   textDecorationColor: "rgba(6, 124, 146, 0.55)",
                   textUnderlineOffset: "0.18em",
+                  whiteSpace: "nowrap",
                   "&:visited": { color: "inherit" },
                   "&:hover": {
                     color: "#00ADCD",
@@ -503,32 +498,8 @@ const HomePage = () => {
                   },
                 }}
               >
-                {LAS_VEGAS_CALL_LABEL}
-              </Link>{" "}
-              or{" "}
-              <Link
-                href={ORLANDO_TEL_HREF}
-                color="inherit"
-                underline="always"
-                sx={{
-                  fontWeight: 800,
-                  textDecorationColor: "rgba(6, 124, 146, 0.55)",
-                  textUnderlineOffset: "0.18em",
-                  "&:visited": { color: "inherit" },
-                  "&:hover": {
-                    color: "#00ADCD",
-                    textDecorationColor: "#00ADCD",
-                  },
-                  "&:focus-visible": {
-                    outline: "3px solid #067C92",
-                    outlineOffset: "3px",
-                    borderRadius: "2px",
-                  },
-                }}
-              >
-                {ORLANDO_CALL_LABEL}
-              </Link>
-              .
+                {LAS_VEGAS_PHONE_DISPLAY}
+              </Link>.
             </Typography>
           </Box>
 
@@ -587,9 +558,6 @@ const HomePage = () => {
           </Box>
         </Box>
 
-        <Box sx={{ maxWidth: 880, mx: "auto", mb: 4 }}>
-          <LocationChoices />
-        </Box>
         <PreBookingForm />
       </Box>
     </Box>

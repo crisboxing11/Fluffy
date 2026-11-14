@@ -25,17 +25,12 @@ describe('Las Vegas home tap-to-call', () => {
     expect(LAS_VEGAS_CALL_SEND_TO).not.toContain('XsDHCIHDsr4DELKu5L4o');
   });
 
-  test('homepage hero and footer name both cities without a second hardcoded number', () => {
-    expect(home).toContain('callHref: LAS_VEGAS_TEL_HREF');
-    expect(home).toContain('callHref: ORLANDO_TEL_HREF');
-    expect(home).toContain('bookHref: LAS_VEGAS_BOOKING_HREF');
-    expect(home).toContain('bookHref: ORLANDO_BOOKING_HREF');
-    expect(home).toContain('callLabel: LAS_VEGAS_CALL_LABEL');
-    expect(home).toContain('callLabel: ORLANDO_CALL_LABEL');
-    expect(home).toContain('href={market.callHref}');
+  test('hero and footer use that href, not another number', () => {
+    expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
+    expect(home).toContain('Call {LAS_VEGAS_PHONE_DISPLAY}');
+    expect(footer).toContain('href={LAS_VEGAS_TEL_HREF}');
+    expect(footer).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
     expect(footer).toContain('pathname === "/"');
-    expect(footer).toContain('showCityChoices');
-    expect(footer).toContain('<LocationChoices tone="dark" />');
     expect(footer).toContain('Contact Us for Phone Numbers');
 
     for (const source of [home, footer]) {
@@ -61,21 +56,31 @@ describe('Las Vegas home tap-to-call', () => {
     expect(home).toContain('boxShadow: callHeroHoverShadow');
     expect(home).toContain('outline: "3px solid #067C92 !important"');
     expect(home).toContain('outlineOffset: "3px !important"');
-    expect(home).toContain('border: "2px solid #067C92"');
-    expect(home).toContain('border: "2px solid #038B95"');
-    expect(home).toContain('heroActionTransition');
+
+    const book = home.slice(
+      home.indexOf('aria-label="Book a grooming appointment"'),
+      home.indexOf('Book Your Appointment'),
+    );
+    const call = home.slice(
+      home.indexOf('href={LAS_VEGAS_TEL_HREF}'),
+      home.indexOf('Call {LAS_VEGAS_PHONE_DISPLAY}'),
+    );
+    for (const source of [book, call]) {
+      expect(source).toContain('heroActionTransition');
+      expect(source).toContain('heroPressedSx');
+      expect(source).toContain('outline: "3px solid #067C92 !important"');
+      expect(source).toContain('outlineOffset: "3px !important"');
+    }
+    expect(call).toContain('border: "2px solid #067C92"');
+    expect(call).toContain('border: "2px solid #038B95"');
   });
 
-  test('homepage why paragraph names both city call links', () => {
+  test('homepage why paragraph uses the shared Las Vegas call link', () => {
     expect(index).toContain('href={LAS_VEGAS_TEL_HREF}');
-    expect(index).toContain('href={ORLANDO_TEL_HREF}');
-    expect(index).toContain('{LAS_VEGAS_CALL_LABEL}');
-    expect(index).toContain('{ORLANDO_CALL_LABEL}');
-    expect(index).toContain('<LocationChoices');
+    expect(index).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
     expect(index).toContain('Why Fluffy Pet Wash?');
     expect(index).not.toContain('XsDHCIHDsr4DELKu5L4o');
     expect(index).not.toContain('tel:+14075132935');
-    expect(index).not.toContain('218-517-8083');
   });
 
   test('orlando names both cities through shared actions, not a hardcoded Las Vegas number', () => {
