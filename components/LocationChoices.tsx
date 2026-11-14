@@ -84,9 +84,8 @@ const LocationChoices = ({ tone = "light", showEmail = false }: LocationChoicesP
                 textTransform: "none",
                 whiteSpace: "normal",
                 lineHeight: 1.25,
-                boxSizing: "border-box",
                 height: "auto",
-                minHeight: 44,
+                minHeight: 40,
                 minWidth: 0,
                 width: "100%",
                 px: { xs: 1, sm: 1.5 },
@@ -103,9 +102,7 @@ const LocationChoices = ({ tone = "light", showEmail = false }: LocationChoicesP
                   boxShadow: "none",
                 },
                 "&&:focus-visible": {
-                  outline: dark
-                    ? "3px solid #FFFFFF !important"
-                    : "3px solid #067C92 !important",
+                  outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
                   outlineOffset: "2px",
                 },
               }}
@@ -122,9 +119,8 @@ const LocationChoices = ({ tone = "light", showEmail = false }: LocationChoicesP
               textTransform: "none",
               whiteSpace: "normal",
               lineHeight: 1.25,
-              boxSizing: "border-box",
               height: "auto",
-              minHeight: 44,
+              minHeight: 40,
               minWidth: 0,
               width: "100%",
               px: { xs: 1, sm: 1.5 },
@@ -141,9 +137,7 @@ const LocationChoices = ({ tone = "light", showEmail = false }: LocationChoicesP
                 color: dark ? "#FFFFFF" : "#067C92",
               },
               "&&:focus-visible": {
-                outline: dark
-                  ? "3px solid #FFFFFF !important"
-                  : "3px solid #067C92 !important",
+                outline: dark ? "3px solid #FFFFFF" : "3px solid #067C92",
                 outlineOffset: "2px",
               },
             }}
