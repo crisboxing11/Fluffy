@@ -1,6 +1,7 @@
 import {
   Box,
   Typography,
+  Button,
   Container,
   Grid,
   Card,
@@ -16,19 +17,7 @@ import PetsIcon from "@mui/icons-material/Pets";
 import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OrlandoVanImage from "../public/Orlando Van .png";
-import LocationChoices from "../components/LocationChoices";
-import {
-  LAS_VEGAS_BOOKING_HREF,
-  LAS_VEGAS_BOOK_LABEL,
-  LAS_VEGAS_CALL_LABEL,
-  LAS_VEGAS_EMAIL,
-  LAS_VEGAS_TEL_HREF,
-  ORLANDO_BOOKING_HREF,
-  ORLANDO_BOOK_LABEL,
-  ORLANDO_CALL_LABEL,
-  ORLANDO_EMAIL,
-  ORLANDO_TEL_HREF,
-} from "../lib/locationActions";
+import { ORLANDO_PHONE_DISPLAY, ORLANDO_TEL_HREF } from "../lib/ads";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -65,12 +54,40 @@ const scaleIn = {
   },
 };
 
-const cityTextLinkStyle = {
-  color: "#00ADCD",
-  fontWeight: "bold" as const,
-  textDecoration: "none",
-  borderBottom: "2px solid #93EDF0",
-  paddingBottom: "2px",
+const orlandoCtaButtonSx = {
+  px: 6,
+  py: 2.5,
+  fontSize: "1.2rem",
+  fontWeight: 800,
+  textTransform: "none",
+  borderRadius: "50px",
+  background: "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+  color: "white",
+  boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
+  border: "1px solid rgba(255, 255, 255, 0.2)",
+  position: "relative",
+  overflow: "hidden",
+  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: "-100%",
+    width: "100%",
+    height: "100%",
+    background:
+      "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+    transition: "left 0.6s ease",
+  },
+  "&:hover": {
+    background:
+      "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+    transform: "translateY(-3px) scale(1.02)",
+    boxShadow: "0 16px 50px rgba(0, 173, 205, 0.5)",
+    "&::before": {
+      left: "100%",
+    },
+  },
 };
 
 const OrlandoPage = () => {
@@ -353,12 +370,56 @@ const OrlandoPage = () => {
                     </Typography>
                   </Box>
 
+                  {/* CTA Button */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                   >
-                    <LocationChoices columns={1} />
+                    <Link href="/prebook" passHref legacyBehavior>
+                      <Button
+                        component="a"
+                        variant="contained"
+                        size="large"
+                        sx={{
+                          px: { xs: 4, md: 6 },
+                          py: { xs: 2, md: 2.5 },
+                          fontSize: { xs: "1.1rem", md: "1.3rem" },
+                          fontWeight: 800,
+                          textTransform: "none",
+                          borderRadius: "50px",
+                          background:
+                            "linear-gradient(135deg, #00ADCD 0%, #0AC3E6 50%, #038B95 100%)",
+                          boxShadow: "0 12px 40px rgba(0, 173, 205, 0.4)",
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          position: "relative",
+                          overflow: "hidden",
+                          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            top: 0,
+                            left: "-100%",
+                            width: "100%",
+                            height: "100%",
+                            background:
+                              "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                            transition: "left 0.6s ease",
+                          },
+                          "&:hover": {
+                            background:
+                              "linear-gradient(135deg, #038B95 0%, #00ADCD 50%, #0AC3E6 100%)",
+                            transform: "translateY(-3px) scale(1.02)",
+                            boxShadow: "0 16px 50px rgba(0, 173, 205, 0.5)",
+                            "&::before": {
+                              left: "100%",
+                            },
+                          },
+                        }}
+                      >
+                        Book Now!
+                      </Button>
+                    </Link>
                   </motion.div>
                 </motion.div>
               </Grid>
@@ -671,31 +732,33 @@ const OrlandoPage = () => {
                   >
                     Ready to reserve your slot? Use our simple booking form to
                     confirm that we service your part of Orlando, then continue
-                    to secure your preferred appointment time. Las Vegas:{" "}
-                    <a href={LAS_VEGAS_BOOKING_HREF} style={cityTextLinkStyle}>
-                      {LAS_VEGAS_BOOK_LABEL}
+                    to secure your preferred appointment time. Call{" "}
+                    <a
+                      href={ORLANDO_TEL_HREF}
+                      style={{
+                        color: "#00ADCD",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        borderBottom: "2px solid #93EDF0",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      {ORLANDO_PHONE_DISPLAY}
                     </a>{" "}
-                    or{" "}
-                    <a href={LAS_VEGAS_TEL_HREF} style={cityTextLinkStyle}>
-                      {LAS_VEGAS_CALL_LABEL}
+                    or email{" "}
+                    <a
+                      href="mailto:orlando@fluffypetwash.com"
+                      style={{
+                        color: "#00ADCD",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        borderBottom: "2px solid #93EDF0",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      orlando@fluffypetwash.com
                     </a>{" "}
-                    (
-                    <a href={`mailto:${LAS_VEGAS_EMAIL}`} style={cityTextLinkStyle}>
-                      {LAS_VEGAS_EMAIL}
-                    </a>
-                    ). Orlando:{" "}
-                    <a href={ORLANDO_BOOKING_HREF} style={cityTextLinkStyle}>
-                      {ORLANDO_BOOK_LABEL}
-                    </a>{" "}
-                    or{" "}
-                    <a href={ORLANDO_TEL_HREF} style={cityTextLinkStyle}>
-                      {ORLANDO_CALL_LABEL}
-                    </a>{" "}
-                    (
-                    <a href={`mailto:${ORLANDO_EMAIL}`} style={cityTextLinkStyle}>
-                      {ORLANDO_EMAIL}
-                    </a>
-                    ).
+                    if you need assistance.
                   </Typography>
                 </Box>
               </Grid>
@@ -871,7 +934,35 @@ const OrlandoPage = () => {
               Join hundreds of satisfied Orlando pet parents who trust Fluffy
               Pet Wash for their mobile grooming needs.
             </Typography>
-            <LocationChoices />
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 2,
+              }}
+            >
+              <Link href="/prebook" passHref legacyBehavior>
+                <Button
+                  component="a"
+                  variant="contained"
+                  size="large"
+                  sx={orlandoCtaButtonSx}
+                >
+                  Book Your Orlando Appointment
+                </Button>
+              </Link>
+              <Button
+                component="a"
+                href={ORLANDO_TEL_HREF}
+                variant="contained"
+                size="large"
+                sx={orlandoCtaButtonSx}
+              >
+                Call {ORLANDO_PHONE_DISPLAY}
+              </Button>
+            </Box>
           </Container>
         </Box>
       </motion.div>

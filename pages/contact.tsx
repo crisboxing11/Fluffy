@@ -9,6 +9,7 @@ import {
   Container,
   Snackbar,
   Alert,
+  Chip,
   Divider,
   Paper,
   Stack,
@@ -20,21 +21,11 @@ import Link from "next/link";
 import Head from "next/head";
 import { LAS_VEGAS_AREA_SERVED, LAS_VEGAS_POSTAL_ADDRESS } from "../data/serviceArea";
 import { LAS_VEGAS_TEL_HREF, ORLANDO_TEL_HREF } from "../lib/ads";
-import {
-  LAS_VEGAS_BOOKING_HREF,
-  LAS_VEGAS_BOOK_LABEL,
-  LAS_VEGAS_CALL_LABEL,
-  LAS_VEGAS_EMAIL,
-  ORLANDO_BOOKING_HREF,
-  ORLANDO_BOOK_LABEL,
-  ORLANDO_CALL_LABEL,
-  ORLANDO_EMAIL,
-} from "../lib/locationActions";
-import LocationChoices from "../components/LocationChoices";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import PetsIcon from "@mui/icons-material/Pets";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -222,8 +213,8 @@ const ContactPage = () => {
     {
       icon: <PhoneIcon sx={{ fontSize: 28 }} />,
       title: "Call Us",
-      primary: LAS_VEGAS_CALL_LABEL,
-      secondary: ORLANDO_CALL_LABEL,
+      primary: "Las Vegas: (702) 508-6248",
+      secondary: "Orlando: (407) 513-2935",
       description: "Available daily, 7AM-10PM",
       action: "",
       actionText: "",
@@ -433,7 +424,36 @@ const ContactPage = () => {
               >
                 This contact form is NOT for booking appointments or pricing inquiries.
               </Typography>
-              <Stack spacing={2} alignItems="center">
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Typography variant="body2" color="#BF360C" fontWeight={500}>
+                  For appointments:
+                </Typography>
+                <Link href="/prebook" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    sx={{
+                      bgcolor: "#038B95",
+                      color: "white",
+                      fontWeight: 600,
+                      px: 3,
+                      py: 1,
+                      borderRadius: "20px",
+                      "&:hover": {
+                        bgcolor: "#026B73",
+                        transform: "translateY(-1px)",
+                      },
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    Book Now
+                  </Button>
+                </Link>
                 <Typography variant="body2" color="#BF360C" fontWeight={500}>
                   For pricing:
                 </Typography>
@@ -461,9 +481,34 @@ const ContactPage = () => {
               </Stack>
             </Paper>
 
-            <Box sx={{ mt: 3 }}>
-              <LocationChoices />
-            </Box>
+            {/* Quick Action Chips */}
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Link href="/prebook" style={{ textDecoration: "none" }}>
+                <Chip
+                  label="Book Grooming Now"
+                  icon={<PetsIcon />}
+                  clickable
+                  sx={{
+                    bgcolor: "#038B95",
+                    color: "white",
+                    fontWeight: 600,
+                    px: 2,
+                    py: 1,
+                    fontSize: "1rem",
+                    "&:hover": {
+                      bgcolor: "#026B73",
+                      transform: "translateY(-2px)",
+                    },
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              </Link>
+            </Stack>
           </Box>
         </motion.div>
 
@@ -696,13 +741,9 @@ const ContactPage = () => {
           >
             This form is for general questions and help with a booking you
             already have. It does not create an appointment, and it does not
-            quote a price. To book, choose{" "}
-            <Link href={LAS_VEGAS_BOOKING_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
-              {LAS_VEGAS_BOOK_LABEL}
-            </Link>{" "}
-            or{" "}
-            <Link href={ORLANDO_BOOKING_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
-              {ORLANDO_BOOK_LABEL}
+            quote a price. To book, use the{" "}
+            <Link href="/prebook" style={{ color: "#038B95", fontWeight: 700 }}>
+              pre-book page
             </Link>
             . To see what a groom costs, use the{" "}
             <Link href="/prices" style={{ color: "#038B95", fontWeight: 700 }}>
@@ -714,27 +755,28 @@ const ContactPage = () => {
             variant="body1"
             sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
           >
+            Call or text Las Vegas at{" "}
             <a href={LAS_VEGAS_TEL_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
-              {LAS_VEGAS_CALL_LABEL}
+              (702) 508-6248
             </a>
-            {" "}or{" "}
-            <a href={ORLANDO_TEL_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
-              {ORLANDO_CALL_LABEL}
+            , or Orlando at{" "}
+            <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
+              (407) 513-2935
             </a>
             . Phone hours are listed on this page. Email{" "}
             <strong>Las Vegas</strong> at{" "}
             <a
-              href={`mailto:${LAS_VEGAS_EMAIL}`}
+              href="mailto:contact@fluffypetwash.com"
               style={{ color: "#038B95", fontWeight: 700 }}
             >
-              {LAS_VEGAS_EMAIL}
+              contact@fluffypetwash.com
             </a>{" "}
             or <strong>Orlando</strong> at{" "}
             <a
-              href={`mailto:${ORLANDO_EMAIL}`}
+              href="mailto:orlando@fluffypetwash.com"
               style={{ color: "#038B95", fontWeight: 700 }}
             >
-              {ORLANDO_EMAIL}
+              orlando@fluffypetwash.com
             </a>
             . We&apos;ll get back to you as soon as we can. For something that
             cannot wait, call.

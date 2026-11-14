@@ -83,15 +83,10 @@ describe('Las Vegas home tap-to-call', () => {
     expect(index).not.toContain('tel:+14075132935');
   });
 
-  test('orlando names both cities through shared actions, not a hardcoded Las Vegas number', () => {
+  test('orlando redirect and orlando page are unchanged by this link', () => {
     expect(index).toContain('router.replace("/orlando")');
-    expect(orlando).toContain('<LocationChoices');
-    expect(orlando).toContain('LAS_VEGAS_TEL_HREF');
-    expect(orlando).toContain('ORLANDO_TEL_HREF');
     expect(orlando).not.toContain('tel:+17025086248');
     expect(orlando).not.toContain('702-508-6248');
     expect(orlando).not.toContain('218-517-8083');
-    expect(orlando).not.toContain('Book Now!');
-    expect(orlando).not.toContain('Book Your Orlando Appointment');
   });
 });
