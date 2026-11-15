@@ -27,12 +27,16 @@ describe('Las Vegas home tap-to-call', () => {
 
   test('hero and footer use that href, not another number', () => {
     expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
-    expect(home).toContain('Call Las Vegas');
-    expect(home).toContain('href={ORLANDO_TEL_HREF}');
-    expect(home).toContain('Call Orlando');
+    expect(home).toContain('Call {LAS_VEGAS_PHONE_DISPLAY}');
+    expect(home).toContain('Book Your Appointment');
+    expect(home.match(/href=\{ORLANDO_TEL_HREF\}/g)).toHaveLength(1);
+    expect(home).toContain('In Orlando?');
+    expect(home).toContain('Book online');
     expect(home).toContain('"/booking?location=Las%20Vegas%2C%20Nevada"');
     expect(home).toContain('"/booking?location=Orlando%2C%20Florida"');
     expect(home).not.toContain('Choose a city');
+    expect(home).not.toContain('Book Orlando');
+    expect(home).not.toContain('Call Orlando');
     expect(footer).toContain('href={LAS_VEGAS_TEL_HREF}');
     expect(footer).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
     expect(footer).toContain('pathname === "/"');
@@ -62,14 +66,13 @@ describe('Las Vegas home tap-to-call', () => {
     expect(home).toContain('outline: "3px solid #067C92 !important"');
     expect(home).toContain('outlineOffset: "3px !important"');
 
-    const bookMarker = 'aria-label="Book Las Vegas"';
-    const bookStart = home.indexOf(bookMarker);
-    const book = home.slice(bookStart, home.indexOf('Book Las Vegas', bookStart + bookMarker.length));
-    const callStart = home.indexOf('href={LAS_VEGAS_TEL_HREF}');
-    const callAria = 'aria-label={`Call Las Vegas:';
+    const book = home.slice(
+      home.indexOf('aria-label="Book a grooming appointment"'),
+      home.indexOf('Book Your Appointment'),
+    );
     const call = home.slice(
-      callStart,
-      home.indexOf('Call Las Vegas', home.indexOf(callAria) + callAria.length),
+      home.indexOf('href={LAS_VEGAS_TEL_HREF}'),
+      home.indexOf('Call {LAS_VEGAS_PHONE_DISPLAY}'),
     );
     for (const source of [book, call]) {
       expect(source).toContain('heroActionTransition');
