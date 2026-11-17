@@ -36,10 +36,10 @@ const Footer = () => {
 
   const navigationLinks = {
     Services: [
-      { name: "Pet Grooming", href: "/services" },
-      { name: "Mobile Wash", href: "/services" },
-      { name: "Nail Trimming", href: "/services" },
-      { name: "Blow Dry", href: "/services" },
+      { name: "Dog Grooming", href: "/services" },
+      { name: "Cat Grooming", href: "/cat-grooming-las-vegas" },
+      { name: "Doodle & Poodle Grooming", href: "/doodle-grooming-las-vegas" },
+      { name: "All Services", href: "/services" },
     ],
     Company: [
       { name: "About Us", href: "/about" },

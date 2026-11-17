@@ -393,6 +393,17 @@ const DoodleGroomingLasVegasPage = () => {
           parks outside, and one groomer handles your dog from start to
           finish. No cages, no other animals, and no waiting for pickup.
         </Typography>
+        <Typography sx={{ ...bodySx, mt: 2 }}>
+          Planning a cut? See our{" "}
+          <Link href="/blog/goldendoodle-haircut-guide" style={linkStyle}>
+            goldendoodle haircut guide
+          </Link>{" "}
+          and our guide to{" "}
+          <Link href="/blog/poodle-haircuts-las-vegas" style={linkStyle}>
+            poodle haircuts in Las Vegas
+          </Link>
+          .
+        </Typography>
       </Container>
 
       {/* Coat types */}
