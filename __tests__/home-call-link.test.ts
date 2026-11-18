@@ -28,6 +28,15 @@ describe('Las Vegas home tap-to-call', () => {
   test('hero and footer use that href, not another number', () => {
     expect(home).toContain('href={LAS_VEGAS_TEL_HREF}');
     expect(home).toContain('Call {LAS_VEGAS_PHONE_DISPLAY}');
+    expect(home).toContain('Book Your Appointment');
+    expect(home.match(/href=\{ORLANDO_TEL_HREF\}/g)).toHaveLength(1);
+    expect(home).toContain('In Orlando?');
+    expect(home).toContain('Book online');
+    expect(home).toContain('"/booking?location=Las%20Vegas%2C%20Nevada"');
+    expect(home).toContain('"/booking?location=Orlando%2C%20Florida"');
+    expect(home).not.toContain('Choose a city');
+    expect(home).not.toContain('Book Orlando');
+    expect(home).not.toContain('Call Orlando');
     expect(footer).toContain('href={LAS_VEGAS_TEL_HREF}');
     expect(footer).toContain('{LAS_VEGAS_PHONE_DISPLAY}');
     expect(footer).toContain('pathname === "/"');

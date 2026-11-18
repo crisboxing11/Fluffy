@@ -30,7 +30,12 @@ import Link from "next/link";
 import {
   LAS_VEGAS_PHONE_DISPLAY,
   LAS_VEGAS_TEL_HREF,
+  ORLANDO_PHONE_DISPLAY,
+  ORLANDO_TEL_HREF,
 } from "../lib/ads";
+
+const LAS_VEGAS_BOOKING_HREF = "/booking?location=Las%20Vegas%2C%20Nevada";
+const ORLANDO_BOOKING_HREF = "/booking?location=Orlando%2C%20Florida";
 
 // Testimonial Carousel Settings - Memoized for performance
 const testimonialSettings = {
@@ -527,10 +532,9 @@ const Home = () => {
                     width: { xs: "100%", sm: "auto", md: "100%" },
                     maxWidth: { xs: 280, sm: "none", md: "100%" },
                     mx: { xs: "auto", md: 0 },
-                    mb: { xs: 2, sm: 3.5, md: 5 },
                   }}
                 >
-                  <Link href="/prebook" passHref legacyBehavior>
+                  <Link href={LAS_VEGAS_BOOKING_HREF} passHref legacyBehavior>
                     <Button
                       component="a"
                       variant="contained"
@@ -651,6 +655,68 @@ const Home = () => {
                     Call {LAS_VEGAS_PHONE_DISPLAY}
                   </Button>
                 </Box>
+                <Typography
+                  component="p"
+                  sx={{
+                    m: 0,
+                    mt: 0.5,
+                    mb: { xs: 2, sm: 3.5, md: 5 },
+                    maxWidth: "100%",
+                    textAlign: { xs: "center", md: "left" },
+                    color: "#5C7A80",
+                    fontSize: "0.875rem",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  In Orlando?{" "}
+                  <Box
+                    component={Link}
+                    href={ORLANDO_BOOKING_HREF}
+                    sx={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      minHeight: 44,
+                      px: 0.25,
+                      color: "#067C92",
+                      fontWeight: 700,
+                      textDecoration: "underline",
+                      textDecorationColor: "rgba(6, 124, 146, 0.45)",
+                      textUnderlineOffset: "0.18em",
+                      borderRadius: "4px",
+                      "&:hover": { color: "#00ADCD" },
+                      "&&:focus-visible": {
+                        outline: "3px solid #067C92",
+                        outlineOffset: "2px",
+                      },
+                    }}
+                  >
+                    Book online
+                  </Box>
+                  {" · "}
+                  <Box
+                    component="a"
+                    href={ORLANDO_TEL_HREF}
+                    sx={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      minHeight: 44,
+                      px: 0.25,
+                      color: "#067C92",
+                      fontWeight: 700,
+                      textDecoration: "underline",
+                      textDecorationColor: "rgba(6, 124, 146, 0.45)",
+                      textUnderlineOffset: "0.18em",
+                      borderRadius: "4px",
+                      "&:hover": { color: "#00ADCD" },
+                      "&&:focus-visible": {
+                        outline: "3px solid #067C92",
+                        outlineOffset: "2px",
+                      },
+                    }}
+                  >
+                    {ORLANDO_PHONE_DISPLAY}
+                  </Box>
+                </Typography>
               </motion.div>
 
               {/* Redesigned Trust Indicators */}
