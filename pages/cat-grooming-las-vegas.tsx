@@ -33,9 +33,9 @@ const PHONE_DISPLAY = "702-508-6248";
 const PHONE_TEL = "tel:+17025086248";
 const EMAIL = "contact@fluffypetwash.com";
 
-const TITLE = "Mobile Cat Grooming Las Vegas | Fluffy Pet Wash";
+const TITLE = "Cat Grooming Las Vegas | Mobile Cat Groomer | Fluffy Pet Wash";
 const META_DESCRIPTION =
-  "Mobile cat grooming at your door in Las Vegas, Henderson & Summerlin. One-on-one care in a climate-controlled van, starting at $120. Book online.";
+  "Mobile cat groomer for Las Vegas, Henderson, Summerlin & North Las Vegas. One-on-one cat grooming in a climate-controlled van, starting at $120. Book online.";
 const SOCIAL_DESCRIPTION =
   "Cat grooming at your door in Las Vegas. One-on-one care in a climate-controlled spa van, starting at $120. Book online or call 702-508-6248.";
 const OG_IMAGE = `${SITE_URL}/fluffy-circle.PNG`;
@@ -411,14 +411,21 @@ const CatGroomingLasVegasPage = () => {
         </Container>
       </Box>
 
-      {/* Intro */}
+      {/* Intro: 40–60 word answer block for AI answers */}
       <Container maxWidth="md" sx={{ py: { xs: 6, md: 8 } }}>
         <Typography sx={bodySx}>
-          Fluffy Pet Wash brings cat grooming at home to Las Vegas. Instead of
-          loading your cat into the car and leaving them at a salon, you book a
-          time, our van parks outside, and your cat gets a full spa visit with
-          one groomer from start to finish. We groom cats of all breeds, from
-          short-coated domestic cats to long-haired Persians and Maine Coons.
+          Looking for a mobile cat groomer in Las Vegas? Fluffy Pet Wash brings a
+          climate-controlled grooming van to your home. One groomer cares for your cat
+          from start to finish, with no car ride and no other animals in the van.
+          Every visit is our All-Inclusive Wash, starting at $120. Open 7 AM–10 PM daily.
+        </Typography>
+        <Typography sx={{ ...bodySx, mt: 2 }}>
+          We groom cats of all breeds, from short-coated domestic cats to long-haired
+          Persians and Maine Coons. Thinking about a shorter summer coat? Read our{" "}
+          <Link href="/blog/cat-lion-cut-guide" style={linkStyle}>
+            cat lion cut guide
+          </Link>
+          .
         </Typography>
       </Container>
 
