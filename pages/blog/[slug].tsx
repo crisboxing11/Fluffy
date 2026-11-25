@@ -127,6 +127,18 @@ function BlogContent({ html }: { html: string }) {
   return <>{nodes}</>;
 }
 
+// Adds three more same-site links per post so older guides are not linked from the blog index alone.
+function moreGuidesFor(slug: string): BlogPost[] {
+  const shown = new Set<string>([
+    slug,
+    ...posted.filter((p) => p.slug !== slug).slice(0, 3).map((p) => p.slug),
+  ]);
+  const pool = posted.filter((p) => p.slug !== 'orlando-grand-opening');
+  const start = Math.max(pool.findIndex((p) => p.slug === slug), 0);
+  const ordered = [...pool.slice(start + 1), ...pool.slice(0, start)];
+  return ordered.filter((p) => !shown.has(p.slug)).slice(0, 3);
+}
+
 const BlogPostPage = ({ post }: Props) => {
   const faq = visibleBlogFaq(post);
   const faqText = (post.faq ?? []).map((item) => `${item.question} ${item.answer}`).join(' ');
@@ -315,6 +327,16 @@ const BlogPostPage = ({ post }: Props) => {
                   <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                 </li>
               ))}
+          </ul>
+          <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+            More Grooming Guides
+          </Typography>
+          <ul>
+            {moreGuidesFor(post.slug).map((p) => (
+              <li key={p.slug}>
+                <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+              </li>
+            ))}
           </ul>
         </Box>
       </Container>

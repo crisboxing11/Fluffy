@@ -703,6 +703,69 @@ const BookingPage = () => {
           </Box>
         </Container>
       </motion.div>
+
+      {/* Crawlable booking overview (Semrush 117, low word count). Static copy, server-rendered, below the form and sidebar. */}
+      <Container
+        component="section"
+        aria-labelledby="booking-overview-heading"
+        maxWidth="md"
+        sx={{ pb: { xs: 6, md: 8 } }}
+      >
+        <Typography
+          id="booking-overview-heading"
+          component="h2"
+          variant="h2"
+          sx={{
+            fontSize: { xs: "1.5rem", md: "1.9rem" },
+            fontWeight: 700,
+            color: "#044E5C",
+            lineHeight: 1.3,
+            mb: 2,
+          }}
+        >
+          How booking works
+        </Typography>
+        <Typography component="p" variant="body1" sx={{ color: "#0C3E48", lineHeight: 1.7, mb: 3 }}>
+          Fluffy Pet Wash is a mobile grooming van that comes to your door in the Las Vegas valley. Choose your location and your pet in the booking form, pick a day and time, and you are set. You’ll get an email after you book and a text once we accept your booking. All breeds are welcome, including poodles and doodles, and we groom cats in Las Vegas too. Booking for Orlando? Choose Orlando as your location, or call (407) 513-2935.
+        </Typography>
+        <Typography
+          component="h3"
+          variant="h3"
+          sx={{ fontSize: "1.25rem", fontWeight: 700, color: "#044E5C", mb: 1 }}
+        >
+          What every groom includes
+        </Typography>
+        <Typography component="p" variant="body1" sx={{ color: "#0C3E48", lineHeight: 1.7, mb: 3 }}>
+          Every groom is all-inclusive: a hypoallergenic wash with organic conditioner, blowout drying, nail trimming and filing, ear cleaning and deshedding. A haircut is the only add-on, and we do not offer nail-only appointments. When a haircut or matting work is needed, poodles and doodles have a specialized breed fee of up to $50 that already includes the haircut, so the haircut add-on does not stack.
+        </Typography>
+        <Typography
+          component="h3"
+          variant="h3"
+          sx={{ fontSize: "1.25rem", fontWeight: 700, color: "#044E5C", mb: 1 }}
+        >
+          Prices, payment and hours
+        </Typography>
+        <Typography component="p" variant="body1" sx={{ color: "#0C3E48", lineHeight: 1.7, mb: 3 }}>
+          Dog grooming starts at $85 for small dogs, and cat grooming in Las Vegas starts at $120. Your final price depends on your pet’s size and coat condition. We accept card, cash and Zelle, and we do not accept checks. We are open 7 AM–10 PM daily, except Thanksgiving and Christmas.
+        </Typography>
+        <Typography component="p" variant="body1" sx={{ color: "#0C3E48", lineHeight: 1.7 }}>
+          Questions before you book? Call{" "}
+          <MuiLink href={LAS_VEGAS_TEL_HREF} sx={{ color: "#067C92", fontWeight: 600 }}>
+            {LAS_VEGAS_PHONE_DISPLAY}
+          </MuiLink>{" "}
+          or email{" "}
+          <MuiLink href="mailto:contact@fluffypetwash.com" sx={{ color: "#067C92", fontWeight: 600 }}>
+            contact@fluffypetwash.com
+          </MuiLink>
+          . You can also see our{" "}
+          <MuiLink href="/prices" sx={{ color: "#067C92", fontWeight: 600 }}>prices</MuiLink>, read the{" "}
+          <MuiLink href="/faq" sx={{ color: "#067C92", fontWeight: 600 }}>FAQ</MuiLink>, or learn about{" "}
+          <MuiLink href="/cat-grooming-las-vegas" sx={{ color: "#067C92", fontWeight: 600 }}>cat grooming</MuiLink>{" "}
+          and{" "}
+          <MuiLink href="/doodle-grooming-las-vegas" sx={{ color: "#067C92", fontWeight: 600 }}>doodle grooming</MuiLink>{" "}
+          in Las Vegas.
+        </Typography>
+      </Container>
     </Box>
   );
 };

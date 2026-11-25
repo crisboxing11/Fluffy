@@ -601,22 +601,22 @@ export const posted: BlogPost[] = [
       <p>At Fluffy Pet Wash, we know that grooming time doesn’t have to be a stressful experience. In fact, it can be one of the most powerful ways to bond with your dog. Whether you’re grooming at home or scheduling a mobile grooming session with our expert team, here are 5 proven ways to turn grooming into a peaceful ritual your pup will love.</p>
   
       <h2>1. Create a Relaxing Atmosphere</h2>
-      <p>Dogs are incredibly sensitive to their environment. Dim the lights, play calming music, and speak in a soft, reassuring voice. Our mobile grooming vans are specially designed to feel like a peaceful spa retreat—temperature-controlled, gently lit, and stocked with soothing scents that help nervous pets unwind.</p>
+      <p>Dogs are incredibly sensitive to their environment. Dim the lights, play calming music, and speak in a soft, reassuring voice. Our <a href="/blog/why-mobile-grooming-works">mobile grooming vans</a> are specially designed to feel like a peaceful spa retreat—temperature-controlled, gently lit, and stocked with soothing scents that help nervous pets unwind.</p>
   
       <h2>2. Use Positive Reinforcement</h2>
       <p>Just like training, grooming becomes easier when it’s paired with rewards. Offer your dog high-value treats and praise after every step—whether it’s brushing, ear cleaning, or nail trimming. This builds positive associations over time, transforming your dog’s attitude toward grooming from fearful to enthusiastic.</p>
   
       <h2>3. Go Slow & Introduce Tools Gradually</h2>
-      <p>Don’t expect your dog to be okay with loud clippers or slicker brushes right away. Let them explore each tool at their own pace—sniff it, touch it, see that it won’t hurt them. At Fluffy, our groomers are trained in dog psychology and use gentle introductions with every new client, especially those who are reactive or anxious.</p>
+      <p>Don’t expect your dog to be okay with loud clippers or slicker brushes right away. Let them explore each tool at their own pace—sniff it, touch it, see that it won’t hurt them. At Fluffy, our groomers are trained in dog psychology and use gentle introductions with every new client, especially those who are reactive or anxious. Longer-coated breeds such as poodles and <a href="/doodle-grooming-las-vegas">doodles</a> often need extra patience too.</p>
   
       <h2>4. Keep Sessions Short (At First)</h2>
       <p>Especially with puppies or rescue dogs, keep early sessions under 10 minutes. Over time, you can increase duration and complexity. The goal isn’t perfection, it’s progress. Frequent short sessions are more effective than long, stressful ones.</p>
   
       <h2>5. Maintain a Consistent Schedule</h2>
-      <p>Dogs thrive on routine. A regular grooming schedule every 2 to 4 weeks helps reduce stress by making grooming feel like a normal part of life. Our Fluffy clients often book recurring appointments so their dogs know exactly what to expect.</p>
+      <p>Dogs thrive on routine. A regular grooming schedule every 2 to 4 weeks helps reduce stress by making grooming feel like a normal part of life. Our Fluffy clients often book recurring appointments so their dogs know exactly what to expect. You can see <a href="/prices">starting-at prices by size</a> before you pick a schedule.</p>
   
       <h2>Bonus Tip: Leave It to the Pros</h2>
-      <p>If your dog gets anxious, hiring a professional groomer is the best decision you can make. Fluffy Pet Wash offers <strong>luxury mobile grooming</strong> services designed with your pet’s emotional well-being in mind. Our team handles everything with compassion and expertise so your pup feels safe, clean, and fabulous.</p>
+      <p>If your dog gets anxious, hiring a professional groomer is a good decision. Fluffy Pet Wash offers <strong>luxury mobile grooming</strong> services designed with your pet’s emotional well-being in mind. Our team handles everything with compassion and expertise so your pup feels safe, clean, and fabulous. Not sure which products are gentlest on your dog’s skin? Read our guide to <a href="/blog/choosing-the-right-shampoo">choosing the right shampoo</a>. Nervous cat? Mobile <a href="/cat-grooming-las-vegas">cat grooming in Las Vegas</a> keeps the whole visit at your home.</p>
   
       <p><strong>Book your stress-free appointment today at the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and experience the Fluffy difference!</strong></p>
     `
@@ -635,7 +635,7 @@ export const posted: BlogPost[] = [
       <p><strong>Enter mobile grooming.</strong> At Fluffy Pet Wash, we bring the grooming salon straight to your driveway. Our state-of-the-art grooming vans are fully equipped, climate-controlled, and designed to provide a safe, serene experience for your furry friend—right outside your door.</p>
   
       <h2>1. Personalized, One-on-One Care</h2>
-      <p>Unlike crowded salons, Fluffy Pet Wash offers uninterrupted attention. Your dog gets groomed by the same expert from start to finish—no passing between hands, no distractions, and no loud environments.</p>
+      <p>Unlike crowded salons, Fluffy Pet Wash offers uninterrupted attention. Your dog gets groomed by the same expert from start to finish—no passing between hands, no distractions, and no loud environments. That calm, patient pace matters most for <a href="/doodle-grooming-las-vegas">poodles and doodles</a>, whose coats take time to groom well.</p>
   
       <h2>2. No More Car Rides</h2>
       <p>Some dogs love the car. Others? Not so much. Mobile grooming eliminates the need to transport your pet. We come to your home or workplace so your dog stays in a familiar setting and skips the stress altogether.</p>
@@ -644,10 +644,10 @@ export const posted: BlogPost[] = [
       <p>Our grooming units are sanitized after every session, and our groomers follow strict health protocols. No cages. No exposure to unfamiliar animals. Plus, most appointments are completed in under 90 minutes—far faster than the 3–4 hour average at many salons.</p>
   
       <h2>4. Ideal for Anxious or Senior Dogs</h2>
-      <p>Does your pup get nervous around other dogs? Does your senior dog struggle with mobility? Mobile grooming is especially ideal for pets who need a little extra TLC. Our groomers are trained to handle everything with patience and love.</p>
+      <p>Does your pup get nervous around other dogs? Does your senior dog struggle with mobility? Mobile grooming is especially ideal for pets who need a little extra TLC, and in Las Vegas it works for <a href="/cat-grooming-las-vegas">cats</a> as well as dogs. Our <a href="/blog/stress-free-grooming">stress-free grooming tips</a> can help you prepare at home. Our groomers are trained to handle everything with patience and love.</p>
   
       <h2>5. Total Convenience for Busy Pet Parents</h2>
-      <p>Working from home? Running errands? Just don’t want to leave the house? Book online and we’ll handle the rest. No time wasted, no traffic, and no stress. Just a fresh, fluffy pup delivered back to you with a wagging tail and sparkling coat.</p>
+      <p>Working from home? Running errands? Just don’t want to leave the house? Book online and we’ll handle the rest, and you can check our <a href="/prices">starting-at prices</a> first. No time wasted, no traffic, and no stress. Just a fresh, fluffy pup delivered back to you with a wagging tail and sparkling coat.</p>
   
       <p><strong>Join thousands of happy pet parents who trust Fluffy Pet Wash to make grooming easier, faster, and fluffier.</strong> Book now on the <a href="https://www.fluffypetwash.com">Fluffy Pet Wash website</a> and see why mobile grooming isn’t just a trend—it’s the future.</p>
     `
@@ -655,8 +655,8 @@ export const posted: BlogPost[] = [
   {
     slug: 'choosing-the-right-shampoo',
     title: 'Choosing the Right Shampoo for Your Dog',
-    metaTitle: 'Choosing the Best Dog Shampoo | Fluffy Pet Wash Advice',
-    excerpt: 'Not all pet shampoos are created equal. Discover how to choose the best formula for your dog’s unique coat and skin.',
+    metaTitle: 'Choosing the Right Dog Shampoo | Fluffy Pet Wash Advice',
+    excerpt: 'Not all pet shampoos are created equal. Discover how to choose the right formula for your dog’s unique coat and skin.',
     image: '/Black Happy Dog.jpeg',
     imageAlt: 'Black dog smiling after bath',
     date: '2025-07-02',
@@ -667,12 +667,12 @@ export const posted: BlogPost[] = [
       <p>Human shampoo is not pH-balanced for dogs. It strips their natural oils, leaving skin dry and irritated. Always use products specifically designed for canine skin.</p>
   
       <h2>2. Look for Hypoallergenic and Organic Options</h2>
-      <p>If your dog licks their paws, scratches often, or has dry skin, hypoallergenic shampoos are your best bet. Ingredients like oatmeal, chamomile, coconut oil, and aloe vera soothe and protect sensitive skin without harsh chemicals.</p>
+      <p>If your dog licks their paws, scratches often, or has dry skin, hypoallergenic shampoos are a good place to start. Ingredients like oatmeal, chamomile, coconut oil, and aloe vera soothe and protect sensitive skin without harsh chemicals. Every Fluffy groom includes a hypoallergenic wash and organic conditioner, and our <a href="/prices">starting-at prices</a> are all-inclusive.</p>
   
       <h2>3. Choose Shampoo Based on Coat Type</h2>
       <ul>
         <li><strong>Short-coated dogs</strong> may benefit from deep-cleaning formulas that remove oils and debris.</li>
-        <li><strong>Long-haired breeds</strong> often need moisturizing shampoos with detangling conditioners to prevent matting.</li>
+        <li><strong>Long-haired breeds</strong> often need moisturizing shampoos with detangling conditioners to prevent matting. Curly coats such as poodles and <a href="/doodle-grooming-las-vegas">doodles</a> can mat quickly, so coat care between visits matters.</li>
         <li><strong>Double-coated dogs</strong> require products that help with deshedding and promote undercoat health.</li>
       </ul>
   
@@ -680,9 +680,9 @@ export const posted: BlogPost[] = [
       <p>Many commercial shampoos smell nice but are loaded with synthetic chemicals that can irritate your dog’s skin. Always choose shampoos with natural, essential-oil-based scents.</p>
   
       <h2>5. Ask Your Groomer</h2>
-      <p>At Fluffy Pet Wash, our groomers select shampoos and conditioners tailored to your dog’s specific needs. Whether it’s a medicated formula, a flea-fighting rinse, or a blueberry facial, we’ve got it covered.</p>
+      <p>At Fluffy Pet Wash, our <a href="/blog/why-mobile-grooming-works">mobile groomers</a> select shampoos and conditioners tailored to your dog’s specific needs. Whether it’s a medicated formula, a flea-fighting rinse, or a blueberry facial, we’ve got it covered. We also groom cats at home in Las Vegas; see <a href="/cat-grooming-las-vegas">mobile cat grooming</a>. If bath time makes your dog nervous, start with our <a href="/blog/stress-free-grooming">stress-free grooming tips</a>.</p>
   
-      <p><strong>Want your dog to look and feel amazing?</strong> Book a Fluffy appointment today and let us choose the best products for your pup’s coat and skin. A healthy dog is a happy dog—and nothing feels better than a soft, shiny fluffball curled up next to you.</p>
+      <p><strong>Want your dog to look and feel amazing?</strong> Book a <a href="/">Fluffy Pet Wash</a> appointment today and let us choose the right products for your pup’s coat and skin. A healthy dog is a happy dog—and nothing feels better than a soft, shiny fluffball curled up next to you.</p>
     `
   },
   {
