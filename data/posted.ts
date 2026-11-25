@@ -38,6 +38,171 @@ export type BlogPost = {
 
 export const posted: BlogPost[] = [
   {
+    slug: 'shih-tzu-haircut-guide',
+    title:
+      'Shih Tzu Haircuts in Las Vegas: Puppy Cut, Teddy Bear and Keeping Eyes Clear',
+    metaTitle: 'Shih Tzu Haircuts in Las Vegas | Puppy & Teddy Bear Cuts',
+    excerpt:
+      'Shih Tzu haircut guide: puppy cut, teddy bear and keeping eyes clear. Mobile shih tzu grooming in Las Vegas valley. Starting at $85. Book or call 702-508-6248.',
+    // <!-- image: generated (illustrative shih tzu, mobile van); not a client pet -->
+    image: '/blog/shih-tzu-haircut-guide/shih-tzu-teddy-bear-cut-hero.webp',
+    imageAlt:
+      'A small shih tzu with a soft teddy bear haircut sitting on a grooming table inside a mobile grooming van, desert landscaping visible through the window',
+    heroImage: {
+      src: '/blog/shih-tzu-haircut-guide/shih-tzu-teddy-bear-cut-hero.webp',
+      alt: 'A small shih tzu with a soft teddy bear haircut sitting on a grooming table inside a mobile grooming van, desert landscaping visible through the window',
+      width: 1280,
+      height: 720,
+      caption:
+        'Illustrative image: a shih tzu with a teddy bear cut inside a mobile grooming van.',
+    },
+    date: '2026-11-24',
+    content: `
+      <p>Shih tzu hair keeps growing, so regular haircuts keep eyes clear, mats away and the coat comfortable in Las Vegas heat. Popular looks include the puppy cut and teddy bear — but style names are a starting point. We groom your shih tzu one-on-one in our van. <a href="/prebook">Book</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>.</p>
+
+      <h2>Popular shih tzu haircut styles</h2>
+      <p>There is no single "correct" shih tzu haircut. These are the requests we hear most often:</p>
+      <ul>
+        <li><strong>Puppy cut:</strong> an even, manageable length all over. Easy to brush and popular in warm months.</li>
+        <li><strong>Teddy bear:</strong> a rounded face with a soft, even body length. Friendly look that still needs regular brushing.</li>
+        <li><strong>Short summer trim:</strong> a closer body length for desert heat, with careful face work so eyes stay clear.</li>
+        <li><strong>Longer with a tidy face:</strong> some owners keep more length on the body and ask for a clean eye and mouth area so hair does not poke or mat.</li>
+      </ul>
+      <p><strong>Cut names are just a starting point.</strong> Photos help, but the final cut is decided in person. Coat condition, mat level, your dog's comfort that day and how you brush between visits all shape what is kind and realistic. Bring a photo if you have one.</p>
+      <p>We groom <strong>all dog breeds</strong>, including every small long-coated dog. This guide is an example, not a limited list — see <a href="/services">services</a>.</p>
+
+      <h2>Keeping eyes clear between visits</h2>
+      <p>Hair that falls into the eyes can irritate and collect debris. Between appointments:</p>
+      <ul>
+        <li>Gently wipe the eye corners daily with a soft, clean cloth if your vet or groomer has shown you how.</li>
+        <li>Keep topknot or face hair trimmed if you are maintaining length at home — or book sooner if hair is covering the eyes.</li>
+        <li>Watch for redness, squinting or discharge and ask your vet if anything looks off. Grooming keeps hair out of the way; it is not eye medical care.</li>
+      </ul>
+
+      <!-- image: generated (illustrative); not a client pet -->
+      <figure>
+        <img src="/blog/shih-tzu-haircut-guide/shih-tzu-eye-trim-inline.webp" alt="Gloved hands carefully trimming hair around a shih tzu's eyes with small scissors on a grooming table" width="1152" height="864" />
+        <figcaption>Illustrative image: careful face trimming to keep a shih tzu's eyes clear.</figcaption>
+      </figure>
+
+      <h2>Coat care and mat prevention</h2>
+      <p>Shih tzu coats tangle behind the ears, under the collar, in the armpits and around the sanitary area. A few habits help:</p>
+      <ul>
+        <li><strong>Brush several times a week</strong>, working down to the skin, then follow with a metal comb.</li>
+        <li><strong>Dry fully after baths.</strong> Damp hair mats faster.</li>
+        <li><strong>Do not soak heavy mats.</strong> Water can tighten them; leave dematting to your groomer when needed.</li>
+        <li><strong>Rebook on a steady rhythm.</strong> Many shih tzu owners do well every 4 to 6 weeks.</li>
+      </ul>
+
+      <h2>Why mobile one-on-one suits small long-coated dogs</h2>
+      <p>A shih tzu haircut takes focus: face, feet, sanitary areas and an even body length. In our climate-controlled van, your dog gets one groomer from start to finish — no kennels and no other barking dogs. You stay close by at home while we work outside.</p>
+      <p>Every visit is our all-inclusive wash: professional brush-out, hypoallergenic wash with organic conditioner, towel and blow dry, nail trimming and filing, ear cleaning, teeth brushing, optional gland expression, professional deshedding, paw tidy, sanitary trim, facial treatment and a final brush-out. <strong>Deshedding is included.</strong> A full haircut and styling is the only add-on (see <a href="/prices">prices</a>). Nail trimming is always included; we do <strong>not</strong> offer nail-only appointments.</p>
+
+      <h2>What it costs</h2>
+      <p>Prices are always <strong>starting at</strong> figures; your final total depends on size, coat condition and whether a haircut or dematting is needed. From our live <a href="/prices">prices page</a>:</p>
+      <ul>
+        <li><strong>Small dogs</strong> (up to about 25 lbs): starting at <strong>$85</strong> — most shih tzus fall here</li>
+        <li><strong>Medium dogs</strong>: starting at <strong>$95–$125</strong></li>
+        <li><strong>Large dogs</strong>: starting at <strong>$140–$185</strong></li>
+        <li><strong>Extra-large dogs</strong>: starting at <strong>$200+</strong></li>
+      </ul>
+      <p>When a haircut or matting is involved, an <strong>up-to-$50 specialized breed fee</strong> may apply for some coats. <strong>That fee already includes the haircut</strong>, so the separate haircut add-on does <strong>not</strong> stack on top. Your groomer confirms what applies after seeing the coat.</p>
+      <p>We accept <strong>card, cash and Zelle</strong> (no checks). Card payments include a 3.4% + 30¢ service charge. After your first appointment, Fluffy Preferred members save 10% on services.</p>
+      <p>We're open <strong>7 AM to 10 PM</strong> every day (closed Thanksgiving and Christmas), we come to you anywhere in the <strong>Las Vegas valley</strong>, and there are <strong>no travel fees</strong>.</p>
+
+      <h2>Book a shih tzu haircut in Las Vegas</h2>
+      <p>Want a puppy cut, teddy bear or a practical summer length? <a href="/prebook">Book Now</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>. Questions first? Visit our <a href="/faq">FAQ</a>.</p>
+
+      <h2>FAQ</h2>
+      <p><strong>Q: How often should a shih tzu be groomed?</strong></p>
+      <p>A: Many owners book every 4 to 6 weeks. Coat texture, how much you brush at home and the length you like all matter. Your groomer can suggest a rhythm after the first visit.</p>
+      <p><strong>Q: Do "puppy cut" or "teddy bear" lock in the exact look?</strong></p>
+      <p>A: No. Style names and photos are a helpful starting point. The final cut is decided in person based on coat condition and what is comfortable that day.</p>
+      <p><strong>Q: How much does shih tzu grooming cost?</strong></p>
+      <p>A: Most shih tzus are small dogs, starting at $85. See our <a href="/prices">prices page</a> for size tiers. If a haircut or dematting is needed, an up-to-$50 specialized breed fee may apply and already includes the haircut.</p>
+      <p><strong>Q: Do you only groom shih tzus?</strong></p>
+      <p>A: No. We groom all dog breeds, plus cats.</p>
+      <p><strong>Q: Is deshedding extra? Can I book nails only?</strong></p>
+      <p>A: Deshedding is included in every groom. Nail trimming and filing are included too — we do not offer nail-only appointments. A full haircut is the only add-on.</p>
+    `,
+  },
+  {
+    slug: 'pit-bull-french-bulldog-grooming',
+    title: 'Why We Love Grooming Pit Bulls and French Bulldogs in Las Vegas',
+    metaTitle: 'Pit Bull & French Bulldog Grooming in Las Vegas | Fluffy',
+    excerpt:
+      'Short-coated dogs still need baths, nails and fold care. Mobile French bulldog and pit bull grooming in Las Vegas valley. Starting at $85. Book or call 702-508-6248.',
+    // <!-- image: generated (illustrative pit bull, mobile van); not a client pet -->
+    image: '/blog/pit-bull-french-bulldog-grooming/pitbull-mobile-van-hero.webp',
+    imageAlt:
+      'A short-coated blue-gray pit bull type dog standing on a grooming table inside a mobile grooming van, with desert hills visible through the window',
+    heroImage: {
+      src: '/blog/pit-bull-french-bulldog-grooming/pitbull-mobile-van-hero.webp',
+      alt: 'A short-coated blue-gray pit bull type dog standing on a grooming table inside a mobile grooming van, with desert hills visible through the window',
+      width: 1280,
+      height: 720,
+      caption:
+        'Illustrative image: a short-coated pit bull type dog on a grooming table inside a mobile van.',
+    },
+    date: '2026-11-20',
+    content: `
+      <p>Short coats still need regular baths, nail care and skin-fold cleaning — especially on French bulldogs. In Las Vegas, Fluffy Pet Wash grooms pit bulls, Frenchies and every other breed one-on-one in our climate-controlled van. <a href="/prebook">Book</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>.</p>
+
+      <h2>Short coats still need a real groom</h2>
+      <p>A common myth is that short-haired dogs "don't need grooming." They shed, they get dusty in the Las Vegas valley, and their nails still grow. What they usually do <strong>not</strong> need is a full haircut. Most visits for pit bulls and French bulldogs focus on:</p>
+      <ul>
+        <li>A thorough bath and rinse (desert dust and pollen cling to short coats)</li>
+        <li>Blow-dry and brush-out so loose hair comes off in the van, not on your couch</li>
+        <li>Nail trimming and filing (included in every groom — we do not offer nail-only appointments)</li>
+        <li>Ear cleaning and a sanitary tidy</li>
+        <li>Careful cleaning of skin folds on French bulldogs and other wrinkly faces</li>
+      </ul>
+      <p>We groom <strong>all dog breeds</strong>. This post is about two popular short-coated dogs, not a limited breed list. See <a href="/services">services</a> for what every visit includes.</p>
+
+      <h2>French bulldog fold and face care</h2>
+      <p>Frenchies have adorable wrinkles — and those folds trap moisture, food bits and dirt. During a mobile visit we gently clean the folds that owners often miss at home. If you see redness, odor or soreness between visits, ask your vet; grooming keeps the area clean, but it is not a medical treatment.</p>
+      <p>Brachycephalic (short-nosed) dogs can overheat or get stressed more easily. One-on-one time in a climate-controlled van, with no kennel wait and no other barking dogs, is a calmer setup for many Frenchies. Tell us about any breathing limits or vet guidance when you book.</p>
+
+      <!-- image: generated (illustrative); not a client pet -->
+      <figure>
+        <img src="/blog/pit-bull-french-bulldog-grooming/frenchie-fold-care-inline.webp" alt="Close-up of a cream French bulldog's neck folds being gently cleaned with a soft cloth on a grooming table inside a mobile van" width="1152" height="864" />
+        <figcaption>Illustrative image: gentle fold care on a French bulldog during a mobile groom.</figcaption>
+      </figure>
+
+      <h2>Pit bulls: baths, nails and a calm routine</h2>
+      <p>Pit bull-type dogs often have dense, short coats that look simple but hold a surprising amount of undercoat when they blow coat. Our all-inclusive wash includes professional deshedding at no extra charge, so loose hair goes into the filter instead of your floors.</p>
+      <p>Nails matter a lot for active dogs. Long nails change how a dog stands and moves. Every Fluffy Pet Wash groom includes nail trimming and filing — there is no separate nail-only booking.</p>
+
+      <h2>What's included (and what costs extra)</h2>
+      <p>Every visit is our <strong>All-Inclusive Wash</strong>: professional brush-out, hypoallergenic wash with organic conditioner, towel and blow dry, nail trimming and filing, ear cleaning, teeth brushing, optional gland expression, professional deshedding, paw tidy, sanitary trim, facial treatment and a final brush-out. <strong>Deshedding is included.</strong> A full haircut and styling is the only add-on.</p>
+      <p>Most short-coated pit bulls and Frenchies do not need a haircut. If your dog has longer furnishings, matting, or you want a tidy trim, we'll walk through options in person. For breeds that need a haircut or dematting, an <strong>up-to-$50 specialized breed fee</strong> may apply and <strong>already includes the haircut</strong> (it does not stack with the separate haircut add-on).</p>
+      <p>Prices are always <strong>starting at</strong> figures; the final total depends on your pet. From our live <a href="/prices">prices page</a>:</p>
+      <ul>
+        <li><strong>Small dogs</strong> (up to about 25 lbs): starting at <strong>$85</strong></li>
+        <li><strong>Medium dogs</strong>: starting at <strong>$95–$125</strong></li>
+        <li><strong>Large dogs</strong>: starting at <strong>$140–$185</strong></li>
+        <li><strong>Extra-large dogs</strong>: starting at <strong>$200+</strong></li>
+      </ul>
+      <p>Many Frenchies fall in the small or medium band; many pit bull-type dogs fall in medium or large — your groomer confirms size at the visit. We accept <strong>card, cash and Zelle</strong> (no checks). Card payments include a 3.4% + 30¢ service charge. After the first appointment, Fluffy Preferred members save 10% on services.</p>
+      <p>We're open <strong>7 AM to 10 PM</strong> daily (closed Thanksgiving and Christmas), we serve the <strong>Las Vegas valley</strong>, and there are <strong>no travel fees</strong>. Holiday tip: book early if you want a tidy coat before Thanksgiving or Christmas — we are closed those two days.</p>
+
+      <h2>Book French bulldog or pit bull grooming in Las Vegas</h2>
+      <p>Ready for a calm, one-on-one bath day at home? <a href="/prebook">Book Now</a> or call <strong><a href="tel:+17025086248">702-508-6248</a></strong>. More answers on our <a href="/faq">FAQ</a>.</p>
+
+      <h2>FAQ</h2>
+      <p><strong>Q: Do short-haired dogs like pit bulls and Frenchies still need grooming?</strong></p>
+      <p>A: Yes. They need baths, nail care, ear cleaning and (for Frenchies) fold cleaning. They usually do not need a full haircut.</p>
+      <p><strong>Q: How often should a French bulldog be groomed?</strong></p>
+      <p>A: Many owners book every 4 to 8 weeks, depending on skin, lifestyle and how often you wipe folds at home. Your groomer can suggest a rhythm after the first visit.</p>
+      <p><strong>Q: Do you only groom certain breeds?</strong></p>
+      <p>A: No. We groom all dog breeds, plus cats. Pit bulls and French bulldogs are welcome alongside every other breed.</p>
+      <p><strong>Q: Is deshedding extra?</strong></p>
+      <p>A: No. Deshedding is included in every groom. A full haircut is the only add-on.</p>
+      <p><strong>Q: Do you offer nail-only appointments?</strong></p>
+      <p>A: No. Nail trimming and filing are included in the all-inclusive groom. We do not book nail-only visits.</p>
+    `,
+  },
+  {
     slug: 'poodle-haircuts-las-vegas',
     title:
       'Poodle Haircuts Explained: Popular Styles and How Mobile Grooming Works in Las Vegas',
