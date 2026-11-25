@@ -20,7 +20,9 @@ const nextConfig: NextConfig = withBundleAnalyzer({
   reactStrictMode: true,
 
   images: {
-    deviceSizes: [640, 1080, 1920],
+    // 828 is the candidate main selects for an 800px image slot.
+    // The wider default list pushes /testimonials under 12%.
+    deviceSizes: [640, 828, 1080, 1920],
     imageSizes: [64, 256],
   },
 

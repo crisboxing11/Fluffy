@@ -122,13 +122,81 @@ function globalRules(files) {
       }
     }
   }
-  return splitRules(ordered.join(''));
+  const rules = splitRules(minifyCss(ordered.join('')));
+  const seenRule = new Set();
+  return rules.filter((rule) => {
+    if (!rule || /\{\s*\}/.test(rule) || seenRule.has(rule)) return false;
+    seenRule.add(rule);
+    return true;
+  });
+}
+
+function minifyBlock(body) {
+  const decls = body.split(';').map((part) => part.trim()).filter(Boolean);
+  const plain = new Set(
+    decls
+      .map((decl) => decl.slice(0, decl.indexOf(':')).trim())
+      .filter((prop) => prop && !prop.startsWith('-'))
+  );
+  const kept = [];
+  const seen = new Set();
+  for (const decl of decls) {
+    const prop = decl.slice(0, decl.indexOf(':')).trim();
+    const bare = prop.replace(/^-(webkit|moz|ms)-/, '');
+    if (prop !== bare && plain.has(bare)) continue;
+    if (seen.has(decl)) continue;
+    seen.add(decl);
+    kept.push(decl);
+  }
+  return kept.join(';');
+}
+
+function minifyCss(css) {
+  return css.replace(/\{([^{}]*)\}/g, (_full, body) => `{${minifyBlock(body)}}`);
+}
+
+function heroClasses(html) {
+  const image = html.indexOf('<img', html.indexOf('<main'));
+  if (image < 0) return new Set();
+  const slice = html.slice(html.indexOf('<body'), image);
+  const classes = new Set();
+  const nav = slice.match(/<nav\b[^>]*class="([^"]*)"/);
+  if (nav) {
+    for (const token of nav[1].split(/\s+/)) if (token.startsWith('c-')) classes.add(token);
+  }
+  const stack = [];
+  for (const match of slice.matchAll(/<\/?([a-z0-9]+)([^>]*)>/gi)) {
+    if (match[0].startsWith('</')) {
+      stack.pop();
+      continue;
+    }
+    if (match[0].endsWith('/>')) continue;
+    stack.push((match[2].match(/class="([^"]*)"/) || [])[1] || '');
+  }
+  for (const classAttr of stack) {
+    for (const token of classAttr.split(/\s+/)) if (token.startsWith('c-')) classes.add(token);
+  }
+  return classes;
 }
 
 function linkStylesheet(html, href) {
-  const link = `<link rel="stylesheet" href="${href}"/>`;
   if (html.includes(href)) return html;
-  return html.replace('</head>', `${link}</head>`);
+  const preload = `<link rel="preload" as="style" href="${href}"/>`;
+  const sheet = `<link rel="stylesheet" href="${href}"/>`;
+  const head = html.match(/<head[^>]*>/);
+  if (!head) return html.replace('</head>', `${preload}${sheet}</head>`);
+  return html.replace(head[0], `${head[0]}${preload}${sheet}`);
+}
+
+function promoteHeroPreload(html) {
+  const match = html.match(/<link rel="preload" as="image" imageSrcSet="[^"]*" imageSizes="[^"]*"\s*\/?>/);
+  if (!match) return html;
+  let tag = match[0];
+  if (!/fetchpriority=/i.test(tag)) tag = tag.replace('<link ', '<link fetchpriority="high" ');
+  const without = html.replace(match[0], '');
+  const head = without.match(/<head[^>]*>/);
+  if (!head) return tag + without;
+  return without.replace(head[0], `${head[0]}${tag}`);
 }
 
 function alreadyRewritten(files) {
@@ -181,7 +249,12 @@ function main() {
     });
     after = after.replace(/ data-next-head=""/g, '');
     after = after.replace(/\u0000S(\d+)\u0000/g, (_token, index) => scripts[Number(index)]);
-    after = linkStylesheet(after, href);
+    const critical = minifyCss(rulesFor(rules, heroClasses(before), false));
+    const withSheet = linkStylesheet(promoteHeroPreload(after), href);
+    const withCritical = critical
+      ? withSheet.replace('</head>', `<style>${critical}</style></head>`)
+      : withSheet;
+    after = critical && breakdown(withCritical).ratio >= 0.12 ? withCritical : withSheet;
     assertPreserved(before, after);
     fs.writeFileSync(file, after);
     rows.push({
