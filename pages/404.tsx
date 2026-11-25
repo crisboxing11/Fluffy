@@ -23,10 +23,10 @@ const Custom404 = () => {
         The link you followed might be broken or the page may have moved. While you&apos;re here, feel free to browse some of our popular resources below.
       </Typography>
       <Typography variant="body1" color="textSecondary" mb={2}>
-        Visit our <Link href="/services" style={{ color: '#038B95', fontWeight: 'bold' }}>services page</Link> to learn about full-groom packages, or check our <Link href="/prices" style={{ color: '#038B95', fontWeight: 'bold' }}>current pricing</Link> before booking. We also share helpful tips on our <Link href="/blog" style={{ color: '#038B95', fontWeight: 'bold' }}>blog</Link>.
+        Visit our <Link href="/services" className="a1">services page</Link> to learn about full-groom packages, or check our <Link href="/prices" className="a1">current pricing</Link> before booking. We also share helpful tips on our <Link href="/blog" className="a1">blog</Link>.
       </Typography>
       <Typography variant="body1" color="textSecondary" mb={4}>
-        If you still can&apos;t find what you need, our <Link href="/contact" style={{ color: '#038B95', fontWeight: 'bold' }}>contact page</Link> is the fastest way to get in touch. We&apos;ll be happy to point you in the right direction.
+        If you still can&apos;t find what you need, our <Link href="/contact" className="a1">contact page</Link> is the fastest way to get in touch. We&apos;ll be happy to point you in the right direction.
       </Typography>
       <Link href="/" passHref legacyBehavior>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.3 }}>

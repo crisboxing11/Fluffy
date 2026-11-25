@@ -20,6 +20,8 @@
 # Generated while rewriting prerendered HTML. Rebuilt by postbuild.
 /public/css/emotion-*.css
 /public/icons.svg
+/public/icons/
+/styles/icons.css
 
 # production
 /build
