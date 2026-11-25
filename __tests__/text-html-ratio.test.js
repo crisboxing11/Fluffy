@@ -45,7 +45,7 @@ describe('crawled HTML includes page copy', () => {
 });
 
 describe('text to HTML ratio', () => {
-  test('every prerendered page is above 10 percent', () => {
+  test('every prerendered page is at least 12 percent', () => {
     const root = path.join(__dirname, '..', '.next', 'server', 'pages');
     if (!fs.existsSync(root)) {
       throw new Error('Build directory not found. Run `npm run build` first.');
@@ -56,7 +56,7 @@ describe('text to HTML ratio', () => {
         const html = fs.readFileSync(file, 'utf8');
         return { route: routeFor(root, file), ...measure(html) };
       })
-      .filter((page) => page.ratio <= 0.1);
+      .filter((page) => page.ratio < 0.12);
     expect(low.map((page) => `${page.route} ${(page.ratio * 100).toFixed(2)}%`)).toEqual([]);
   });
 });

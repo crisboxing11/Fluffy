@@ -14,6 +14,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { visibleText, breakdown, pageFiles, routeFor } = require('./text-html-ratio');
+const { keptShortClasses } = require('../lib/keptUtilityClasses');
 
 const ROOT = path.join(__dirname, '..');
 const PAGES = path.join(ROOT, '.next', 'server', 'pages');
@@ -133,7 +134,17 @@ function main() {
     });
   }
 
-  const failing = rows.filter((row) => row.route !== '/500' && row.after.ratio <= 0.1);
+  const keep = keptShortClasses();
+  const missing = [
+    ...new Set([...css.matchAll(/\.m[a-z0-9]{4}\b/g)].map((match) => match[0].slice(1))),
+  ].filter((id) => !keep.has(id));
+  if (missing.length) {
+    throw new Error(
+      `Stylesheet selects utility classes that were removed from the markup: ${missing.join(', ')}`
+    );
+  }
+
+  const failing = rows.filter((row) => row.route !== '/500' && row.after.ratio < 0.12);
   console.log('route | before | after | html before | html after');
   for (const row of rows) {
     console.log(
@@ -156,7 +167,7 @@ function main() {
     }
   }
   if (failing.length) {
-    throw new Error(`Text-to-HTML ratio is still 10% or below: ${failing.map((row) => row.route).join(', ')}`);
+    throw new Error(`Text-to-HTML ratio is still below 12%: ${failing.map((row) => row.route).join(', ')}`);
   }
   return rows;
 }

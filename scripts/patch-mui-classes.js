@@ -89,12 +89,12 @@ import { jsx as _jsx } from 'react/jsx-runtime';
 /** ${MARKER} icons render as masked spans so the server and client match. */
 export default function createSvgIcon(_path, displayName) {
   function Component(props, ref) {
-    const { color, fontSize, inheritViewBox, htmlColor, titleAccess, viewBox, className, children, ...other } = props;
+    const { color, fontSize, inheritViewBox, htmlColor, titleAccess, viewBox, className, children, sx, ...other } = props;
     return _jsx('span', {
       ...other,
       ref,
       'aria-hidden': other['aria-hidden'] ?? true,
-      className: ['fluffy-icon', 'fluffy-icon-' + displayName, className].filter(Boolean).join(' '),
+      className: ['fi', 'fi-' + displayName, className].filter(Boolean).join(' '),
     });
   }
   Component.muiName = 'SvgIcon';
@@ -113,10 +113,10 @@ function createSvgIcon(_path, displayName) {
     var className = props.className;
     var other = { ref: ref };
     for (var key in props) {
-      if (key !== 'color' && key !== 'fontSize' && key !== 'inheritViewBox' && key !== 'htmlColor' && key !== 'titleAccess' && key !== 'viewBox' && key !== 'className' && key !== 'children') other[key] = props[key];
+      if (key !== 'color' && key !== 'fontSize' && key !== 'inheritViewBox' && key !== 'htmlColor' && key !== 'titleAccess' && key !== 'viewBox' && key !== 'className' && key !== 'children' && key !== 'sx') other[key] = props[key];
     }
     if (other['aria-hidden'] == null) other['aria-hidden'] = true;
-    other.className = ['fluffy-icon', 'fluffy-icon-' + displayName, className].filter(Boolean).join(' ');
+    other.className = ['fi', 'fi-' + displayName, className].filter(Boolean).join(' ');
     return jsxRuntime.jsx('span', other);
   }
   Component.muiName = 'SvgIcon';
@@ -130,7 +130,7 @@ function writeIcons() {
   const outDir = path.join(__dirname, '..', 'public', 'icons');
   fs.mkdirSync(outDir, { recursive: true });
   const rules = [
-    '.fluffy-icon{display:inline-block;width:1em;height:1em;flex-shrink:0;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;vertical-align:middle;}',
+    '.fi{display:inline-block;width:1em;height:1em;flex-shrink:0;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;vertical-align:middle;}',
   ];
   for (const name of fs.readdirSync(dir)) {
     if (!name.endsWith('.js') || name === 'index.js') continue;
@@ -144,7 +144,7 @@ function writeIcons() {
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">${body}</svg>\n`
     );
     rules.push(
-      `.fluffy-icon-${display}{-webkit-mask-image:url(/icons/${display}.svg);mask-image:url(/icons/${display}.svg);}`
+      `.fi-${display}{-webkit-mask-image:url(/icons/${display}.svg);mask-image:url(/icons/${display}.svg);}`
     );
   }
   fs.writeFileSync(path.join(__dirname, '..', 'styles', 'icons.css'), `${rules.join('\n')}\n`);
@@ -171,6 +171,72 @@ function patchPaper(file) {
   fs.writeFileSync(file, source);
 }
 
+function patchComposeClasses() {
+  const { keptShortClasses } = require('../lib/keptUtilityClasses');
+  const keep = JSON.stringify([...keptShortClasses()]);
+  const body = `const KEEP = new Set(${keep});
+function composeClasses(slots, getUtilityClass, classes) {
+  const output = {};
+  for (const slotName in slots) {
+    const slot = slots[slotName];
+    const parts = [];
+    for (let index = 0; index < slot.length; index += 1) {
+      const value = slot[index];
+      if (!value) continue;
+      const utility = getUtilityClass(value);
+      if (utility && KEEP.has(utility) && parts.indexOf(utility) === -1) parts.push(utility);
+      if (classes && classes[value]) {
+        const extras = String(classes[value]).split(' ');
+        for (let extra = 0; extra < extras.length; extra += 1) {
+          if (extras[extra] && parts.indexOf(extras[extra]) === -1) parts.push(extras[extra]);
+        }
+      }
+    }
+    output[slotName] = parts.join(' ');
+  }
+  return output;
+}
+`;
+  const root = path.join(__dirname, '..', 'node_modules', '@mui', 'utils');
+  const cjs = `"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/** FLUFFY_KEPT_CLASSES */
+${body}
+exports.default = composeClasses;
+`;
+  const esm = `/** FLUFFY_KEPT_CLASSES */
+${body}
+export default composeClasses;
+`;
+  patch(path.join(root, 'composeClasses', 'composeClasses.js'), cjs);
+  patch(path.join(root, 'esm', 'composeClasses', 'composeClasses.js'), esm);
+  patch(path.join(root, 'modern', 'composeClasses', 'composeClasses.js'), esm);
+}
+
+function patchEmotionHash() {
+  const dir = path.join(__dirname, '..', 'node_modules', '@emotion', 'serialize', 'dist');
+  if (!fs.existsSync(dir)) return;
+  const pattern = /var name = (hashString(?:__default\["default"\])?)\(styles\) \+ identifierName;/;
+  for (const name of fs.readdirSync(dir)) {
+    if (!name.endsWith('.js')) continue;
+    const file = path.join(dir, name);
+    let source = fs.readFileSync(file, 'utf8');
+    if (source.includes('FLUFFY_SHORT_HASH') || !pattern.test(source)) continue;
+    source = source.replace(
+      pattern,
+      `var fullHash = $1(styles);
+  var name = fullHash.slice(0, 5) + identifierName;
+  var seenCss = globalThis.__FLUFFY_CSS_NAMES || (globalThis.__FLUFFY_CSS_NAMES = new Map());
+  var previousCss = seenCss.get(name);
+  if (previousCss !== undefined && previousCss !== styles) {
+    throw new Error('FLUFFY_SHORT_HASH collision ' + name);
+  }
+  seenCss.set(name, styles); /* FLUFFY_SHORT_HASH */`
+    );
+    fs.writeFileSync(file, source);
+  }
+}
+
 function main() {
   const root = path.join(__dirname, '..', 'node_modules', '@mui', 'utils');
   const cjsFile = path.join(root, 'generateUtilityClass', 'generateUtilityClass.js');
@@ -186,6 +252,8 @@ function main() {
     patchPaper(path.join(material, folder, 'Paper', 'Paper.js'));
   }
   writeIcons();
+  patchComposeClasses();
+  patchEmotionHash();
 }
 
 main();

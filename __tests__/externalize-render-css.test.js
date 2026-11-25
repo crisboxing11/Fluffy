@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { shortClass } = require('../lib/shortClass');
+const { keptShortClasses } = require('../lib/keptUtilityClasses');
 const generateUtilityClass = require('../lib/generateUtilityClass');
 const loader = require('../scripts/mui-class-loader');
 
@@ -21,6 +22,14 @@ test('utility classes and literal selectors share one id', () => {
 test('state classes use the Mui prefix, not the component name', () => {
   expect(generateUtilityClass('MuiButton', 'disabled')).toBe(shortClass('Mui-disabled'));
   expect(generateUtilityClass('MuiInput', 'focused')).toBe(shortClass('Mui-focused'));
+});
+
+test('kept utility classes include site selectors and rendered slots', () => {
+  const keep = keptShortClasses();
+  expect(keep.has(shortClass('MuiGrid-item'))).toBe(true);
+  expect(keep.has(shortClass('MuiTypography-root'))).toBe(true);
+  expect(keep.has(shortClass('Mui-focused'))).toBe(true);
+  expect(keep.has(shortClass('MuiButton-text'))).toBe(false);
 });
 
 test('every Mui selector in the site maps to a unique id', () => {
