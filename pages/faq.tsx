@@ -37,19 +37,19 @@ const faqData = [
       {
         question: "How do I book an appointment?",
         answer:
-          "Visit our booking page, choose your service area, and continue to the calendar. All breeds are welcome, so you do not need to call or email to ask. You'll receive an email after booking and a text once we have accepted your booking.",
+          "Booking takes a few minutes online. Visit our booking page, choose your location, then pick a day and time on the calendar. All breeds are welcome, so you do not need to call or email first to ask. You'll receive an email after you book and a text once we have accepted your booking. If you would rather talk it through, call 702-508-6248 or email contact@fluffypetwash.com.",
         tags: ["booking", "appointment", "schedule"],
       },
       {
         question: "Can I reschedule or cancel my appointment?",
         answer:
-          "Yes! You can reschedule or cancel up to 24 hours in advance through your booking confirmation text or by contacting us directly.",
+          "Yes. You can reschedule or cancel up to 24 hours in advance through your booking confirmation text, or by contacting us directly at 702-508-6248 or contact@fluffypetwash.com. Giving us a full day's notice lets us offer your time to another family in the Las Vegas valley. If your plans change inside that window, call or text us as soon as you can and we will see what we can do.",
         tags: ["reschedule", "cancel", "change"],
       },
       {
         question: "Do you accept same-day bookings?",
         answer:
-          "We operate by appointment only, but if there's an opening, we may accommodate same-day requests. Call or text us to check availability!",
+          "We work by appointment only, but same-day requests are sometimes possible when there is an opening in the schedule. The quickest way to check is to call or text 702-508-6248. We're open 7 AM–10 PM daily, and closed Thanksgiving and Christmas. If nothing is open today, we can help you find the nearest time that works for you and your pet.",
         tags: ["same-day", "urgent", "availability"],
       },
     ],
@@ -70,19 +70,19 @@ const faqData = [
       {
         question: "What is included in the grooming package?",
         answer:
-          "Our all-inclusive package includes a hypoallergenic wash, brushing, blowout drying, nail trimming & filing, ear cleaning, organic conditioner, teeth brushing, expressed glands, professional deshedding, paw trimming, sanitary trimming, and a blueberry facial.",
+          "Every groom is all-inclusive. It includes a hypoallergenic wash, organic conditioner, brushing, blowout drying, nail trimming and filing, ear cleaning, teeth brushing, expressed glands, professional deshedding, paw trimming, sanitary trimming and a blueberry facial. A haircut is the only add-on, and we do not offer nail-only appointments. We use biodegradable, plant-based products; see our guide to choosing the right shampoo for more on what suits your dog's coat.",
         tags: ["package", "services", "included", "wash", "nails"],
       },
       {
         question: "Do you groom all breeds?",
         answer:
-          "Yes. All breeds are welcome — dogs of every breed and size, plus cats. We groom poodles and doodles, including doodle mixes. Mobile cat grooming in Las Vegas is available at your door.",
+          "Yes. All breeds are welcome: dogs of every breed and size, mixes included, plus cats. We groom poodles and doodles, including doodle mixes, and breed never blocks an appointment. Mobile cat grooming in Las Vegas is available at your door too. Not sure how your pet's coat will groom? Call 702-508-6248 and we will help you choose the right plan.",
         tags: ["breeds", "poodles", "doodles"],
       },
       {
         question: "Do you groom doodles, and how much does it cost?",
         answer:
-          "Yes, we groom poodles, doodles and doodle mixes at your door in Las Vegas. As an example, a large doodle with a haircut is $190: the $140 large-dog groom plus a $50 specialized breed fee. That breed fee already includes the haircut, so the separate haircut add-on isn't charged on top. Coat condition and matting can change what's possible, so we confirm before we start.",
+          "Yes, we groom poodles, doodles and doodle mixes at your door in Las Vegas. A large doodle groom starts at $140. When a haircut or matting work is needed, a specialized breed fee of up to $50 applies, and that fee already includes the haircut, so the haircut add-on doesn't stack. Coat condition and matting can change what's possible, so we confirm before we start.",
         tags: ["doodles", "poodles", "doodle price", "breed fee", "haircut"],
       },
       {
@@ -94,14 +94,14 @@ const faqData = [
       {
         question: "How long does a grooming session take?",
         answer:
-          "A typical session takes between 40-90 minutes, depending on your pet's size, coat condition, and behavior.",
+          "A typical session takes between 40 and 90 minutes, depending on your pet's size, coat condition and behavior. Smaller pets with easy coats usually need less time, while large dogs, thick coats and matted coats can take longer. Because the van works with one pet at a time, you aren't waiting on a salon schedule, and your pet is back with you as soon as the groom is finished.",
         tags: ["duration", "time", "session"],
       },
       {
         question:
           "Do you need to connect to water or electricity at my location?",
         answer:
-          "Just to electricity! Our mobile grooming van is fully equipped with water, electricity, and all the tools needed for a complete grooming session.",
+          "Just electricity. Our mobile grooming van carries its own water and is fully equipped with the tools for a complete grooming session, so all we need from you is an electrical outlet. We park the van near your door and groom your pet right there, which means there is nothing to set up inside your home and no car ride for your pet.",
         tags: ["mobile", "van", "electricity", "water", "equipment"],
       },
     ],
@@ -115,37 +115,37 @@ const faqData = [
       {
         question: "How much is mobile dog grooming in Las Vegas?",
         answer:
-          "An all-inclusive dog groom in Las Vegas starts at $85 for small dogs, $95+ for medium, $140+ for large, and $200+ for extra-large. Every dog groom is all-inclusive: hypoallergenic wash, blowout drying, nail trimming and filing, ear cleaning, and deshedding, and a full haircut and styling is the only add-on: haircuts add $35 (small/medium) or $50 (large). No travel fees ever, a 3.4% + 30¢ service charge applies to credit and debit cards, and a large doodle with a haircut starts at $140 plus a $50 specialized breed fee, and that breed fee already includes the haircut, so the separate haircut add-on isn't charged on top.",
+          "All-inclusive dog grooming in Las Vegas starts at $85 for small dogs, $95 for medium, $140 for large and $200 for extra-large. Every groom includes a hypoallergenic wash, blowout drying, nail trimming and filing, ear cleaning and deshedding. A full haircut and styling is the only add-on, starting at $35 for small and medium dogs and starting at $50 for large dogs. There are no travel fees. When a haircut or matting work is needed, a specialized breed fee of up to $50 applies, and that fee already includes the haircut, so the haircut add-on doesn't stack.",
         tags: ["pricing", "cost", "las vegas", "haircut", "breed fee", "travel fees"],
       },
       {
         question: "How much does grooming cost?",
         answer:
-          "Pricing varies by dog size and coat condition: Small ($85), Medium ($95-$125), Large ($140-$185), Extra Large ($200+). All services are included!",
+          "Pricing depends on your pet's size and coat condition. Dog grooming starts at $85 for small dogs, $95 for medium, $140 for large and $200 for extra-large, and every groom is all-inclusive. A haircut is the only add-on. Cat grooming starts at $120 in Las Vegas. Heavily matted coats can change the final price, so we confirm before we start. See our prices page for the full breakdown by size.",
         tags: ["pricing", "cost", "small", "medium", "large", "size"],
       },
       {
         question: "How should I compare mobile pet grooming prices in Las Vegas?",
         answer:
-          "Compare the all-in price for your pet's size, not just the starting number. At Fluffy Pet Wash, an all-inclusive dog groom is $85 for small dogs, $95–$125 for medium, $140–$185 for large and $200+ for extra-large, with no travel fees in Las Vegas. Haircuts add $35 (small/medium) or $50 (large). Fluffy Preferred members save 10% after their first appointment.",
+          "Compare the all-in price for your pet's size, not just the starting number. At Fluffy Pet Wash, an all-inclusive dog groom starts at $85 for small dogs, $95 for medium, $140 for large and $200 for extra-large, with no travel fees in the Las Vegas valley. A haircut is the only add-on. Fluffy Preferred members save 10% after their first appointment. Ask any groomer whether deshedding and nail trimming and filing are included.",
         tags: ["compare", "pricing", "travel fees", "fluffy preferred", "haircut"],
       },
       {
         question: "Do you offer mobile cat grooming, and what does it cost?",
         answer:
-          "Yes. Mobile cat grooming starts at $120, and the final price can go up with coat condition and temperament. A lion cut is usually about $35 extra. Cat grooms take place in the same one-on-one, climate-controlled van at your home, so your cat stays close to home instead of riding in a carrier to a salon. Book online or call 702-508-6248.",
+          "Yes. Mobile cat grooming in Las Vegas starts at $120, and the final price can go up with coat condition and temperament. A lion cut is usually about $35 extra. Cat grooming is available in Las Vegas only. Cat grooms take place in the same one-on-one, climate-controlled van at your home, so your cat stays close to home instead of riding in a carrier to a salon. Book online or call 702-508-6248.",
         tags: ["cats", "cat grooming", "lion cut", "cat price"],
       },
       {
         question: "Do you accept card, cash, or Zelle?",
         answer:
-          "Yes. We accept card, cash, and Zelle. A 3.4% + 30¢ service charge applies to credit and debit cards. Cash and Zelle have no additional fees. No personal checks.",
+          "Yes. We accept card, cash and Zelle. A 3.4% + 30¢ service charge applies to credit and debit card payments, while cash and Zelle have no additional fees. We do not accept personal checks. Our prices are starting-at prices, and the final price depends on your pet's size and coat condition, so we confirm it with you before we start.",
         tags: ["payment", "credit card", "cash", "zelle", "methods"],
       },
       {
         question: "Are there any additional fees?",
         answer:
-          "Our pricing is all-inclusive. However, heavily matted coats or extremely aggressive dogs may incur an additional handling fee.",
+          "Our pricing is all-inclusive, with no travel fees, and a haircut is the only add-on. Heavily matted coats or extremely aggressive dogs may incur an additional handling fee. When a haircut or matting work is needed, doodle and poodle grooms have a specialized breed fee of up to $50 that already includes the haircut, so the haircut add-on doesn't stack. Card payments carry a 3.4% + 30¢ service charge, while cash and Zelle do not. We confirm anything extra before we start, so there are no surprises.",
         tags: ["fees", "additional", "matted", "aggressive"],
       },
     ],
@@ -159,19 +159,19 @@ const faqData = [
       {
         question: "Is mobile grooming safe for my pet?",
         answer:
-          "Absolutely! Our mobile grooming van is climate-controlled, sanitized between appointments, and designed for a stress-free one-on-one experience.",
+          "Yes. Our mobile grooming van is climate-controlled, sanitized between appointments, and designed for a calm, one-on-one experience. Your pet stays near home instead of riding to a salon, and no other animals are in the van during the visit. To learn more, read why mobile grooming works well for anxious, senior and busy-household pets.",
         tags: ["safety", "mobile", "sanitized", "climate"],
       },
       {
         question: "What if my pet is anxious or aggressive?",
         answer:
-          "We use gentle handling techniques, but if your pet shows extreme distress or aggression, we may need to stop the session for safety reasons.",
+          "We use gentle handling techniques and work at your pet's pace, and one-on-one care in a quiet van helps many nervous pets settle. If your pet shows extreme distress or aggression, we may need to stop the session for safety reasons. Our stress-free grooming tips can help you prepare at home. Tell us about your pet's triggers when you book so we can plan ahead.",
         tags: ["anxious", "aggressive", "gentle", "handling"],
       },
       {
         question: "Do you sedate pets?",
         answer:
-          "No, we do not sedate pets. If your pet requires sedation, please consult your veterinarian before scheduling a grooming session.",
+          "No, we do not sedate pets. If your pet requires sedation, please consult your veterinarian before scheduling a grooming session. For anxious pets, we rely on gentle handling, a calm one-on-one setting and patience instead. If your pet cannot be groomed safely without sedation, we may need to stop the session. Call 702-508-6248 if you have questions about your pet's needs.",
         tags: ["sedation", "veterinarian", "medication"],
       },
     ],
@@ -216,6 +216,22 @@ const FAQ_INLINE_LINKS = [
   {
     phrase: "doodles",
     href: "/doodle-grooming-las-vegas",
+  },
+  {
+    phrase: "choosing the right shampoo",
+    href: "/blog/choosing-the-right-shampoo",
+  },
+  {
+    phrase: "prices page",
+    href: "/prices",
+  },
+  {
+    phrase: "why mobile grooming works",
+    href: "/blog/why-mobile-grooming-works",
+  },
+  {
+    phrase: "stress-free grooming tips",
+    href: "/blog/stress-free-grooming",
   },
 ] as const;
 
@@ -481,6 +497,7 @@ const FAQPage = () => {
 
               <Typography
                 variant="h5"
+                component="p"
                 sx={{
                   color: "#067C92",
                   fontWeight: 600,
@@ -546,6 +563,7 @@ const FAQPage = () => {
               <Box sx={{ mb: 4 }}>
                 <Typography
                   variant="h6"
+                  component="p"
                   sx={{
                     color: "#067C92",
                     fontWeight: 700,
@@ -762,6 +780,7 @@ const FAQPage = () => {
                               </Box>
                               <Typography
                                 variant="h5"
+                                component="h2"
                                 sx={{
                                   fontWeight: 800,
                                   fontSize: {
@@ -947,6 +966,7 @@ const FAQPage = () => {
                 />
                 <Typography
                   variant="h5"
+                  component="h2"
                   sx={{
                     color: "#067C92",
                     fontWeight: 700,
@@ -1077,6 +1097,7 @@ const FAQPage = () => {
             >
               <Typography
                 variant="h4"
+                component="h2"
                 sx={{
                   fontWeight: 800,
                   mb: 2,

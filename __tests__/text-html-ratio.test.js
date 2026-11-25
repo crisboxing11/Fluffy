@@ -26,8 +26,9 @@ describe('crawled HTML includes page copy', () => {
     const text = visibleText(readPage('booking.html'));
     expect(text).toContain('Complete Your Booking');
     expect(text).toContain('Important Service Guidelines');
+    expect(text).toContain('How booking works');
     expect(text).not.toContain('Loading your booking...');
-    expect(text.split(' ').length).toBeGreaterThan(120);
+    expect(text.split(' ').length).toBeGreaterThan(250);
   });
 
   test('contact is not a loading shell', () => {
