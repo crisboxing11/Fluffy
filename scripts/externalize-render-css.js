@@ -1,5 +1,5 @@
 /**
- * Move emotion's server-rendered <style> tags into one stylesheet.
+ * Move emotion's server-rendered <style> tags into a stylesheet for that page.
  *
  * The tags are not part of what the client renders (Emotion returns null for
  * them in the browser). Removing only those tags leaves every class name,
@@ -59,12 +59,60 @@ function assertPreserved(before, after) {
   }
 }
 
-function collectCss(files) {
+function splitRules(css) {
+  const rules = [];
+  let cursor = 0;
+  while (cursor < css.length) {
+    const start = cursor;
+    let depth = 0;
+    let opened = false;
+    for (; cursor < css.length; cursor += 1) {
+      const char = css[cursor];
+      if (char === '{') {
+        depth += 1;
+        opened = true;
+      } else if (char === '}') {
+        depth -= 1;
+        if (opened && depth === 0) {
+          cursor += 1;
+          break;
+        }
+      }
+    }
+    const rule = css.slice(start, cursor).trim();
+    if (rule) rules.push(rule);
+  }
+  return rules;
+}
+
+function emotionClasses(html) {
+  const classes = new Set();
+  for (const match of html.matchAll(/class="([^"]*)"/g)) {
+    for (const token of match[1].split(/\s+/)) {
+      if (token.startsWith('c-')) classes.add(token);
+    }
+  }
+  return classes;
+}
+
+function rulesFor(rules, classes, includeUntagged = true) {
+  const picked = [];
+  for (const rule of rules) {
+    const used = [...rule.matchAll(/\.c-[a-z0-9]+/g)].map((match) => match[0].slice(1));
+    if (used.length === 0) {
+      if (includeUntagged) picked.push(rule);
+      continue;
+    }
+    if (used.some((token) => classes.has(token))) picked.push(rule);
+  }
+  return picked.join('');
+}
+
+function globalRules(files) {
   const seen = new Map();
   const ordered = [];
   for (const file of files) {
-    const { blocks } = extractEmotionCss(fs.readFileSync(file, 'utf8'));
-    for (const block of blocks) {
+    for (const block of extractEmotionCss(fs.readFileSync(file, 'utf8')).blocks) {
       const previous = seen.get(block.id);
       if (previous === undefined) {
         seen.set(block.id, block.css);
@@ -74,7 +122,13 @@ function collectCss(files) {
       }
     }
   }
-  return ordered.join('');
+  return splitRules(ordered.join(''));
+}
+
+function linkStylesheet(html, href) {
+  const link = `<link rel="stylesheet" href="${href}"/>`;
+  if (html.includes(href)) return html;
+  return html.replace('</head>', `${link}</head>`);
 }
 
 function alreadyRewritten(files) {
@@ -97,20 +151,25 @@ function main() {
     console.log('Emotion CSS is already external. Skipping.');
     return [];
   }
-  const css = collectCss(files);
-  if (!css) throw new Error('No emotion style tags found. Refusing to rewrite HTML.');
-
-  const hash = crypto.createHash('sha256').update(css).digest('hex').slice(0, 12);
-  const href = `/css/emotion-${hash}.css`;
   fs.mkdirSync(PUBLIC_CSS, { recursive: true });
   for (const name of fs.readdirSync(PUBLIC_CSS)) {
     if (/^emotion-.*\.css$/.test(name)) fs.unlinkSync(path.join(PUBLIC_CSS, name));
   }
-  fs.writeFileSync(path.join(PUBLIC_CSS, `emotion-${hash}.css`), css);
 
+  const rules = globalRules(files);
+  const written = new Map();
   const rows = [];
+  let combined = rules.join('');
   for (const file of files) {
     const before = fs.readFileSync(file, 'utf8');
+    const css = rulesFor(rules, emotionClasses(before));
+    if (!css) throw new Error(`No emotion rules for ${file}. Refusing to rewrite HTML.`);
+    const hash = crypto.createHash('sha256').update(css).digest('hex').slice(0, 12);
+    const href = `/css/emotion-${hash}.css`;
+    if (!written.has(hash)) {
+      fs.writeFileSync(path.join(PUBLIC_CSS, `emotion-${hash}.css`), css);
+      written.set(hash, css.length);
+    }
     let after = extractEmotionCss(before).html;
     // Next marks the tags it owns. Drop that attribute on elements, and leave
     // it on JSON-LD script tags so those scripts stay byte-for-byte.
@@ -122,21 +181,20 @@ function main() {
     });
     after = after.replace(/ data-next-head=""/g, '');
     after = after.replace(/\u0000S(\d+)\u0000/g, (_token, index) => scripts[Number(index)]);
-    if (!after.includes(href)) {
-      after = after.replace('</head>', `<link rel="stylesheet" href="${href}"/></head>`);
-    }
+    after = linkStylesheet(after, href);
     assertPreserved(before, after);
     fs.writeFileSync(file, after);
     rows.push({
       route: routeFor(PAGES, file),
       before: breakdown(before),
       after: breakdown(after),
+      css: css.length,
     });
   }
 
   const keep = keptShortClasses();
   const missing = [
-    ...new Set([...css.matchAll(/\.m[a-z0-9]{4}\b/g)].map((match) => match[0].slice(1))),
+    ...new Set([...combined.matchAll(/\.m[a-z0-9]{4}\b/g)].map((match) => match[0].slice(1))),
   ].filter((id) => !keep.has(id));
   if (missing.length) {
     throw new Error(
@@ -157,7 +215,10 @@ function main() {
       ].join(' ')
     );
   }
-  console.log(`stylesheet ${href} (${css.length} chars)`);
+  const sizes = rows.map((row) => row.css).sort((a, b) => a - b);
+  console.log(
+    `stylesheets ${written.size} files, page css ${sizes[0]}-${sizes[sizes.length - 1]} chars`
+  );
   for (const route of ['/booking', '/about']) {
     const row = rows.find((item) => item.route === route);
     if (!row) continue;

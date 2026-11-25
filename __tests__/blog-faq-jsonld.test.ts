@@ -69,7 +69,11 @@ test('an in-content FAQ heading is visible FAQ copy for schema', () => {
   const inContentOnly = posted.filter(
     (post) => (!post.faq || post.faq.length === 0) && faqFromContent(post.content).length > 0
   );
-  expect(inContentOnly.map((post) => post.slug)).toEqual(['poodle-haircuts-las-vegas']);
+  expect(inContentOnly.map((post) => post.slug)).toEqual([
+    'shih-tzu-haircut-guide',
+    'pit-bull-french-bulldog-grooming',
+    'poodle-haircuts-las-vegas',
+  ]);
   for (const post of inContentOnly) {
     expect(visibleBlogFaq(post)).toEqual(faqFromContent(post.content));
     const data = faqPageJsonLd(visibleBlogFaq(post));

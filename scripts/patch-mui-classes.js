@@ -87,14 +87,45 @@ const ICON_ESM = `'use client';
 import * as React from 'react';
 import { jsx as _jsx } from 'react/jsx-runtime';
 /** ${MARKER} icons render as masked spans so the server and client match. */
+const BREAKS = [['xs', 0], ['sm', 600], ['md', 900], ['lg', 1200], ['xl', 1536]];
+function cssSize(value) {
+  if (value == null || value === 'medium') return '1.5rem';
+  if (value === 'small') return '1.25rem';
+  if (value === 'large') return '2.25rem';
+  if (value === 'inherit') return 'inherit';
+  if (typeof value === 'number') return value + 'px';
+  if (typeof value === 'string') return value;
+  return null;
+}
+const SPACE = { m: 'ma', mt: 'mt', mr: 'mr', mb: 'mb', ml: 'ml' };
+function extraClasses(fontSize, sx) {
+  const names = [];
+  const raw = sx && sx.fontSize != null ? sx.fontSize : fontSize;
+  if (raw && typeof raw === 'object') {
+    const id = BREAKS.filter(([key]) => raw[key] != null).map(([key]) => key + String(raw[key]).replace('.', 'd')).join('-');
+    if (id) names.push('fz-' + id);
+  } else if (typeof raw === 'number') names.push('fz' + raw);
+  else if (raw === 'small') names.push('fzsm');
+  else if (raw === 'large') names.push('fzlg');
+  else if (raw === 'inherit') names.push('fzin');
+  if (sx) {
+    for (const key of Object.keys(SPACE)) {
+      if (typeof sx[key] === 'number') names.push(SPACE[key] + (sx[key] * 8));
+    }
+    if (sx.flexShrink === 0) names.push('sh0');
+  }
+  return names.join(' ');
+}
 export default function createSvgIcon(_path, displayName) {
   function Component(props, ref) {
     const { color, fontSize, inheritViewBox, htmlColor, titleAccess, viewBox, className, children, sx, ...other } = props;
+    const paint = htmlColor || (sx && typeof sx.color === 'string' ? sx.color : '');
     return _jsx('span', {
       ...other,
       ref,
       'aria-hidden': other['aria-hidden'] ?? true,
-      className: ['fi', 'fi-' + displayName, className].filter(Boolean).join(' '),
+      className: ['fi', 'fi-' + displayName, className, extraClasses(fontSize, sx)].filter(Boolean).join(' '),
+      style: paint && !/^(primary|secondary|action|disabled|error|info|success|warning)$/.test(paint) ? { color: paint } : other.style,
     });
   }
   Component.muiName = 'SvgIcon';
@@ -108,15 +139,49 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require('react');
 var jsxRuntime = require('react/jsx-runtime');
 /** ${MARKER} */
+var BREAKS = [['xs', 0], ['sm', 600], ['md', 900], ['lg', 1200], ['xl', 1536]];
+function cssSize(value) {
+  if (value == null || value === 'medium') return '1.5rem';
+  if (value === 'small') return '1.25rem';
+  if (value === 'large') return '2.25rem';
+  if (value === 'inherit') return 'inherit';
+  if (typeof value === 'number') return value + 'px';
+  if (typeof value === 'string') return value;
+  return null;
+}
+var SPACE = { m: 'ma', mt: 'mt', mr: 'mr', mb: 'mb', ml: 'ml' };
+function extraClasses(fontSize, sx) {
+  var names = [];
+  var raw = sx && sx.fontSize != null ? sx.fontSize : fontSize;
+  if (raw && typeof raw === 'object') {
+    var id = [];
+    for (var index = 0; index < BREAKS.length; index += 1) {
+      if (raw[BREAKS[index][0]] != null) id.push(BREAKS[index][0] + String(raw[BREAKS[index][0]]).replace('.', 'd'));
+    }
+    if (id.length) names.push('fz-' + id.join('-'));
+  } else if (typeof raw === 'number') names.push('fz' + raw);
+  else if (raw === 'small') names.push('fzsm');
+  else if (raw === 'large') names.push('fzlg');
+  else if (raw === 'inherit') names.push('fzin');
+  if (sx) {
+    for (var key in SPACE) {
+      if (typeof sx[key] === 'number') names.push(SPACE[key] + (sx[key] * 8));
+    }
+    if (sx.flexShrink === 0) names.push('sh0');
+  }
+  return names.join(' ');
+}
 function createSvgIcon(_path, displayName) {
   function Component(props, ref) {
     var className = props.className;
+    var paint = props.htmlColor || (props.sx && typeof props.sx.color === 'string' ? props.sx.color : '');
     var other = { ref: ref };
     for (var key in props) {
       if (key !== 'color' && key !== 'fontSize' && key !== 'inheritViewBox' && key !== 'htmlColor' && key !== 'titleAccess' && key !== 'viewBox' && key !== 'className' && key !== 'children' && key !== 'sx') other[key] = props[key];
     }
     if (other['aria-hidden'] == null) other['aria-hidden'] = true;
-    other.className = ['fi', 'fi-' + displayName, className].filter(Boolean).join(' ');
+    other.className = ['fi', 'fi-' + displayName, className, extraClasses(props.fontSize, props.sx)].filter(Boolean).join(' ');
+    if (paint && !/^(primary|secondary|action|disabled|error|info|success|warning)$/.test(paint)) other.style = { color: paint };
     return jsxRuntime.jsx('span', other);
   }
   Component.muiName = 'SvgIcon';
@@ -130,7 +195,7 @@ function writeIcons() {
   const outDir = path.join(__dirname, '..', 'public', 'icons');
   fs.mkdirSync(outDir, { recursive: true });
   const rules = [
-    '.fi{display:inline-block;width:1em;height:1em;flex-shrink:0;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;vertical-align:middle;}',
+    '.fi{display:inline-block;font-size:1.5rem;width:1em;height:1em;flex-shrink:0;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;vertical-align:baseline;}',
   ];
   for (const name of fs.readdirSync(dir)) {
     if (!name.endsWith('.js') || name === 'index.js') continue;
@@ -146,6 +211,27 @@ function writeIcons() {
     rules.push(
       `.fi-${display}{-webkit-mask-image:url(/icons/${display}.svg);mask-image:url(/icons/${display}.svg);}`
     );
+  }
+  for (let size = 8; size <= 80; size += 1) rules.push(`.fz${size}{font-size:${size}px}`);
+  rules.push('.fzsm{font-size:1.25rem}', '.fzlg{font-size:2.25rem}', '.fzin{font-size:inherit}', '.sh0{flex-shrink:0}');
+  for (const [prefix, prop] of [['mt', 'margin-top'], ['mr', 'margin-right'], ['mb', 'margin-bottom'], ['ml', 'margin-left'], ['ma', 'margin']]) {
+    for (const px of [0, 4, 8, 12, 16, 20, 24, 32, 40]) rules.push(`.${prefix}${px}{${prop}:${px}px}`);
+  }
+  const responsive = [
+    ['xs28-md36', [[0, 28], [900, 36]]],
+    ['xs20-sm24', [[0, 20], [600, 24]]],
+    ['xs20-md22', [[0, 20], [900, 22]]],
+    ['xs14-sm16-md16', [[0, 14], [600, 16], [900, 16]]],
+    ['xs24-sm28-md36', [[0, 24], [600, 28], [900, 36]]],
+    ['xs12-sm14-md20', [[0, 12], [600, 14], [900, 20]]],
+    ['xs16-sm18-md20', [[0, 16], [600, 18], [900, 20]]],
+    ['xs48-sm64', [[0, 48], [600, 64]]],
+  ];
+  for (const [id, steps] of responsive) {
+    rules.push(`.fz-${id}{font-size:${steps[0][1]}px}`);
+    for (const [min, size] of steps.slice(1)) {
+      rules.push(`@media (min-width:${min}px){.fz-${id}{font-size:${size}px}}`);
+    }
   }
   fs.writeFileSync(path.join(__dirname, '..', 'styles', 'icons.css'), `${rules.join('\n')}\n`);
 }
