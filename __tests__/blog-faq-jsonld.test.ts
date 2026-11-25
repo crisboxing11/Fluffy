@@ -65,8 +65,27 @@ test('posts with a faq array keep that visible copy as the schema text', () => {
   }
 });
 
+test('an in-content FAQ heading is visible FAQ copy for schema', () => {
+  const inContentOnly = posted.filter(
+    (post) => (!post.faq || post.faq.length === 0) && faqFromContent(post.content).length > 0
+  );
+  expect(inContentOnly.map((post) => post.slug)).toEqual(['poodle-haircuts-las-vegas']);
+  for (const post of inContentOnly) {
+    expect(visibleBlogFaq(post)).toEqual(faqFromContent(post.content));
+    const data = faqPageJsonLd(visibleBlogFaq(post));
+    expect(data.mainEntity.map((item) => item.name)).toEqual(
+      faqFromContent(post.content).map((item) => item.question)
+    );
+    expect(data.mainEntity.map((item) => item.acceptedAnswer.text)).toEqual(
+      faqFromContent(post.content).map((item) => item.answer)
+    );
+  }
+});
+
 test('posts with no visible FAQ produce no FAQPage entity', () => {
-  const withoutFaq = posted.filter((post) => !post.faq || post.faq.length === 0);
+  const withoutFaq = posted.filter(
+    (post) => (!post.faq || post.faq.length === 0) && faqFromContent(post.content).length === 0
+  );
   expect(withoutFaq.length).toBeGreaterThan(0);
   for (const post of withoutFaq) {
     expect(visibleBlogFaq(post)).toEqual([]);
@@ -100,14 +119,26 @@ test('built blog pages emit one FAQPage only when a visible FAQ is on the page',
       (match) => JSON.parse(match[1]) as { '@type'?: string; mainEntity?: { name: string; acceptedAnswer: { text: string } }[] }
     );
     const faqs = blocks.filter((block) => block['@type'] === 'FAQPage');
-    const hasVisibleFaq = html.includes('id="post-faq-heading"');
+    const slug = file.replace(/\.html$/, '');
+    const post = posted.find((item) => item.slug === slug);
+    expect(post).toBeTruthy();
+    const fromContent = faqFromContent(post!.content);
+    const fromField = post!.faq ?? [];
+    const hasVisibleFaq = fromContent.length > 0 || fromField.length > 0;
     if (!hasVisibleFaq) {
       expect(faqs).toEqual([]);
+      expect(html.includes('id="post-faq-heading"')).toBe(false);
       continue;
     }
     expect(faqs).toHaveLength(1);
     const visible = visiblePageText(html);
-    expect(visible).toContain('Common questions');
+    if (fromField.length > 0) {
+      expect(html).toContain('id="post-faq-heading"');
+      expect(visible).toContain('Common questions');
+    }
+    if (fromContent.length > 0) {
+      expect(html).toMatch(/<h2[^>]*>\s*FAQ\s*<\/h2>/);
+    }
     for (const entity of faqs[0].mainEntity ?? []) {
       expect(visible).toContain(entity.name);
       expect(visible).toContain(entity.acceptedAnswer.text);
