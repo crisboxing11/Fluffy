@@ -1,5 +1,20 @@
 /* Visually hidden text that stays in the HTML for crawlers and screen readers.
    Do not use display:none — that drops the text from the anchor. */
+a.a1 {
+  color: #038b95;
+  font-weight: 700;
+}
+
+a.a2 {
+  text-decoration: none;
+}
+
+img.a3 {
+  color: transparent;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
+  transition: all 0.3s ease-in-out;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

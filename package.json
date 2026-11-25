@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap && node scripts/externalize-render-css.js",
     "test": "jest",
     "lint:sitemap": "node scripts/sitemap-lint.js public/sitemap.xml --no-redirects --status=200 --base=http://localhost:3000"
   },

@@ -78,7 +78,7 @@ const Navbar = () => {
           }}
         >
           {/* Fluffy Logo as Homepage Link */}
-          <Link href="/" style={{ textDecoration: "none" }}>
+          <Link href="/" className="a2">
             <Box
               sx={{
                 display: "flex",
@@ -99,10 +99,7 @@ const Navbar = () => {
                 width={isScrolled ? 110 : 120}
                 height={isScrolled ? 36 : 40}
                 priority
-                style={{
-                  filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.15))",
-                  transition: "all 0.3s ease-in-out",
-                }}
+                className="a3"
               />
             </Box>
           </Link>

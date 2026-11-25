@@ -152,40 +152,40 @@ const BlogPage = () => {
           Orlando.
         </Typography>
         <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75, mb: 2 }}>
-          <Link href="/blog/stress-free-grooming" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/blog/stress-free-grooming" className="a1">
             Stress-free grooming
           </Link>{' '}
           walks through a quieter setup, treats, short first sessions, and a
           steady schedule.{' '}
-          <Link href="/blog/why-mobile-grooming-works" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/blog/why-mobile-grooming-works" className="a1">
             Why mobile grooming works
           </Link>{' '}
           covers one-on-one care and skipping the car ride. Visit length
           depends on your pet&apos;s size and coat.{' '}
-          <Link href="/blog/choosing-the-right-shampoo" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/blog/choosing-the-right-shampoo" className="a1">
             Choosing the right shampoo
           </Link>{' '}
           explains why human shampoo is a poor match for a dog&apos;s skin, and
           how coat type changes the product.
         </Typography>
         <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75, mb: 2 }}>
-          <Link href="/blog/why-we-dont-shave" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/blog/why-we-dont-shave" className="a1">
             Why we don&apos;t shave dogs
           </Link>{' '}
           explains double coats, sunburn, and what we do instead: de-shedding,
           sanitary trims, and paw and ear tidying. The{' '}
-          <Link href="/blog/orlando-grand-opening" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/blog/orlando-grand-opening" className="a1">
             Orlando post
           </Link>{' '}
           is the story of taking the same van service from Las Vegas to Orlando.
         </Typography>
         <Typography variant="body1" sx={{ color: '#334155', fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.75 }}>
           Most dogs do well with a groom every 4 to 6 weeks. The{' '}
-          <Link href="/services" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/services" className="a1">
             services page
           </Link>{' '}
           describes what each visit includes, and the{' '}
-          <Link href="/prebook" style={{ color: '#038B95', fontWeight: 700 }}>
+          <Link href="/prebook" className="a1">
             pre-book page
           </Link>{' '}
           starts the appointment. These notes do not reserve a time or set a

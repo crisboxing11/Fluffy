@@ -433,7 +433,7 @@ const ContactPage = () => {
                 <Typography variant="body2" color="#BF360C" fontWeight={500}>
                   For appointments:
                 </Typography>
-                <Link href="/prebook" style={{ textDecoration: "none" }}>
+                <Link href="/prebook" className="a2">
                   <Button
                     variant="contained"
                     size="small"
@@ -457,7 +457,7 @@ const ContactPage = () => {
                 <Typography variant="body2" color="#BF360C" fontWeight={500}>
                   For pricing:
                 </Typography>
-                <Link href="/prices" style={{ textDecoration: "none" }}>
+                <Link href="/prices" className="a2">
                   <Button
                     variant="outlined"
                     size="small"
@@ -488,7 +488,7 @@ const ContactPage = () => {
               justifyContent="center"
               alignItems="center"
             >
-              <Link href="/prebook" style={{ textDecoration: "none" }}>
+              <Link href="/prebook" className="a2">
                 <Chip
                   label="Book Grooming Now"
                   icon={<PetsIcon />}
@@ -719,11 +719,11 @@ const ContactPage = () => {
             This form is for general questions and help with a booking you
             already have. It does not create an appointment, and it does not
             quote a price. To book, use the{" "}
-            <Link href="/prebook" style={{ color: "#038B95", fontWeight: 700 }}>
+            <Link href="/prebook" className="a1">
               pre-book page
             </Link>
             . To see what a groom costs, use the{" "}
-            <Link href="/prices" style={{ color: "#038B95", fontWeight: 700 }}>
+            <Link href="/prices" className="a1">
               prices page
             </Link>
             .
@@ -733,25 +733,25 @@ const ContactPage = () => {
             sx={{ color: "#334155", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.75, mb: 2 }}
           >
             Call or text Las Vegas at{" "}
-            <a href={LAS_VEGAS_TEL_HREF} style={{ color: "#038B95", fontWeight: 700 }}>
+            <a href={LAS_VEGAS_TEL_HREF} className="a1">
               (702) 508-6248
             </a>
             , or Orlando at{" "}
-            <a href="tel:+14075132935" style={{ color: "#038B95", fontWeight: 700 }}>
+            <a href="tel:+14075132935" className="a1">
               (407) 513-2935
             </a>
             . Phone hours are listed on this page. Email{" "}
             <strong>Las Vegas</strong> at{" "}
             <a
               href="mailto:contact@fluffypetwash.com"
-              style={{ color: "#038B95", fontWeight: 700 }}
+              className="a1"
             >
               contact@fluffypetwash.com
             </a>{" "}
             or <strong>Orlando</strong> at{" "}
             <a
               href="mailto:orlando@fluffypetwash.com"
-              style={{ color: "#038B95", fontWeight: 700 }}
+              className="a1"
             >
               orlando@fluffypetwash.com
             </a>
@@ -1106,7 +1106,7 @@ const ContactPage = () => {
                     Helpful Links
                   </Typography>
                   <Stack spacing={2}>
-                    <Link href="/services" style={{ textDecoration: "none" }}>
+                    <Link href="/services" className="a2">
                       <Typography
                         variant="body2"
                         sx={{
@@ -1122,7 +1122,7 @@ const ContactPage = () => {
                         → View Our Services
                       </Typography>
                     </Link>
-                    <Link href="/prices" style={{ textDecoration: "none" }}>
+                    <Link href="/prices" className="a2">
                       <Typography
                         variant="body2"
                         sx={{
@@ -1138,7 +1138,7 @@ const ContactPage = () => {
                         → Check Pricing
                       </Typography>
                     </Link>
-                    <Link href="/faq" style={{ textDecoration: "none" }}>
+                    <Link href="/faq" className="a2">
                       <Typography
                         variant="body2"
                         sx={{
@@ -1156,7 +1156,7 @@ const ContactPage = () => {
                     </Link>
                     <Link
                       href="/testimonials"
-                      style={{ textDecoration: "none" }}
+                      className="a2"
                     >
                       <Typography
                         variant="body2"
