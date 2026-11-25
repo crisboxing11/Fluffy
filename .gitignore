@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# Generated while rewriting prerendered HTML. Rebuilt by postbuild.
+/public/css/emotion-*.css
+/public/icons.svg
+
 # production
 /build
 

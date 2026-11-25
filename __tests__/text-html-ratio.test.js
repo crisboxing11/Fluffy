@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { measure, pageFiles, routeFor } = require('../scripts/text-html-ratio');
 
 function readPage(name) {
   const file = path.join(__dirname, '..', '.next', 'server', 'pages', name);
@@ -40,5 +41,22 @@ describe('crawled HTML includes page copy', () => {
   test('booking document has a canonical on www', () => {
     const html = readPage('booking.html');
     expect(html).toContain('rel="canonical" href="https://www.fluffypetwash.com/booking"');
+  });
+});
+
+describe('text to HTML ratio', () => {
+  test('every prerendered page is above 10 percent', () => {
+    const root = path.join(__dirname, '..', '.next', 'server', 'pages');
+    if (!fs.existsSync(root)) {
+      throw new Error('Build directory not found. Run `npm run build` first.');
+    }
+    const low = pageFiles(root)
+      .filter((file) => !file.endsWith(`${path.sep}500.html`))
+      .map((file) => {
+        const html = fs.readFileSync(file, 'utf8');
+        return { route: routeFor(root, file), ...measure(html) };
+      })
+      .filter((page) => page.ratio <= 0.1);
+    expect(low.map((page) => `${page.route} ${(page.ratio * 100).toFixed(2)}%`)).toEqual([]);
   });
 });
